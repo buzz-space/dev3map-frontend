@@ -1,0 +1,33 @@
+@import '~/public/styles/base.scss';
+
+.footer {
+    padding-bottom: 40px;
+    margin-top: 80px;
+
+    .container {
+        padding: 40px 0;
+        border-top: 1px solid #FFFFFF;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .logo {
+            text-decoration: none;
+
+            img {
+                height: 24px;
+            }
+        }
+
+        .credit {
+            font-style: normal;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 17px;
+            /* identical to box height */
+
+
+            color: #FFFFFF;
+        }
+    }
+}

@@ -1,0 +1,8 @@
+@import './base.scss';
+
+:export {
+  colorPrimary: $color-primary;
+  largeDevice: $large-device;
+  mediumDevice: $medium-device;
+  smallDevice: $small-device;
+}

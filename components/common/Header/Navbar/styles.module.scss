@@ -1,0 +1,53 @@
+.navbar {
+    .nav-ul {
+        display: flex;
+        column-gap: 24px;
+
+        .nav-item {
+            &__label {
+                color: #FFFFFF;
+                font-size: 1.6rem;
+                font-weight: 400;
+                line-height: 20px;
+                position: relative;
+
+                &.active {
+                    font-weight: 600;
+                    color: $color-primary;
+                }
+
+                &:hover:not(.active) {
+
+                    color: $color-primary;
+
+                    &::before {
+                        animation: appear 0.24s linear;
+                    }
+                }
+
+                &.active,
+                &:hover {
+                    &::before {
+                        content: "";
+                        left: 0;
+                        right: 0;
+                        height: 1px;
+                        background-color: $color-primary;
+                        position: absolute;
+                        bottom: -12px;
+
+                        @keyframes appear {
+                            from {
+                                width: 0;
+                            }
+
+                            to {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

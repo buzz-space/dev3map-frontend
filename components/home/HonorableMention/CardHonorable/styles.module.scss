@@ -1,0 +1,84 @@
+.card-honorable {
+    $border-radius: 8px;
+    background-color: #202020;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    border-radius: $border-radius;
+    flex: 1;
+
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: $border-radius;
+        padding: 2px;
+        opacity: 0;
+        background: linear-gradient(to right bottom, #BB86FC 100%, #FFFFFF 0%);
+        -webkit-mask:
+            linear-gradient(#fff 0 0) content-box,
+            linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        transition: 0.2s;
+    }
+
+    &:hover {
+        &::before {
+            opacity: 1;
+
+        }
+    }
+
+    .title {
+        font-style: normal;
+        font-weight: 800;
+        font-size: 32px;
+        line-height: 39px;
+        /* identical to box height */
+
+        color: #FFFFFF;
+    }
+
+    .rank {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+        /* identical to box height */
+
+
+        color: #FFFFFF;
+        margin-top: 40px;
+        margin-bottom: 16px;
+    }
+
+    .repo {
+        display: flex;
+        align-items: center;
+        column-gap: 16px;
+        margin-bottom: 40px;
+
+        .logo {
+            height: 48px;
+        }
+
+        .name {
+            font-style: normal;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 29px;
+
+            color: #FFFFFF;
+        }
+    }
+
+    .img-bottom-right {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 90px;
+    }
+}

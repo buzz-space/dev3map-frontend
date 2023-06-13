@@ -1,0 +1,68 @@
+.tab-dynamic {
+    display: flex;
+    align-items: center;
+    border-radius: 100rem;
+    border: 1px solid #fff;
+    padding: 8px;
+    width: max-content;
+    position: relative;
+
+    .active-rounded {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        border-radius: 100rem;
+        background-color: #fff;
+        height: calc(100% - 16px);
+        transition: 0.3s;
+    }
+
+    .tab-item {
+        border-radius: 100px;
+        padding: 8px 12px;
+        cursor: pointer;
+        position: relative;
+        z-index: 0;
+        display: flex;
+        align-items: center;
+        column-gap: 4px;
+
+        [role='icon-default'] {
+            width: 16px;
+            height: 16px;
+            color: #fff;
+        }
+
+        * {
+            cursor: pointer;
+        }
+
+        label {
+            text-transform: uppercase;
+
+            font-style: normal;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 17px;
+            /* identical to box height */
+
+
+            /* Whilte */
+
+            color: #FFFFFF;
+            position: relative;
+            z-index: 1;
+        }
+
+        &.active {
+            label {
+                color: $color-black;
+            }
+
+            [role='icon-default'] {
+                color: $color-black;
+            }
+        }
+    }
+}

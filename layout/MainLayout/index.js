@@ -9,6 +9,7 @@ import icon from '~/public/favicon.ico';
 // import headerBg from '~/public/imgs/background/header-bg.png';
 import ScrollToTop from '~/components/common/ScrollToTop';
 import { nameWeb } from '~/core/contants';
+import BackgroundLayout from '~/components/common/BackgroundLayout';
 
 export default function MainLayout({ children, title = '', currentPage = '', data = null, meta_data = null }) {
   const titlePage = !!title ? `${nameWeb} - ` + title : nameWeb;
@@ -64,13 +65,16 @@ export default function MainLayout({ children, title = '', currentPage = '', dat
       </Head>
 
       <div className={`${styles['body']}`}>
-        <Header currentPage={currentPage} />
-        <div className={`${styles['section']}`}>
-          {children}
-          {/* {cloneElement(children, { isDarkmode: isDarkmode })} */}
-        </div>
-        <Footer />
-        {/* <ScrollToTop /> */}
+        <BackgroundLayout />
+        <main className={styles['main']}>
+          <Header currentPage={currentPage} />
+          <div className={`${styles['section']}`}>
+            {children}
+            {/* {cloneElement(children, { isDarkmode: isDarkmode })} */}
+          </div>
+          <Footer />
+          {/* <ScrollToTop /> */}
+        </main>
       </div>
     </>
   );

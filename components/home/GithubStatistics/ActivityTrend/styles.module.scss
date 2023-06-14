@@ -1,0 +1,68 @@
+.activity-trend {
+    flex: 1;
+    background: #202020;
+    border-radius: 8px;
+    padding: 24px;
+    flex: 1;
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .title {
+            font-style: normal;
+            font-weight: 800;
+            font-size: 32px;
+            line-height: 39px;
+            /* identical to box height */
+
+
+            color: #FFFFFF;
+            text-transform: uppercase;
+        }
+    }
+
+    .body {
+        margin-top: 45px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 40px;
+        width: 100%;
+
+        .choose-statis {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .type-statis {
+                display: flex;
+                align-items: center;
+                column-gap: 8px;
+
+                .circle {
+                    width: 8px;
+                    height: 8px;
+                    background-color: $color-primary;
+                    border-radius: 100rem;
+                }
+
+                .label {
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 14px;
+                    line-height: 17px;
+                    /* identical to box height */
+
+
+                    color: #FFFFFF;
+                    text-transform: uppercase;
+                }
+            }
+        }
+
+        .chart {
+            width: 100%;
+        }
+    }
+}

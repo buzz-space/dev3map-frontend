@@ -4,6 +4,7 @@ export { default as Calendar } from './Calendar';
 export { default as Clock } from './Clock';
 export { default as Close } from './Close';
 export { default as Code } from './Code';
+export { default as CommitHorizontal } from './CommitHorizontal';
 export { default as Commit } from './Commit';
 export { default as Dot } from './Dot';
 export { default as Dropdown } from './Dropdown';

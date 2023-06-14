@@ -1,0 +1,52 @@
+.total-commit {
+    padding: 24px;
+    background-color: #202020;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+    width: 400px;
+
+    .commit-icon {
+        [role="icon-default"] {
+            width: 64px;
+            height: 64px;
+
+            color: #03DAC6;
+        }
+    }
+
+    .total-number {
+        font-style: normal;
+        font-weight: 800;
+        font-size: 48px;
+        line-height: 59px;
+        /* identical to box height */
+
+
+        color: #FFFFFF;
+    }
+
+    .des {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+        /* identical to box height */
+
+
+        color: #FFFFFF;
+    }
+
+    .time {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        /* identical to box height */
+
+
+        color: #FFFFFF;
+        margin-top: auto;
+    }
+}

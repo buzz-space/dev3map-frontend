@@ -1,0 +1,100 @@
+.container {
+    position: relative;
+    max-height: 464px;
+    overflow: auto;
+    margin-top: 40px;
+
+    /* width */
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.12);
+
+        border-radius: 100rem;
+
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background: $color-secondary;
+        border-radius: 100rem;
+
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+        background: #02b9a7;
+    }
+
+    .table {
+        width: 100%;
+        position: relative;
+
+
+        thead {}
+
+        th {
+            // border-bottom: 1px solid rgba(255, 255, 255, 0.24);
+            padding-bottom: 24px;
+            // border-bottom: 1px solid rgba(255, 255, 255, 0.24);
+            position: sticky;
+            top: 0;
+            background-color: $color-black;
+
+            &::before {
+                position: absolute;
+                content: "";
+                left: 0;
+                right: 0;
+                height: 1px;
+                background-color: rgba(255, 255, 255, 0.24);
+                bottom: 0px;
+            }
+        }
+
+        td {
+            padding: 24px 0;
+
+            &.chain {
+                display: flex;
+                column-gap: 24px;
+                align-items: center;
+
+                .infor-chain {
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 4px;
+
+                    .des {
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 14px;
+                        line-height: 17px;
+                        /* identical to box height */
+
+
+                        color: #FFFFFF;
+                    }
+                }
+            }
+        }
+
+        th,
+        td {
+            font-style: normal;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 17px;
+            /* identical to box height */
+
+
+            color: #FFFFFF;
+            text-align: left;
+
+            text-transform: uppercase;
+        }
+    }
+}

@@ -8,6 +8,7 @@
     flex: 1;
 
     position: relative;
+    overflow: hidden;
 
     &::before {
         content: "";

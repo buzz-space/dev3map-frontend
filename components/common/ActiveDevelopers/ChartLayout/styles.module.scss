@@ -1,0 +1,39 @@
+.chart-layout {
+    /* Grey 1 */
+
+    background: #202020;
+    border-radius: 8px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    .title {
+        font-style: normal;
+        font-weight: 800;
+        font-size: 32px;
+        line-height: 39px;
+        /* identical to box height */
+
+
+        color: #FFFFFF;
+    }
+
+    .description {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+        /* identical to box height */
+
+
+        color: #FFFFFF;
+        margin-top: 16px;
+        margin-bottom: 64px;
+    }
+
+    .chart {
+        width: 100%;
+        min-height: 320px;
+    }
+}

@@ -1,0 +1,15 @@
+.container {
+    margin-top: 160px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+
+    .title {
+        text-decoration: none;
+    }
+
+    .charts {
+        display: flex;
+        column-gap: 24px;
+    }
+}

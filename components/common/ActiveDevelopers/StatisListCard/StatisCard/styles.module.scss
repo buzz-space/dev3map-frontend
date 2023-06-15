@@ -1,0 +1,44 @@
+.statis-card {
+    background-color: #202020;
+    border-radius: 8px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    .number {
+        font-style: normal;
+        font-weight: 800;
+        font-size: 32px;
+        line-height: 39px;
+        /* identical to box height */
+
+
+        color: #FFFFFF;
+    }
+
+    .type {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+        /* identical to box height */
+
+
+        color: #FFFFFF;
+        margin-top: 16px;
+        margin-bottom: 40px;
+    }
+
+    .date {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        /* identical to box height */
+
+
+        color: #FFFFFF;
+
+    }
+}

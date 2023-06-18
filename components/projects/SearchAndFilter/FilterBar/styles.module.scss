@@ -1,0 +1,63 @@
+.filterbar {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 40px;
+    row-gap: 40px;
+    width: 100%;
+    max-width: 867px;
+    margin-top: 40px;
+
+    .filter {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        /* identical to box height */
+
+
+        color: #FFFFFF;
+
+        cursor: pointer;
+
+        position: relative;
+
+        &::before {
+            content: "";
+            position: absolute;
+            background-color: $color-primary;
+            left: 0;
+            bottom: -12px;
+            height: 1px;
+            width: 0;
+        }
+
+        * {
+            cursor: pointer;
+        }
+
+        &:hover {
+            color: #BB86FC;
+
+        }
+
+        &.active {
+            color: #BB86FC;
+            font-weight: 600;
+
+            &::before {
+                width: 100%;
+                animation: identifier 0.3s ease-in-out;
+
+                @keyframes identifier {
+                    from {
+                        width: 0;
+                    }
+
+                    to {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

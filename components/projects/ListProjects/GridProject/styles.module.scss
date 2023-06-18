@@ -1,0 +1,61 @@
+.grid-project {
+
+    .title {
+        font-style: normal;
+        font-weight: 800;
+        font-size: 32px;
+        line-height: 39px;
+        /* identical to box height */
+
+
+        /* Secondary */
+
+        color: #03DAC6;
+        text-transform: uppercase;
+    }
+
+    .grid {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        row-gap: 40px;
+        column-gap: 24px;
+        width: 100%;
+        display: grid;
+        margin-top: 40px;
+
+        .item {
+            background: #202020;
+            border-radius: 8px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            row-gap: 46px;
+            cursor: pointer;
+
+            * {
+                cursor: pointer;
+            }
+
+            &:hover {
+                opacity: 0.8;
+            }
+
+            .logo {
+                height: 80px;
+                max-width: 100%;
+            }
+
+            .name {
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 24px;
+                text-align: center;
+
+                color: #FFFFFF;
+
+            }
+        }
+    }
+}

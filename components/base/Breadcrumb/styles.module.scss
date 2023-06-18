@@ -1,0 +1,35 @@
+.breadcrumb {
+    display: flex;
+    column-gap: 6px;
+    align-items: center;
+
+    [role="icon-default"] {
+        height: 12px;
+        width: 12px;
+    }
+
+    .item {
+        display: flex;
+        column-gap: 6px;
+        align-items: center;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        /* identical to box height */
+
+
+        color: #FFFFFF;
+
+        a {
+            text-decoration: none;
+        }
+
+        &.active {
+            label {
+                border-bottom: 1px solid #fff;
+
+            }
+        }
+    }
+}

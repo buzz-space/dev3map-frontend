@@ -1,6 +1,7 @@
 export { default as ArrowLeft } from './ArrowLeft';
 export { default as ArrowUpRight } from './ArrowUpRight';
 export { default as Calendar } from './Calendar';
+export { default as ChevronRight } from './ChevronRight';
 export { default as Clock } from './Clock';
 export { default as Close } from './Close';
 export { default as Code } from './Code';

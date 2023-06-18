@@ -3,7 +3,7 @@ import styles from "./styles.module.scss";
 
 const Fireflies = lazy(() => import("~/components/base/Fireflies"));
 
-export default function BackgroundLayout({ firelyNumber = 10 }) {
+export default function BackgroundLayout({ firelyNumber = 10, width, height }) {
 
     const [client, setClient] = useState(false);
     useEffect(() => {
@@ -15,7 +15,7 @@ export default function BackgroundLayout({ firelyNumber = 10 }) {
     return <div className={styles['background-layout']}>
 
         {
-            client && <Fireflies displayFpsStats={false} displayParamsChanger={false} settings={{
+            client && <Fireflies width={width} height={height} displayFpsStats={false} displayParamsChanger={false} settings={{
                 color: '#FFFFFF',
                 count: 50,
                 size: 4,

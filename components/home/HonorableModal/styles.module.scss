@@ -1,0 +1,33 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    display: none;
+
+    &.open {
+        display: block;
+    }
+
+    .backdrop {
+        background-color: rgba(18, 18, 18, 0.8);
+        position: absolute;
+        z-index: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    .popup {
+        height: 50vh;
+        position: absolute;
+        z-index: 1;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #202020;
+    }
+}

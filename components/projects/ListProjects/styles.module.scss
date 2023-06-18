@@ -1,0 +1,9 @@
+.list-project {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 80px;
+    margin-top: 80px;
+
+    .load-more {}
+}

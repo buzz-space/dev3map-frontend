@@ -24,7 +24,6 @@ export default function HonorableMention() {
     ]
     return <Container className={styles['container']}>
         <h2 className="title">HONORABLE MENTION <span><Honorable /></span></h2>
-
         <div className={styles['list-card']}>
             {
                 data?.map((item, index) => {
@@ -32,5 +31,6 @@ export default function HonorableMention() {
                 })
             }
         </div>
+        
     </Container>
 }

@@ -1,0 +1,88 @@
+.infor-repo {
+    margin-top: 50px;
+    display: flex;
+    column-gap: 40px;
+
+    .logo {
+        height: 120px;
+    }
+
+    .information {
+        display: flex;
+        flex-direction: column;
+        row-gap: 16px;
+
+        .name {
+            font-style: normal;
+            font-weight: 800;
+            font-size: 48px;
+            line-height: 59px;
+            /* identical to box height */
+
+            color: #fff;
+        }
+
+        .org {
+            font-style: normal;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 29px;
+
+            color: #FFFFFF;
+
+        }
+
+        .rates-frame,
+        .paths-frame {
+            display: flex;
+            column-gap: 40px;
+            align-items: center;
+        }
+
+        .rates-frame {
+            .rate {
+                display: flex;
+                align-items: center;
+                column-gap: 12px;
+
+                .rate-icon {
+                    width: 24px;
+                }
+
+                .rate-value {
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 20px;
+                    /* identical to box height */
+
+
+                    color: #FFFFFF;
+                }
+            }
+        }
+
+        .paths-frame {
+            .path {
+                display: flex;
+                align-items: center;
+                column-gap: 12px;
+
+                .path-icon {
+                    width: 24px;
+                }
+
+                .path-value {
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 20px;
+                    /* identical to box height */
+
+
+                    color: #FFFFFF;
+                }
+            }
+        }
+    }
+}

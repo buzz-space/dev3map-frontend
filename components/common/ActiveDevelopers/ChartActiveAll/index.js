@@ -1,17 +1,24 @@
-import { useState } from "react"
-import { data as datas } from "./data"
+import { useEffect, useState } from "react"
 import ChartLayout from "../ChartLayout"
-export default function ChartActiveAll() {
-    const [data, setData] = useState(() => {
+
+export default function ChartActiveAll({ data }) {
+    function process() {
         return {
-            labels: datas?.map((data) => data.year),
+            labels: data?.map((dt) => dt?.year),
             datasets: [{
                 label: 'TOTAL MONTHLY ACTIVE DEVS',
-                data: datas?.map((data) => data.active),
+                data: data?.map((dt) => dt?.total_developer),
                 backgroundColor: '#BB86FC',
                 borderColor: '#BB86FC',
             }]
         }
-    })
-    return <ChartLayout description={"ALL"} data={data} />
+    }
+    const [dataChart, setDataChart] = useState(process());
+
+    useEffect(() => {
+        setDataChart(process());
+    }, [data])
+
+
+    return <ChartLayout description={"ALL"} data={dataChart} />
 }

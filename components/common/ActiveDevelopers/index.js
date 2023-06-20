@@ -7,13 +7,13 @@ import TableStatis from "./TableStatis";
 import ChartActiveByType from "./ChartActiveByType";
 import ChartActiveAll from "./ChartActiveAll";
 
-export default function ActiveDevelopers() {
+export default function ActiveDevelopers({ data = {} }) {
     return <Container className={styles['container']}>
         <h2 className={clsx('title', styles['title'])}>Active Developers <Developer /></h2>
-        <StatisListCard />
+        <StatisListCard totalDev={data?.total_developer} totalFtDev={data?.total_ft_developer} totalMlDev={data?.total_ml_developer} />
         <div className={styles['charts']}>
-            <ChartActiveByType />
-            <ChartActiveAll />
+            <ChartActiveByType data={data?.chart_developer_type} />
+            <ChartActiveAll data={data?.chart_all} />
         </div>
         <TableStatis />
     </Container>

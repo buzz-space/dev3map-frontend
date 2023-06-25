@@ -88,7 +88,7 @@ export default function StatisChainTable() {
                 data?.data?.map((item, index) => {
                     return <tr key={item?.id}>
                         <td className={styles['chain']}>
-                            <img src="/imgs/cosmos.svg" />
+                            <img className={styles['logo']} src={item?.avatar} />
                             <div className={styles['infor-chain']}>
                                 <label className={styles['name']}>{item?.name}</label>
                                 <label className={styles['des']}>{item?.github_prefix}</label>

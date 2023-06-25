@@ -6,30 +6,34 @@ import GithubStatistics from "~/components/common/GithubStatistics";
 import ActiveDevelopers from "~/components/common/ActiveDevelopers";
 
 import { useRouter } from 'next/router'
-import { useGetChainList } from '~/hooks/api/useGetInfoChain';
 
 import { useEffect } from "react";
+import { useGetDeveloperInfor } from "~/hooks/api/useGetInfoChain";
+import { useGetCommitInfo } from "~/hooks/api/useCommitInfo";
 
-export default function DetailProjectContainer() {
+export default function DetailProjectContainer({ data }) {
     const router = useRouter();
-    const { data, refetch } = useGetChainList({ chain: router?.query?.slug })
+    const { data: dataDeveloper, refetch: refetchDeveloper } = useGetDeveloperInfor({ chain: router?.query?.slug })
+    const { data: dataCommits, refetch: refetchCommits } = useGetCommitInfo({ chain: router?.query?.slug })
 
     useEffect(() => {
-        refetch();
+        refetchDeveloper();
+        refetchCommits();
     }, [router?.query?.slug])
 
     return <Container className={styles['container']}>
         <Breadcrumb data={[
             {
                 label: 'Projects',
+                to: '/projects'
             },
             {
-                label: 'Aura Network',
+                label: data?.name,
                 active: true,
             }
         ]} />
-        <InforRepo logo={"/imgs/aura.svg"} name={"Aura Network"} org={"Aura"} stars={8563} commits={8563} github={"https://github.com/aura"} web={"https://www.aura.com"} />
-        <GithubStatistics />
-        <ActiveDevelopers data={data?.data} />
+        <InforRepo logo={data?.avatar} name={data?.name} org={data?.github_prefix} stars={data?.total_star} commits={data?.total_commit} github={`https://github.com/${data?.github_prefix}`} web={data?.website} />
+        <GithubStatistics data={dataCommits?.data} />
+        <ActiveDevelopers data={dataDeveloper?.data} />
     </Container>
 }

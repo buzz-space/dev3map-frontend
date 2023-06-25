@@ -1,0 +1,81 @@
+.list-repo {
+    background-color: #2D2D2D;
+    border-radius: 8px;
+    overflow: auto;
+    max-height: 444px;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    padding: 0 24px;
+
+    /* width */
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.12);
+
+        border-radius: 100rem;
+
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background: $color-secondary;
+        border-radius: 100rem;
+
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+        background: #02b9a7;
+    }
+
+    .item {
+        display: flex;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.24);
+        padding-top: 36px;
+        padding-bottom: 36px;
+        align-items: center;
+        text-decoration: none;
+        cursor: pointer;
+
+        * {
+            cursor: pointer;
+        }
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        .index {
+            color: #FFF;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .repo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            column-gap: 12px;
+            flex: 1;
+
+            .logo {
+                height: 40px;
+            }
+
+            .name {
+                color: #FFF;
+                font-size: 20px;
+            }
+
+            [role="icon-default"] {
+                width: 16px;
+                height: 16px;
+            }
+        }
+    }
+}

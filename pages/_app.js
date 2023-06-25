@@ -12,6 +12,7 @@ import { useProgressStore } from '~/store';
 import { TransProvider } from '~/context/TransContext';
 import { VisibilityProvider } from '~/context/VisibilityContext';
 import HonorableProvider from '~/context/HonorableModalContext/HonorableModalProvider';
+import { FilterProjectsProvider } from '~/context/FilterProjectsContext';
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   const setIsAnimating = useProgressStore((state) => state.setIsAnimating);
@@ -39,9 +40,11 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
         <Progress isAnimating={isAnimating} />
         <TransProvider>
           <VisibilityProvider>
-            <HonorableProvider>
-              <Component {...pageProps} />
-            </HonorableProvider>
+            <FilterProjectsProvider>
+              <HonorableProvider>
+                <Component {...pageProps} />
+              </HonorableProvider>
+            </FilterProjectsProvider>
           </VisibilityProvider>
           <ToastContainer />
         </TransProvider>

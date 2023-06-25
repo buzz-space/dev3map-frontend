@@ -14,3 +14,55 @@
     // align-items: center;
     // column-gap: 24px;
 }
+
+.planet {
+    animation: identifier 3s linear infinite;
+
+    &.reverse {
+        animation: identifier-reverse 3s linear infinite;
+
+        @keyframes identifier-reverse {
+            0% {
+                transform: translate(0);
+            }
+
+            25% {
+                transform: translateY(10px);
+            }
+
+            50% {
+                transform: translateY(5px);
+            }
+
+            75% {
+                transform: translateY(-5px);
+            }
+
+            100% {
+                transform: translate(0);
+            }
+        }
+    }
+
+    @keyframes identifier {
+        0% {
+            transform: translate(0);
+        }
+
+        25% {
+            transform: translateY(-10px);
+        }
+
+        50% {
+            transform: translateY(-5px);
+        }
+
+        75% {
+            transform: translateY(5px);
+        }
+
+        100% {
+            transform: translate(0);
+        }
+    }
+}

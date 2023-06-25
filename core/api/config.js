@@ -6,4 +6,7 @@ export const API = {
   CHAIN_LIST: '/chain-list',
   COMMIT_INFO: '/commit-info',
   DEVELOPER_INFO: '/developer-info',
+  RANKING: '/ranking',
+  CATEGORIES: '/categories',
+  CHAIN_ID: '/chain/:id'
 };

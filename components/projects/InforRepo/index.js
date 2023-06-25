@@ -20,11 +20,11 @@ export default function InforRepo({ logo, name, org, stars, commits, github, web
             <div className={styles['paths-frame']}>
                 <div className={styles['path']}>
                     <img src={"/imgs/github.svg"} className={styles['path-logo']} />
-                    <a href="https://github.com/aura" target="_blank" className={styles['path-value']}>https://github.com/aura</a>
+                    <a href={github} target="_blank" className={styles['path-value']}>{github}</a>
                 </div>
                 <div className={styles['path']}>
                     <img src={"/imgs/web-home.svg"} className={styles['path-logo']} />
-                    <a href="https://www.aura.com" target="_blank" className={styles['path-value']}>https://www.aura.com</a>
+                    <a href={web} target="_blank" className={styles['path-value']}>{web}</a>
                 </div>
             </div>
         </div>

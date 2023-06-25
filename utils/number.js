@@ -1,3 +1,3 @@
 export function formatNumber(number) {
-    return number.toLocaleString();
+    return Number(number).toLocaleString();
 }

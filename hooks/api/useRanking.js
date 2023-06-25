@@ -4,13 +4,13 @@ import api, { encodeQueryData, setDefaultHeaders } from '~/core/api/api';
 import nookies from 'nookies';
 
 
-async function get_developer_info(filters) {
+async function get_ranking(filters) {
     filters = encodeQueryData(filters);
-    const { data } = await api.get(API.DEVELOPER_INFO + '?' + filters);
+    const { data } = await api.get(API.RANKING + '?' + filters);
     return data;
 }
 
-export const useGetDeveloperInfor = (filters) => {
-    return useQuery(['get-developer_info'], () => get_developer_info(filters));
+export const useRanking = (filters, type) => {
+    return useQuery(['get-ranking' + type], () => get_ranking(filters));
 };
 

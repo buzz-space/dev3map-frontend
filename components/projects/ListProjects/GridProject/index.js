@@ -18,10 +18,10 @@ export default function GridProject({ title, numberProject, projects = [] }) {
         <div className={styles['grid']}>
             {
                 projectShow?.map((item, index) => {
-                    return <Link href={item?.to || '/'}>
+                    return <Link href={item?.id ? `/projects/${item?.id}` : '/'}>
                         <a className={styles['item']}>
                             <img className={styles['logo']} src={
-                                item?.logo
+                                item?.avatar
                             } alt="Logo repo" />
                             <label className={styles['name']}>{item?.name}</label>
                         </a>

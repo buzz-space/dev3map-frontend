@@ -1,21 +1,23 @@
+import moment from "moment";
 import StatisCard from "./StatisCard";
 import styles from "./styles.module.scss";
 import { useState, useEffect } from 'react';
 export default function StatisListCard({ totalDev = 0, totalFtDev = 0, totalMlDev = 0 }) {
+    const date = moment(new Date()).format("DD MMM YYYY");
     const [data, setData] = useState(
         [
             {
                 number: totalDev,
                 type: 'Developers',
-                date: 'As of 05 Apr 2023',
+                date: `As of ${date}`,
             }, {
                 number: totalFtDev,
                 type: 'Full-time developers',
-                date: 'As of 05 Apr 2023',
+                date: `As of ${date}`,
             }, {
                 number: totalMlDev,
                 type: 'Monthly active developers',
-                date: 'As of 05 Apr 2023'
+                date: `As of ${date}`,
             }
         ]
     )
@@ -25,15 +27,15 @@ export default function StatisListCard({ totalDev = 0, totalFtDev = 0, totalMlDe
                 {
                     number: totalDev,
                     type: 'Developers',
-                    date: 'As of 05 Apr 2023',
+                    date: `As of ${date}`,
                 }, {
                     number: totalFtDev,
                     type: 'Full-time developers',
-                    date: 'As of 05 Apr 2023',
+                    date: `As of ${date}`,
                 }, {
                     number: totalMlDev,
                     type: 'Monthly active developers',
-                    date: 'As of 05 Apr 2023'
+                    date: `As of ${date}`
                 }
             ]
         )

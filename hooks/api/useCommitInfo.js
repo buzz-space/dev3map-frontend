@@ -4,13 +4,13 @@ import api, { encodeQueryData, setDefaultHeaders } from '~/core/api/api';
 import nookies from 'nookies';
 
 
-async function get_developer_info(filters) {
+async function get_commit_info(filters) {
     filters = encodeQueryData(filters);
-    const { data } = await api.get(API.DEVELOPER_INFO + '?' + filters);
+    const { data } = await api.get(API.COMMIT_INFO + '?' + filters);
     return data;
 }
 
-export const useGetDeveloperInfor = (filters) => {
-    return useQuery(['get-developer_info'], () => get_developer_info(filters));
+export const useGetCommitInfo = (filters) => {
+    return useQuery(['get-commit_info-', filters?.id], () => get_commit_info(filters));
 };
 

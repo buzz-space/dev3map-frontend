@@ -39,6 +39,12 @@
         padding-top: 36px;
         padding-bottom: 36px;
         align-items: center;
+        text-decoration: none;
+        cursor: pointer;
+
+        * {
+            cursor: pointer;
+        }
 
         &:last-child {
             border-bottom: none;

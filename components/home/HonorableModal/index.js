@@ -6,8 +6,10 @@ import Container from "~/components/base/Container";
 import InforHonorable from "./InforHonorable";
 import ListRepo from "./ListRepo";
 import { useEffect } from "react";
+import { useHonorableModal } from "~/context/HonorableModalContext";
 
-export default function HonorableModal({ isOpen, setIsOpen }) {
+export default function HonorableModal() {
+    const { isOpen, setIsOpen, setData, data, title } = useHonorableModal();
     useEffect(() => {
         if (isOpen) {
             document.querySelector("body").style.overflowY = 'hidden'
@@ -32,31 +34,11 @@ export default function HonorableModal({ isOpen, setIsOpen }) {
                     </div>
                 </div>
                 <div className={styles['body']}>
-                    <h6 className={styles['title']}>PRODUCTIVITY</h6>
+                    <h6 className={styles['title']}>{title}</h6>
                     <div className={styles['main']}>
-                        <InforHonorable />
+                        <InforHonorable data={data[0]} />
                         <ListRepo list={
-                            [
-                                {
-                                    logo: '/imgs/cosmos.svg',
-                                    name: 'OSMOSIS',
-                                }, {
-                                    logo: '/imgs/cosmos.svg',
-                                    name: 'OSMOSIS',
-                                }, {
-                                    logo: '/imgs/cosmos.svg',
-                                    name: 'OSMOSIS',
-                                }, {
-                                    logo: '/imgs/cosmos.svg',
-                                    name: 'OSMOSIS',
-                                }, {
-                                    logo: '/imgs/cosmos.svg',
-                                    name: 'OSMOSIS',
-                                }, {
-                                    logo: '/imgs/cosmos.svg',
-                                    name: 'OSMOSIS',
-                                }
-                            ]
+                            data?.length > 0 ? data?.slice(0) : []
                         } />
                     </div>
                 </div>

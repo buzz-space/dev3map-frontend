@@ -10,19 +10,22 @@ export default function HonorableMention() {
             logo: '/imgs/aura.svg',
             name: 'Aura Network',
             imgs: '/imgs/honorable/1.png',
-            des: 'They may be the stars of the Cosmos Ecosystem for a time being. However, as the name suggests, Rising Stars form sturdy foundations that are what newer projects should look up to.'
+            des: 'They may be the stars of the Cosmos Ecosystem for a time being. However, as the name suggests, Rising Stars form sturdy foundations that are what newer projects should look up to.',
+            type: 'rising_star',
         }, {
             title: 'IBC Astronauts',
             logo: '/imgs/aura.svg',
             name: 'Aura Network',
             imgs: '/imgs/honorable/2.png',
-            des: 'Tirelessly and relentless, these projects have some stubborn warriors that refuse to be mediocre.'
+            des: 'Tirelessly and relentless, these projects have some stubborn warriors that refuse to be mediocre.',
+            type: 'ibc_astronaut',
         }, {
             title: 'SERIOUSNESS',
             logo: '/imgs/aura.svg',
             name: 'Aura Network',
             imgs: '/imgs/honorable/3.png',
-            des: 'Take a simple idea and take it seriously.'
+            des: 'Take a simple idea and take it seriously.',
+            type: 'seriousness',
         }
     ]
     return <Container className={styles['container']}>

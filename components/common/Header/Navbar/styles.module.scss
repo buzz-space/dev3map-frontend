@@ -50,4 +50,16 @@
             }
         }
     }
+
+    @media screen and (max-width: $small-device) {
+        .nav-ul {
+            .nav-item {
+                &__label {
+                    font-size: 1.4rem;
+                    line-height: 18px;
+
+                }
+            }
+        }
+    }
 }

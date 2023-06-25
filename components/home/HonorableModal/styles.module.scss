@@ -1,14 +1,31 @@
 .modal {
+    $transition: 0.3s;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     z-index: 10;
-    display: none;
+    transform: translateY(100%);
+    transition: 0.3s ease-in-out;
 
     &.open {
-        display: block;
+        transform: translateY(0);
+
+        .backdrop {
+            animation: show 0.3s forwards;
+            animation-delay: $transition;
+
+            @keyframes show {
+                0% {
+                    opacity: 0;
+                }
+
+                100% {
+                    opacity: 1;
+                }
+            }
+        }
     }
 
     .backdrop {
@@ -19,15 +36,63 @@
         left: 0;
         right: 0;
         bottom: 0;
+        opacity: 0;
     }
 
     .popup {
-        height: 50vh;
         position: absolute;
         z-index: 1;
         bottom: 0;
         left: 0;
         right: 0;
         background-color: #202020;
+        padding-bottom: 20px;
+
+        .container {
+            .head {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                margin-top: 40px;
+
+                .close {
+                    display: flex;
+                    column-gap: 12px;
+                    align-items: center;
+                    cursor: pointer;
+
+                    * {
+                        cursor: pointer;
+                    }
+
+                    [role="icon-default"] {
+                        width: 24px;
+                        height: 24px;
+                    }
+
+                    label {
+                        color: #FFF;
+                        font-size: 16px;
+                    }
+                }
+            }
+
+            .body {
+                display: flex;
+                flex-direction: column;
+
+                .title {
+                    color: #FFF;
+                    font-size: 48px;
+                    font-weight: 800;
+                    margin-bottom: 40px;
+                }
+
+                .main {
+                    display: flex;
+                    column-gap: 24px;
+                }
+            }
+        }
     }
 }

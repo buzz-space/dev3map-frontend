@@ -5,6 +5,7 @@ import baseCss from '~/public/styles/base.module.scss';
 ChartJS.register(...registerables);
 
 export default function Chart({ data }) {
+
     return <Bar data={
         data
     } options={{
@@ -12,7 +13,7 @@ export default function Chart({ data }) {
         barThickness: 6,
         maxBarThickness: 8,
         minBarLength: 2,
-        backgroundColor: baseCss.colorPrimary,
+        // backgroundColor: getBgColor(),
         plugins: {
             legend: {
                 display: false,

@@ -1,0 +1,58 @@
+.infor-honorable {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    background: #2D2D2D;
+    padding: 24px;
+
+    .rank {
+        color: #FFF;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 16px;
+    }
+
+    .repo {
+        display: flex;
+        align-items: center;
+        column-gap: 16px;
+
+        .logo {
+            height: 48px;
+        }
+
+        .name {
+            color: #FFF;
+            font-size: 24px;
+        }
+
+        [role="icon-default"] {
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    .description {
+        color: #FFF;
+        font-size: 16px;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    .key-metric {
+        text-transform: uppercase;
+        color: #FFF;
+        font-size: 32px;
+        font-weight: 800;
+    }
+
+    .metric {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 24px;
+        padding: 24px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.24);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.24);
+    }
+}

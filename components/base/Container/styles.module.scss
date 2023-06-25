@@ -1,7 +1,7 @@
 @import '~/public/styles/base.scss';
 
 @mixin container($reduce-width: 0px) {
-  max-width: 1270px;
+  max-width: 1360px;
   margin: 0 auto;
   padding: 0 15px;
   width: 100%;
@@ -16,6 +16,7 @@
 .container {
   @include container();
 }
+
 .center-child {
   display: flex;
   justify-content: center;

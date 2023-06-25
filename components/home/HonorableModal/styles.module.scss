@@ -80,6 +80,9 @@
             .body {
                 display: flex;
                 flex-direction: column;
+                align-content: stretch;
+                align-items: stretch;
+                position: relative;
 
                 .title {
                     color: #FFF;
@@ -91,6 +94,7 @@
                 .main {
                     display: flex;
                     column-gap: 24px;
+                    width: 100%;
                 }
             }
         }

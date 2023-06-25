@@ -5,9 +5,16 @@ import { Close } from "~/public/assets/svgs";
 import Container from "~/components/base/Container";
 import InforHonorable from "./InforHonorable";
 import ListRepo from "./ListRepo";
+import { useEffect } from "react";
 
 export default function HonorableModal({ isOpen, setIsOpen }) {
-
+    useEffect(() => {
+        if (isOpen) {
+            document.querySelector("body").style.overflowY = 'hidden'
+        } else {
+            document.querySelector("body").style.overflowY = 'auto'
+        }
+    }, [isOpen])
     return <div className={clsx(styles['modal'], {
         [styles['open']]: isOpen,
     })} >

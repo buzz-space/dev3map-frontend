@@ -5,6 +5,11 @@
     left: 0;
     top: 0;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 15px;
+
 
     .ellipse-1 {
         width: 100%;
@@ -13,17 +18,45 @@
         background-repeat: no-repeat;
         background-position: center;
         background-size: contain;
+        max-width: 1360px;
+        position: relative;
+
+        .planet-1 {
+            position: absolute;
+            bottom: 160px;
+            right: 80px;
+            width: 140px;
+            height: 140px;
+        }
+
+        .planet-2 {
+            position: absolute;
+            bottom: 180px;
+            left: 40px;
+            width: 240px;
+            height: 240px;
+        }
     }
 
     .ellipse-2 {
-        width: 105%;
-        height: 105%;
+        width: 140%;
+        height: 140%;
+        max-width: calc(1360px * 1.4);
         background-image: url(/imgs/ellipse-2.svg);
         background-repeat: no-repeat;
         background-position: center;
         background-size: contain;
         position: absolute;
-        top: 0;
-        left: 0;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        .planet-3 {
+            position: absolute;
+            top: 200px;
+            right: 32%;
+            width: 160px;
+            height: 160px;
+        }
     }
 }

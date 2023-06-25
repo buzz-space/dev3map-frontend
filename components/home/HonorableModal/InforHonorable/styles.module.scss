@@ -4,6 +4,34 @@
     border-radius: 8px;
     background: #2D2D2D;
     padding: 24px;
+    flex: 1;
+    max-height: 444px;
+    overflow: auto;
+
+    /* width */
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.12);
+
+        border-radius: 100rem;
+
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background: $color-secondary;
+        border-radius: 100rem;
+
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+        background: #02b9a7;
+    }
 
     .rank {
         color: #FFF;

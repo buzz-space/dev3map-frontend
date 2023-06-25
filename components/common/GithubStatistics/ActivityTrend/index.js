@@ -2,13 +2,13 @@ import TabDynamic from "~/components/base/TabDynamic";
 import styles from "./styles.module.scss";
 import { Code, Commit } from "~/public/assets/svgs";
 import { useEffect, useState } from "react";
-import { userCode, userCommit } from "./data";
+// import { userCode, userCommit } from "./data";
 import baseCss from '~/public/styles/base.module.scss';
 
 import Chart from "./Chart";
 import MentionChart from "./MentionChart";
-export default function ActivityTrend() {
-
+export default function ActivityTrend({ userCode = [], userCommit = [] }) {
+    console.log(userCommit)
     // const [typeData, setTypeData] = useState(userCommit);
     // const [label, setLabel] = useState('COMMIT');
     const [activeTypeStatis, setActiveStatis] = useState(0);
@@ -27,7 +27,7 @@ export default function ActivityTrend() {
                     if (activeTypeStatis === 0) {
                         return '#BB86FC';
                     } else {
-                        return data.number >= 0 ? '#00FF00' : '#FF0000';
+                        return data.number >= 0 ? '#03DAC6' : '#CF6679';
                     }
                 }),
             }]
@@ -50,15 +50,15 @@ export default function ActivityTrend() {
             changeStatisType(userCode, "CODE");
             setMention([
                 {
-                    color: '#00FF00',
+                    color: '#03DAC6',
                     label: 'ADDITION',
                 }, {
-                    color: '#FF0000',
+                    color: '#CF6679',
                     label: 'DELETION'
                 }
             ])
         }
-    }, [activeTypeStatis])
+    }, [activeTypeStatis, userCommit, userCode])
 
     return <div className={styles['activity-trend']}>
         <div className={styles['header']}>

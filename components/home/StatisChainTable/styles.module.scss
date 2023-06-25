@@ -63,6 +63,10 @@
                 column-gap: 24px;
                 align-items: center;
 
+                .logo {
+                    height: 40px;
+                }
+
                 .infor-chain {
                     display: flex;
                     flex-direction: column;

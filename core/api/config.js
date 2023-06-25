@@ -8,4 +8,5 @@ export const API = {
   DEVELOPER_INFO: '/developer-info',
   RANKING: '/ranking',
   CATEGORIES: '/categories',
+  CHAIN_ID: '/chain/:id'
 };

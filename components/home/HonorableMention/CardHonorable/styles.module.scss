@@ -6,41 +6,87 @@
     flex-direction: column;
     border-radius: $border-radius;
     flex: 1;
-
+    border: 2px solid transparent;
     position: relative;
     overflow: hidden;
 
-    &::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        border-radius: $border-radius;
-        padding: 2px;
-        opacity: 0;
-        background: linear-gradient(to right bottom, #BB86FC 100%, #FFFFFF 0%);
-        -webkit-mask:
-            linear-gradient(#fff 0 0) content-box,
-            linear-gradient(#fff 0 0);
-        -webkit-mask-composite: xor;
-        mask-composite: exclude;
-        transition: 0.2s;
-    }
+    // &::before {
+    //     content: "";
+    //     position: absolute;
+    //     inset: 0;
+    //     border-radius: $border-radius;
+    //     padding: 2px;
+    //     opacity: 0;
+    //     background: linear-gradient(to right bottom, #BB86FC 100%, #FFFFFF 0%);
+    //     -webkit-mask:
+    //         linear-gradient(#fff 0 0) content-box,
+    //         linear-gradient(#fff 0 0);
+    //     -webkit-mask-composite: xor;
+    //     mask-composite: exclude;
+    //     transition: 0.2s;
+    //     user-select: none;
+
+    // }
 
     &:hover {
-        &::before {
-            opacity: 1;
+        // &::before {
+        //     opacity: 1;
 
-        }
+        // }
+        border-color: $color-primary;
     }
 
-    .title {
-        font-style: normal;
-        font-weight: 800;
-        font-size: 32px;
-        line-height: 39px;
-        /* identical to box height */
+    .head {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        column-gap: 16px;
+        position: relative;
 
-        color: #FFFFFF;
+        .title {
+            font-style: normal;
+            font-weight: 800;
+            font-size: 32px;
+            line-height: 39px;
+            /* identical to box height */
+
+            color: #FFFFFF;
+
+            text-transform: uppercase;
+        }
+
+        [role="icon-default"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+
+            * {
+                cursor: pointer;
+            }
+
+            &:hover {
+                opacity: 0.8;
+            }
+
+            &:hover~.des-modal {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+        .des-modal {
+            position: absolute;
+            background-color: #2D2D2D;
+            color: #fff;
+            border-radius: 8px;
+            padding: 24px;
+            left: 0;
+            top: 100%;
+            max-width: 100%;
+            opacity: 0;
+            transition: 0.3s;
+            visibility: hidden;
+        }
     }
 
     .rank {

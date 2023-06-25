@@ -15,4 +15,16 @@
             }
         }
     }
+
+    @media screen and (max-width: $small-device) {
+        .container {
+            padding-top: 30px;
+
+            .logo {
+                img {
+                    height: 16px;
+                }
+            }
+        }
+    }
 }

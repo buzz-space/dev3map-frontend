@@ -14,6 +14,7 @@ export { default as EyeClose } from './EyeClose';
 export { default as EyeOpen } from './EyeOpen';
 export { default as Gift } from './Gift';
 export { default as Home } from './Home';
+export { default as Infor } from './Infor';
 export { default as Logout } from './Logout';
 export { default as NotiNo } from './NotiNo';
 export { default as NotiYes } from './NotiYes';

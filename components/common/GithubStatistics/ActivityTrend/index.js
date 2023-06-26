@@ -8,6 +8,7 @@ import baseCss from '~/public/styles/base.module.scss';
 import Chart from "./Chart";
 import MentionChart from "./MentionChart";
 import Button from "~/components/base/Button";
+import { handleMonth } from "~/utils/strings";
 export default function ActivityTrend({ userCode = [], userCommit = [] }) {
     const [activeTypeStatis, setActiveStatis] = useState(0);
     const [mention, setMention] = useState([{
@@ -16,19 +17,31 @@ export default function ActivityTrend({ userCode = [], userCommit = [] }) {
     }]);
 
     function getChartData(datas, label) {
-        return {
-            labels: datas?.map((data) => data.time),
-            datasets: [{
-                label: label,
-                data: datas?.map((data) => data.number),
-                backgroundColor: datas?.map((data) => {
-                    if (activeTypeStatis === 0) {
-                        return '#BB86FC';
-                    } else {
-                        return data.number >= 0 ? '#03DAC6' : '#CF6679';
-                    }
-                }),
-            }]
+        if (label === 'COMMIT') {
+            return {
+                labels: datas?.map((data) => data.time),
+                datasets: [{
+                    label: label,
+                    data: datas?.map((data) => data.number),
+                    labelT: datas?.map((data, index) => `${data?.week == 1 ? '01' : '15'}/${handleMonth(data?.month)}/${data?.year}`),
+                    backgroundColor: '#BB86FC'
+                }]
+            }
+        } else {
+            return {
+                labels: datas.addition?.map((data) => data.time),
+                datasets: [{
+                    label: 'ADDITION',
+                    data: datas.addition?.map((data) => data.number),
+                    labelT: datas?.addition.map((data, index) => `${data?.week == 1 ? '01' : '15'}/${handleMonth(data?.month)}/${data?.year}`),
+                    backgroundColor: '#03DAC6',
+                }, {
+                    label: 'DELETION',
+                    data: datas.deletion?.map((data) => data.number),
+                    labelT: datas?.deletion?.map((data, index) => `${data?.week == 1 ? '01' : '15'}/${handleMonth(data?.month)}/${data?.year}`),
+                    backgroundColor: '#CF6679',
+                }]
+            }
         }
     }
 

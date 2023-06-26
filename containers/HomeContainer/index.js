@@ -16,10 +16,10 @@ function HomeContainer() {
   }, [])
   return <div>
     <Introduce />
-    <HonorableMention />
+    {/* <HonorableMention />
     <GithubStatistics data={dataCommits?.data} />
     <StatisChainTable />
-    <ActiveDevelopers data={dataDeveloper?.data} />
+    <ActiveDevelopers data={dataDeveloper?.data} /> */}
   </div>;
 }
 

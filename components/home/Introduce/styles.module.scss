@@ -43,4 +43,50 @@
             }
         }
     }
+
+    @media screen and (max-width: 1265px) {
+        .container {
+            .main {
+                .title {
+                    font-size: 60px;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 1175px) {
+        .container {
+            .main {
+                padding-top: 200px;
+                padding-bottom: 200px;
+
+                .title {
+                    font-size: 56px;
+                }
+
+                .des {
+                    font-size: 17px;
+                }
+            }
+        }
+
+    }
+
+    @media screen and (max-width: 1085px) {
+        .container {
+            .main {
+                padding-top: 200px;
+                padding-bottom: 200px;
+
+                .title {
+                    font-size: 52px;
+                }
+
+                .des {
+                    font-size: 16px;
+                }
+            }
+        }
+
+    }
 }

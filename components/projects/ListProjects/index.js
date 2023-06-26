@@ -38,6 +38,16 @@ export default function ListProject() {
     }, [showAll, categories])
 
     useEffect(() => {
+        if (activeIndex == 0 && categories) {
+            if (search != "" || showAll) {
+                setCategoriesShow([...categories?.data])
+            } else {
+                setCategoriesShow([...categories?.data].splice(0, Math.min(3, categories?.data.length)))
+            }
+        }
+    }, [search])
+
+    useEffect(() => {
         if (isFetchingCategories || isFetchingChainList || isRefetchingCategories || isRefetchingChainList) {
             setIsFetching(true)
         } else {

@@ -59,4 +59,66 @@
             height: 160px;
         }
     }
+
+    @media screen and (max-width: 1175px) {
+        .ellipse-1 {
+            .planet-1 {
+                position: absolute;
+                bottom: 160px;
+                right: 85px;
+                width: 120px;
+                height: 120px;
+            }
+
+            .planet-2 {
+                position: absolute;
+                bottom: 165px;
+                left: 40px;
+                width: 220px;
+                height: 220px;
+            }
+        }
+
+        .ellipse-2 {
+
+            .planet-3 {
+                position: absolute;
+                top: 200px;
+                right: 30%;
+                width: 150px;
+                height: 150px;
+            }
+        }
+    }
+
+    @media screen and (max-width: 1085px) {
+        .ellipse-1 {
+            .planet-1 {
+                position: absolute;
+                bottom: 160px;
+                right: 85px;
+                width: 120px;
+                height: 120px;
+            }
+
+            .planet-2 {
+                position: absolute;
+                bottom: 175px;
+                left: 25px;
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+        .ellipse-2 {
+
+            .planet-3 {
+                position: absolute;
+                top: 200px;
+                right: 30%;
+                width: 150px;
+                height: 150px;
+            }
+        }
+    }
 }

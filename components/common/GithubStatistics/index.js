@@ -5,26 +5,25 @@ import TabDynamic from "~/components/base/TabDynamic";
 import TotalCommits from "./TotalCommits";
 import ActivityTrend from "./ActivityTrend";
 import { useEffect, useState } from "react";
+import { handleMonth } from "~/utils/strings";
 
 export default function GithubStatistics({ data = {} }) {
     const [userCommit, setUserCommit] = useState([]);
     const [userCode, setUserCode] = useState([]);
-    function handleMonth(month) {
-        return month?.length > 1 ? month : '0' + month
-    }
+
     useEffect(() => {
         setUserCommit(() => {
             let value = data?.commit_chart?.map((item, index) => {
-                return { time: `${item?.year}/${handleMonth(item?.month)}`, number: Number(item?.total_commit) }
+                return { time: `${item?.year}/${handleMonth(item?.month)}`, number: Number(item?.total_commit), ...item }
             })
             return value;
         })
         setUserCode(() => {
             let value = data?.commit_chart?.reduce((prev, curr) => {
-                prev.push({ time: `${curr?.year}/${handleMonth(curr?.month)}`, number: Number(curr?.total_additions) })
-                prev.push({ time: `${curr?.year}/${handleMonth(curr?.month)}`, number: Number(curr?.total_deletions) * -1 })
+                prev.addition.push({ time: `${curr?.year}/${handleMonth(curr?.month)}`, number: Number(curr?.total_additions), ...curr })
+                prev.deletion.push({ time: `${curr?.year}/${handleMonth(curr?.month)}`, number: Number(curr?.total_deletions) * -1, ...curr })
                 return prev;
-            }, [])
+            }, { addition: [], deletion: [] })
             return value;
         })
     }, [data])

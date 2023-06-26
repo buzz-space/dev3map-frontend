@@ -10,7 +10,7 @@ export default function TotalCommits({ total = 0 }) {
             <CommitHorizontal />
         </span>
         <label className={styles['total-number']}>{formatNumber(total)}</label>
-        <label className={styles['des']}>TOTAL COSMOS COMMITS</label>
+        <label className={styles['des']}>TOTAL COMMITS</label>
         <label className={styles['time']}>As of {date}</label>
     </div>
 }

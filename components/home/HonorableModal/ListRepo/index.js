@@ -8,7 +8,7 @@ export default function ListRepo({ list }) {
     return <div className={styles['list-repo']}>
         {
             list?.map((item, index) => {
-                return <Link href={`/projects/${item?.id}`}>
+                return <Link href={`/projects/${item?.github_prefix}`}>
                     <a className={styles['item']} onClick={() => {
                         setIsOpen(false);
                     }}><label className={styles['index']}>#{index + 2}</label>

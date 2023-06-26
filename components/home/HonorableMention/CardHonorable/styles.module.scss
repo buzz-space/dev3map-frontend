@@ -107,6 +107,12 @@
         align-items: center;
         column-gap: 16px;
         margin-bottom: 40px;
+        text-decoration: none;
+        cursor: pointer;
+
+        * {
+            cursor: pointer;
+        }
 
         .logo {
             height: 48px;

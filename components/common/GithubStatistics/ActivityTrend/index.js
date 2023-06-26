@@ -7,10 +7,8 @@ import baseCss from '~/public/styles/base.module.scss';
 
 import Chart from "./Chart";
 import MentionChart from "./MentionChart";
+import Button from "~/components/base/Button";
 export default function ActivityTrend({ userCode = [], userCommit = [] }) {
-    console.log(userCommit)
-    // const [typeData, setTypeData] = useState(userCommit);
-    // const [label, setLabel] = useState('COMMIT');
     const [activeTypeStatis, setActiveStatis] = useState(0);
     const [mention, setMention] = useState([{
         color: '#BB86FC',

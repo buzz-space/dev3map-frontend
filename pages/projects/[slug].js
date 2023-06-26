@@ -22,7 +22,7 @@ export async function getServerSideProps(ctx) {
     // const data = queryClient.getQueryData('get-postdetail');
     let url = API.CHAIN_ID;
     // console.log(pageParam, slug);
-    url = url.replace(':id', slug);
+    url = url.replace(':prefix', slug);
     let data;
     await fetch(process.env.SERVER_URI + url)
         .then(function (response) {
@@ -34,6 +34,11 @@ export async function getServerSideProps(ctx) {
         .catch((err) => {
             console.log(err);
         });
+    if (!data?.data) {
+        return {
+            notFound: true
+        };
+    }
     return {
         props: {
             // dehydratedState: dehydrate(queryClient),

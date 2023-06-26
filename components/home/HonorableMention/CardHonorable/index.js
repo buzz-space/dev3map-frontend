@@ -3,6 +3,7 @@ import styles from "./styles.module.scss";
 import Button from "~/components/base/Button";
 import { useHonorableModal } from "~/context/HonorableModalContext";
 import { useRanking } from "~/hooks/api/useRanking";
+import Link from "next/link";
 
 export default function CardHonorable({ title, logo, name, imgs, des, type = '' }) {
     const { isOpen, setIsOpen, setData } = useHonorableModal();
@@ -12,7 +13,6 @@ export default function CardHonorable({ title, logo, name, imgs, des, type = '' 
     function open() {
         setIsOpen(true);
     }
-    console.log(data);
     return <div className={styles['card-honorable']}>
         <div className={styles['head']}>
             <h4 className={styles['title']}>{title}</h4> {/** uppercase <- */}
@@ -22,11 +22,14 @@ export default function CardHonorable({ title, logo, name, imgs, des, type = '' 
             </div>
         </div>
         <label className={styles['rank']}>RANK #1</label>
-        <div className={styles['repo']}>
-            <img src={data?.data[0]?.avatar} className={styles['logo']} />
-            <label className={styles['name']}>{data?.data[0]?.name}</label>
-            <ArrowUpRight />
-        </div>
+        <Link href={`/projects/${data?.data[0]?.github_prefix}`}>
+            <a className={styles['repo']}>
+                <img src={data?.data[0]?.avatar} className={styles['logo']} />
+                <label className={styles['name']}>{data?.data[0]?.name}</label>
+                <ArrowUpRight />
+            </a>
+        </Link>
+
         <Button outline onClick={() => {
             open();
             setData(title, data?.data)

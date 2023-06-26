@@ -18,7 +18,7 @@ export default function Introduce() {
                 <p className={styles['des']}>
                     With support from Cosmos Ecosystem Map and Github, Aura Network builds this developer analytics platform to offer a panoramic view of the Interchain Developer Ecosystem
                 </p>
-                <Button outline>EXPLORE ALL CATEGORIES</Button>
+                <Button outline to="/projects">EXPLORE ALL CATEGORIES</Button>
             </div>
         </Container>
     </div>

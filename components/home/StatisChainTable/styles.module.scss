@@ -33,6 +33,27 @@
         width: 100%;
         position: relative;
 
+        .row {
+            transition: 0.3s;
+            cursor: pointer;
+
+            * {
+                transition: 0.3s;
+                cursor: pointer;
+            }
+
+            &:hover {
+                background-color: #202020;
+
+                .chain {
+                    padding-left: 12px;
+                }
+
+                .forks {
+                    padding-right: 12px;
+                }
+            }
+        }
 
         thead {}
 
@@ -63,6 +84,7 @@
                 column-gap: 24px;
                 align-items: center;
                 cursor: pointer;
+
 
                 * {
                     cursor: pointer;

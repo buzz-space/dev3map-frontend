@@ -22,6 +22,15 @@ export default function ChartLayout({ description, data }) {
             {description}
         </label>
         <div className={styles['chart']}> <Line data={data} options={{
+            // animations: {
+            //     tension: {
+            //         duration: 1000,
+            //         easing: 'linear',
+            //         from: 1,
+            //         to: 0,
+            //         loop: true
+            //     }
+            // },
             tension: 0.3,
             elements: {
                 point: {
@@ -45,6 +54,14 @@ export default function ChartLayout({ description, data }) {
                             size: 14,
                             weight: '600',
                         }
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        title: function (context) {
+                            let label = context[0]?.dataset?.labelT[context[0]?.dataIndex]
+                            return `${label}`
+                        },
                     }
                 }
             },

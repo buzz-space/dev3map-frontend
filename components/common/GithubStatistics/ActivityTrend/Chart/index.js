@@ -19,6 +19,14 @@ export default function Chart({ data }) {
                 display: false,
 
             },
+            tooltip: {
+                callbacks: {
+                    title: function (context) {
+                        let label = context[0]?.dataset?.labelT[context[0]?.dataIndex]
+                        return `${label}`
+                    },
+                }
+            }
         },
         scales: {
 
@@ -37,6 +45,7 @@ export default function Chart({ data }) {
                     padding: 16,
 
                 },
+                stacked: true
             },
             x: {
                 beginAtZero: false,
@@ -51,7 +60,8 @@ export default function Chart({ data }) {
                         weight: 600,
                         size: 14,
                     }
-                }
+                },
+                stacked: true,
             }
         }
     }} />

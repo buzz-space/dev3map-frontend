@@ -1,12 +1,12 @@
 import { formatNumber } from "~/utils/number";
 import styles from "./styles.module.scss";
 
-export default function InforRepo({ logo, name, org, stars, commits, github, web }) {
+export default function InforRepo({ logo, name, des, stars, commits, github, web }) {
     return <div className={styles['infor-repo']}>
         <img src={logo} alt="Logo" className={styles['logo']} />
         <div className={styles['information']}>
             <h6 className={styles['name']}>{name}</h6>
-            <label className={styles['org']}>{org}</label>
+            <label className={styles['des']}>{des}</label>
             <div className={styles['rates-frame']}>
                 <div className={styles['rate']}>
                     <img src={"/imgs/stars.svg"} className={styles['rate-icon']} />

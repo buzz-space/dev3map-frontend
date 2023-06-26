@@ -2,37 +2,53 @@ import Link from "next/link"
 import styles from "./styles.module.scss"
 import { useEffect, useState } from "react"
 import Button from "~/components/base/Button";
+import { useFilterProjects } from "~/context/FilterProjectsContext";
+import { Fade } from "react-reveal";
 
 export default function GridProject({ title, numberProject, projects = [] }) {
     const [projectShow, setProjectShow] = useState([]);
+    const { activeIndex, setActiveIndex, search } = useFilterProjects();
     const [showAll, setShowAll] = useState(false);
-    useEffect(() => {
-        if (showAll) {
-            setProjectShow([...projects])
+    function filterSearch(list) {
+        return list?.filter((item, index) => {
+            console.log(item?.name)
+            return item?.name?.toLowerCase()?.includes(search?.toLowerCase());
+        })
+    }
+    function handleProjects() {
+        if (showAll || search != '') {
+            setProjectShow(filterSearch([...projects]))
         } else {
-            setProjectShow([...projects].splice(0, Math.min(12, projects.length)))
+            setProjectShow(filterSearch([...projects].splice(0, Math.min(12, projects.length))))
         }
-    }, [projects, showAll])
-    return <div className={styles['grid-project']}>
-        <h6 className={styles['title']}>{title} ({numberProject})</h6>
-        <div className={styles['grid']}>
-            {
-                projectShow?.map((item, index) => {
-                    return <Link href={item?.id ? `/projects/${item?.id}` : '/'}>
-                        <a className={styles['item']}>
-                            <img className={styles['logo']} src={
-                                item?.avatar
-                            } alt="Logo repo" />
-                            <label className={styles['name']}>{item?.name}</label>
-                        </a>
-                    </Link>
-                })
-            }
-        </div>
+    }
+    useEffect(() => {
+        handleProjects(projects)
+    }, [projects, showAll, search])
+    return <>
         {
-            projects?.length > 12 && <Button outline className={styles['more']} onClick={() => {
-                setShowAll(prev => !prev)
-            }}>{showAll ? 'Collapse' : '+20 More'}</Button>
+            projectShow?.length > 0 ? <Fade><div className={styles['grid-project']}>
+                <h6 className={styles['title']}>{title} ({numberProject})</h6>
+                <div className={styles['grid']}>
+                    {
+                        projectShow?.map((item, index) => {
+                            return <Link href={item?.id ? `/projects/${item?.github_prefix}` : '/'}>
+                                <a className={styles['item']}>
+                                    <img className={styles['logo']} src={
+                                        item?.avatar
+                                    } alt="Logo repo" />
+                                    <label className={styles['name']}>{item?.name}</label>
+                                </a>
+                            </Link>
+                        })
+                    }
+                </div>
+                {
+                    projects?.length > 12 && search === "" && <Button outline className={styles['more']} onClick={() => {
+                        setShowAll(prev => !prev)
+                    }}>{showAll ? 'Collapse' : `+${projects?.length - 12} More`}</Button>
+                }
+            </div></Fade> : <></>
         }
-    </div>
+    </>
 }

@@ -2,9 +2,11 @@ import Container from "~/components/base/Container";
 import styles from "./styles.module.scss";
 
 import { useGetChainList } from "~/hooks/api/useChainList";
+import Link from "next/link";
+import { useEffect } from "react";
 
 export default function StatisChainTable() {
-    const { data } = useGetChainList();
+    const { data, refetch } = useGetChainList();
     // const data = [
     //     {
     //         name: 'OSMOSIS',
@@ -72,6 +74,9 @@ export default function StatisChainTable() {
     //         forks: 1,
     //     }
     // ]
+    useEffect(() => {
+        refetch();
+    }, [])
     return <Container className={styles['container']}><table className={styles['table']}>
         <thead>
             <tr>
@@ -87,12 +92,16 @@ export default function StatisChainTable() {
             {
                 data?.data?.map((item, index) => {
                     return <tr key={item?.id}>
-                        <td className={styles['chain']}>
-                            <img className={styles['logo']} src={item?.avatar} />
-                            <div className={styles['infor-chain']}>
-                                <label className={styles['name']}>{item?.name}</label>
-                                <label className={styles['des']}>{item?.github_prefix}</label>
-                            </div>
+                        <td>
+                            <Link href={`/projects/${item?.github_prefix}`}>
+                                <a className={styles['chain']}>
+                                    <img className={styles['logo']} src={item?.avatar} />
+                                    <div className={styles['infor-chain']}>
+                                        <label className={styles['name']}>{item?.name}</label>
+                                        <label className={styles['des']}>{item?.github_prefix}</label>
+                                    </div>
+                                </a>
+                            </Link>
                         </td>
                         <td className={styles['commits']}>{item?.total_commit}</td>
                         <td className={styles['contributors']}>{item?.total_contributor}</td>

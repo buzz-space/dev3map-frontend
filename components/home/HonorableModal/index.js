@@ -38,7 +38,7 @@ export default function HonorableModal() {
                     <div className={styles['main']}>
                         <InforHonorable data={data[0]} />
                         <ListRepo list={
-                            data?.length > 0 ? data?.slice(0) : []
+                            data?.length > 0 ? data?.slice(1) : []
                         } />
                     </div>
                 </div>

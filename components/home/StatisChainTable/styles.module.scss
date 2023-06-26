@@ -58,13 +58,19 @@
         td {
             padding: 24px 0;
 
-            &.chain {
+            .chain {
                 display: flex;
                 column-gap: 24px;
                 align-items: center;
+                cursor: pointer;
+
+                * {
+                    cursor: pointer;
+                }
 
                 .logo {
                     height: 40px;
+                    border-radius: 100rem;
                 }
 
                 .infor-chain {

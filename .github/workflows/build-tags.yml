@@ -10,6 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
         with:
+          fetch-depth: 0
           ref: tags/1.0.0
       
       - name: Login to Docker Hub

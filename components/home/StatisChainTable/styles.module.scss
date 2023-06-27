@@ -3,6 +3,7 @@
     max-height: 464px;
     overflow: auto;
     margin-top: 40px;
+    border-collapse: collapse;
 
     /* width */
     &::-webkit-scrollbar {
@@ -62,8 +63,25 @@
             padding-bottom: 24px;
             // border-bottom: 1px solid rgba(255, 255, 255, 0.24);
             position: sticky;
+            position: -webkit-sticky;
+            z-index: 999;
             top: 0;
             background-color: $color-background;
+            backface-visibility: hidden;
+            transform: translateZ(0);
+
+            .sort-table {
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                user-select: none;
+                column-gap: 8px;
+                max-width: max-content;
+
+                * {
+                    cursor: pointer;
+                }
+            }
 
             &::before {
                 position: absolute;

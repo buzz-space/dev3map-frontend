@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./styles.module.scss";
+import { Infor } from "~/public/assets/svgs";
 
 const data = [
     {
@@ -42,12 +43,15 @@ export default function TableStatis({ data = {} }) {
             const arrTable = [{
                 type: 'full_time',
                 name: 'Full-time',
+                des: 'Developers who committed code 10+ days a month'
             }, {
                 type: 'part_time',
-                name: 'Part-time'
+                name: 'Part-time',
+                des: 'Developers who committed code less than 10 days a month',
             }, {
                 type: 'one_time',
-                name: 'One-time'
+                name: 'One-time',
+                des: 'Developers who only committed code once'
             }]
             for (let i = 0; i < 3; i++) {
                 let dataTime = data[arrTable[i]?.type];
@@ -55,7 +59,7 @@ export default function TableStatis({ data = {} }) {
                 for (let key in dataTime) {
                     all_time += dataTime[key];
                 }
-                let value = { dev_type: arrTable[i]?.name, ...dataTime, all_time }
+                let value = { dev_type: arrTable[i]?.name, ...dataTime, all_time, ...arrTable[i] }
                 dt.push(value)
             }
             let total = { dev_type: 'Total', ath: 0, atl: 0, this_month: 0, this_year: 0, all_time: 0 };
@@ -86,7 +90,21 @@ export default function TableStatis({ data = {} }) {
             {
                 dataTable?.map((item, index) => {
                     return <tr key={index}>
-                        <td>{item?.dev_type}</td>
+                        <td>
+                            <div className={styles['type']}>
+                                <label>{item?.dev_type}</label>
+                                {
+                                    item?.des && <>
+                                        <Infor />
+                                        <div className={styles['description']}>
+                                            {
+                                                item?.des
+                                            }
+                                        </div>
+                                    </>
+                                }
+                            </div>
+                        </td>
                         <td>{item?.ath}</td>
                         <td>{item?.atl}</td>
                         <td>{item?.this_month}</td>

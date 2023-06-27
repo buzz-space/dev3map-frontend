@@ -29,7 +29,7 @@ export default function HonorableMention() {
         }
     ]
     return <Container className={styles['container']}>
-        <h2 className="title">HONORABLE MENTION <span><Honorable /></span></h2>
+        <h2 className="title">BEST OF 100 <span><Honorable /></span></h2>
         <div className={styles['list-card']}>
             {
                 data?.map((item, index) => {

@@ -6,7 +6,6 @@ import { API } from "~/core/api";
 export default function DetailProject({ data }) {
     // const router = useRouter();
     // const { slug } = router.query;
-    console.log(data)
     return <MainLayout currentPage="projects">
         <DetailProjectContainer data={data} />
     </MainLayout>

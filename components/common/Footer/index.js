@@ -8,10 +8,11 @@ export default function Footer() {
       <Link href="/">
         <a className={styles['logo']} ><img src="/imgs/logo.svg" /></a>
       </Link>
-      <label className={styles['credit']}>© 2023 ibcLab.io</label>
+      <label className={styles['credit']}>© 2023 Dev3Map</label>
       <div className={styles['powered-by']}>
         <label>POWERED BY</label>
-        <a href="https://aura.network" target="_blank"><img src="/imgs/aura-network.svg" /></a>
+        <img src="/imgs/buzzspace.svg" />
+        {/* <a href="https://aura.network" target="_blank"></a> */}
       </div>
     </Container>
   </footer>;

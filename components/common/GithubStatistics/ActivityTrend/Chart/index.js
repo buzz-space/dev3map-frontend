@@ -49,7 +49,6 @@ export default function Chart({ data }) {
                 },
                 grid: {
                     color: function (context) {
-                        console.log('a', context.tick.value)
                         if (context.tick.value != 0) {
                             return 'rgba(255, 255, 255, 0.4)';
                         }

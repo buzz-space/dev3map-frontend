@@ -1,5 +1,5 @@
 {
-  "PRODUCTION_VERSION": "ver 1.0.3",
-  "SERVER_URI": "https://be.catonchain.com/api/v1",
-  "WEB_URI": "https://catonchain.com"
+  "PRODUCTION_VERSION": "ver 1.0.0",
+  "SERVER_URI": "https://be.dev3map.com//api/v1",
+  "WEB_URI": "https://dev3map.com"
 }

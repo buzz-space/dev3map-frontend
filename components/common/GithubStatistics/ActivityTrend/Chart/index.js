@@ -14,6 +14,7 @@ export default function Chart({ data }) {
         maxBarThickness: 8,
         minBarLength: 2,
         // backgroundColor: getBgColor(),
+        responsive: true,
         plugins: {
             legend: {
                 display: false,
@@ -34,6 +35,7 @@ export default function Chart({ data }) {
                 beginAtZero: true,
                 border: {
                     display: false,
+                    dash: [4, 4],
                 },
                 ticks: {
                     color: '#fff',
@@ -45,11 +47,22 @@ export default function Chart({ data }) {
                     padding: 16,
 
                 },
+                grid: {
+                    color: function (context) {
+                        if (context.tick.value != 0) {
+                            return 'rgba(255, 255, 255, 0.4)';
+                        }
+                        return '#fff';
+                    },
+                    drawOnChartArea: true,
+                    drawTicks: true,
+                },
                 stacked: true
             },
             x: {
                 beginAtZero: false,
                 border: {
+                    display: false,
                     color: 'white',
                 },
                 ticks: {
@@ -62,6 +75,10 @@ export default function Chart({ data }) {
                     }
                 },
                 stacked: true,
+                grid: {
+                    color: 'rgba(255, 255, 255, 0)',
+                    borderColor: 'rgba(255, 255, 255, 0)',  // <-- this line is answer to initial question
+                }
             }
         }
     }} />

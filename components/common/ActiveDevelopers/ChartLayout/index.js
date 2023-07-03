@@ -31,6 +31,7 @@ export default function ChartLayout({ description, data }) {
             //         loop: true
             //     }
             // },
+            responsive: true,
             tension: 0.3,
             elements: {
                 point: {
@@ -39,6 +40,7 @@ export default function ChartLayout({ description, data }) {
             },
             maintainAspectRatio: false,
             borderWidth: 1,
+            borderStyle: 'dotted',
             plugins: {
 
                 legend: {
@@ -68,9 +70,9 @@ export default function ChartLayout({ description, data }) {
             scales: {
 
                 y: {
-                    beginAtZero: true,
                     border: {
                         display: false,
+                        dash: [4, 4],
                     },
                     ticks: {
                         color: '#fff',
@@ -81,12 +83,25 @@ export default function ChartLayout({ description, data }) {
                             size: 14,
                         },
                         padding: 12,
+                        beginAtZero: true,
+
 
                     },
+
+                    grid: {
+                        color: function (context) {
+                            if (context.tick.value != 0) {
+                                return 'rgba(255, 255, 255, 0.4)';
+                            }
+                            return '#fff';
+                        },
+                        drawOnChartArea: true,
+                        drawTicks: true,
+                    }
                 },
                 x: {
-                    beginAtZero: false,
                     border: {
+                        display: false,
                         color: 'white',
                     },
                     ticks: {
@@ -96,7 +111,13 @@ export default function ChartLayout({ description, data }) {
                             family: 'Montserrat',
                             weight: 600,
                             size: 14,
-                        }
+                        },
+                        beginAtZero: true,
+
+                    },
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0)',
+                        borderColor: 'rgba(255, 255, 255, 0)',  // <-- this line is answer to initial question
                     }
                 }
             }

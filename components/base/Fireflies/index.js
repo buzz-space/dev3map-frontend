@@ -77,7 +77,7 @@ class Firefly {
     }
 
     hexToRGB(hex) {
-        hex = parseInt(hex.replace('#', ''), 16);
+        hex = parseInt(hex?.replace('#', ''), 16);
         return [(hex >> 16) & 255, (hex >> 8) & 255, hex & 255].join(',');
     }
 }
@@ -132,7 +132,7 @@ class Fireflies extends Component {
             width = this.state.width,
             height = this.state.height;
 
-        context.fillStyle = "rgba(30,30,30,1)";
+        context.fillStyle = "rgba(2,2,2,1)";
         context.fillRect(0, 0, width, height);
         this.setState({
             canvas: canvas,
@@ -157,9 +157,25 @@ class Fireflies extends Component {
         clearInterval(this.timerId);
     }
 
+    // componentWillReceiveProps(nextProps) {
+    //     // You don't have to do this check first, but it can help prevent an unneeded render
+    //     const fireflies = this.state.firefliesArray;
+
+    //     fireflies.forEach(element => {
+    //         element.updateSettings({ ...element, ...nextProps?.settings });
+    //     });
+
+    //     this.setState({
+    //         ...this.state,
+    //         firefliesArray: fireflies,
+    //         settings: { ...nextProps, ...nextProps?.settings },
+    //     });
+
+    //     console.log({ nextProps, state: this.state });
+    // }
+
     updateFireflies = () => {
         const fireflies = this.state.firefliesArray;
-
         fireflies.forEach((firefly) => {
             firefly.update();
         });

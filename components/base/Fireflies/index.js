@@ -59,16 +59,15 @@ class Firefly {
     }
 
     updateSettings(settings) {
-        console.log("update");
         this.speed = settings.speed;
         this.size = settings.differentSize ? settings.size * this.seed : settings.size;
         this.color = settings.color;
         this.rgbColor = this.hexToRGB(this.color);
         this.isGradient = settings.isGradient;
-        this.fadeSpeedRate = settings.fadeSpeedRate || 0.01;
+        this.fadeSpeedRate = settings.fadeSpeedRate;
         if (!settings.randomFadeTime)
             this.fadeSpeed = 0;
-        this.randomFadeTime = settings.randomFadeTime || true;
+        this.randomFadeTime = settings.randomFadeTime;
         this.update();
     }
 

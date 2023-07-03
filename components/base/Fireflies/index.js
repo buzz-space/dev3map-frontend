@@ -59,15 +59,16 @@ class Firefly {
     }
 
     updateSettings(settings) {
+        console.log("update");
         this.speed = settings.speed;
         this.size = settings.differentSize ? settings.size * this.seed : settings.size;
         this.color = settings.color;
         this.rgbColor = this.hexToRGB(this.color);
         this.isGradient = settings.isGradient;
-        this.fadeSpeedRate = settings.fadeSpeedRate;
+        this.fadeSpeedRate = settings.fadeSpeedRate || 0.01;
         if (!settings.randomFadeTime)
             this.fadeSpeed = 0;
-        this.randomFadeTime = settings.randomFadeTime;
+        this.randomFadeTime = settings.randomFadeTime || true;
         this.update();
     }
 
@@ -77,7 +78,7 @@ class Firefly {
     }
 
     hexToRGB(hex) {
-        hex = parseInt(hex.replace('#', ''), 16);
+        hex = parseInt(hex?.replace('#', ''), 16);
         return [(hex >> 16) & 255, (hex >> 8) & 255, hex & 255].join(',');
     }
 }
@@ -157,9 +158,25 @@ class Fireflies extends Component {
         clearInterval(this.timerId);
     }
 
-    updateFireflies = () => {
+    componentWillReceiveProps(nextProps) {
+        // You don't have to do this check first, but it can help prevent an unneeded render
         const fireflies = this.state.firefliesArray;
 
+        fireflies.forEach(element => {
+            element.updateSettings({ ...element, ...nextProps?.settings });
+        });
+
+        this.setState({
+            ...this.state,
+            firefliesArray: fireflies,
+            settings: { ...nextProps, ...nextProps?.settings },
+        });
+
+        console.log({ nextProps, state: this.state });
+    }
+
+    updateFireflies = () => {
+        const fireflies = this.state.firefliesArray;
         fireflies.forEach((firefly) => {
             firefly.update();
         });

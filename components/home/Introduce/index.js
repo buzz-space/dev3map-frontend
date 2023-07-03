@@ -7,7 +7,7 @@ import Container from "~/components/base/Container";
 export default function Introduce() {
     return <div className={styles['introduce']}>
         <EllipsePlanet />
-        <img src="/imgs/galaxy.png" className={styles['galaxy']} />
+        {/* <img src="/imgs/galaxy.png" className={styles['galaxy']} /> */}
         <Container className={styles['container']}>
             <div className={styles['main']}>
                 <h4 className={styles['title']}>The Interchain

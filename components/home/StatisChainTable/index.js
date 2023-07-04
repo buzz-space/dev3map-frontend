@@ -73,7 +73,7 @@ export default function StatisChainTable() {
         <thead>
             <tr>
                 <th className={styles['chain']}>CHAIN</th>
-                <th>
+                <th className={styles['commits']}>
                     <div className={styles['sort-table']} onClick={() => sort('commits')}>
                         <label>COMMITS</label>
                         <IconSort direct={directSort?.commits} />

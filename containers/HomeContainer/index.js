@@ -15,11 +15,11 @@ function HomeContainer() {
     refetchDeveloper();
   }, [])
   return <div>
-    <Introduce />
+    {/* <Introduce />
     <HonorableMention />
-    <GithubStatistics data={dataCommits?.data} />
+    <GithubStatistics data={dataCommits?.data} /> */}
     <StatisChainTable />
-    <ActiveDevelopers data={dataDeveloper?.data} />
+    {/* <ActiveDevelopers data={dataDeveloper?.data} /> */}
   </div>;
 }
 

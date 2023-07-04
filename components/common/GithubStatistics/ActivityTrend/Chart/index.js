@@ -15,6 +15,7 @@ export default function Chart({ data }) {
         minBarLength: 2,
         // backgroundColor: getBgColor(),
         responsive: true,
+        maintainAspectRatio: false,
         plugins: {
             legend: {
                 display: false,
@@ -44,7 +45,6 @@ export default function Chart({ data }) {
                         weight: 600,
                         size: 14,
                     },
-                    padding: 16,
 
                 },
                 grid: {

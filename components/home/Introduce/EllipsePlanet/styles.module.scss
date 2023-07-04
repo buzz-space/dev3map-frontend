@@ -19,7 +19,10 @@
         background-position: center;
         background-size: contain;
         max-width: 1360px;
-        position: relative;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
 
         .planet-1 {
             position: absolute;
@@ -118,6 +121,105 @@
                 right: 30%;
                 width: 150px;
                 height: 150px;
+            }
+        }
+    }
+
+    @media screen and (max-width: 969px) {
+        .ellipse-1 {
+            width: 120%;
+
+            .planet-1 {
+                position: absolute;
+                bottom: 140px;
+                right: 85px;
+                width: 110px;
+                height: 110px;
+            }
+
+            .planet-2 {
+                position: absolute;
+                bottom: 195px;
+                left: 15px;
+                width: 140px;
+                height: 140px;
+            }
+        }
+
+        .ellipse-2 {
+            width: 160%;
+            .planet-3 {
+                position: absolute;
+                top: 180px;
+                right: 30%;
+                width: 130px;
+                height: 130px;
+            }
+        }
+    }
+
+    @media screen and (max-width: 690px) {
+        .ellipse-1 {
+            width: 180%;
+
+            .planet-1 {
+                position: absolute;
+                bottom: 66px;
+                right: 245px;
+                width: 110px;
+                height: 110px;
+            }
+
+            .planet-2 {
+                position: absolute;
+                bottom: 100px;
+                left: 225px;
+                width: 140px;
+                height: 140px;
+            }
+        }
+
+        .ellipse-2 {
+            width: 240%;
+            .planet-3 {
+                position: absolute;
+                top: 135px;
+                right: 36%;
+                width: 130px;
+                height: 130px;
+            }
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        .ellipse-1 {
+            width: 200%;
+
+            .planet-1 {
+                position: absolute;
+                bottom: 130px;
+                right: 265px;
+                width: 110px;
+                height: 110px;
+            }
+
+            .planet-2 {
+                position: absolute;
+                bottom: 60px;
+                left: 245px;
+                width: 140px;
+                height: 140px;
+            }
+        }
+
+        .ellipse-2 {
+            width: 280%;
+            .planet-3 {
+                position: absolute;
+                top: 205px;
+                right: 36%;
+                width: 130px;
+                height: 130px;
             }
         }
     }

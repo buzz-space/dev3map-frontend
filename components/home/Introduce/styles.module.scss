@@ -113,6 +113,37 @@
                 }
             }
         }
+    }
 
+    @media screen and (max-width: 969px) {
+        .container {
+            .main {
+                padding-top: 180px;
+                padding-bottom: 180px;
+                .title {
+                    font-size: 48px;
+                }
+
+                .des {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        .container {
+            .main {
+                padding-top: 240px;
+                padding-bottom: 240px;
+                .title {
+                    font-size: 48px;
+                }
+
+                .des {
+                    font-size: 14px;
+                }
+            }
+        }
     }
 }

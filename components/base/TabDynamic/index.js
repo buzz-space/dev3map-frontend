@@ -17,24 +17,33 @@ export default function TabDynamic({ data = [], setIndexActive = () => { } }) {
     const indicatorRef = useRef();
     const tabRef = useRef();
     const [active, setActive] = useState(0);
-    const [tabs, setTabs] = useState([]);
-    useEffect(() => {
-        if (data?.length > 0) {
-            let indicator = indicatorRef.current;
-            let tabs = tabRef.current.querySelectorAll('.' + styles['tab-item']);
-            setTabs(tabs);
-            indicator.style.width = tabs[0].getBoundingClientRect().width + 'px';
-            indicator.style.left = tabs[0].getBoundingClientRect().left - tabs[0].parentElement.getBoundingClientRect().left + 'px'
-            setIndexActive(0);
-        }
-    }, [])
-    useEffect(() => {
+
+    function fn () {
+        let tabs = tabRef.current.querySelectorAll('.' + styles['tab-item']);
         if (tabs) {
             let indicator = indicatorRef.current;
             let tab = tabs[active];
             indicator.style.width = tab?.getBoundingClientRect().width + 'px';
             indicator.style.left = tab?.getBoundingClientRect().left - tab?.parentElement.getBoundingClientRect().left + 'px'
             setIndexActive(active);
+        }
+    }
+
+    useEffect(() => {
+        if (data?.length > 0) {
+            let indicator = indicatorRef.current;
+            let tabs = tabRef.current.querySelectorAll('.' + styles['tab-item']);
+            indicator.style.width = tabs[0].getBoundingClientRect().width + 'px';
+            indicator.style.left = tabs[0].getBoundingClientRect().left - tabs[0].parentElement.getBoundingClientRect().left + 'px'
+            setIndexActive(0);
+        }
+    }, [])
+    useEffect(() => {
+        fn ();
+        window.addEventListener ('resize', fn);
+
+        return () => {
+            window.removeEventListener ('resize', fn);
         }
     }, [active]);
     function onClick(index) {

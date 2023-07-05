@@ -60,4 +60,10 @@
             }
         }
     }
+
+    @media screen and (max-width: $small-device) {
+        row-gap: 32px;
+        column-gap: 16px;
+        margin-top: 32px;
+    }
 }

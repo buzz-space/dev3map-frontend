@@ -5,7 +5,7 @@
     display: flex;
     align-items: center;
     max-width: 867px;
-
+    width: 100%;
     input {
         flex: 1;
         color: #FFFFFF;
@@ -22,4 +22,5 @@
         cursor: pointer;
         user-select: none;
     }
+
 }

@@ -1,7 +1,7 @@
 import { minLength, maxLength, isEmail, leastSpecialChar, leastUpChar, isPhone } from '~/validate';
 
 export function validateUtils(str, validates = {}, transText = {}) {
-  console.log(transText);
+  // console.log(transText);
   if (str?.length > 0) {
     for (const [key, value] of Object.entries(validates)) {
       if (value) {

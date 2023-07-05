@@ -14,33 +14,33 @@ export default function GithubStatistics({ data = {} }) {
     function getMaxDivisibleSubarray(arr) {
         let maxLength = 0;
         let maxLengthIndex = -1;
-      
+
         for (let i = 0; i < arr.length; i++) {
-          let currentLength = 0;
-      
-          for (let j = i; j < arr.length; j++) {
-            currentLength += 1;
-      
-            if (currentLength % 4 === 0 && currentLength > maxLength) {
-              maxLength = currentLength;
-              maxLengthIndex = i;
+            let currentLength = 0;
+
+            for (let j = i; j < arr.length; j++) {
+                currentLength += 1;
+
+                if (currentLength % 4 === 0 && currentLength > maxLength) {
+                    maxLength = currentLength;
+                    maxLengthIndex = i;
+                }
             }
-          }
         }
-      
+
         if (maxLengthIndex === -1) {
-          return [];
+            return [];
         } else {
-          return arr.slice(maxLengthIndex, maxLengthIndex + maxLength);
+            return arr.slice(maxLengthIndex, maxLengthIndex + maxLength);
         }
-      }
+    }
 
     useEffect(() => {
-        function fn () {
+        function fn() {
             if (data?.commit_chart) {
                 let dt = [];
                 if (window.innerWidth < 600) {
-                    dt = [...data?.commit_chart].slice (0, (window.innerWidth - 100) / 10);
+                    dt = [...data?.commit_chart].slice(0, (window.innerWidth - 100) / 10);
                 }
                 else {
                     dt = data?.commit_chart
@@ -66,13 +66,12 @@ export default function GithubStatistics({ data = {} }) {
                     }, { addition: [], deletion: [] })
                     return value;
                 })
-                console.log (dt.length);
             }
         }
-        fn ();
-        window.addEventListener ('resize', fn);
+        fn();
+        window.addEventListener('resize', fn);
         return () => {
-            window.removeEventListener ('resize', fn);
+            window.removeEventListener('resize', fn);
         }
     }, [data])
     return <Container className={styles['container']}>

@@ -13,7 +13,7 @@ export default function Form({
   inputs,
   className,
   style,
-  onSubmit = () => {},
+  onSubmit = () => { },
   hookForm = {},
   submitText,
 }) {
@@ -45,7 +45,6 @@ export default function Form({
   useEffect(() => {
     const subscription = watch((value, { name, type }) => {
       // setTypeError(name, 'Đây là 1 lỗi');
-      console.log(type);
       let x = validateUtils(value[name], fieldsDataObject[name]?.validates, transText);
       setTypeError(name, x);
       const allPropsEmpty = Object.values({ ...error, [name]: x }).every((val) => val === '');
@@ -75,7 +74,7 @@ export default function Form({
     function resize(e) {
       setWidthDevice(window.innerWidth);
     }
-    resize ();
+    resize();
     window.addEventListener('resize', resize);
     return () => {
       window.removeEventListener('resize', resize);

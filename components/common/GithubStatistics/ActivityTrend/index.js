@@ -9,6 +9,7 @@ import Chart from "./Chart";
 import MentionChart from "./MentionChart";
 import Button from "~/components/base/Button";
 import { handleMonth } from "~/utils/strings";
+import NoData from "./NoData";
 export default function ActivityTrend({ userCode = [], userCommit = [] }) {
     const [activeTypeStatis, setActiveStatis] = useState(0);
     const [mention, setMention] = useState([{
@@ -104,9 +105,20 @@ export default function ActivityTrend({ userCode = [], userCommit = [] }) {
                     }
                 </div>
             </div>
-            <div className={styles['chart']}>
-                <Chart data={data} />
-            </div>
+            {
+                activeTypeStatis === 0 ?
+                    userCommit?.length === 0 ?
+                        <NoData /> :
+                        <div className={styles['chart']}>
+                            <Chart data={data} />
+                        </div>
+                    :
+                    userCode?.addition?.length === 0 && userCode?.deletion?.length === 0 ?
+                        <NoData /> :
+                        <div className={styles['chart']}>
+                            <Chart data={data} />
+                        </div>
+            }
         </div>
     </div>
 }

@@ -28,7 +28,7 @@
         &.active {
             label {
                 border-bottom: 1px solid #fff;
-
+                /* Non standard for WebKit */
             }
         }
     }

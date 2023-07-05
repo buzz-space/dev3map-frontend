@@ -18,9 +18,11 @@ export default function InforHonorable({ data }) {
                 <ArrowUpRight />
             </a>
         </Link>
-        <p className={styles['description']}>
-            {data?.description}
-        </p>
+        {
+            data?.description && <p className={styles['description']}>
+                {data?.description}
+            </p>
+        }
         <label className={styles['key-metric']}>KEY METRIC</label>
         <div className={styles['metric']}>
             <Metric label="COMMITS COUNTS" number={Number(data?.total_commit)} />

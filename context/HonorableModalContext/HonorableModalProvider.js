@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import HonorableModal from '~/components/home/HonorableModal';
 
 export const HonorableModalContext = createContext();
@@ -11,6 +11,13 @@ const HonorableProvider = ({ children }) => {
         setTitle(title);
         setDataRepo(data);
     }
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflowY = 'hidden';
+        } else {
+            document.body.style.overflowY = 'auto';
+        }
+    }, [isOpen])
     return <HonorableModalContext.Provider value={{ isOpen, setIsOpen, setData, data, title }}>
         <HonorableModal />
         {children}

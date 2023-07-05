@@ -7,7 +7,7 @@
     flex-direction: column;
     width: 30%;
     padding: 0 24px;
-
+    min-width: 340px;
     /* width */
     &::-webkit-scrollbar {
         width: 6px;
@@ -62,20 +62,63 @@
             justify-content: center;
             column-gap: 12px;
             flex: 1;
-
+            margin-right: 12px;
+            margin-left: 12px;
+            position: relative;
             .logo {
                 height: 40px;
+                width: 40px;
                 border-radius: 100rem;
             }
 
             .name {
                 color: #FFF;
                 font-size: 20px;
+                text-align: center;
+                display: inline-block;
+                width: auto;
+                // width: min-content;
+                // word-wrap: wrap;
             }
 
             [role="icon-default"] {
                 width: 16px;
                 height: 16px;
+            }
+        }
+    }
+
+    @media screen and (max-width: 969px) {
+        width: 100%;
+        min-width: 0;
+    }
+
+    @media screen and (max-width: $small-device) {
+        max-height: 320px;
+        padding: 0 16px;
+        .item {
+            padding-top: 16px;
+            padding-bottom: 16px;
+            .index {
+                font-size: 12px;
+            }
+            .repo {
+                column-gap: 8px;
+                margin-right: 6px;
+                margin-left: 6px;
+                .logo {
+                    height: 32px;
+                    width: 32px;
+                }
+    
+                .name {
+                    font-size: 14px;
+                }
+    
+                [role="icon-default"] {
+                    width: 16px;
+                    height: 16px;
+                }
             }
         }
     }

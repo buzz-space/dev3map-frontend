@@ -1,6 +1,4 @@
 .metric {
-
-
     .label {
         color: #FFF;
         font-size: 14px;
@@ -11,5 +9,9 @@
         color: $color-primary;
         font-size: 14px;
         font-weight: 800;
+    }
+
+    @media screen and (max-width: $small-device) {
+        
     }
 }

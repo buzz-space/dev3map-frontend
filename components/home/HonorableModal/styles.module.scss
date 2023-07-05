@@ -47,7 +47,8 @@
         right: 0;
         background-color: #202020;
         padding-bottom: 20px;
-
+        max-height: 100vh;
+        overflow: auto;
         .container {
             .head {
                 display: flex;
@@ -96,6 +97,44 @@
                     display: flex;
                     column-gap: 24px;
                     width: 100%;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 969px) {
+        .popup {
+            .container {
+                .body {
+                    .main {
+                        row-gap: 24px;
+                        flex-direction: column;
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: $small-device) {
+        .popup {
+            padding-bottom: 40px;
+            .container {
+                .head {
+                    margin-top: 24px;
+                }
+
+                .body {
+                    .title {
+                        font-size: 24px;
+                        margin-bottom: 40px;
+                        margin-top: 24px;
+                    }
+
+                    .main {
+                        display: flex;
+                        column-gap: 24px;
+                        width: 100%;
+                    }
                 }
             }
         }

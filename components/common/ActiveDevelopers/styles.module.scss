@@ -11,5 +11,21 @@
     .charts {
         display: flex;
         column-gap: 24px;
+        row-gap: 24px;
+    }
+
+    @media screen and (max-width: $small-device) {
+        margin-top: 96px;
+    }
+
+    @media screen and (max-width: 946px) {
+        row-gap: 24px;
+        .title {
+            margin-bottom: 8px;
+        }
+        .charts {
+            flex-direction: column;
+            margin-bottom: 8px;
+        }
     }
 }

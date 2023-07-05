@@ -6,7 +6,8 @@
     padding: 8px;
     width: max-content;
     position: relative;
-
+    max-width: 100%;
+    // flex-wrap: wrap;
     .active-rounded {
         position: absolute;
         top: 50%;
@@ -65,4 +66,19 @@
             }
         }
     }
+
+    @media screen and (max-width: 444px) {
+        padding: 6px;
+        .active-rounded {
+            height: calc(100% - 12px);
+        }
+        .tab-item {
+            padding: 6px 10px;
+            column-gap: 2px;
+            label {
+                font-size: 12px;
+            }
+        }
+    }
+    
 }

@@ -1,6 +1,11 @@
 .statis-list-card {
     display: flex;
     column-gap: 24px;
+    row-gap: 24px;
     width: 100%;
     align-items: stretch;
+
+    @media screen and (max-width: 946px) {
+        flex-direction: column;
+    }
 }

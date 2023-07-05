@@ -82,7 +82,6 @@ export default function ChartLayout({ description, data }) {
                             weight: 600,
                             size: 14,
                         },
-                        padding: 12,
                         beginAtZero: true,
 
 

@@ -6,4 +6,9 @@
     margin-top: 80px;
 
     .load-more {}
+
+    @media screen and (max-width: $small-device) {
+        row-gap: 40px;
+        margin-top: 40px;
+    }
 }

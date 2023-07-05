@@ -1,12 +1,25 @@
 import { Chart as ChartJS, registerables } from 'chart.js';
+import { useEffect, useRef } from 'react';
 import { Bar } from "react-chartjs-2";
 import baseCss from '~/public/styles/base.module.scss';
 
 ChartJS.register(...registerables);
 
 export default function Chart({ data }) {
+    const chartRef = useRef();
 
-    return <Bar data={
+    useEffect(() => {
+        function resize() {
+            if (chartRef.current) chartRef.current.resize();
+        }
+
+        window.addEventListener('resize', resize);
+        return () => {
+            window.removeEventListener('resize', resize);
+        }
+    }, [])
+
+    return <Bar ref={chartRef} data={
         data
     } options={{
         barPercentage: 0.8,

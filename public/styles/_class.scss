@@ -13,6 +13,14 @@
     // display: flex;
     // align-items: center;
     // column-gap: 24px;
+
+    @media screen and (max-width: $small-device) {
+        font-size: 24px;
+        [role="icon-title"] {
+            width: 32px;
+            height: 32px;
+        }
+    }
 }
 
 .planet {

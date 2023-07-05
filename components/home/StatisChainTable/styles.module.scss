@@ -34,11 +34,13 @@
     .table {
         width: 100%;
         position: relative;
-        min-width: 1000px;
-        thead {
-            position: relative;
+        min-width: 900px;
 
-        }
+        // min-width: 1000px;
+        // thead {
+        //     position: relative;
+
+        // }
         .row {
             transition: 0.3s;
             cursor: pointer;
@@ -50,9 +52,6 @@
 
             &:hover {
                 background-color: #202020;
-                td:first-child {
-                    background-color: #202020;
-                }
                 .chain {
                     padding-left: 12px;
                 }
@@ -82,27 +81,13 @@
         // th:first-child {
         //     z-index: 1000;
         // }
-
         th {
-            // border-bottom: 1px solid rgba(255, 255, 255, 0.24);
             padding-bottom: 24px;
-            // border-bottom: 1px solid rgba(255, 255, 255, 0.24);
             position: sticky;
             position: -webkit-sticky;
             z-index: 999;
             top: 0;
-            backface-visibility: hidden;
-            transform: translateZ(0);
             background-color: $color-background;
-            &::before {
-                content: "";
-                position: absolute;
-                left: 0;
-                right: 0;
-                top: -100px;
-                height: 100px;
-                background-color: red;
-            }
             .sort-table {
                 cursor: pointer;
                 display: flex;
@@ -134,6 +119,7 @@
                 display: flex;
                 column-gap: 24px;
                 align-items: center;
+                max-width: 400px;
                 cursor: pointer;
                 * {
                     cursor: pointer;

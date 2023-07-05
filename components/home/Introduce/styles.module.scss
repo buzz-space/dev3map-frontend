@@ -131,19 +131,32 @@
         }
     }
 
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: $small-device) {
         .container {
             .main {
                 padding-top: 240px;
                 padding-bottom: 240px;
                 .title {
-                    font-size: 48px;
+                    font-size: 32px;
                 }
-
+    
                 .des {
-                    font-size: 14px;
+                    font-size: 16px;
                 }
+            }
+        }      
+    }
+
+    @media screen and (max-width: 600px) {
+        .container {
+            .main {
+                padding-top: 240px;
+                padding-bottom: 240px;
+               
             }
         }
     }
+
+
+
 }

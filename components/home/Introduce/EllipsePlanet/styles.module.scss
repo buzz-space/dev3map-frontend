@@ -150,8 +150,8 @@
             width: 160%;
             .planet-3 {
                 position: absolute;
-                top: 180px;
-                right: 30%;
+                top: 15%;
+                right: 33%;
                 width: 130px;
                 height: 130px;
             }
@@ -183,7 +183,7 @@
             width: 240%;
             .planet-3 {
                 position: absolute;
-                top: 135px;
+                top: 165px;
                 right: 36%;
                 width: 130px;
                 height: 130px;
@@ -217,6 +217,135 @@
             .planet-3 {
                 position: absolute;
                 top: 205px;
+                right: 36%;
+                width: 130px;
+                height: 130px;
+            }
+        }
+    }
+
+    @media screen and (max-width: 520px) {
+        .ellipse-1 {
+            width: 240%;
+
+            .planet-1 {
+                position: absolute;
+                bottom: 130px;
+                right: 265px;
+                width: 110px;
+                height: 110px;
+            }
+
+            .planet-2 {
+                position: absolute;
+                bottom: 60px;
+                left: 245px;
+                width: 140px;
+                height: 140px;
+            }
+        }
+
+        .ellipse-2 {
+            width: 320%;
+            .planet-3 {
+                position: absolute;
+                top: 20%;
+                right: 36%;
+                width: 130px;
+                height: 130px;
+            }
+        }
+    }
+    @media screen and (max-width: 420px) {
+        .ellipse-1 {
+            width: 280%;
+
+            .planet-1 {
+                position: absolute;
+                bottom: 130px;
+                right: 265px;
+                width: 110px;
+                height: 110px;
+            }
+
+            .planet-2 {
+                position: absolute;
+                bottom: 60px;
+                left: 245px;
+                width: 140px;
+                height: 140px;
+            }
+        }
+
+        .ellipse-2 {
+            width: 380%;
+            .planet-3 {
+                position: absolute;
+                top: 20%;
+                right: 36%;
+                width: 130px;
+                height: 130px;
+            }
+        }
+    }
+    @media screen and (max-width: 350px) {
+        .ellipse-1 {
+            width: 320%;
+
+            .planet-1 {
+                position: absolute;
+                bottom: 130px;
+                right: 265px;
+                width: 110px;
+                height: 110px;
+            }
+
+            .planet-2 {
+                position: absolute;
+                bottom: 60px;
+                left: 245px;
+                width: 140px;
+                height: 140px;
+            }
+        }
+
+        .ellipse-2 {
+            width: 420%;
+            .planet-3 {
+                position: absolute;
+                top: 20%;
+                right: 36%;
+                width: 130px;
+                height: 130px;
+            }
+        }
+    }
+    @media screen and (max-width: 320px) {
+        .ellipse-1 {
+            width: 380%;
+
+            .planet-1 {
+                position: absolute;
+                bottom: 130px;
+                right: 265px;
+                width: 110px;
+                height: 110px;
+            }
+
+            .planet-2 {
+                position: absolute;
+                bottom: 60px;
+                left: 245px;
+                width: 140px;
+                height: 140px;
+            }
+        }
+
+        .ellipse-2 {
+            width: 480%;
+            .planet-3 {
+                position: absolute;
+                top: 20%;
                 right: 36%;
                 width: 130px;
                 height: 130px;

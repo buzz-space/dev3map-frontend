@@ -1,19 +1,17 @@
 import * as React from 'react';
-const SvgCommitHorizontal = ({ title, titleId, ...props }) => (
+const SvgCommitHorizontal = (props) => (
   <svg
     width="24px"
     height="24px"
-    viewBox="0 0 64 64"
+    viewBox="0 0 32 32"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    role={`icon-default`}
-    aria-labelledby={titleId}
+    role={'icon-default'}
     {...props}
   >
-    {title ? <title id={titleId}>{title}</title> : null}
     <path
-      d="M40 32a8 8 0 0 1-16 0m16 0a8 8 0 0 0-16 0m16 0h16m-32 0H8"
-      stroke={`currentColor`}
+      d="M20 16a4 4 0 1 1-8 0m8 0a4 4 0 1 0-8 0m8 0h8m-16 0H4"
+      stroke={'currentColor'}
       strokeLinecap="round"
       strokeLinejoin="round"
     />

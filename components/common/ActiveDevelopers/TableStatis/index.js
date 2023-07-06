@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./styles.module.scss";
 import { Infor } from "~/public/assets/svgs";
+import { formatNumber } from "~/utils/number";
 
 const data = [
     {
@@ -36,7 +37,7 @@ const data = [
 
 export default function TableStatis({ data = {} }) {
     const [dataTable, setDataTable] = useState([])
-    console.log(data)
+    // console.log(data)
     useEffect(() => {
         setDataTable(() => {
             const dt = [];
@@ -106,11 +107,11 @@ export default function TableStatis({ data = {} }) {
                                     }
                                 </div>
                             </td>
-                            <td>{item?.ath}</td>
-                            <td>{item?.atl}</td>
-                            <td>{item?.this_month}</td>
-                            <td>{item?.this_year}</td>
-                            <td>{item?.all_time}</td>
+                            <td>{formatNumber(item?.ath)}</td>
+                            <td>{formatNumber(item?.atl)}</td>
+                            <td>{formatNumber(item?.this_month)}</td>
+                            <td>{formatNumber(item?.this_year)}</td>
+                            <td>{formatNumber(item?.all_time)}</td>
                         </tr>
                     })
                 }

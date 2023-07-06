@@ -6,30 +6,36 @@
     border-collapse: collapse;
 
     /* width */
-    &::-webkit-scrollbar {
-        width: 6px;
-        height: 6px;
+    
+    @mixin styleScrollBar () {
+        &::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+    
+        /* Track */
+        &::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.12);
+    
+            border-radius: 100rem;
+    
+        }
+    
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+            background: $color-secondary;
+            border-radius: 100rem;
+    
+        }
+    
+        /* Handle on hover */
+        &::-webkit-scrollbar-thumb:hover {
+            background: #02b9a7;
+        }
+    
     }
 
-    /* Track */
-    &::-webkit-scrollbar-track {
-        background: rgba(255, 255, 255, 0.12);
-
-        border-radius: 100rem;
-
-    }
-
-    /* Handle */
-    &::-webkit-scrollbar-thumb {
-        background: $color-secondary;
-        border-radius: 100rem;
-
-    }
-
-    /* Handle on hover */
-    &::-webkit-scrollbar-thumb:hover {
-        background: #02b9a7;
-    }
+    @include styleScrollBar();
 
     .table {
         width: 100%;
@@ -182,10 +188,92 @@
             }
         }
     }
+    .table-responsive {
+        display: none;
+    }
     @media screen and (max-width: $small-device) {
+        height: max-content;
+        max-height: none;
         .table {
+            display: none;
             td:first-child, th:first-child {
                 width: 30%;
+            }
+        }
+        .table-responsive {
+            display: flex;
+            flex-direction: column;
+            .head {
+                color: #FFF;
+                font-size: 12px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                padding-bottom: 16px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.24);
+            }
+            .body {
+                display: flex;
+                flex-direction: column;
+                height: max-content;
+                max-height: 420px;
+                overflow: auto;
+                @include styleScrollBar();
+                .chain {
+                    display: flex;
+                    column-gap: 12px;
+                    padding-top: 16px;
+                    padding-bottom: 24px;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.24);
+                    cursor: pointer;
+                    transition: 0.3s;
+                    * {
+                        cursor: pointer;
+                    }
+                    &:hover {
+                        background-color: #202020;
+                        padding-left: 8px;
+                    }
+                    &:last-child {
+                        border-bottom: none;
+                    }
+                    .logo {
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 100rem;
+                        object-fit: cover;
+                    }
+                    .infor {
+                        display: flex;
+                        flex-direction: column;
+
+                        .name {
+                            color: #FFF;
+                            font-size: 14px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: normal;
+                        }
+
+                        .github-prefix {
+                            color: #FFF;
+                            font-size: 14px;
+                            font-style: normal;
+                            font-weight: 400;
+                            line-height: normal;
+                            margin-top: 4px;
+                            margin-bottom: 8px;
+                        }
+
+                        .infor-more {
+                            display: flex;
+                            align-items: center;
+                            flex-wrap: wrap;
+                            column-gap: 24px;
+                            row-gap: 8px;
+                        }
+                    }
+                }
             }
         }
     }

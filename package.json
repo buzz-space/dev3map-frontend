@@ -9,8 +9,8 @@
     "lint": "next lint",
     "prepare": "husky install",
     "pre-commit": "next lint --fix && git add -A .",
-    "svgr": "svgr --icon 24px --title-prop --svg-props role={'`icon-default`'} --replace-attr-values '#1E1E1E={`currentColor`}' -d public/assets/svgs -- public/imgs/icons",
-    "svgr-title": "svgr --icon 48px --title-prop --svg-props role={'`icon-title`'} --replace-attr-values '#fff={`currentColor`}' -d public/assets/svgs-title -- public/imgs/icon-title"
+    "svgr": "svgr --icon 24px  --svg-props role={'icon-default'} --replace-attr-values #1E1E1E={'currentColor'} -d public/assets/svgs -- public/imgs/icons",
+    "svgr-title": "svgr --icon 48px  --svg-props role={'icon-title'} --replace-attr-values #fff={'currentColor'} -d public/assets/svgs-title -- public/imgs/icon-title"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",

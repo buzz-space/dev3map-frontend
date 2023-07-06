@@ -6,6 +6,9 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import IconSort from "./IconSort";
+import OtherInforRes from "./OtherInforRes";
+import { Checkbox, Commit, CommitHorizontal, Fork, Person, Star } from "~/public/assets/svgs";
+import { formatNumber } from "~/utils/number";
 
 export default function StatisChainTable() {
     const { data, refetch } = useGetChainList();
@@ -69,7 +72,6 @@ export default function StatisChainTable() {
         setDataTable(dt);
     }
 
-    console.log('a');
 
     return <Container className={styles['container']}>
         <div className={styles['container-inside']}>
@@ -117,7 +119,7 @@ export default function StatisChainTable() {
                             return <tr key={item?.id} className={styles['row']} onClick={() => {
                                 router.push(`/projects/${item?.github_prefix}`)
                             }}>
-                                <td>
+                                <td className={styles['td-chain']}>
                                     <div className={styles['chain']}>
                                         <img className={styles['logo']} src={item?.avatar} />
                                         <div className={styles['infor-chain']}>
@@ -126,16 +128,48 @@ export default function StatisChainTable() {
                                         </div>
                                     </div>
                                 </td>
-                                <td className={styles['commits']}>{item?.total_commit}</td>
-                                <td className={styles['contributors']}>{item?.total_contributor}</td>
-                                <td className={styles['issues-solved']}>{item?.total_issue_solved}</td>
-                                <td className={styles['stars']}>{item?.total_star}</td>
-                                <td className={styles['forks']}>{item?.total_fork}</td>
+                                <td className={styles['commits']}>{formatNumber(item?.total_commit)}</td>
+                                <td className={styles['contributors']}>{formatNumber(item?.total_contributor)}</td>
+                                <td className={styles['issues-solved']}>{formatNumber(item?.total_issue_solved)}</td>
+                                <td className={styles['stars']}>{formatNumber(item?.total_star)}</td>
+                                <td className={styles['forks']}>{formatNumber(item?.total_fork)}</td>
                             </tr>
                         })
                     }
                 </tbody>
             </table>
+        </div>
+        <div className={styles['table-responsive']}>
+            <div className={styles['head']}>
+                CHAIN
+            </div>
+            <div className={styles['body']}>
+                {
+                    dataTable.map((item, index) => {
+                        return <div className={styles['chain']} onClick={() => {
+                            router.push(`/projects/${item?.github_prefix}`)
+                        }}>
+                            <img src={item?.avatar} className={styles['logo']} />
+                            <div className={styles['infor']}>
+                                <label className={styles['name']}>
+                                    {item?.name}
+                                </label>
+                                <label className={styles['github-prefix']}>
+                                    {item?.github_prefix}
+                                </label>
+                                <div className={styles['infor-more']}>
+                                    <OtherInforRes icon={<CommitHorizontal />} colorIcon={'#03DAC6'} value={item?.total_commit} />
+                                    <OtherInforRes icon={<Person />} colorIcon={'#03DAC6'} value={item?.total_contributor} />
+                                    <OtherInforRes icon={<Checkbox />} colorIcon={'#03DAC6'} value={item?.total_issue_solved} />
+                                    <OtherInforRes icon={<Star />} colorIcon={'#BB86FC'} value={item?.total_star} />
+                                    <OtherInforRes icon={<Fork />} colorIcon={'#03DAC6'} value={item?.total_fork} />
+
+                                </div>
+                            </div>
+                        </div>
+                    })
+                }
+            </div>
         </div>
     </Container>
 

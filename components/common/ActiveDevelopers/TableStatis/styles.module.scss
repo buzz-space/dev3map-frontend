@@ -140,10 +140,26 @@
         th:first-child, td:first-child {
             position: sticky;
             left: 0;
-            max-width: 160px;
+            width: 125px;
             background-color: $color-background;
-            box-shadow: 6px 0 $color-black;
+            // box-shadow: 6px 0 $color-black;
             max-width: 30%;
+            .description {
+                top: 50%;
+                transform: translateY(-30%);
+                left: 100%;
+                max-width: 180px;
+                
+            }
+            @media screen and (max-width:380px) {
+                width: 115px;
+                .description {
+                    transform: translateY(-20%);
+                    max-width: calc(100vw - 30px - 145px);
+                    font-size: 12px;
+                    padding: 12px;
+                }
+            }
         }
 
         .commits {

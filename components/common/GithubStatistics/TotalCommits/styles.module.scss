@@ -49,4 +49,28 @@
         color: #FFFFFF;
         margin-top: auto;
     }
+
+    @media screen and (max-width: 1300px) {
+        width: 100%;
+        row-gap: 16px;
+    }
+
+    @media screen and (max-width: $small-device) {
+        row-gap: 8px;
+        .commit-icon {
+            [role="icon-default"] {
+                width: 32px;
+                height: 32px;
+            }
+        }
+        .total-number {
+            font-size: 24px;
+            line-height: 30px;
+        }
+    
+        .time {
+            margin-top: 24px;
+        }
+    
+    }
 }

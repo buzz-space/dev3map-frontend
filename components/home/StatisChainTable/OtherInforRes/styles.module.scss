@@ -1,0 +1,17 @@
+.other-infor-res {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+    [role="icon-default"] {
+        color: currentColor;
+        width: 24px;
+        height: 24px;
+    }
+    label {
+        color: #FFF;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+}

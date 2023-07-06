@@ -41,4 +41,17 @@
         color: #FFFFFF;
 
     }
+
+    @media screen and (max-width: 636px) {
+        padding: 16px;
+
+        .number {
+            font-size: 18px;
+            line-height: 22px;
+        }
+        .type {
+            margin-top: 8px;
+            margin-bottom: 24px;
+        }
+    }
 }

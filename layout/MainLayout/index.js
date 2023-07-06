@@ -23,6 +23,16 @@ export default function MainLayout({ children, title = '', currentPage = '', dat
             "window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);}gtag('js', new Date()); gtag('config', 'G-BDHNFW2Q5M');",
         }}
       ></script> */}
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-3K283PFLYL"></script>
+      <script dangerouslySetInnerHTML={{
+        __html: `window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-3K283PFLYL');
+          `
+      }}>
+      </script >
       <Head>
         <title>{titlePage}</title>
         <meta charSet="UTF-8" />

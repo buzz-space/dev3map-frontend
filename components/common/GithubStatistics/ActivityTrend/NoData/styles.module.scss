@@ -1,0 +1,12 @@
+.no-data {
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 56px;
+    font-weight: 800;
+
+    @media screen and (max-width: $small-device) {
+        font-size: 36px;
+        margin-top: 36px;
+    }
+}

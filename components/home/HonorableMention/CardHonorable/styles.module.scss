@@ -9,6 +9,12 @@
     border: 2px solid transparent;
     position: relative;
     overflow: hidden;
+    min-width: 360px;
+
+    @media screen and (max-width: 400px) {
+        min-width: 0px;
+        width: 100%;
+    }
 
     // &::before {
     //     content: "";
@@ -134,5 +140,43 @@
         bottom: 0;
         right: 0;
         width: 90px;
+    }
+
+    @media screen and (max-width: $small-device) {
+            .head {
+                .title {
+                    font-size: 18px;
+                    line-height: 24px;
+                }
+
+                [role="icon-default"] {
+                    width: 16px;
+                    height: 16px;
+                }
+
+            }
+            .rank {
+                margin-top: 24px;
+            }
+
+            .repo {
+                margin-bottom: 24px;
+
+                .logo {
+                    height: 32px;
+                    border-radius: 100rem;
+                }
+
+                .name {
+                    font-size: 18px;
+                }
+            }
+
+            .img-bottom-right {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                width: 75px;
+            }
     }
 }

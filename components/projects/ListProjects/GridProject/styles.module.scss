@@ -64,4 +64,49 @@
     .more {
         margin-top: 40px;
     }
+
+    @media screen and (max-width: $small-device) {
+        .title {
+            font-size: 18px;
+        }
+        .grid {
+            row-gap: 16px;
+            column-gap: 12px;
+            margin-top: 32px;
+            .item {
+                .logo {
+                    height: 48px;
+                }
+                .name {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 1325px) {
+        .grid {
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+        }
+    }
+    @media screen and (max-width: 1000px) {
+        .grid {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+    }
+    @media screen and (max-width: 768px) {
+        .grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+    }
+    @media screen and (max-width: 454px) {
+        .grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+    @media screen and (max-width:325px) {
+        .grid {
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
+    }
 }

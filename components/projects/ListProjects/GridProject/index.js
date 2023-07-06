@@ -11,7 +11,6 @@ export default function GridProject({ title, numberProject, projects = [] }) {
     const [showAll, setShowAll] = useState(false);
     function filterSearch(list) {
         return list?.filter((item, index) => {
-            console.log(item?.name)
             return item?.name?.toLowerCase()?.includes(search?.toLowerCase());
         })
     }

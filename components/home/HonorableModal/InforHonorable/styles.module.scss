@@ -70,10 +70,10 @@
         color: #FFF;
         font-size: 16px;
         margin-top: 40px;
-        margin-bottom: 40px;
     }
 
     .key-metric {
+        margin-top: 40px;
         text-transform: uppercase;
         color: #FFF;
         font-size: 32px;
@@ -88,5 +88,33 @@
         padding: 24px 0;
         border-top: 1px solid rgba(255, 255, 255, 0.24);
         border-bottom: 1px solid rgba(255, 255, 255, 0.24);
+    }
+
+    @media screen and (max-width: $small-device) {
+        max-height: none;
+
+        .repo {
+            column-gap: 12px;
+            .logo {
+                height: 32px;
+            }
+            .name {
+                font-size: 18px;
+            }
+        }
+
+        .description {
+            font-size: 14px;
+        }
+
+        .key-metric {
+            font-size: 18px;
+        }
+
+        .metric {
+            flex-direction: column;
+            row-gap: 24px;
+            align-items: flex-start;
+        }
     }
 }

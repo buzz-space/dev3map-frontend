@@ -5,6 +5,9 @@
     line-height: 59px;
     /* identical to box height */
 
+    * {
+        margin: auto;
+    }
 
     color: #FFFFFF;
 
@@ -12,57 +15,67 @@
 
     // display: flex;
     // align-items: center;
-    // column-gap: 24px;
+    // column-gap: 12px;
+
+    @media screen and (max-width: $small-device) {
+        font-size: 24px;
+        line-height: 32px;
+        [role="icon-title"] {
+            width: 32px;
+            height: 32px;
+        }
+    }
 }
 
 .planet {
-    animation: identifier 3s linear infinite;
+    // animation: identifier 3s linear infinite;
 
     &.reverse {
         animation: identifier-reverse 3s linear infinite;
 
         @keyframes identifier-reverse {
             0% {
-                transform: translate(0);
+                transform: rotate(75 1253.57 485.021) translateY(0);
             }
 
             25% {
-                transform: translateY(10px);
+                transform: rotate(75 1253.57 485.021) translateY(10px);
             }
 
             50% {
-                transform: translateY(5px);
+                transform: rotate(75 1253.57 485.021) translateY(5px);
             }
 
             75% {
-                transform: translateY(-5px);
+                transform: rotate(75 1253.57 485.021) translateY(-5px);
             }
 
             100% {
-                transform: translate(0);
+                transform: rotate(75 1253.57 485.021) translateY(0);
             }
         }
     }
-
+    $x : -130px;
+    transform: translate($x, 18px);
     @keyframes identifier {
         0% {
-            transform: translate(0);
+            transform: translate($x, 0);
         }
 
         25% {
-            transform: translateY(-10px);
+            transform:  translate($x, -10px);
         }
 
         50% {
-            transform: translateY(-5px);
+            transform: translate($x, -5px);
         }
 
         75% {
-            transform: translateY(5px);
+            transform: translate($x, 5px);
         }
 
         100% {
-            transform: translate(0);
+            transform:  translate($x, 0);
         }
     }
 }

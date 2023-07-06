@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./styles.module.scss";
 import { Infor } from "~/public/assets/svgs";
+import { formatNumber } from "~/utils/number";
 
 const data = [
     {
@@ -36,7 +37,7 @@ const data = [
 
 export default function TableStatis({ data = {} }) {
     const [dataTable, setDataTable] = useState([])
-    console.log(data)
+    // console.log(data)
     useEffect(() => {
         setDataTable(() => {
             const dt = [];
@@ -75,44 +76,46 @@ export default function TableStatis({ data = {} }) {
             return dt
         })
     }, [data])
-    return <table className={styles['table']}>
-        <thead>
-            <tr>
-                <th>DEV TYPE</th>
-                <th>ATH</th>
-                <th>ATL</th>
-                <th>THIS MONTH</th>
-                <th>THIS YEAR</th>
-                <th>ALL TIME</th>
-            </tr>
-        </thead>
-        <tbody>
-            {
-                dataTable?.map((item, index) => {
-                    return <tr key={index}>
-                        <td>
-                            <div className={styles['type']}>
-                                <label>{item?.dev_type}</label>
-                                {
-                                    item?.des && <>
-                                        <Infor />
-                                        <div className={styles['description']}>
-                                            {
-                                                item?.des
-                                            }
-                                        </div>
-                                    </>
-                                }
-                            </div>
-                        </td>
-                        <td>{item?.ath}</td>
-                        <td>{item?.atl}</td>
-                        <td>{item?.this_month}</td>
-                        <td>{item?.this_year}</td>
-                        <td>{item?.all_time}</td>
-                    </tr>
-                })
-            }
-        </tbody>
-    </table>
+    return <div className={styles['table-statis']}>
+        <table className={styles['table']}>
+            <thead>
+                <tr>
+                    <th>DEV TYPE</th>
+                    <th>ATH</th>
+                    <th>ATL</th>
+                    <th>THIS MONTH</th>
+                    <th>THIS YEAR</th>
+                    <th>ALL TIME</th>
+                </tr>
+            </thead>
+            <tbody>
+                {
+                    dataTable?.map((item, index) => {
+                        return <tr key={index}>
+                            <td>
+                                <div className={styles['type']}>
+                                    <label>{item?.dev_type}</label>
+                                    {
+                                        item?.des && <>
+                                            <Infor />
+                                            <div className={styles['description']}>
+                                                {
+                                                    item?.des
+                                                }
+                                            </div>
+                                        </>
+                                    }
+                                </div>
+                            </td>
+                            <td>{formatNumber(item?.ath)}</td>
+                            <td>{formatNumber(item?.atl)}</td>
+                            <td>{formatNumber(item?.this_month)}</td>
+                            <td>{formatNumber(item?.this_year)}</td>
+                            <td>{formatNumber(item?.all_time)}</td>
+                        </tr>
+                    })
+                }
+            </tbody>
+        </table>
+    </div>
 }

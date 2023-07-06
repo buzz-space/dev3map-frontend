@@ -1,6 +1,8 @@
 @import '~/public/styles/base.scss';
 
 .header {
+    position: relative;
+    z-index: 100;
     .container {
         padding-top: 40px;
         display: flex;
@@ -22,7 +24,7 @@
 
             .logo {
                 img {
-                    height: 16px;
+                    height: 24px;
                 }
             }
         }

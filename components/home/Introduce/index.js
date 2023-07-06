@@ -3,12 +3,15 @@ import styles from "./styles.module.scss";
 import EllipticalOrbit from "./EllipticalOrbit";
 import EllipsePlanet from "./EllipsePlanet";
 import Container from "~/components/base/Container";
+import EllipsePlanetSvg from "./EllipsePlanetSvg";
 
 export default function Introduce() {
     return <div className={styles['introduce']}>
-        <EllipsePlanet />
+        {/* <EllipsePlanet /> */}
         {/* <img src="/imgs/galaxy.png" className={styles['galaxy']} /> */}
         <Container className={styles['container']}>
+            <EllipsePlanetSvg />
+
             <div className={styles['main']}>
                 <h4 className={styles['title']}>The Interchain
                     <br />

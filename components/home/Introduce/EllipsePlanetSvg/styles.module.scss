@@ -1,0 +1,116 @@
+.ellipse-planet {
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    transform: translate(-50%, -50%);
+    width: 145%;
+
+    @mixin anim ($id, $x-planet, $y-planet, $x-path, $y-path, $scale-planet: 1, $scale-path: 1) {
+        .planet-#{$id} {
+            animation: identifier-#{$id} 3s linear infinite forwards;
+            transform: translate($x-planet, $y-planet) scale($scale-planet);
+            @keyframes identifier-#{$id} {
+                0% {
+                    transform: translate($x-planet, $y-planet) scale($scale-planet);
+                }
+        
+                25% {
+                    transform:  translate($x-planet, $y-planet - 10px) scale($scale-planet);
+                }
+        
+                50% {
+                    transform: translate($x-planet, $y-planet - 5px) scale($scale-planet);
+                }
+        
+                75% {
+                    transform: translate($x-planet, $y-planet + 5px) scale($scale-planet);
+                }
+        
+                100% {
+                    transform:  translate($x-planet, $y-planet) scale($scale-planet);
+                }
+            }
+        }
+        .path-planet-#{$id} {
+            animation: identifier-path-#{$id} 3s linear infinite;
+            transform: translate($x-path, $y-path) scale($scale-path);
+            
+            @keyframes identifier-path-#{$id} {
+                0% {
+                    transform: translate($x-path, $y-path) scale($scale-path);
+                }
+        
+                25% {
+                    transform:  translate($x-path, $y-path - 10px) scale($scale-path);
+                }
+        
+                50% {
+                    transform: translate($x-path, $y-path - 5px) scale($scale-path);
+                }
+        
+                75% {
+                    transform: translate($x-path, $y-path + 5px) scale($scale-path);
+                }
+        
+                100% {
+                    transform:  translate($x-path, $y-path) scale($scale-path);
+                }
+            }
+        }
+    }
+
+
+    svg {
+        width: 100%;
+        height: 100%;
+        
+
+        @include anim (1, -130px, 18px, 0, 0);
+        @include anim (2, 0px, 0px, 0, 0);
+        @include anim (3, 0px, 0px, 0, 0);
+    }
+
+    @media screen and (max-width:1280px) {
+        width: 165%;
+    }
+
+    @media screen and (max-width:1045px) {
+        width: 185%;
+        top: 30%;
+    }
+
+    @media screen and (max-width:$small-device) {
+        width: 225%;
+    }
+
+    @media screen and (max-width:575px) {
+        width: 325%;
+        top: 32%;
+        @include anim (2, 200px, 200px, 200px, 200px);
+        @include anim (3, -180px, 0px, -180px, 0);
+    }
+
+    @media screen and (max-width:420px) {
+        width: 400%;
+        top: 32%;
+        @include anim (1, -150px, 18px, -20px, 0);
+        @include anim (2, 300px, 250px, 300px, 250px);
+        @include anim (3, -250px, 35px, -250px, 35px);
+    }
+
+    @media screen and (max-width:380px) {
+        width: 550%;
+        top: 28%;
+        @include anim (1, 300px, 228px, 380px, 218px, 0.6, 0.6);
+        @include anim (2, 550px, 700px, 550px, 700px, 0.6, 0.6);
+        @include anim (3, 250px, 540px, 250px, 540px, 0.6, 0.6);
+    }
+
+    @media screen and (max-width:290px) {
+        width: 750%;
+        top: 30%;
+        @include anim (1, 300px, 228px, 380px, 218px, 0.6, 0.6);
+        @include anim (2, 550px, 700px, 550px, 700px, 0.6, 0.6);
+        @include anim (3, 250px, 540px, 250px, 540px, 0.6, 0.6);
+    }
+}

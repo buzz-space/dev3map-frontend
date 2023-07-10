@@ -19,7 +19,7 @@ export default function Introduce() {
                     <br />
                     Metrics Map</h4>
                 <p className={styles['des']}>
-                    With support from Cosmos Ecosystem Map and Github, Aura Network builds this developer analytics platform to offer a panoramic view of the Interchain Developer Ecosystem
+                    With support from Cosmos Ecosystem Map and Github, Buzz Space builds this developer analytics platform to offer a panoramic view of the Interchain Developer Ecosystem
                 </p>
                 <Button outline to="/projects">EXPLORE ALL CATEGORIES</Button>
             </div>

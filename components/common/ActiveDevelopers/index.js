@@ -15,6 +15,6 @@ export default function ActiveDevelopers({ data = {} }) {
             <ChartActiveByType data={data?.developer_chart} />
             <ChartActiveAll data={data?.developer_chart} />
         </div>
-        <TableStatis data={data} />
+        {/* <TableStatis data={data} /> */}
     </Container>
 }

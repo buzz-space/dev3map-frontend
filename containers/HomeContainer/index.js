@@ -6,13 +6,14 @@ import Introduce from "~/components/home/Introduce";
 import StatisChainTable from "~/components/home/StatisChainTable";
 import { useGetCommitInfo } from "~/hooks/api/useCommitInfo";
 import { useGetDeveloperInfor } from "~/hooks/api/useGetInfoChain";
+import dataDeveloper from "~/data-sample/response_1689141934425.json" assert {type: 'json'};
 
 function HomeContainer() {
-  const { data: dataDeveloper, refetch: refetchDeveloper } = useGetDeveloperInfor();
+  // const { data: dataDeveloper, refetch: refetchDeveloper } = useGetDeveloperInfor();
   const { data: dataCommits, refetch: refetchCommits } = useGetCommitInfo();
   useEffect(() => {
     refetchCommits();
-    refetchDeveloper();
+    // refetchDeveloper();
   }, [])
   return <div>
     <Introduce />

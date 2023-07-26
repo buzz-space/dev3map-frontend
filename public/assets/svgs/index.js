@@ -1,5 +1,6 @@
 export { default as ArrowLeft } from './ArrowLeft';
 export { default as ArrowUpRight } from './ArrowUpRight';
+export { default as Blockchain } from './Blockchain';
 export { default as Calendar } from './Calendar';
 export { default as Checkbox } from './Checkbox';
 export { default as ChevronRight } from './ChevronRight';

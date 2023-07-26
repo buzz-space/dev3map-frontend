@@ -17,8 +17,8 @@ function HomeContainer() {
   return <div>
     <Introduce />
     <HonorableMention />
-    <GithubStatistics data={dataCommits?.data} />
     <StatisChainTable />
+    <GithubStatistics data={dataCommits?.data} />
     <ActiveDevelopers data={dataDeveloper?.data} />
   </div>;
 }

@@ -29,6 +29,7 @@ export default function HonorableMention() {
         }
     ]
     return <Container className={styles['container']}>
+        <span className={'description-title'}>THIS WEEK</span>
         <h2 className="title">BEST OF 100 <span><Honorable /></span></h2>
         <div className={styles['list-card']}>
             {

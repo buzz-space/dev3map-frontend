@@ -237,6 +237,7 @@
     @media screen and (max-width: $small-device) {
         height: max-content;
         max-height: none;
+        margin-top: 80px;
         .table {
             display: none;
             td:first-child, th:first-child {

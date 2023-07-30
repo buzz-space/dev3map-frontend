@@ -9,5 +9,6 @@ export const API = {
   RANKING: '/ranking',
   CATEGORIES: '/categories',
   CHAIN_ID: '/chain/:prefix',
-  SUMMARY_INFOR: '/summary-info'
+  SUMMARY_INFOR: '/summary-info',
+  DEVELOPER_CHART: '/developer-chart',
 };

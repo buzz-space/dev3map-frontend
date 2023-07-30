@@ -8,8 +8,9 @@ import { handleMonth } from "~/utils/strings";
 import BoardStatistics from "./BoardStatistics";
 import { CommitHorizontal, Developer } from "~/public/assets/svgs";
 import AnotherBoard from "./AnotherBoard";
+import MonthlyActiveDevs from "./MonthlyActiveDevs";
 
-export default function GithubStatistics({ dataTotal = {}, data = [] }) {
+export default function GithubStatistics({ dataTotal = {}, data = [], dataDeveloper = [] }) {
     const [userCommit, setUserCommit] = useState([]);
     const [userCode, setUserCode] = useState([]);
 
@@ -75,6 +76,7 @@ export default function GithubStatistics({ dataTotal = {}, data = [] }) {
             window.removeEventListener('resize', fn);
         }
     }, [data])
+
     return <Container className={styles['container']}>
         <h2 className="title">GITHUB STATISTICS <Github /></h2>
         <div className={styles['information-board']}>
@@ -91,5 +93,6 @@ export default function GithubStatistics({ dataTotal = {}, data = [] }) {
 
         </div>
         <ActivityTrend userCode={userCode} userCommit={userCommit} />
+        <MonthlyActiveDevs data={dataDeveloper} />
     </Container>
 }

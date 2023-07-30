@@ -87,7 +87,7 @@ export default function ActivityTrend({ userCode = [], userCommit = [] }) {
             ]} setIndexActive={setActiveStatis} />
         </div>
         <div className={styles['body']}>
-            <div className={styles['choose-statis']}>
+            {/* <div className={styles['choose-statis']}>
 
 
                 <div className={styles['type-statis']}>
@@ -97,7 +97,7 @@ export default function ActivityTrend({ userCode = [], userCommit = [] }) {
                         })
                     }
                 </div>
-            </div>
+            </div> */}
             {
                 activeTypeStatis === 0 ?
                     userCommit?.length === 0 ?

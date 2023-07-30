@@ -1,0 +1,30 @@
+.another-board {
+    border-radius: 8px;
+    background: var(--grey-1, #202020);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+    .value {
+        color: #FFF;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: normal;
+    }
+    .label {
+        color: #FFF;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+    @media screen and (max-width: 768px) {
+        .value {
+            font-size: 18px;
+        }
+        .label {
+            font-size: 14px;
+        }
+    }
+}

@@ -17,7 +17,6 @@ module.exports = (phase) => {
   console.log('🚀🚀 ENV: ', nodeEnv);
 
   const env = {
-    PRODUCTION_VERSION: config.PRODUCTION_VERSION,
     SERVER_URI: config.SERVER_URI,
     WEB_URI: config.WEB_URI,
   };

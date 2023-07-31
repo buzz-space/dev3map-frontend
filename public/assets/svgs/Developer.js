@@ -1,22 +1,22 @@
 import * as React from 'react';
 const SvgDeveloper = (props) => (
   <svg
-    width="48px"
-    height="48px"
-    viewBox="0 0 48 49"
+    width="24px"
+    height="24px"
+    viewBox="0 0 64 64"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    role={'icon-title'}
+    role={'icon-default'}
     {...props}
   >
     <path
-      d="M10.286 46.786V19.357a13.715 13.715 0 0 1 27.428 0v27.429m-27.428-8.572h27.428"
+      d="M13.715 61.714V25.143a18.286 18.286 0 0 1 36.571 0v36.571M13.715 50.286h36.571"
       stroke={'currentColor'}
       strokeLinecap="round"
       strokeLinejoin="round"
     />
     <path
-      d="M1.714 34.786v-6.858a6.857 6.857 0 0 1 6.857-6.857H39.43a6.857 6.857 0 0 1 6.857 6.857v6.858M37.714 2.214l-5.897 5.897M10.286 2.214l5.897 5.897"
+      d="M2.286 45.714v-9.143a9.143 9.143 0 0 1 9.143-9.142h41.143a9.143 9.143 0 0 1 9.143 9.142v9.143M50.286 2.286l-7.863 7.863M13.715 2.286l7.863 7.863"
       stroke={'currentColor'}
       strokeLinecap="round"
       strokeLinejoin="round"

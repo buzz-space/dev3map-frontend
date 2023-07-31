@@ -4,22 +4,25 @@ import GithubStatistics from "~/components/common/GithubStatistics";
 import HonorableMention from "~/components/home/HonorableMention";
 import Introduce from "~/components/home/Introduce";
 import StatisChainTable from "~/components/home/StatisChainTable";
-import { useGetCommitInfo } from "~/hooks/api/useCommitInfo";
-import { useGetDeveloperInfor } from "~/hooks/api/useGetInfoChain";
+import { useDeveloperChart } from "~/hooks/api/useDeveloperChart";
+import { useGetCommitChart } from "~/hooks/api/useGetCommitChart";
+import { useGetSummaryInfo } from "~/hooks/api/useSummaryInfo";
 
 function HomeContainer() {
-  const { data: dataDeveloper, refetch: refetchDeveloper } = useGetDeveloperInfor();
-  const { data: dataCommits, refetch: refetchCommits } = useGetCommitInfo();
+  const { data: dataSummary, refetch: refetchSummary } = useGetSummaryInfo();
+  const { data: dataCommitChart, refetch: refetchCommitChart } = useGetCommitChart();
+  const { data: dataDeveloperChart, refetch: refetchDeveloperChart } = useDeveloperChart();
   useEffect(() => {
-    refetchCommits();
-    refetchDeveloper();
+    refetchSummary();
+    refetchCommitChart();
+    refetchDeveloperChart();
   }, [])
   return <div>
     <Introduce />
     <HonorableMention />
-    <GithubStatistics data={dataCommits?.data} />
     <StatisChainTable />
-    <ActiveDevelopers data={dataDeveloper?.data} />
+    <GithubStatistics data={dataCommitChart?.data} dataChart={dataSummary?.data} dataDeveloper={dataDeveloperChart?.data} />
+    {/* <ActiveDevelopers data={dataDeveloper?.data} /> */}
   </div>;
 }
 

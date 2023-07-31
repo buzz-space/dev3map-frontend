@@ -16,7 +16,9 @@
     // display: flex;
     // align-items: center;
     // column-gap: 12px;
-
+    [role="icon-title"] {
+        margin-left: 12px;
+    }
     @media screen and (max-width: $small-device) {
         font-size: 24px;
         line-height: 32px;
@@ -78,4 +80,13 @@
             transform:  translate($x, 0);
         }
     }
+}
+
+.description-title {
+    color: #FFF;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-top: 12px;
 }

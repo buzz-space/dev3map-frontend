@@ -13,6 +13,11 @@ export default function SearchBar() {
     return <div className={styles['search-bar']}>
         <input type="search" placeholder="Search project" value={value} onChange={(e) => {
             setValue(e.currentTarget.value);
+        }} onKeyDown={(event) => {
+            if (event.key === 'Enter') {
+                // 👇 Get input value
+                onClick();
+            }
         }} />
         <Search onClick={onClick} />
     </div>

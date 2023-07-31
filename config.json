@@ -1,5 +1,4 @@
 {
-  "PRODUCTION_VERSION": "Ver Local",
   "SERVER_URI": "https://dev.be.ibclab.io/api/v1",
   "WEB_URI": "ibclab"
 }

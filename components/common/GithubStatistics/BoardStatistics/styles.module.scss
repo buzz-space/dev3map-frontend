@@ -5,14 +5,14 @@
     display: flex;
     flex-direction: column;
     row-gap: 16px;
-    width: 400px;
+    flex: 1;
 
     .commit-icon {
         [role="icon-default"] {
             width: 64px;
             height: 64px;
 
-            color: #03DAC6;
+            color: currentColor;
         }
     }
 

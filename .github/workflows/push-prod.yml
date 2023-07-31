@@ -26,6 +26,6 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          file: ./Dockerfile
+          file: ./Dockerfile-prod
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/ibclab-frontend:1.0.5
+          tags: ${{ secrets.DOCKER_USERNAME }}/ibclab-frontend:1.0.6

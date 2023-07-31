@@ -31,8 +31,19 @@ export default function Chart({ data }) {
         maintainAspectRatio: false,
         plugins: {
             legend: {
-                display: false,
 
+                align: 'start',
+                labels: {
+                    usePointStyle: true,
+                    boxWidth: 6,
+                    boxHeight: 6,
+                    color: '#FFFFFF',
+                    font: {
+                        family: 'Montserrat',
+                        size: 14,
+                        weight: '600',
+                    }
+                }
             },
             tooltip: {
                 callbacks: {

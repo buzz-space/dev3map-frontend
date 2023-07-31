@@ -1,10 +1,24 @@
 .container {
     margin-top: 160px;
-
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
     .information-board {
-        margin-top: 40px;
         display: flex;
         column-gap: 24px;
+    }
+    .another-information-board {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        row-gap: 24px;
+        column-gap: 24px;
+        width: 100%;
+        display: grid;
+        @media screen and (max-width: 800px) {
+            grid-template-columns: repeat(2, minmax(0, 1fr));  
+        }
+        @media screen and (max-width: 500px) {
+            grid-template-columns: repeat(1, minmax(0, 1fr));  
+        }
     }
     @media screen and (max-width: 1300px) {
        

@@ -77,25 +77,18 @@ export default function ActivityTrend({ userCode = [], userCommit = [] }) {
             <h6 className={styles['title']}>Activity Trend</h6>
             <TabDynamic data={[
                 {
-                    label: 'Except fork',
+                    label: 'Commit',
+                    icon: <Commit />,
                 }, {
-                    label: 'Contain fork',
-
+                    label: 'Code',
+                    icon: <Code />,
                 }
-            ]} />
+
+            ]} setIndexActive={setActiveStatis} />
         </div>
         <div className={styles['body']}>
-            <div className={styles['choose-statis']}>
-                <TabDynamic data={[
-                    {
-                        label: 'Commit',
-                        icon: <Commit />,
-                    }, {
-                        label: 'Code',
-                        icon: <Code />,
-                    }
+            {/* <div className={styles['choose-statis']}>
 
-                ]} setIndexActive={setActiveStatis} />
 
                 <div className={styles['type-statis']}>
                     {
@@ -104,7 +97,7 @@ export default function ActivityTrend({ userCode = [], userCommit = [] }) {
                         })
                     }
                 </div>
-            </div>
+            </div> */}
             {
                 activeTypeStatis === 0 ?
                     userCommit?.length === 0 ?

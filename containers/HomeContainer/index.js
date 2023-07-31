@@ -21,7 +21,7 @@ function HomeContainer() {
     <Introduce />
     <HonorableMention />
     <StatisChainTable />
-    <GithubStatistics data={dataCommitChart?.data} dataChart={dataSummary?.data} dataDeveloper={dataDeveloperChart?.data} />
+    <GithubStatistics data={dataCommitChart?.data} dataTotal={dataSummary?.data} dataDeveloper={dataDeveloperChart?.data} />
     {/* <ActiveDevelopers data={dataDeveloper?.data} /> */}
   </div>;
 }

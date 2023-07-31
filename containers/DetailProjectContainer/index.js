@@ -34,8 +34,11 @@ export default function DetailProjectContainer({ data }) {
                 active: true,
             }
         ]} />
-        <InforRepo logo={data?.avatar} name={data?.name} des={data?.description} stars={data?.stats[data?.stats?.length - 1]?.total_star} commits={data?.stats[data?.stats?.length - 1]?.total_commits} github={`https://github.com/${data?.github_prefix}`} web={data?.website} />
+        <InforRepo logo={data?.avatar} name={data?.name} des={data?.description} stars={data?.stats[0]?.total_star} commits={data?.stats[0]?.total_commits} github={`https://github.com/${data?.github_prefix}`} web={data?.website} />
         <GithubStatistics data={dataCommitChart?.data} dataTotal={dataSummary?.data} dataDeveloper={dataDeveloperChart?.data} />
+        <div className={styles['foot-detail']}>
+
+        </div>
         {/* <ActiveDevelopers data={dataDeveloper?.data} /> */}
     </Container>
 }

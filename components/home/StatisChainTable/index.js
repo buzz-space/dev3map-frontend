@@ -104,7 +104,7 @@ export default function StatisChainTable() {
             label = '30_days';
         }
         let value = item?.stats?.filter((item) => item?.range == label);
-        return value[0][prop];
+        return Number(value[0][prop]);
     }
 
 
@@ -190,8 +190,8 @@ export default function StatisChainTable() {
                                         </div>
                                     </td>
                                     <td className={styles['commits']}>{formatNumber(getValue(item, 'total_commits'))}</td>
-                                    <td className={styles['contributors']}>{formatNumber(getValue(item, 'full_time_developer'))}</td>
-                                    <td className={styles['issues-solved']}>{formatNumber(getValue(item, 'total_repository'))}</td>
+                                    <td className={styles['developers']}>{formatNumber(getValue(item, 'full_time_developer') + getValue(item, 'part_time_developer'))}</td>
+                                    <td className={styles['repository']}>{formatNumber(getValue(item, 'total_repository'))}</td>
                                     <td className={styles['stars']}>{formatNumber(getValue(item, 'total_star'))}</td>
                                     <td className={styles['forks']}>{formatNumber(getValue(item, 'total_fork'))}</td>
                                     <td className={styles['issues']}>{formatNumber(getValue(item, 'total_issue_solved'))}</td>
@@ -222,7 +222,7 @@ export default function StatisChainTable() {
                                     </label>
                                     <div className={styles['infor-more']}>
                                         <OtherInforRes icon={<CommitHorizontal />} colorIcon={'#03DAC6'} value={getValue(item, 'total_commits')} />
-                                        <OtherInforRes icon={<Person />} colorIcon={'#03DAC6'} value={getValue(item, 'full_time_developer')} />
+                                        <OtherInforRes icon={<Person />} colorIcon={'#03DAC6'} value={getValue(item, 'full_time_developer') + getValue(item, 'part_time_developer')} />
                                         <OtherInforRes icon={<Repo />} colorIcon={'#03DAC6'} value={getValue(item, 'total_repository')} />
                                         <OtherInforRes icon={<Star />} colorIcon={'#BB86FC'} value={getValue(item, 'total_star')} />
                                         <OtherInforRes icon={<Fork />} colorIcon={'#BB86FC'} value={getValue(item, 'total_fork')} />

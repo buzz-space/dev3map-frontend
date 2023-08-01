@@ -11,6 +11,8 @@ import { useEffect } from "react";
 import { useGetSummaryInfo } from "~/hooks/api/useSummaryInfo";
 import { useGetCommitChart } from "~/hooks/api/useGetCommitChart";
 import { useDeveloperChart } from "~/hooks/api/useDeveloperChart";
+import ListRepos from "~/components/projects/ListRepos";
+import TopDevelopers from "~/components/projects/TopDevelopers";
 
 export default function DetailProjectContainer({ data }) {
     const router = useRouter();
@@ -36,9 +38,10 @@ export default function DetailProjectContainer({ data }) {
         ]} />
         <InforRepo logo={data?.avatar} name={data?.name} des={data?.description} stars={data?.stats[0]?.total_star} commits={data?.stats[0]?.total_commits} github={`https://github.com/${data?.github_prefix}`} web={data?.website} />
         <GithubStatistics data={dataCommitChart?.data} dataTotal={dataSummary?.data} dataDeveloper={dataDeveloperChart?.data} />
-        <div className={styles['foot-detail']}>
-
-        </div>
+        <Container className={styles['foot-detail']}>
+            <ListRepos chainId={data?.id} />
+            <TopDevelopers chainId={data?.id} logo={data?.avatar} />
+        </Container>
         {/* <ActiveDevelopers data={dataDeveloper?.data} /> */}
     </Container>
 }

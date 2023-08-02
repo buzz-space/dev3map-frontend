@@ -39,11 +39,11 @@ const TopDevelopers = ({ chainId, logo }) => {
                                     <span>Pull merged ({formatNumber(item?.closed)})/</span>
                                     <div className={styles['last-row-pull']}>
                                         <span>pull requests({formatNumber(item?.total)})</span>
-                                        <span>{Number(item?.total) / Number(item?.closed) * 100}%</span>
+                                        <span>{Number(item?.closed) / Number(item?.total) * 100}%</span>
                                     </div>
                                 </div>
                                 <div className={styles['progress']}>
-                                    <div className={styles['progress-active']} style={{ width: `${Number(item?.total) / Number(item?.closed) * 100}%` }}></div>
+                                    <div className={styles['progress-active']} style={{ width: `${Number(item?.closed) / Number(item?.total) * 100}%` }}></div>
                                 </div>
                             </div>
                         </div>

@@ -33,7 +33,7 @@ const TopDevelopers = ({ chainId, logo }) => {
                             <div className={styles['pull-merged-request']}>
                                 <div className={styles['label-pull']}>
                                     <span>Pull merged ({formatNumber(item?.closed)})/ pull requests({formatNumber(item?.total)})</span>
-                                    <span>{Number(item?.closed) / Number(item?.total) * 100}%</span>
+                                    <span>{Math.round(Number(item?.closed) / Number(item?.total) * 100)}%</span>
                                 </div>
                                 <div className={styles['label-pull-mobile']}>
                                     <span>Pull merged ({formatNumber(item?.closed)})/</span>

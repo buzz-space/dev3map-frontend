@@ -25,23 +25,25 @@ export default function DetailProjectContainer({ data }) {
         refetchDeveloperChart();
     }, [data])
 
-    return <Container className={styles['container']}>
-        <Breadcrumb data={[
-            {
-                label: 'Projects',
-                to: '/projects'
-            },
-            {
-                label: data?.name,
-                active: true,
-            }
-        ]} />
-        <InforRepo logo={data?.avatar} name={data?.name} des={data?.description} stars={data?.stats[0]?.total_star} commits={data?.stats[0]?.total_commits} github={`https://github.com/${data?.github_prefix}`} web={data?.website} />
+    return <div className={styles['container']}>
+        <Container>
+            <Breadcrumb data={[
+                {
+                    label: 'Projects',
+                    to: '/projects'
+                },
+                {
+                    label: data?.name,
+                    active: true,
+                }
+            ]} />
+            <InforRepo logo={data?.avatar} name={data?.name} des={data?.description} stars={data?.stats[0]?.total_star} commits={data?.stats[0]?.total_commits} github={`https://github.com/${data?.github_prefix}`} web={data?.website} />
+        </Container>
         <GithubStatistics data={dataCommitChart?.data} dataTotal={dataSummary?.data} dataDeveloper={dataDeveloperChart?.data} />
         <Container className={styles['foot-detail']}>
             <ListRepos chainId={data?.id} />
             <TopDevelopers chainId={data?.id} logo={data?.avatar} />
         </Container>
         {/* <ActiveDevelopers data={dataDeveloper?.data} /> */}
-    </Container>
+    </div>
 }

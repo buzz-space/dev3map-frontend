@@ -8,7 +8,7 @@ const TopDevelopers = ({ chainId, logo }) => {
     const { data } = useChainDeveloper({ id: chainId })
     return (
         <div className={styles['top-developer']}>
-            <h4 className={styles['title']}>TOP DEVELOPERS ({data?.data?.length})</h4>
+            <h4 className={styles['title']}>DEVELOPERS ({data?.data?.length})</h4>
             <div className={styles['list']}>
                 {
                     data?.data?.map((item, index) => {
@@ -28,7 +28,7 @@ const TopDevelopers = ({ chainId, logo }) => {
                             </div>
                             <div className={styles['commits']}>
                                 <CommitHorizontal />
-                                <label>{formatNumber(item?.total)}</label>
+                                <label>{formatNumber(item?.closed)}</label>
                             </div>
                             <div className={styles['pull-merged-request']}>
                                 <div className={styles['label-pull']}>
@@ -39,11 +39,11 @@ const TopDevelopers = ({ chainId, logo }) => {
                                     <span>Pull merged ({formatNumber(item?.closed)})/</span>
                                     <div className={styles['last-row-pull']}>
                                         <span>pull requests({formatNumber(item?.total)})</span>
-                                        <span>{Number(item?.closed) / Number(item?.total) * 100}%</span>
+                                        <span>{Math.round(Number(item?.closed) / Number(item?.total) * 100)}%</span>
                                     </div>
                                 </div>
                                 <div className={styles['progress']}>
-                                    <div className={styles['progress-active']} style={{ width: `${Number(item?.closed) / Number(item?.total) * 100}%` }}></div>
+                                    <div className={styles['progress-active']} style={{ width: `${Math.round(Number(item?.closed) / Number(item?.total) * 100)}%` }}></div>
                                 </div>
                             </div>
                         </div>

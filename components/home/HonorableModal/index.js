@@ -5,11 +5,12 @@ import { Close } from "~/public/assets/svgs";
 import Container from "~/components/base/Container";
 import InforHonorable from "./InforHonorable";
 import ListRepo from "./ListRepo";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useHonorableModal } from "~/context/HonorableModalContext";
 
 export default function HonorableModal() {
     const { isOpen, setIsOpen, setData, data, title } = useHonorableModal();
+    const modalRef = useRef();
     useEffect(() => {
         if (isOpen) {
             document.querySelector("body").style.overflowY = 'hidden'
@@ -17,9 +18,18 @@ export default function HonorableModal() {
             document.querySelector("body").style.overflowY = 'auto'
         }
     }, [isOpen])
+    useEffect(() => {
+        // function resize() {
+        //     modalRef.current.innerHTML = modalRef.current.innerHTML;
+        // }
+        // window.addEventListener('resize', resize);
+        // return () => {
+        //     window.removeEventListener('resize', resize);
+        // }
+    }, [])
     return <div className={clsx(styles['modal'], {
         [styles['open']]: isOpen,
-    })} >
+    })} ref={modalRef}>
         <div className={styles['backdrop']} onClick={() => {
             setIsOpen(false);
         }}></div>

@@ -25,9 +25,9 @@ export default function InforHonorable({ data }) {
         }
         <label className={styles['key-metric']}>KEY METRIC</label>
         <div className={styles['metric']}>
-            <Metric label="COMMITS COUNTS" number={Number(data?.total_commit)} />
-            <Metric label="PULL REQUEST CLOSED" number={Number(data?.total_pull_request)} />
-            <Metric label="ACTIVE DEVS" number={Number(data?.total_developer)} />
+            <Metric label="COMMITS COUNTS" number={Number(data?.total_commit)} rank={data?.commit_rank} />
+            <Metric label="PULL REQUEST CLOSED" number={Number(data?.total_pulls)} rank={data?.pull_rank} />
+            <Metric label="ACTIVE DEVS" number={Number(data?.total_developer)} rank={data?.dev_rank} />
         </div>
     </div>
 }

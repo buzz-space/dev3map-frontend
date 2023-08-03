@@ -28,6 +28,8 @@ export { default as Prize } from './Prize';
 export { default as PullRequest } from './PullRequest';
 export { default as Repo } from './Repo';
 export { default as Search } from './Search';
+export { default as StarOutline } from './StarOutline';
 export { default as Star } from './Star';
+export { default as StreamLine } from './StreamLine';
 export { default as Trash } from './Trash';
 export { default as Upload } from './Upload';

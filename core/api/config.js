@@ -11,4 +11,6 @@ export const API = {
   CHAIN_ID: '/chain/:prefix',
   SUMMARY_INFOR: '/summary-info',
   DEVELOPER_CHART: '/developer-chart',
+  CHAIN_DEVELOPER: '/chain-developer/:id',
+  CHAIN_REPOSITORY: '/chain-repository/:id',
 };

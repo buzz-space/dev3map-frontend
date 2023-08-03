@@ -1,0 +1,125 @@
+.list-repos {
+    background-color:  var(--grey-1, #202020);
+    padding: 24px;
+    border-radius: 8px;
+    flex: 1;
+    .title {
+        font-style: normal;
+        font-weight: 800;
+        font-size: 32px;
+        line-height: 39px;
+        /* identical to box height */
+
+
+        color: #FFFFFF;
+    }
+    .list {
+        margin-top: 32px;
+        max-height: 654px;
+        overflow: auto;
+        &::-webkit-scrollbar {
+            width: 6px;
+            height: 4px;
+        }
+    
+        /* Track */
+        &::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.12);
+    
+            border-radius: 100rem;
+    
+        }
+    
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+            background: $color-secondary;
+            border-radius: 100rem;
+    
+        }
+    
+        /* Handle on hover */
+        &::-webkit-scrollbar-thumb:hover {
+            background: #02b9a7;
+        }
+        &-item {
+            display: flex;
+            flex-direction: column;
+            row-gap: 16px;
+            padding: 32px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.24);
+            &__title {
+                color: #FFF;
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 800;
+                line-height: normal;
+                text-transform: uppercase;
+
+            }
+            &__des {
+                color: #FFF;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+            }
+            &__other-infor {
+                display: flex;
+                align-items: center;
+                column-gap: 40px;
+                flex-wrap: wrap;
+                .another-infor {
+                    display: flex;
+                    column-gap: 12px;
+                    align-items: center;
+                    [role="icon-default"] {
+                        color: currentColor;
+                        width: 24px;
+                        height: 24px;
+                    }
+                    label {
+                        color: #FFF;
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: normal;
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 636px) {
+        .title {
+            font-size: 18px;
+        }
+        .list {
+            margin-top: 24px;
+            max-height: 592px;
+            &-item {
+                padding: 16px 0;
+                &__title {
+                    font-size: 16px;
+                }
+                &__descriptions {
+                    font-size: 14px;
+                }
+                &__other-infor {
+                    display: flex;
+                    align-items: center;
+                    column-gap: 16px;
+                    .another-infor {
+                        column-gap: 8px;
+                        [role="icon-default"] {
+                            color: currentColor;
+                            width: 16px;
+                            height: 16px;
+                        }
+                        label {
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -5,6 +5,14 @@
     display: flex;
     flex-direction: column;
     row-gap: 16px;
+    .icon {
+        color: #BB86FC;
+        [role="icon-default"] {
+            color: currentColor;
+            width: 32px;
+            height: 32px;
+        }
+    }
     .value {
         color: #FFF;
         font-size: 32px;
@@ -12,14 +20,65 @@
         font-weight: 800;
         line-height: normal;
     }
-    .label {
-        color: #FFF;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 600;
-        line-height: normal;
+    .infor {
+        display: flex;
+        align-items: center;
+        column-gap: 8px;
+        position: relative;
+        .label {
+                color: #FFF;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+            }
+        .infor-icon {
+            position: relative;
+            &::before {
+                    content: '';
+                    position: absolute;
+                    top: -8px;
+                    height: 8px;
+                    width: 100%;
+                    background-color: transparent;
+            }
+            [role="icon-default"] {
+                width: 20px;
+                height: 20px;
+                cursor: pointer;
+                
+                
+            }
+            &:hover {
+                opacity: 0.8;
+                & ~ .des {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+        .des {
+            position: absolute;
+            background-color: #2D2D2D;
+            color: #fff;
+            border-radius: 8px;
+            padding: 24px;
+            left: 0;
+            bottom: calc(100% + 6px);
+            max-width: 100%;
+            transition: 0.3s;
+            opacity: 0;
+            visibility: hidden;
+        }
     }
+    
     @media screen and (max-width: 768px) {
+        .icon {
+            [role="icon-default"] {
+                width: 24px;
+                height: 24px;
+            }
+        }
         .value {
             font-size: 18px;
         }

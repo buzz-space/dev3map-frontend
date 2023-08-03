@@ -1,5 +1,4 @@
 {
-  "PRODUCTION_VERSION": "ver 1.0.0",
-  "SERVER_URI": "https://be.dev3map.com//api/v1",
-  "WEB_URI": "https://dev3map.com"
+  "SERVER_URI": "https://beta.be.dev3map.com/api/v1",
+  "WEB_URI": "https://beta.dev3map.com"
 }

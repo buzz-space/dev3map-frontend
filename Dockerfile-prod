@@ -15,8 +15,8 @@ FROM node:16-alpine AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-RUN rm config.json config.prod.json
-RUN mv config.dev.json config.json
+RUN rm config.json config.dev.json
+RUN mv config.prod.json config.json
 
 # Next.js collects completely anonymous telemetry data about general usage.
 # Learn more here: https://nextjs.org/telemetry

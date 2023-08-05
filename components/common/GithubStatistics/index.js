@@ -6,11 +6,12 @@ import ActivityTrend from "./ActivityTrend";
 import { useEffect, useState } from "react";
 import { handleMonth } from "~/utils/strings";
 import BoardStatistics from "./BoardStatistics";
-import { CommitHorizontal, Developer } from "~/public/assets/svgs";
+import { CommitHorizontal, Developer, Fork, Issue, Person, PullRequest, StarOutline, StreamLine } from "~/public/assets/svgs";
 import AnotherBoard from "./AnotherBoard";
 import MonthlyActiveDevs from "./MonthlyActiveDevs";
+import { formatNumber } from "~/utils/number";
 
-export default function GithubStatistics({ dataTotal = {}, data = [], dataDeveloper = [] }) {
+export default function GithubStatistics({ dataTotal = {}, data = [], dataDeveloper = [], homePage = true }) {
     const [userCommit, setUserCommit] = useState([]);
     const [userCode, setUserCode] = useState([]);
 
@@ -77,6 +78,18 @@ export default function GithubStatistics({ dataTotal = {}, data = [], dataDevelo
         }
     }, [data])
 
+    function formatDate(data) {
+        let value = Number(data);
+        let date = Math.floor(value);
+        let floatNum = (value - date) * 24;
+        let hour = Math.round(floatNum);
+        let result = date + ' DAYS';
+        if (hour > 0) {
+            result += ' ' + hour + ' HOURS';
+        }
+        return result;
+    }
+
     return <Container className={styles['container']}>
         <h2 className="title">GITHUB STATISTICS <Github /></h2>
         <div className={styles['information-board']}>
@@ -84,13 +97,12 @@ export default function GithubStatistics({ dataTotal = {}, data = [], dataDevelo
             <BoardStatistics total={dataTotal?.total_developer} icon={<Developer />} colorIcon="#18A0FB" label="MONTHLY ACTIVE DEVELOPERS" />
         </div>
         <div className={styles['another-information-board']}>
-            <AnotherBoard label="ISSUES" value={dataTotal?.total_issue} />
-            <AnotherBoard label="ISSUE PERFORMANCE" value={dataTotal?.issue_performance} />
-            <AnotherBoard label="COMMUNITY ATTRIBUTES" value={dataTotal?.community_attribute} />
-            <AnotherBoard label="PULL REQUESTS" value={dataTotal?.total_pull_request} />
-            <AnotherBoard label="STARS" value={dataTotal?.total_star} />
-            <AnotherBoard label="FORKS" value={dataTotal?.total_fork} />
-
+            <AnotherBoard label="ISSUES" value={formatNumber(dataTotal?.total_issue)} icon={<Issue />} des={`This is the number of issues that have been created on ${homePage ? 'Cosmos' : 'Github'}.`} />
+            <AnotherBoard label="ISSUE PERFORMANCE" value={formatDate(dataTotal?.issue_performance)} icon={<StreamLine />} des={`On average, this is how fast an issue is solved on ${homePage ? 'Cosmos' : 'Github'}.`} />
+            <AnotherBoard label="COMMUNITY ATTRIBUTES" value={`${formatNumber(Math.round(dataTotal?.community_attribute))} PULLS`} icon={<Person />} des={`This metric indicates the contribution of community to every repositories on ${homePage ? 'Cosmos' : 'Github'}.`} />
+            <AnotherBoard label="PULL REQUESTS" value={formatNumber(dataTotal?.total_pull_request)} icon={<PullRequest />} des={`Total Pull Requests that have been created on ${homePage ? 'Cosmos' : 'Github'}`} />
+            <AnotherBoard label="STARS" value={formatNumber(dataTotal?.total_star)} icon={<StarOutline />} des={`The number of Stars among all Github repositories on ${homePage ? 'Cosmos' : 'Github'}.`} />
+            <AnotherBoard label="FORKS" value={formatNumber(dataTotal?.total_fork)} icon={<Fork />} des={`This is the number of forks that currently exist in ${homePage ? 'Cosmos' : 'Github'}.`} />
         </div>
         <ActivityTrend userCode={userCode} userCommit={userCommit} />
         <MonthlyActiveDevs data={dataDeveloper} />

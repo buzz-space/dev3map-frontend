@@ -1,0 +1,84 @@
+.container {
+    .grid {
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: 40px;
+        column-gap: 24px;
+        width: 100%;
+        margin-top: 40px;
+    
+        .item {
+            background: #202020;
+            border-radius: 8px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            row-gap: 46px;
+            cursor: pointer;
+            min-width: 200px;
+            flex: 1;
+            * {
+                cursor: pointer;
+            }
+    
+            &:hover {
+                background-color: #2D2D2D;
+            }
+    
+            .logo {
+                height: 80px;
+                max-width: 100%;
+                border-radius: 100rem;
+            }
+    
+            .name {
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 24px;
+                text-align: center;
+    
+                color: #FFFFFF;
+    
+            }
+        }
+    }
+    @media screen and (max-width: $small-device) {
+        .grid {
+            row-gap: 16px;
+            column-gap: 12px;
+            margin-top: 32px;
+            .item {
+                min-width: 100px;
+                .logo {
+                    height: 48px;
+                }
+                .name {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+    // @media screen and (max-width: 1000px) {
+    //     .grid {
+    //         grid-template-columns: repeat(4, minmax(0, 1fr));
+    //     }
+    // }
+    // @media screen and (max-width: 768px) {
+    //     .grid {
+    //         grid-template-columns: repeat(3, minmax(0, 1fr));
+    //     }
+    // }
+    // @media screen and (max-width: 454px) {
+    //     .grid {
+    //         grid-template-columns: repeat(2, minmax(0, 1fr));
+    //     }
+    // }
+    // @media screen and (max-width:325px) {
+    //     .grid {
+    //         grid-template-columns: repeat(1, minmax(0, 1fr));
+    //     }
+    // }
+}

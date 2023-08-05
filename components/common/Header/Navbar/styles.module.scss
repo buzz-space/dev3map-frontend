@@ -62,4 +62,21 @@
             }
         }
     }
+
+    @media screen and (max-width: 380px) {
+        .nav-ul {
+            column-gap: 16px;
+        }
+    }
+    @media screen and (max-width: 325px) {
+        .nav-ul {
+            column-gap: 12px;
+            .nav-item {
+                &__label {
+                    font-size: 1.2rem;
+                    line-height: 14px;
+                }
+            }
+        }
+    }
 }

@@ -4,7 +4,7 @@ import MainLayout from '~/layout/MainLayout'
 
 const AboutPage = () => {
     return (
-        <MainLayout currentPage='about'>
+        <MainLayout currentPage='about' backgroundAbout>
             <AboutContainer />
         </MainLayout>
     )

@@ -1,0 +1,68 @@
+.background-about {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    user-select: none;
+    overflow: hidden;
+    z-index: 0;
+    * {
+        object-fit: contain;
+    }
+    .about-half-circle {
+        position: absolute;
+        right: 0;
+        top: -100px;
+        width: 300px;
+    }
+    .about-circle {
+        position: absolute;
+        bottom: 120px;
+        right: 160px;
+        width: 160px;
+
+    }
+    .about-specify-s {
+        position: absolute;
+        height: 850px;
+        left: 0;
+        top: 100px;
+    }
+    .about-specify-v {
+        position: absolute;
+        height: 800px;
+        right: 0;
+        bottom: 1200px;
+    }
+
+    @media screen and (max-width: $small-device) {
+        .about-half-circle {
+            right: -40px;
+            top: -80px;
+            width: 240px;
+        }
+        .about-circle {
+            bottom: 150px;
+            right: 80px;
+            width: 160px;
+            @media screen and (max-width: 480px) {
+                right: 40px;
+                bottom: 240px;
+            }
+        }
+        .about-specify-s {
+            height: 850px;
+            left: 0;
+            top: 300px;
+        }
+        .about-specify-v {
+            height: 800px;
+            right: -200px;
+            bottom: 1400px;
+        }
+    }
+}

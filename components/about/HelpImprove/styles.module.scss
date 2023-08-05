@@ -1,0 +1,15 @@
+.container {
+    .board-infor-help {
+        display: flex;
+        column-gap: 24px;
+        margin-top: 40px;
+        row-gap: 24px;
+
+    }
+    @media screen and (max-width: $small-device) {
+        .board-infor-help {
+            flex-direction: column;
+            margin-top: 32px;
+        }
+    }
+}

@@ -1,0 +1,60 @@
+.board {
+    width: calc(50% - 24px);
+    border-radius: 8px;
+    background-color: #202020;
+    padding: 24px;
+    cursor: pointer;
+    &:hover {
+        background-color: #2D2D2D;
+    }
+    * {
+        cursor: pointer;
+    }
+    .des {
+        color: #FFF;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        text-transform: uppercase;
+    }
+    .place-receive {
+        margin-top: 16px;
+        display: flex;
+        align-items: center;
+        column-gap: 16px;
+        .name {
+            color: #FFF;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 800;
+            line-height: normal;
+            word-break: break-all;
+        }
+        [role="icon-default"] {
+            width: 24px;
+            height: 24px;
+        }
+    }
+    @media screen and (max-width: 978px) {
+        .des {
+            font-size: 14px;
+        }
+        .place-receive {
+            .name {
+                font-size: 18px;
+            }
+        }
+    }
+    @media screen and (max-width: $small-device) {
+        width: 100%;
+        padding: 16px;
+    }
+    @media screen and (max-width: 444px) {
+        .place-receive {
+            .name {
+                flex: 1;
+            }
+        }
+    }
+}

@@ -46,7 +46,7 @@ export default function HonorableModal() {
                 <div className={styles['body']}>
                     <h6 className={styles['title']}>{title}</h6>
                     <div className={styles['main']}>
-                        <InforHonorable data={data[0]} />
+                        <InforHonorable data={data[0]} title={title} />
                         <ListRepo list={
                             data?.length > 0 ? data?.slice(1) : []
                         } />

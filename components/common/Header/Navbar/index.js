@@ -13,6 +13,11 @@ const data = [
         to: '/projects',
         label: 'Projects',
         activeKey: 'projects',
+    },
+    {
+        to: '/about',
+        label: 'About',
+        activeKey: 'about',
     }
 ]
 

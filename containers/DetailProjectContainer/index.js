@@ -39,7 +39,7 @@ export default function DetailProjectContainer({ data }) {
             ]} />
             <InforRepo logo={data?.avatar} name={data?.name} des={data?.description} stars={data?.stats[0]?.total_star} commits={data?.stats[0]?.total_commits} github={`https://github.com/${data?.github_prefix}`} web={data?.website} />
         </Container>
-        <GithubStatistics data={dataCommitChart?.data} dataTotal={dataSummary?.data} dataDeveloper={dataDeveloperChart?.data} />
+        <GithubStatistics data={dataCommitChart?.data} dataTotal={dataSummary?.data} dataDeveloper={dataDeveloperChart?.data} homePage={false} />
         <Container className={styles['foot-detail']}>
             <ListRepos chainId={data?.id} />
             <TopDevelopers chainId={data?.id} logo={data?.avatar} />

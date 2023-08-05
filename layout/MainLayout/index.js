@@ -10,6 +10,7 @@ import icon from '~/public/favicon.ico';
 import ScrollToTop from '~/components/common/ScrollToTop';
 import { nameWeb } from '~/core/contants';
 import BackgroundLayout from '~/components/common/BackgroundLayout';
+import BackgroundAbout from '~/components/common/BackgroundAbout';
 
 export default function MainLayout({ children, title = '', currentPage = '', data = null, meta_data = null }) {
   const titlePage = !!title ? `${nameWeb} - ` + title : nameWeb;

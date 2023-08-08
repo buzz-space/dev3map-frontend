@@ -4,7 +4,7 @@ import Metric from "./Metric";
 import Link from "next/link";
 import { useHonorableModal } from "~/context/HonorableModalContext";
 
-export default function InforHonorable({ data, title }) {
+export default function InforHonorable({ data, title, des }) {
     const { setIsOpen } = useHonorableModal();
     return <div className={styles['infor-honorable']}>
         <label className={styles['rank']}>RANK #1</label>
@@ -19,8 +19,8 @@ export default function InforHonorable({ data, title }) {
             </a>
         </Link>
         {
-            data?.description && <p className={styles['description']}>
-                {data?.description}
+            des && <p className={styles['description']}>
+                {des}
             </p>
         }
         <label className={styles['key-metric']}>KEY METRIC</label>

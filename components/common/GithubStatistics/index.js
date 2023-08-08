@@ -93,8 +93,8 @@ export default function GithubStatistics({ dataTotal = {}, data = [], dataDevelo
     return <Container className={styles['container']}>
         <h2 className="title">GITHUB STATISTICS <Github /></h2>
         <div className={styles['information-board']}>
-            <BoardStatistics total={dataTotal?.total_commit} icon={<CommitHorizontal />} colorIcon="#03DAC6" label="TOTAL COMMITS" />
-            <BoardStatistics total={dataTotal?.total_developer} icon={<Developer />} colorIcon="#18A0FB" label="MONTHLY ACTIVE DEVELOPERS" />
+            <BoardStatistics total={dataTotal?.total_commit} icon={<CommitHorizontal />} colorIcon="#03DAC6" label="TOTAL COMMITS" des={`Total Commits on ${homePage ? 'Cosmos' : "the project's Github"}`} />
+            <BoardStatistics total={dataTotal?.total_developer} icon={<Developer />} colorIcon="#18A0FB" label="MONTHLY ACTIVE DEVELOPERS" des={`The number of developers who are working on ${homePage ? 'Cosmos' : "the project's Github"} in the last 30 days.`}/>
         </div>
         <div className={styles['another-information-board']}>
             <AnotherBoard label="ISSUES" value={formatNumber(dataTotal?.total_issue)} icon={<Issue />} des={`This is the number of issues that have been created on ${homePage ? 'Cosmos' : 'Github'}.`} />

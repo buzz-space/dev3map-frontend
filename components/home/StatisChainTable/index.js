@@ -206,7 +206,7 @@ export default function StatisChainTable() {
                                             <img className={styles['logo']} src={item?.avatar} />
                                             <div className={styles['infor-chain']}>
                                                 <label className={styles['name']}>{item?.name}</label>
-                                                <label className={styles['des']}>{item?.github_prefix}</label>
+                                                <label className={styles['des']}>{item?.symbol}</label>
                                             </div>
                                         </div>
                                     </td>

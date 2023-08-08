@@ -6,7 +6,7 @@
     flex-direction: column;
     row-gap: 16px;
     flex: 1;
-
+    position: relative;
     .commit-icon {
         [role="icon-default"] {
             width: 64px;
@@ -23,19 +23,59 @@
         line-height: 59px;
         /* identical to box height */
 
-
-        color: #FFFFFF;
+        color: #ffffff;
     }
 
-    .des {
-        font-style: normal;
-        font-weight: 600;
-        font-size: 14px;
-        line-height: 17px;
-        /* identical to box height */
+    .infor {
+        display: flex;
+        align-items: center;
+        column-gap: 8px;
+        position: relative;
+        .label {
+            font-style: normal;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 17px;
+            /* identical to box height */
 
-
-        color: #FFFFFF;
+            color: #ffffff;
+        }
+        .infor-icon {
+            position: relative;
+            &::before {
+                content: "";
+                position: absolute;
+                top: -8px;
+                height: 8px;
+                width: 100%;
+                background-color: transparent;
+            }
+            [role="icon-default"] {
+                width: 20px;
+                height: 20px;
+                cursor: pointer;
+            }
+            &:hover {
+                opacity: 0.8;
+                & ~ .des {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+        .des {
+            position: absolute;
+            background-color: #2d2d2d;
+            color: #fff;
+            border-radius: 8px;
+            padding: 24px;
+            left: 0;
+            bottom: calc(100% + 6px);
+            max-width: 100%;
+            transition: 0.3s;
+            opacity: 0;
+            visibility: hidden;
+        }
     }
 
     .time {
@@ -45,8 +85,7 @@
         line-height: 17px;
         /* identical to box height */
 
-
-        color: #FFFFFF;
+        color: #ffffff;
         margin-top: auto;
     }
 
@@ -67,10 +106,9 @@
             font-size: 24px;
             line-height: 30px;
         }
-    
+
         .time {
             margin-top: 24px;
         }
-    
     }
 }

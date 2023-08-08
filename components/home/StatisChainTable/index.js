@@ -47,9 +47,9 @@ export default function StatisChainTable() {
                 let dt = [...data?.data]?.map((item, index) => {
                     return {
                         ...item, stats: [
-                            { ...stats[0], developers: item?.stats[0]?.full_time_developer + item?.stats[0]?.part_time_developer },
-                            { ...stats[1], developers: item?.stats[1]?.full_time_developer + item?.stats[1]?.part_time_developer },
-                            { ...stats[2], developers: item?.stats[2]?.full_time_developer + item?.stats[2]?.part_time_developer }
+                            { ...item?.stats[0], developers: item?.stats[0]?.full_time_developer + item?.stats[0]?.part_time_developer },
+                            { ...item?.stats[1], developers: item?.stats[1]?.full_time_developer + item?.stats[1]?.part_time_developer },
+                            { ...item?.stats[2], developers: item?.stats[2]?.full_time_developer + item?.stats[2]?.part_time_developer }
                         ]
                     }
                 });

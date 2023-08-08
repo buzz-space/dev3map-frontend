@@ -23,43 +23,76 @@ export default function StatisChainTable() {
         stars: '',
         forks: '',
     })
+
+    function getValue(item, prop) {
+        let label = '';
+        if (indexTab === 0) {
+            label = '24_hours';
+        } else if (indexTab === 1) {
+            label = '7_days';
+        } else {
+            label = '30_days';
+        }
+        let value = item?.stats?.filter((item) => item?.range == label);
+        return Number(value[0][prop]);
+    }
+
+
     const [dataTable, setDataTable] = useState([]);
+    const [dataFinished, setDataFinished] = useState([]);
     const [indexTab, setIndexTab] = useState(0);
+    useEffect(() => {
+        setDataFinished(() => {
+            if (data?.data) {
+                let dt = [...data?.data]?.map((item, index) => {
+                    return {
+                        ...item, stats: [
+                            { ...stats[0], developers: item?.stats[0]?.full_time_developer + item?.stats[0]?.part_time_developer },
+                            { ...stats[1], developers: item?.stats[1]?.full_time_developer + item?.stats[1]?.part_time_developer },
+                            { ...stats[2], developers: item?.stats[2]?.full_time_developer + item?.stats[2]?.part_time_developer }
+                        ]
+                    }
+                });
+                return dt;
+            }
+            return [];
+        })
+    }, [data])
     useEffect(() => {
         refetch();
     }, [])
     useEffect(() => {
-        if (data?.data && typeSort == '') {
-            setDataTable(data?.data);
+        if (dataFinished && typeSort == '') {
+            setDataTable(dataFinished);
         }
-    }, [typeSort, data])
+    }, [typeSort, dataFinished])
 
     function sort(type) {
         let dt = [];
         function sortDirect(type, prop) {
-            if (data?.data?.length > 0 && data?.data[0]?.stats[0].hasOwnProperty(prop)) {
+            if (dataFinished?.length > 0 && dataFinished[0]?.stats[0].hasOwnProperty(prop)) {
                 let obj = { ...directSort };
                 Object.keys(obj).forEach(key => {
                     obj[key] = '';
                 });
                 if (directSort[type] == 'up') {
                     setDirectSort(prev => { return { ...obj, [type]: 'down' } })
-                    return data?.data?.sort((a, b) => getValue(a, prop) - getValue(b, prop));
+                    return dataFinished?.sort((a, b) => getValue(a, prop) - getValue(b, prop));
                 } else {
                     setDirectSort(prev => { return { ...obj, [type]: 'up' } })
-                    return data?.data?.sort((a, b) => getValue(b, prop) - getValue(a, prop));
+                    return dataFinished?.sort((a, b) => getValue(b, prop) - getValue(a, prop));
                 }
             } else {
                 return []
             }
 
         }
-        if (data?.data) {
+        if (dataFinished) {
             if (type == 'commits') {
                 dt = sortDirect(type, 'total_commits');
             }
             else if (type == 'developers') {
-                dt = sortDirect(type, 'full_time_developer');
+                dt = sortDirect(type, 'developers');
             } else if (type == 'repos') {
                 dt = sortDirect(type, 'total_repository');
             } else if (type == 'stars') {
@@ -72,7 +105,7 @@ export default function StatisChainTable() {
                 dt = sortDirect(type, 'total_pull_merged');
             }
             else {
-                dt = data?.data;
+                dt = dataFinished;
             }
         }
         setTypeSort(type);
@@ -90,22 +123,10 @@ export default function StatisChainTable() {
 
     useEffect(() => {
         if (!value) {
-            setDataTable(data?.data)
+            setDataTable(dataFinished)
         }
     }, [value])
 
-    function getValue(item, prop) {
-        let label = '';
-        if (indexTab === 0) {
-            label = '24_hours';
-        } else if (indexTab === 1) {
-            label = '7_days';
-        } else {
-            label = '30_days';
-        }
-        let value = item?.stats?.filter((item) => item?.range == label);
-        return Number(value[0][prop]);
-    }
 
 
     return <Container className={styles['container']}>
@@ -190,7 +211,7 @@ export default function StatisChainTable() {
                                         </div>
                                     </td>
                                     <td className={styles['commits']}>{formatNumber(getValue(item, 'total_commits'))}</td>
-                                    <td className={styles['developers']}>{formatNumber(getValue(item, 'full_time_developer') + getValue(item, 'part_time_developer'))}</td>
+                                    <td className={styles['developers']}>{formatNumber(getValue(item, 'developers'))}</td>
                                     <td className={styles['repository']}>{formatNumber(getValue(item, 'total_repository'))}</td>
                                     <td className={styles['stars']}>{formatNumber(getValue(item, 'total_star'))}</td>
                                     <td className={styles['forks']}>{formatNumber(getValue(item, 'total_fork'))}</td>

@@ -7,9 +7,11 @@ const HonorableProvider = ({ children }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [title, setTitle] = useState('');
     const [data, setDataRepo] = useState({});
-    function setData(title, data) {
+    const [des, setDes] = useState('');
+    function setData(title, data, des = '') {
         setTitle(title);
         setDataRepo(data);
+        setDes(des)
     }
     useEffect(() => {
         if (isOpen) {
@@ -18,7 +20,7 @@ const HonorableProvider = ({ children }) => {
             document.body.style.overflowY = 'auto';
         }
     }, [isOpen])
-    return <HonorableModalContext.Provider value={{ isOpen, setIsOpen, setData, data, title }}>
+    return <HonorableModalContext.Provider value={{ isOpen, setIsOpen, setData, data, title, des }}>
         <HonorableModal />
         {children}
     </HonorableModalContext.Provider>

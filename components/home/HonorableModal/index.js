@@ -9,7 +9,7 @@ import { useEffect, useRef } from "react";
 import { useHonorableModal } from "~/context/HonorableModalContext";
 
 export default function HonorableModal() {
-    const { isOpen, setIsOpen, setData, data, title } = useHonorableModal();
+    const { isOpen, setIsOpen, setData, data, title, des } = useHonorableModal();
     const modalRef = useRef();
     useEffect(() => {
         if (isOpen) {
@@ -46,7 +46,7 @@ export default function HonorableModal() {
                 <div className={styles['body']}>
                     <h6 className={styles['title']}>{title}</h6>
                     <div className={styles['main']}>
-                        <InforHonorable data={data[0]} title={title} />
+                        <InforHonorable data={data[0]} title={title} des={des} />
                         <ListRepo list={
                             data?.length > 0 ? data?.slice(1) : []
                         } />

@@ -11,30 +11,20 @@ const data = [
     },
     {
         github_prefix: '/',
-        avatar: '/imgs/aura.svg',
-        name: 'Aura Network',
+        avatar: '/imgs/github.svg',
+        name: 'Github',
     },
     {
         github_prefix: '/',
-        avatar: '/imgs/aura.svg',
-        name: 'Aura Network',
-    },
-    {
-        github_prefix: '/',
-        avatar: '/imgs/aura.svg',
-        name: 'Aura Network',
-    },
-    {
-        github_prefix: '/',
-        avatar: '/imgs/aura.svg',
-        name: 'Aura Network',
+        avatar: '/imgs/cosmos.svg',
+        name: 'Cosmos',
     }
 ]
 
 const BackedByTheBest = () => {
     return (
         <Container className={styles['container']}>
-            <h3 className='title'>Backed by the best</h3>
+            <h3 className='title'>powered by</h3>
             <div className={styles['grid']}>
                 {
                     data?.map((item, index) => {

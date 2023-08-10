@@ -5,7 +5,7 @@ import { useHonorableModal } from "~/context/HonorableModalContext";
 import { useRanking } from "~/hooks/api/useRanking";
 import Link from "next/link";
 
-export default function CardHonorable({ title, logo, name, imgs, des, type = '' }) {
+export default function CardHonorable({ title, logo, name, imgs, des, info, type = '' }) {
     const { isOpen, setIsOpen, setData } = useHonorableModal();
     const { data } = useRanking({
         type: type,
@@ -32,7 +32,7 @@ export default function CardHonorable({ title, logo, name, imgs, des, type = '' 
 
         <Button outline onClick={() => {
             open();
-            setData(title, data?.data)
+            setData(title, data?.data, info)
         }}>VIEW MORE</Button>
         <img src={imgs} className={styles['img-bottom-right']} />
     </div>

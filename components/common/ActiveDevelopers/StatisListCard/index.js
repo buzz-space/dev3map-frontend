@@ -16,7 +16,7 @@ export default function StatisListCard({ totalDev = 0, totalFtDev = 0, totalMlDe
                 date: `As of ${date}`,
             }, {
                 number: totalMlDev,
-                type: 'Monthly active developers',
+                type: 'Active developers',
                 date: `As of ${date}`,
             }
         ]
@@ -34,7 +34,7 @@ export default function StatisListCard({ totalDev = 0, totalFtDev = 0, totalMlDe
                     date: `As of ${date}`,
                 }, {
                     number: totalMlDev,
-                    type: 'Monthly active developers',
+                    type: 'Active developers',
                     date: `As of ${date}`
                 }
             ]

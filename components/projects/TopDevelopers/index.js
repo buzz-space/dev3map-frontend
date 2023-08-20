@@ -8,7 +8,7 @@ const TopDevelopers = ({ chainId, logo }) => {
     const { data } = useChainDeveloper({ id: chainId })
     return (
         <div className={styles['top-developer']}>
-            <h4 className={styles['title']}>DEVELOPERS ({data?.data?.length})</h4>
+            <h4 className={styles['title']}>CONTRIBUTORS ({data?.data?.length})</h4>
             <div className={styles['list']}>
                 {
                     data?.data?.map((item, index) => {

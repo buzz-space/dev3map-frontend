@@ -23,7 +23,7 @@ const MonthlyActiveDevs = ({ data }) => {
         return {
             labels: data?.map((dt) => moment(dt?.exact_date).format("YYYY")),
             datasets: [{
-                label: 'TOTAL MONTHLY ACTIVE DEVS',
+                label: 'TOTAL ACTIVE DEVS',
                 data: data?.map((dt) => Number(dt?.active_developer)),
                 labelT: data?.map((dt) => `${dt?.exact_date}`),
                 backgroundColor: '#BB86FC',
@@ -37,7 +37,7 @@ const MonthlyActiveDevs = ({ data }) => {
         setDataChart(process());
     }, [data])
     return <div className={styles['chart-layout']}>
-        <h6 className={styles['title']}>MONTHLY ACTIVE DEVS</h6>
+        <h6 className={styles['title']}>ACTIVE DEVS</h6>
 
         <div className={styles['chart']}> <Line data={dataChart} options={{
             // animations: {

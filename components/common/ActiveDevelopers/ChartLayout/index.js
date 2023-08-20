@@ -17,7 +17,7 @@ ChartJS.register(
 )
 export default function ChartLayout({ description, data }) {
     return <div className={styles['chart-layout']}>
-        <h6 className={styles['title']}>MONTHLY ACTIVE DEVS</h6>
+        <h6 className={styles['title']}>ACTIVE DEVS</h6>
         <label className={styles['description']}>
             {description}
         </label>

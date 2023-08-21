@@ -7,7 +7,7 @@ export default function ChartActiveAll({ data }) {
         return {
             labels: data?.map((dt) => dt?.year),
             datasets: [{
-                label: 'TOTAL MONTHLY ACTIVE DEVS',
+                label: 'TOTAL ACTIVE DEVS',
                 data: data?.map((dt) => Number(dt?.total_full_time) + Number(dt?.total_part_time)),
                 labelT: data?.map((dt) => `${handleMonth(dt?.month)}/${dt?.year}`),
                 backgroundColor: '#BB86FC',

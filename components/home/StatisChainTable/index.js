@@ -27,14 +27,21 @@ export default function StatisChainTable() {
     function getValue(item, prop) {
         let label = '';
         if (indexTab === 0) {
-            label = '24_hours';
-        } else if (indexTab === 1) {
             label = '7_days';
-        } else {
+        } else if (indexTab === 1) {
             label = '30_days';
+        } else {
+            label = '0';
         }
-        let value = item?.stats?.filter((item) => item?.range == label);
-        return Number(value[0][prop]);
+        let value = item?.stats?.filter((item) => {
+            return item?.range === label
+        });
+        console.log({ value, label });
+        if (value[0]) {
+            return Number(value[0][prop]);
+        } else {
+            return 0;
+        }
     }
 
 
@@ -49,7 +56,8 @@ export default function StatisChainTable() {
                         ...item, stats: [
                             { ...item?.stats[0], developers: item?.stats[0]?.full_time_developer + item?.stats[0]?.part_time_developer },
                             { ...item?.stats[1], developers: item?.stats[1]?.full_time_developer + item?.stats[1]?.part_time_developer },
-                            { ...item?.stats[2], developers: item?.stats[2]?.full_time_developer + item?.stats[2]?.part_time_developer }
+                            { ...item?.stats[2], developers: item?.stats[2]?.full_time_developer + item?.stats[2]?.part_time_developer },
+                            { ...item?.stats[3], developers: item?.stats[3]?.full_time_developer + item?.stats[3]?.part_time_developer }
                         ]
                     }
                 });
@@ -135,6 +143,7 @@ export default function StatisChainTable() {
             <div className={styles['search-bar']}>
                 <input type="search" placeholder="Search chain" value={value} onChange={(e) => {
                     setValue(e.currentTarget.value);
+                    onClickSearch();
                 }} onKeyDown={(event) => {
                     if (event.key === 'Enter') {
                         // 👇 Get input value
@@ -143,7 +152,7 @@ export default function StatisChainTable() {
                 }} />
                 <Search onClick={onClickSearch} />
             </div>
-            <TabDynamic data={[{ label: '24H' }, { label: '7D' }, { label: '30D' }]} setIndexActive={setIndexTab} />
+            <TabDynamic data={[{ label: '7D' }, { label: '30D' }, { label: 'All' }]} setIndexActive={setIndexTab} />
         </div>
         <div className={styles['container-table']}>
             <div className={styles['container-inside']}>

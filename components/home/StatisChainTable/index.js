@@ -32,9 +32,11 @@ export default function StatisChainTable() {
             label = '30_days';
         } else {
             label = '0';
-            // label = '24_hours';
         }
-        let value = item?.stats?.filter((item) => item?.range == label);
+        let value = item?.stats?.filter((item) => {
+            return item?.range === label
+        });
+        console.log({ value, label });
         if (value[0]) {
             return Number(value[0][prop]);
         } else {
@@ -54,7 +56,8 @@ export default function StatisChainTable() {
                         ...item, stats: [
                             { ...item?.stats[0], developers: item?.stats[0]?.full_time_developer + item?.stats[0]?.part_time_developer },
                             { ...item?.stats[1], developers: item?.stats[1]?.full_time_developer + item?.stats[1]?.part_time_developer },
-                            { ...item?.stats[2], developers: item?.stats[2]?.full_time_developer + item?.stats[2]?.part_time_developer }
+                            { ...item?.stats[2], developers: item?.stats[2]?.full_time_developer + item?.stats[2]?.part_time_developer },
+                            { ...item?.stats[3], developers: item?.stats[3]?.full_time_developer + item?.stats[3]?.part_time_developer }
                         ]
                     }
                 });

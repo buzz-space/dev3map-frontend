@@ -1,6 +1,6 @@
 .other-infor-res {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     column-gap: 8px;
     [role="icon-default"] {
         color: currentColor;
@@ -13,5 +13,22 @@
         font-style: normal;
         font-weight: 600;
         line-height: normal;
+    }
+    .value {
+        display: flex;
+        flex-direction: column;
+        row-gap: 4px;
+        .percent {
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            &.positive {
+                color: var(--Secondary, #03DAC6);
+            }
+            &.negative {
+                color: var(--Red, #CF6679);
+            }
+        }
     }
 }

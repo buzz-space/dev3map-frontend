@@ -13,6 +13,22 @@
 
         color: #FFFFFF;
     }
+    .sort {
+        margin-top: 24px;
+        display: flex;
+        align-items: center;
+        column-gap: 8px;
+        color: #FFF;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        cursor: pointer;
+        user-select: none;
+        * {
+            cursor: pointer;
+        }
+    }
     .list {
         margin-top: 32px;
         max-height: 654px;

@@ -10,37 +10,44 @@ import MentionChart from "./MentionChart";
 import Button from "~/components/base/Button";
 import { handleMonth } from "~/utils/strings";
 import NoData from "./NoData";
+import moment from "moment";
 export default function ActivityTrend({ userCode = [], userCommit = [] }) {
     const [activeTypeStatis, setActiveStatis] = useState(0);
+    const [indexFilterDate, setIndexFilterDate] = useState(0);
     const [mention, setMention] = useState([{
         color: '#BB86FC',
         label: 'COMMIT',
     }]);
+    const [userCodeFilter, setUserCodeFilter] = useState(userCode);
+    const [userCommitFilter, setUserCommitFilter] = useState(userCommit);
 
     function getChartData(datas, label) {
         if (label === 'COMMIT') {
             return {
-                labels: datas?.map((data) => data.time),
+                labels: datas?.map((data) => moment(data?.exact_date).format("YYYY/MM")),
                 datasets: [{
                     label: label,
                     data: datas?.map((data) => data.number),
-                    labelT: datas?.map((data, index) => `${data?.week == 1 ? '01' : '15'}/${handleMonth(data?.month)}/${data?.year}`),
-                    backgroundColor: '#BB86FC'
+                    labelT: datas?.map((data, index) => moment(data?.exact_date).format("DD-MM-YYYY")),
+                    backgroundColor: '#BB86FC',
+                    borderColor: '#BB86FC',
                 }]
             }
         } else {
             return {
-                labels: datas.addition?.map((data) => data.time),
+                labels: datas.addition?.map((data) => moment(data?.exact_date).format("YYYY/MM")),
                 datasets: [{
                     label: 'ADDITION',
                     data: datas.addition?.map((data) => data.number),
-                    labelT: datas?.addition.map((data, index) => `${data?.week == 1 ? '01' : '15'}/${handleMonth(data?.month)}/${data?.year}`),
+                    labelT: datas?.addition.map((data, index) => moment(data?.exact_date).format("DD-MM-YYYY")),
                     backgroundColor: '#03DAC6',
+                    borderColor: '#03DAC6',
                 }, {
                     label: 'DELETION',
                     data: datas.deletion?.map((data) => data.number),
-                    labelT: datas?.deletion?.map((data, index) => `${data?.week == 1 ? '01' : '15'}/${handleMonth(data?.month)}/${data?.year}`),
+                    labelT: datas?.deletion?.map((data, index) => moment(data?.exact_date).format("DD-MM-YYYY")),
                     backgroundColor: '#CF6679',
+                    borderColor: '#CF6679',
                 }]
             }
         }
@@ -56,10 +63,10 @@ export default function ActivityTrend({ userCode = [], userCommit = [] }) {
 
     useEffect(() => {
         if (activeTypeStatis == 0) {
-            changeStatisType(userCommit, "COMMIT");
+            changeStatisType(userCommitFilter, "COMMIT");
             setMention([{ color: '#BB86FC', label: 'COMMIT' }])
         } else if (activeTypeStatis == 1) {
-            changeStatisType(userCode, "CODE");
+            changeStatisType(userCodeFilter, "CODE");
             setMention([
                 {
                     color: '#03DAC6',
@@ -70,21 +77,76 @@ export default function ActivityTrend({ userCode = [], userCommit = [] }) {
                 }
             ])
         }
-    }, [activeTypeStatis, userCommit, userCode])
+    }, [activeTypeStatis, userCommitFilter, userCodeFilter])
+
+
+
+    useEffect(() => {
+        let dataCode = userCode;
+        let dataCommit = userCommit;
+        let date = moment(process.env.HANDLE_DATE);
+        if (indexFilterDate === 1) {
+            dataCommit = dataCommit?.filter((item) => {
+                const diffInDays = date.diff(item?.exact_date, 'days');
+                return Math.abs(diffInDays) <= 7;
+            })
+            dataCode = {
+                addition: dataCode?.addition?.filter((item) => {
+                    const diffInDays = date.diff(item?.exact_date, 'days');
+                    return Math.abs(diffInDays) <= 7;
+                }),
+                deletion: dataCode?.deletion?.filter((item) => {
+                    const diffInDays = date.diff(item?.exact_date, 'days');
+                    return Math.abs(diffInDays) <= 7;
+                })
+            }
+        } else if (indexFilterDate == 2) {
+            dataCommit = dataCommit?.filter((item) => {
+                const diffInDays = date.diff(item?.exact_date, 'days');
+                return Math.abs(diffInDays) <= 30;
+            })
+            dataCode = {
+                addition: dataCode?.addition?.filter((item) => {
+                    const diffInDays = date.diff(item?.exact_date, 'days');
+                    return Math.abs(diffInDays) <= 30;
+                }),
+                deletion: dataCode?.deletion?.filter((item) => {
+                    const diffInDays = date.diff(item?.exact_date, 'days');
+                    return Math.abs(diffInDays) <= 30;
+                })
+            }
+        }
+
+        setUserCodeFilter(dataCode);
+        setUserCommitFilter(dataCommit)
+
+    }, [indexFilterDate, userCommit, userCode])
 
     return <div className={styles['activity-trend']}>
         <div className={styles['header']}>
             <h6 className={styles['title']}>Activity Trend</h6>
-            <TabDynamic data={[
-                {
-                    label: 'Commit',
-                    icon: <Commit />,
-                }, {
-                    label: 'Code',
-                    icon: <Code />,
-                }
+            <div className={styles['tabs-dynamic']}>
+                <TabDynamic data={[
+                    {
+                        label: 'Commit',
+                        icon: <Commit />,
+                    }, {
+                        label: 'Code',
+                        icon: <Code />,
+                    }
 
-            ]} setIndexActive={setActiveStatis} />
+                ]} setIndexActive={setActiveStatis} />
+                <TabDynamic data={[
+                    {
+                        label: 'All',
+                    }, {
+                        label: '7D',
+                    }, {
+                        label: '30D',
+                    }
+
+                ]} setIndexActive={setIndexFilterDate} />
+            </div>
         </div>
         <div className={styles['body']}>
             {/* <div className={styles['choose-statis']}>

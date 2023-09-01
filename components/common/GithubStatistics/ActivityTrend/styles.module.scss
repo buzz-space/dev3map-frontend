@@ -22,6 +22,12 @@
             color: #FFFFFF;
             text-transform: uppercase;
         }
+        .tabs-dynamic {
+            display: flex;
+            align-items: center;
+            column-gap: 24px;
+            flex-wrap: wrap;
+        }
     }
 
     .body {

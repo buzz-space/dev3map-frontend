@@ -10,18 +10,17 @@ import { useGetSummaryInfo } from "~/hooks/api/useSummaryInfo";
 
 function HomeContainer() {
   const { data: dataSummary, refetch: refetchSummary } = useGetSummaryInfo();
-  const { data: dataCommitChart, refetch: refetchCommitChart } = useGetCommitChart();
+  // const { data: dataCommitChart, refetch: refetchCommitChart } = useGetCommitChart();
   const { data: dataDeveloperChart, refetch: refetchDeveloperChart } = useDeveloperChart();
   useEffect(() => {
     refetchSummary();
-    refetchCommitChart();
     refetchDeveloperChart();
   }, [])
   return <div>
     <Introduce />
     <HonorableMention />
     <StatisChainTable />
-    <GithubStatistics data={dataCommitChart?.data} dataTotal={dataSummary?.data} dataDeveloper={dataDeveloperChart?.data} />
+    <GithubStatistics data={dataDeveloperChart?.data} dataTotal={dataSummary?.data} />
     {/* <ActiveDevelopers data={dataDeveloper?.data} /> */}
   </div>;
 }

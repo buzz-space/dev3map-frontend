@@ -19,6 +19,7 @@ module.exports = (phase) => {
   const env = {
     SERVER_URI: config.SERVER_URI,
     WEB_URI: config.WEB_URI,
+    HANDLE_DATE: config.HANDLE_DATE,
   };
 
   console.log('env_log', env);

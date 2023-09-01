@@ -13,6 +13,19 @@
 
         color: #FFFFFF;
     }
+    .toggle {
+        margin-top: 24px;
+        display: flex;
+        column-gap: 16px;
+        align-items: center;
+        label {
+            color: #FFF;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+        }
+    }
     .list {
         margin-top: 32px;
         max-height: 654px;

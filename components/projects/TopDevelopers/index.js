@@ -1,17 +1,42 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './styles.module.scss';
 import { useChainDeveloper } from '~/hooks/api/useChainDeveloper';
 import { Commit, CommitHorizontal } from '~/public/assets/svgs';
 import { formatNumber } from '~/utils/number';
+import IconSort from '~/components/home/StatisChainTable/IconSort';
 
 const TopDevelopers = ({ chainId, logo }) => {
     const { data } = useChainDeveloper({ id: chainId })
+    const [dataDev, setDataDev] = useState([]);
+    const [directSort, setDirectSort] = useState('');
+    function sort() {
+        let dt = data?.data;
+        if (directSort === 'up') {
+            setDirectSort('down');
+            dt = dt?.sort((a, b) => {
+                return Number(a?.closed) - Number(b?.closed)
+            })
+        } else {
+            setDirectSort('up');
+            dt = dt?.sort((a, b) => {
+                return Number(b?.closed) - Number(a?.closed)
+            })
+        }
+        setDataDev(dt);
+    }
+    useEffect(() => {
+        setDataDev(data?.data)
+    }, [data])
     return (
         <div className={styles['top-developer']}>
             <h4 className={styles['title']}>CONTRIBUTORS ({data?.data?.length})</h4>
+            <div className={styles['sort']} onClick={sort}>
+                <label>CONTRIBUTION</label>
+                <IconSort direct={directSort} colorDisable="#FFFFFF66" />
+            </div>
             <div className={styles['list']}>
                 {
-                    data?.data?.map((item, index) => {
+                    dataDev?.map((item, index) => {
                         return <div key={index} className={styles['list-item']}>
                             <div className={styles['author']}>
                                 <img className={styles['avatar']} src={logo} />

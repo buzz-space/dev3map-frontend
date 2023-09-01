@@ -1,4 +1,5 @@
 {
   "SERVER_URI": "https://dev.be.dev3map.com/api/v1",
-  "WEB_URI": "https://dev.dev3map.com"
+  "WEB_URI": "https://dev.dev3map.com",
+  "HANDLE_DATE": "2023-08-24 00:00:00"
 }

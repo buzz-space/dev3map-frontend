@@ -21,7 +21,10 @@ export default function Introduce() {
                 <p className={styles['des']}>
                     With support from Cosmos Ecosystem Map and Github, Buzz Space builds this developer analytics platform to offer a panoramic view of the Interchain Developer Ecosystem
                 </p>
-                <Button outline to="/projects">EXPLORE ALL CATEGORIES</Button>
+                <div className={styles['frame-btn']}>
+                    <Button outline to="/projects">EXPLORE ALL CATEGORIES</Button>
+                    <Button to="#" className={styles['submit-btn']}>SUBMIT NEW PROJECT</Button>
+                </div>
             </div>
         </Container>
     </div>

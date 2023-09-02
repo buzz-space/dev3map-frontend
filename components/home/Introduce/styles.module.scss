@@ -67,6 +67,22 @@
                 text-align: center;
                 font-size: 18px;
             }
+
+            .frame-btn {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                column-gap: 24px;
+                row-gap: 16px;
+                .submit-btn {
+                    background-color: #fff;
+                    color: #000;
+                    &:hover {
+                        opacity: 0.9;
+                    }
+                }
+            }
         }
     }
 

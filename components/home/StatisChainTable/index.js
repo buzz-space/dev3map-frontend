@@ -24,6 +24,7 @@ export default function StatisChainTable() {
         issues_solved: '',
         stars: '',
         forks: '',
+        index: '',
     })
 
     function getValue(item, prop) {
@@ -53,10 +54,10 @@ export default function StatisChainTable() {
                 let dt = [...data?.data]?.map((item, index) => {
                     return {
                         ...item, stats: [
-                            { ...item?.stats[0], developers: item?.stats[0]?.full_time_developer + item?.stats[0]?.part_time_developer },
-                            { ...item?.stats[1], developers: item?.stats[1]?.full_time_developer + item?.stats[1]?.part_time_developer },
-                            { ...item?.stats[2], developers: item?.stats[2]?.full_time_developer + item?.stats[2]?.part_time_developer },
-                            { ...item?.stats[3], developers: item?.stats[3]?.full_time_developer + item?.stats[3]?.part_time_developer }
+                            { ...item?.stats[0], developers: item?.stats[0]?.full_time_developer + item?.stats[0]?.part_time_developer, index: index + 1 },
+                            { ...item?.stats[1], developers: item?.stats[1]?.full_time_developer + item?.stats[1]?.part_time_developer, index: index + 1 },
+                            { ...item?.stats[2], developers: item?.stats[2]?.full_time_developer + item?.stats[2]?.part_time_developer, index: index + 1 },
+                            { ...item?.stats[3], developers: item?.stats[3]?.full_time_developer + item?.stats[3]?.part_time_developer, index: index + 1 }
                         ]
                     }
                 });
@@ -97,6 +98,9 @@ export default function StatisChainTable() {
         if (dataFinished) {
             if (type == 'commits') {
                 dt = sortDirect(type, 'total_commits');
+            }
+            else if (type == 'index') {
+                dt = sortDirect(type, 'index');
             }
             else if (type == 'developers') {
                 dt = sortDirect(type, 'developers');
@@ -177,6 +181,12 @@ export default function StatisChainTable() {
                     <thead>
                         <tr>
                             <th className={styles['chain']}>CHAIN</th>
+                            <th>
+                                <div className={styles['sort-table']} onClick={() => sort('index')}>
+                                    <label>INDEX</label>
+                                    <IconSort direct={directSort?.index} />
+                                </div>
+                            </th>
                             <th className={styles['commits']}>
                                 <div className={styles['sort-table']} onClick={() => sort('commits')}>
                                     <label>COMMITS</label>
@@ -236,6 +246,7 @@ export default function StatisChainTable() {
                                             </div>
                                         </div>
                                     </td>
+                                    <td>#{getValue(item, 'index')}</td>
                                     <td>
                                         <div className={styles['value-table']}>
                                             <label>{formatNumber(getValue(item, 'total_commits'))}</label>
@@ -303,6 +314,7 @@ export default function StatisChainTable() {
                                         {item?.github_prefix}
                                     </label>
                                     <div className={styles['infor-more']}>
+                                        <OtherInforRes icon={'#'} colorIcon={'#FFF'} value={getValue(item, 'index')} />
                                         <OtherInforRes icon={<CommitHorizontal />} colorIcon={'#03DAC6'} value={getValue(item, 'total_commits')} percent={handleTextPercent(getValue(item, 'commit_percent'))} colorPercent={stylePercent(getValue(item, 'commit_percent'))} />
                                         <OtherInforRes icon={<Person />} colorIcon={'#03DAC6'} value={getValue(item, 'developers')} percent={handleTextPercent(getValue(item, 'developer_percent'))} colorPercent={stylePercent(getValue(item, 'developer_percent'))} />
                                         <OtherInforRes icon={<Repo />} colorIcon={'#03DAC6'} value={getValue(item, 'total_repository')} percent={handleTextPercent(getValue(item, 'repository_percent'))} colorPercent={stylePercent(getValue(item, 'repository_percent'))} />

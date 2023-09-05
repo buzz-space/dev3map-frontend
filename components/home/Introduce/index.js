@@ -23,7 +23,7 @@ export default function Introduce() {
                 </p>
                 <div className={styles['frame-btn']}>
                     <Button outline to="/projects">EXPLORE ALL CATEGORIES</Button>
-                    <Button to="#" className={styles['submit-btn']}>SUBMIT NEW PROJECT</Button>
+                    <Button to="https://forms.gle/k5ZEhMELceCiFzn17" className={styles['submit-btn']}>SUBMIT NEW PROJECT</Button>
                 </div>
             </div>
         </Container>

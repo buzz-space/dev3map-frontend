@@ -17,11 +17,10 @@ import TopDevelopers from "~/components/projects/TopDevelopers";
 export default function DetailProjectContainer({ data }) {
     const router = useRouter();
     const { data: dataSummary, refetch: refetchSummary } = useGetSummaryInfo({ chain: data?.id });
-    const { data: dataCommitChart, refetch: refetchCommitChart } = useGetCommitChart({ chain: data?.id });
+    // const { data: dataCommitChart, refetch: refetchCommitChart } = useGetCommitChart({ chain: data?.id });
     const { data: dataDeveloperChart, refetch: refetchDeveloperChart } = useDeveloperChart({ chain: data?.id });
     useEffect(() => {
         refetchSummary();
-        refetchCommitChart();
         refetchDeveloperChart();
     }, [data])
 
@@ -39,7 +38,7 @@ export default function DetailProjectContainer({ data }) {
             ]} />
             <InforRepo logo={data?.avatar} name={data?.name} des={data?.description} stars={data?.stats[0]?.total_star} commits={data?.stats[0]?.total_commits} github={`https://github.com/${data?.github_prefix}`} web={data?.website} />
         </Container>
-        <GithubStatistics data={dataCommitChart?.data} dataTotal={dataSummary?.data} dataDeveloper={dataDeveloperChart?.data} homePage={false} />
+        <GithubStatistics data={dataDeveloperChart?.data} dataTotal={dataSummary?.data} homePage={false} />
         <Container className={styles['foot-detail']}>
             <ListRepos chainId={data?.id} />
             <TopDevelopers chainId={data?.id} logo={data?.avatar} />

@@ -10,6 +10,8 @@ import { Checkbox, CommitHorizontal, Fork, Issue, Person, PullRequest, Repo, Sea
 import { formatNumber } from "~/utils/number";
 import { Blockchain } from "~/public/assets/svgs-title";
 import TabDynamic from "~/components/base/TabDynamic";
+import clsx from "clsx";
+import { stylePercent } from "~/utils/base";
 
 export default function StatisChainTable() {
     const { data, refetch } = useGetChainList();
@@ -22,29 +24,27 @@ export default function StatisChainTable() {
         issues_solved: '',
         stars: '',
         forks: '',
+        index: '',
     })
 
     function getValue(item, prop) {
         let label = '';
         if (indexTab === 0) {
-            label = '7_days';
+            label = 'all';
         } else if (indexTab === 1) {
-            label = '30_days';
+            label = '7_days';
         } else {
-            label = '0';
+            label = '30_days';
         }
         let value = item?.stats?.filter((item) => {
             return item?.range === label
         });
-        console.log({ value, label });
         if (value[0]) {
             return Number(value[0][prop]);
         } else {
             return 0;
         }
     }
-
-
     const [dataTable, setDataTable] = useState([]);
     const [dataFinished, setDataFinished] = useState([]);
     const [indexTab, setIndexTab] = useState(0);
@@ -54,10 +54,10 @@ export default function StatisChainTable() {
                 let dt = [...data?.data]?.map((item, index) => {
                     return {
                         ...item, stats: [
-                            { ...item?.stats[0], developers: item?.stats[0]?.full_time_developer + item?.stats[0]?.part_time_developer },
-                            { ...item?.stats[1], developers: item?.stats[1]?.full_time_developer + item?.stats[1]?.part_time_developer },
-                            { ...item?.stats[2], developers: item?.stats[2]?.full_time_developer + item?.stats[2]?.part_time_developer },
-                            { ...item?.stats[3], developers: item?.stats[3]?.full_time_developer + item?.stats[3]?.part_time_developer }
+                            { ...item?.stats[0], developers: item?.stats[0]?.full_time_developer + item?.stats[0]?.part_time_developer, index: index + 1 },
+                            { ...item?.stats[1], developers: item?.stats[1]?.full_time_developer + item?.stats[1]?.part_time_developer, index: index + 1 },
+                            { ...item?.stats[2], developers: item?.stats[2]?.full_time_developer + item?.stats[2]?.part_time_developer, index: index + 1 },
+                            { ...item?.stats[3], developers: item?.stats[3]?.full_time_developer + item?.stats[3]?.part_time_developer, index: index + 1 }
                         ]
                     }
                 });
@@ -99,6 +99,9 @@ export default function StatisChainTable() {
             if (type == 'commits') {
                 dt = sortDirect(type, 'total_commits');
             }
+            else if (type == 'index') {
+                dt = sortDirect(type, 'index');
+            }
             else if (type == 'developers') {
                 dt = sortDirect(type, 'developers');
             } else if (type == 'repos') {
@@ -136,6 +139,24 @@ export default function StatisChainTable() {
     }, [value])
 
 
+    function handleTextPercent(text) {
+        if (indexTab === 0) {
+            return ''
+        }
+        else {
+            if (text) {
+                let result = text;
+                if (Number(text) > 0) {
+                    result = '+' + text;
+                }
+                return result + '%'
+            }
+            else {
+                return '0%'
+            }
+        }
+    }
+
 
     return <Container className={styles['container']}>
         <h6 className="title">CHAINS ({dataTable?.length})<span><Blockchain /></span></h6>
@@ -152,13 +173,19 @@ export default function StatisChainTable() {
                 }} />
                 <Search onClick={onClickSearch} />
             </div>
-            <TabDynamic data={[{ label: '7D' }, { label: '30D' }, { label: 'All' }]} setIndexActive={setIndexTab} />
+            <TabDynamic data={[{ label: 'All' }, { label: '7D' }, { label: '30D' }]} setIndexActive={setIndexTab} />
         </div>
         <div className={styles['container-table']}>
             <div className={styles['container-inside']}>
                 <table className={styles['table']}>
                     <thead>
                         <tr>
+                            <th>
+                                <div className={styles['sort-table']} onClick={() => sort('index')}>
+                                    <label>NO.</label>
+                                    <IconSort direct={directSort?.index} />
+                                </div>
+                            </th>
                             <th className={styles['chain']}>CHAIN</th>
                             <th className={styles['commits']}>
                                 <div className={styles['sort-table']} onClick={() => sort('commits')}>
@@ -208,9 +235,10 @@ export default function StatisChainTable() {
                         {
                             dataTable?.length > 0 && dataTable.map((item, index) => {
                                 return <tr key={item?.id} className={styles['row']} onClick={() => {
-                                    router.push(`/projects/${item?.github_prefix}`)
+                                    window.open(`/projects/${item?.github_prefix}`, "_blank")
                                 }} >
-                                    <td className={styles['td-chain']}>
+                                    <td>#{index + 1}</td>
+                                    <td>
                                         <div className={styles['chain']}>
                                             <img className={styles['logo']} src={item?.avatar} />
                                             <div className={styles['infor-chain']}>
@@ -219,13 +247,48 @@ export default function StatisChainTable() {
                                             </div>
                                         </div>
                                     </td>
-                                    <td className={styles['commits']}>{formatNumber(getValue(item, 'total_commits'))}</td>
-                                    <td className={styles['developers']}>{formatNumber(getValue(item, 'developers'))}</td>
-                                    <td className={styles['repository']}>{formatNumber(getValue(item, 'total_repository'))}</td>
-                                    <td className={styles['stars']}>{formatNumber(getValue(item, 'total_star'))}</td>
-                                    <td className={styles['forks']}>{formatNumber(getValue(item, 'total_fork'))}</td>
-                                    <td className={styles['issues']}>{formatNumber(getValue(item, 'total_issue_solved'))}</td>
-                                    <td className={styles['pull']}>{formatNumber(getValue(item, 'total_pull_merged'))}</td>
+                                    <td>
+                                        <div className={styles['value-table']}>
+                                            <label>{formatNumber(getValue(item, 'total_commits'))}</label>
+                                            <label className={clsx(styles['percent-value'], styles[stylePercent(getValue(item, 'commit_percent'))])}>{handleTextPercent(getValue(item, 'commit_percent'))}</label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div className={styles['value-table']}>
+                                            <label>{formatNumber(getValue(item, 'developers'))}</label>
+                                            <label className={clsx(styles['percent-value'], styles[stylePercent(getValue(item, 'developer_percent'))])}>{handleTextPercent(getValue(item, 'developer_percent'))}</label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div className={styles['value-table']}>
+                                            <label>{formatNumber(getValue(item, 'total_repository'))}</label>
+                                            <label className={clsx(styles['percent-value'], styles[stylePercent(getValue(item, 'repository_percent'))])}>{handleTextPercent(getValue(item, 'repository_percent'))}</label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div className={styles['value-table']}>
+                                            <label>{formatNumber(getValue(item, 'total_star'))}</label>
+                                            <label className={clsx(styles['percent-value'], styles[stylePercent(getValue(item, 'star_percent'))])}>{handleTextPercent(getValue(item, 'star_percent'))}</label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div className={styles['value-table']}>
+                                            <label>{formatNumber(getValue(item, 'total_fork'))}</label>
+                                            <label className={clsx(styles['percent-value'], styles[stylePercent(getValue(item, 'fork_percent'))])}>{handleTextPercent(getValue(item, 'fork_percent'))}</label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div className={styles['value-table']}>
+                                            <label>{formatNumber(getValue(item, 'total_issue_solved'))}</label>
+                                            <label className={clsx(styles['percent-value'], styles[stylePercent(getValue(item, 'issue_percent'))])}>{handleTextPercent(getValue(item, 'issue_percent'))}</label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div className={styles['value-table']}>
+                                            <label>{formatNumber(getValue(item, 'total_pull_merged'))}</label>
+                                            <label className={clsx(styles['percent-value'], styles[stylePercent(getValue(item, 'pull_percent'))])}>{handleTextPercent(getValue(item, 'pull_percent'))}</label>
+                                        </div>
+                                    </td>
                                 </tr>
                             })
                         }
@@ -251,13 +314,14 @@ export default function StatisChainTable() {
                                         {item?.github_prefix}
                                     </label>
                                     <div className={styles['infor-more']}>
-                                        <OtherInforRes icon={<CommitHorizontal />} colorIcon={'#03DAC6'} value={getValue(item, 'total_commits')} />
-                                        <OtherInforRes icon={<Person />} colorIcon={'#03DAC6'} value={getValue(item, 'full_time_developer') + getValue(item, 'part_time_developer')} />
-                                        <OtherInforRes icon={<Repo />} colorIcon={'#03DAC6'} value={getValue(item, 'total_repository')} />
-                                        <OtherInforRes icon={<Star />} colorIcon={'#BB86FC'} value={getValue(item, 'total_star')} />
-                                        <OtherInforRes icon={<Fork />} colorIcon={'#BB86FC'} value={getValue(item, 'total_fork')} />
-                                        <OtherInforRes icon={<Issue />} colorIcon={'#18A0FB'} value={getValue(item, 'total_issue_solved')} />
-                                        <OtherInforRes icon={<PullRequest />} colorIcon={'#18A0FB'} value={getValue(item, 'total_pull_merged')} />
+                                        <OtherInforRes icon={'#'} colorIcon={'#FFF'} value={getValue(item, 'index')} />
+                                        <OtherInforRes icon={<CommitHorizontal />} colorIcon={'#03DAC6'} value={getValue(item, 'total_commits')} percent={handleTextPercent(getValue(item, 'commit_percent'))} colorPercent={stylePercent(getValue(item, 'commit_percent'))} />
+                                        <OtherInforRes icon={<Person />} colorIcon={'#03DAC6'} value={getValue(item, 'developers')} percent={handleTextPercent(getValue(item, 'developer_percent'))} colorPercent={stylePercent(getValue(item, 'developer_percent'))} />
+                                        <OtherInforRes icon={<Repo />} colorIcon={'#03DAC6'} value={getValue(item, 'total_repository')} percent={handleTextPercent(getValue(item, 'repository_percent'))} colorPercent={stylePercent(getValue(item, 'repository_percent'))} />
+                                        <OtherInforRes icon={<Star />} colorIcon={'#BB86FC'} value={getValue(item, 'total_star')} percent={handleTextPercent(getValue(item, 'star_percent'))} colorPercent={stylePercent(getValue(item, 'star_percent'))} />
+                                        <OtherInforRes icon={<Fork />} colorIcon={'#BB86FC'} value={getValue(item, 'total_fork')} percent={handleTextPercent(getValue(item, 'fork_percent'))} colorPercent={stylePercent(getValue(item, 'fork_percent'))} />
+                                        <OtherInforRes icon={<Issue />} colorIcon={'#18A0FB'} value={getValue(item, 'total_issue_solved')} percent={handleTextPercent(getValue(item, 'issue_percent'))} colorPercent={stylePercent(getValue(item, 'issue_percent'))} />
+                                        <OtherInforRes icon={<PullRequest />} colorIcon={'#18A0FB'} value={getValue(item, 'total_pull_merged')} percent={handleTextPercent(getValue(item, 'pull_percent'))} colorPercent={stylePercent(getValue(item, 'pull_percent'))} />
 
                                     </div>
                                 </div>

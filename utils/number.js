@@ -1,3 +1,6 @@
 export function formatNumber(number) {
-    return Number(number).toLocaleString("ja-JP");
+    if (number) {
+        return Number(number).toLocaleString("ja-JP");
+    }
+    return 0;
 }

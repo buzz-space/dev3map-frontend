@@ -180,13 +180,13 @@ export default function StatisChainTable() {
                 <table className={styles['table']}>
                     <thead>
                         <tr>
-                            <th className={styles['chain']}>CHAIN</th>
                             <th>
                                 <div className={styles['sort-table']} onClick={() => sort('index')}>
-                                    <label>INDEX</label>
+                                    <label>NO.</label>
                                     <IconSort direct={directSort?.index} />
                                 </div>
                             </th>
+                            <th className={styles['chain']}>CHAIN</th>
                             <th className={styles['commits']}>
                                 <div className={styles['sort-table']} onClick={() => sort('commits')}>
                                     <label>COMMITS</label>
@@ -237,6 +237,7 @@ export default function StatisChainTable() {
                                 return <tr key={item?.id} className={styles['row']} onClick={() => {
                                     router.push(`/projects/${item?.github_prefix}`)
                                 }} >
+                                    <td>#{index + 1}</td>
                                     <td>
                                         <div className={styles['chain']}>
                                             <img className={styles['logo']} src={item?.avatar} />
@@ -246,7 +247,6 @@ export default function StatisChainTable() {
                                             </div>
                                         </div>
                                     </td>
-                                    <td>#{getValue(item, 'index')}</td>
                                     <td>
                                         <div className={styles['value-table']}>
                                             <label>{formatNumber(getValue(item, 'total_commits'))}</label>

@@ -235,7 +235,7 @@ export default function StatisChainTable() {
                         {
                             dataTable?.length > 0 && dataTable.map((item, index) => {
                                 return <tr key={item?.id} className={styles['row']} onClick={() => {
-                                    router.push(`/projects/${item?.github_prefix}`)
+                                    window.open(`/projects/${item?.github_prefix}`, "_blank")
                                 }} >
                                     <td>#{index + 1}</td>
                                     <td>

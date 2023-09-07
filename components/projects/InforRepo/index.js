@@ -7,7 +7,7 @@ export default function InforRepo({ logo, name, des, stars, commits, github, web
   return (
     <div className={styles['infor-repo']}>
       <div className={styles['logo']}>
-        <Image src={logo || pathImgTemp} alt="Logo" layout='fill' objectFit='contain' className='rounded-full' />
+        <Image src={logo || pathImgTemp} alt={name} layout='fill' objectFit='contain' className='rounded-full' />
       </div>
       <div className={styles['information']}>
         <h6 className={styles['name']}>{name}</h6>
@@ -15,13 +15,13 @@ export default function InforRepo({ logo, name, des, stars, commits, github, web
         <div className={styles['rates-frame']}>
           <div className={styles['rate']}>
             <div className={styles['rate-icon']}>
-              <Image src={'/imgs/stars.svg'} layout='fill' objectFit='contain' />
+              <Image src={'/imgs/stars.svg'} layout='fill' objectFit='contain' alt="Star icon"/>
             </div>
             <label className={styles['rate-value']}>{formatNumber(stars)}</label>
           </div>
           <div className={styles['rate']}>
             <div className={styles['rate-icon']}>
-              <Image src={'/imgs/commits.svg'} layout='fill' objectFit='contain' />
+              <Image src={'/imgs/commits.svg'} layout='fill' objectFit='contain' alt="Commit icon"/>
             </div>
             <label className={styles['rate-value']}>{formatNumber(commits)}</label>
           </div>
@@ -29,7 +29,7 @@ export default function InforRepo({ logo, name, des, stars, commits, github, web
         <div className={styles['paths-frame']}>
           <div className={styles['path']}>
             <div className={styles['path-icon']}>
-              <Image src={'/imgs/github.svg'} layout='fill' objectFit='contain' />
+              <Image src={'/imgs/github.svg'} layout='fill' objectFit='contain' alt="Github icon"/>
             </div>
             <a href={github} target="_blank" className={styles['path-value']}>
               {github}
@@ -38,7 +38,7 @@ export default function InforRepo({ logo, name, des, stars, commits, github, web
           {web && (
             <div className={styles['path']}>
               <div className={styles['path-icon']}>
-                <Image src={'/imgs/web-home.svg'} layout='fill' objectFit='contain' />
+                <Image src={'/imgs/web-home.svg'} layout='fill' objectFit='contain' alt="Web home icon"/>
               </div>
               <a href={web} target="_blank" className={styles['path-value']}>
                 {web}

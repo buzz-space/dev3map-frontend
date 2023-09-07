@@ -9,7 +9,7 @@ export default function Header({ currentPage = '' }) {
     <header className={styles['header']}>
       <Container className={styles['container']}>
         <Link href="/" className={styles['logo']}>
-          <Image src="/imgs/logo.svg" layout='fill' objectFit='contain' />
+          <Image src="/imgs/logo.svg" layout='fill' objectFit='contain' alt="Logo Dev3Map"/>
         </Link>
         <Navbar currentPage={currentPage} />
       </Container>

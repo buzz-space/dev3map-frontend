@@ -3,6 +3,7 @@ import styles from './styles.module.scss';
 import Metric from './Metric';
 import Link from 'next/link';
 import { useHonorableModal } from '~/context/HonorableModalContext';
+import Image from 'next/image';
 
 export default function InforHonorable({ data, title, des }) {
   const { setIsOpen } = useHonorableModal();
@@ -11,16 +12,18 @@ export default function InforHonorable({ data, title, des }) {
       <label className={styles['rank']}>RANK #1</label>
 
       <Link href={`/projects/${data?.github_prefix}`}>
-        <a
+        <div
           className={styles['repo']}
           onClick={() => {
             setIsOpen(false);
           }}
         >
-          <img src={data?.avatar} className={styles['logo']} />
+          <div className={styles['logo']}>
+            <Image src={data?.avatar || '/'} objectFit='contain' layout='fill' className='rounded-full' />
+          </div>
           <label className={styles['name']}>{data?.name}</label>
           <ArrowUpRight />
-        </a>
+        </div>
       </Link>
       {des && <p className={styles['description']}>{des}</p>}
       <label className={styles['key-metric']}>KEY METRIC</label>

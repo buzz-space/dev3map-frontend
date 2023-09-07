@@ -28,14 +28,11 @@ const Navbar = ({ currentPage }) => {
         {data?.map((item) => {
           return (
             <li className={styles['nav-item']}>
-              <Link href={item?.to}>
-                <a
-                  className={clsx(styles['nav-item__label'], {
-                    [styles['active']]: currentPage == item?.activeKey,
-                  })}
-                >
-                  {item?.label}
-                </a>
+              <Link href={item?.to} className={clsx(styles['nav-item__label'], {
+                [styles['active']]: currentPage == item?.activeKey,
+              })}>
+
+                {item?.label}
               </Link>
             </li>
           );

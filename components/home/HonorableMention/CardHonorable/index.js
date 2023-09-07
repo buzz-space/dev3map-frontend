@@ -26,11 +26,13 @@ export default function CardHonorable({ title, logo, name, imgs, des, info, type
       </div>
       <label className={styles['rank']}>RANK #1</label>
       <Link href={`/projects/${data?.data[0]?.github_prefix}`}>
-        <a className={styles['repo']}>
-          <img src={data?.data[0]?.avatar} className={styles['logo']} />
+        <div className={styles['repo']}>
+          <div className={styles['logo']} >
+            <Image src={data?.data[0]?.avatar || '/'} objectFit='contain' layout='fill' className='rounded-full' />
+          </div>
           <label className={styles['name']}>{data?.data[0]?.name}</label>
           <ArrowUpRight />
-        </a>
+        </div>
       </Link>
 
       <Button

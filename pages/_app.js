@@ -38,16 +38,16 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
     <SessionProvider session={session}>
       <QueryClientProvider client={queryClient}>
         <Progress isAnimating={isAnimating} />
-        <TransProvider>
-          <VisibilityProvider>
-            <FilterProjectsProvider>
-              <HonorableProvider>
+        <HonorableProvider>
+          <TransProvider>
+            <VisibilityProvider>
+              <FilterProjectsProvider>
                 <Component {...pageProps} />
-              </HonorableProvider>
-            </FilterProjectsProvider>
-          </VisibilityProvider>
-          <ToastContainer />
-        </TransProvider>
+              </FilterProjectsProvider>
+            </VisibilityProvider>
+            <ToastContainer />
+          </TransProvider>
+        </HonorableProvider>
       </QueryClientProvider>
     </SessionProvider>
   );

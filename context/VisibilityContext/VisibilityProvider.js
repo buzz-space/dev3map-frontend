@@ -2,6 +2,7 @@ import { createContext } from 'react';
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import HonorableModal from '~/components/home/HonorableModal';
 
 const VisibilityContext = createContext();
 
@@ -21,6 +22,7 @@ const VisibilityProvider = ({ children }) => {
           },
         }}
       >
+        <HonorableModal />
         {children}
       </VisibilityContext.Provider>
     </>

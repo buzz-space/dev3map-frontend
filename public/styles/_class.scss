@@ -9,7 +9,7 @@
         margin: auto;
     }
 
-    color: #FFFFFF;
+    color: #ffffff;
 
     text-transform: uppercase;
 
@@ -57,7 +57,7 @@
             }
         }
     }
-    $x : -130px;
+    $x: -130px;
     transform: translate($x, 18px);
     @keyframes identifier {
         0% {
@@ -65,7 +65,7 @@
         }
 
         25% {
-            transform:  translate($x, -10px);
+            transform: translate($x, -10px);
         }
 
         50% {
@@ -77,16 +77,20 @@
         }
 
         100% {
-            transform:  translate($x, 0);
+            transform: translate($x, 0);
         }
     }
 }
 
 .description-title {
-    color: #FFF;
+    color: #fff;
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
     margin-top: 12px;
+}
+
+.rounded-full {
+    border-radius: 100rem;
 }

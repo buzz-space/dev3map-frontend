@@ -30,8 +30,7 @@
             font-size: 18px;
             line-height: 29px;
 
-            color: #FFFFFF;
-
+            color: #ffffff;
         }
 
         .rates-frame,
@@ -51,6 +50,8 @@
 
                 .rate-icon {
                     width: 24px;
+                    height: 24px;
+                    position: relative;
                 }
 
                 .rate-value {
@@ -60,8 +61,7 @@
                     line-height: 20px;
                     /* identical to box height */
 
-
-                    color: #FFFFFF;
+                    color: #ffffff;
                 }
             }
         }
@@ -74,6 +74,8 @@
 
                 .path-icon {
                     width: 24px;
+                    height: 24px;
+                    position: relative;
                 }
 
                 .path-value {
@@ -83,8 +85,7 @@
                     line-height: 20px;
                     /* identical to box height */
 
-
-                    color: #FFFFFF;
+                    color: #ffffff;
                 }
             }
         }
@@ -119,6 +120,7 @@
                 .rate {
                     .rate-icon {
                         width: 16px;
+                        height: 16px;
                     }
                     .rate-value {
                         font-size: 14px;
@@ -133,6 +135,7 @@
 
                     .path-icon {
                         width: 16px;
+                        height: 16px;
                     }
 
                     .path-value {

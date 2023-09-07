@@ -4,6 +4,7 @@ import Button from '~/components/base/Button';
 import { useHonorableModal } from '~/context/HonorableModalContext';
 import { useRanking } from '~/hooks/api/useRanking';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function CardHonorable({ title, logo, name, imgs, des, info, type = '' }) {
   const { isOpen, setIsOpen, setData } = useHonorableModal();
@@ -41,7 +42,9 @@ export default function CardHonorable({ title, logo, name, imgs, des, info, type
       >
         VIEW MORE
       </Button>
-      <img src={imgs} className={styles['img-bottom-right']} />
+      <div className={styles['img-bottom-right']} >
+        <Image src={imgs || '/'} objectFit='contain' layout='fill' />
+      </div>
     </div>
   );
 }

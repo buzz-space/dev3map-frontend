@@ -1,4 +1,4 @@
-@import '~/public/styles/base.scss';
+@import "~/public/styles/base.scss";
 
 .header {
     position: relative;
@@ -11,10 +11,9 @@
         column-gap: 12px;
         .logo {
             text-decoration: none;
-
-            img {
-                height: 40px;
-            }
+            height: 40px;
+            width: 150px;
+            position: relative;
         }
     }
 

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import styles from './styles.module.scss';
 import Container from '~/components/base/Container';
 import Navbar from './Navbar';
+import Image from 'next/image';
 
 export default function Header({ currentPage = '' }) {
   return (
@@ -9,7 +10,7 @@ export default function Header({ currentPage = '' }) {
       <Container className={styles['container']}>
         <Link href="/">
           <a className={styles['logo']}>
-            <img src="/imgs/logo.svg" />
+            <Image src="/imgs/logo.svg" layout='fill' objectFit='contain' />
           </a>
         </Link>
         <Navbar currentPage={currentPage} />

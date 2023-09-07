@@ -3,6 +3,8 @@ import Container from '~/components/base/Container'
 import styles from './styles.module.scss';
 import Link from 'next/link';
 
+import Image from 'next/image';
+
 const data = [
     {
         github_prefix: '/',
@@ -30,9 +32,10 @@ const BackedByTheBest = () => {
                     data?.map((item, index) => {
                         return <Link href={item?.id ? `/projects/${item?.github_prefix}` : '/'} key={index}>
                             <a className={styles['item']}>
-                                <img className={styles['logo']} src={
-                                    item?.avatar
-                                } alt="Logo repo" />
+                                <div className={styles['logo']}>
+                                    <Image src={item?.avatar} alt="Logo repo" layout="fill" // required
+                                        objectFit="contain" className={styles['logo-img']} />
+                                </div>
                                 <label className={styles['name']}>{item?.name}</label>
                             </a>
                         </Link>

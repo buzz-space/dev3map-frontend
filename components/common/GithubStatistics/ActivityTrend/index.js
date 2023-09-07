@@ -24,13 +24,19 @@ export default function ActivityTrend({ userCode = [], userCommit = [] }) {
     function getChartData(datas, label) {
         if (label === 'COMMIT') {
             return {
-                labels: datas?.map((data) => moment(data?.exact_date).format("YYYY/MM")),
+                labels: datas?.commit?.map((data) => moment(data?.exact_date).format("YYYY/MM")),
                 datasets: [{
-                    label: label,
-                    data: datas?.map((data) => data.number),
-                    labelT: datas?.map((data, index) => moment(data?.exact_date).format("DD-MM-YYYY")),
+                    label: 'COMMIT',
+                    data: datas?.commit?.map((data) => data.number),
+                    labelT: datas?.commit?.map((data, index) => moment(data?.exact_date).format("DD-MM-YYYY")),
                     backgroundColor: '#BB86FC',
                     borderColor: '#BB86FC',
+                }, {
+                    label: 'ACTIVE DEV',
+                    data: datas.dev?.map((data) => data.number),
+                    labelT: datas?.dev?.map((data, index) => moment(data?.exact_date).format("DD-MM-YYYY")),
+                    backgroundColor: '#03DAC6',
+                    borderColor: '#03DAC6',
                 }]
             }
         } else {

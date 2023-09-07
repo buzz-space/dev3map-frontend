@@ -2,8 +2,45 @@ import { Chart as ChartJS, registerables } from 'chart.js';
 import { useEffect, useRef } from 'react';
 import { Bar, Line } from "react-chartjs-2";
 import baseCss from '~/public/styles/base.module.scss';
+import { plugin } from '~/utils/pluginChart';
 
-ChartJS.register(...registerables);
+ChartJS.register(...registerables,
+    // {
+    //     id: 'uniqueid5', //typescript crashes without id
+    //     afterDraw: function (chart, easing) {
+    //         if (chart.tooltip._active && chart.tooltip._active.length) {
+    //             const activePoint = chart.tooltip._active[0];
+    //             const ctx = chart.ctx;
+    //             const x = activePoint.element.x;
+    //             const y = activePoint.element.y;
+    //             const topY = chart.scales.y.top;
+    //             const bottomY = chart.scales.y.bottom;
+    //             const left = chart.chartArea.left;
+    //             const right = chart.chartArea.right;
+    //             ctx.save();
+    //             ctx.lineWidth = 1;
+    //             ctx.setLineDash([3, 3]);
+    //             ctx.strokeStyle = '#999';
+
+    //             // draw vertical line      
+    //             ctx.beginPath();
+    //             ctx.moveTo(x, topY);
+    //             ctx.lineTo(x, bottomY);
+    //             ctx.stroke();
+
+    //             // Draw horizontal line
+    //             ctx.beginPath();
+    //             ctx.moveTo(left, y);
+    //             ctx.lineTo(right, y);
+    //             ctx.stroke();
+
+    //             ctx.restore();
+    //         }
+    //     }
+    // }
+);
+
+
 
 export default function Chart({ data }) {
     const chartRef = useRef();
@@ -19,7 +56,7 @@ export default function Chart({ data }) {
         }
     }, [])
 
-    return <Line ref={chartRef} data={data} options={{
+    return <Line ref={chartRef} data={data} plugins={[plugin]} options={{
         // animations: {
         //     tension: {
         //         duration: 1000,
@@ -40,7 +77,9 @@ export default function Chart({ data }) {
         borderWidth: 1,
         borderStyle: 'dotted',
         plugins: {
-
+            corsair: {
+                color: '#999',
+            },
             legend: {
 
                 align: 'start',
@@ -102,7 +141,7 @@ export default function Chart({ data }) {
                     color: 'white',
                 },
                 ticks: {
-                    maxTicksLimit: 4,
+                    maxTicksLimit: 7,
                     color: '#fff',
                     font: {
                         family: 'Montserrat',
@@ -117,6 +156,10 @@ export default function Chart({ data }) {
                     borderColor: 'rgba(255, 255, 255, 0)',  // <-- this line is answer to initial question
                 }
             }
+        },
+        interaction: {
+            mode: 'index',
+            intersect: false,
         }
     }} />
 }

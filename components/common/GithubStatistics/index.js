@@ -42,12 +42,12 @@ export default function GithubStatistics({ dataTotal = {}, data = [], homePage =
         function fn() {
             if (data) {
                 let dt = [];
-                if (window.innerWidth < 600) {
-                    dt = [...data].slice(0, (window.innerWidth - 100) / 10);
-                }
-                else {
-                    dt = data
-                }
+                // if (window.innerWidth < 600) {
+                //     dt = [...data].slice(0, (window.innerWidth - 100) / 10);
+                // }
+                // else {
+                //     dt = data
+                // }
                 // let dataSorted = dt?.sort((a, b) => {
                 //     if (a.year !== b.year) {
                 //         return a.year - b.year; // Sort by year in ascending order
@@ -55,17 +55,19 @@ export default function GithubStatistics({ dataTotal = {}, data = [], homePage =
                 //         return a.month - b.month; // Sort by month in ascending order
                 //     }
                 // });
-                let dataSorted = dt;
+                let dataSorted = [...data];
                 setUserCommit(() => {
-                    let value = dataSorted.map((item, index) => {
-                        return { number: Number(item?.total_commit), ...item }
-                    })
+                    let value = dataSorted.reduce((prev, curr) => {
+                        prev.commit.push({ number: Number(curr?.total_commit), ...curr })
+                        prev.dev.push({ number: Number(curr?.active_developer), ...curr })
+                        return prev;
+                    }, { commit: [], dev: [] })
                     return value;
                 })
                 setUserCode(() => {
                     let value = dataSorted.reduce((prev, curr) => {
                         prev.addition.push({ number: Number(curr?.additions), ...curr })
-                        prev.deletion.push({ number: Number(curr?.deletions) * -1, ...curr })
+                        prev.deletion.push({ number: Number(curr?.deletions), ...curr })
                         return prev;
                     }, { addition: [], deletion: [] })
                     return value;
@@ -106,6 +108,6 @@ export default function GithubStatistics({ dataTotal = {}, data = [], homePage =
             <AnotherBoard label="FORKS" value={formatNumber(dataTotal?.total_fork)} icon={<Fork />} des={`This is the number of forks that currently exist in ${homePage ? 'Cosmos' : 'Github'}.`} />
         </div>
         <ActivityTrend userCode={userCode} userCommit={userCommit} />
-        <MonthlyActiveDevs data={data} />
+        {/* <MonthlyActiveDevs data={data} /> */}
     </Container>
 }

@@ -40,7 +40,7 @@ export default function GridProject({ title, numberProject, projects = [] }) {
                   <Link href={item?.id ? `/projects/${item?.github_prefix}` : '/'}>
                     <div className={styles['item']}>
                       <div className={styles['logo']}>
-                        <Image src={item?.avatar || pathImgTemp} alt="Logo repo" layout='fill' objectFit='contain' className='rounded-full' />
+                        <Image src={item?.avatar || pathImgTemp} alt={item?.name} layout='fill' objectFit='contain' className='rounded-full' />
                       </div>
                       <label className={styles['name']}>{item?.name}</label>
                     </div>

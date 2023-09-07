@@ -29,7 +29,7 @@ export default function CardHonorable({ title, logo, name, imgs, des, info, type
       <Link href={`/projects/${data?.data[0]?.github_prefix}`}>
         <div className={styles['repo']}>
           <div className={styles['logo']} >
-            <Image src={data?.data[0]?.avatar || pathImgTemp} objectFit='contain' layout='fill' className='rounded-full' />
+            <Image src={data?.data[0]?.avatar || pathImgTemp} objectFit='contain' layout='fill' className='rounded-full' alt={data?.data[0]?.name}/>
           </div>
           <label className={styles['name']}>{data?.data[0]?.name}</label>
           <ArrowUpRight />
@@ -46,7 +46,7 @@ export default function CardHonorable({ title, logo, name, imgs, des, info, type
         VIEW MORE
       </Button>
       <div className={styles['img-bottom-right']} >
-        <Image src={imgs} objectFit='contain' layout='fill' />
+        <Image src={imgs} objectFit='contain' layout='fill' alt="Image"/>
       </div>
     </div>
   );

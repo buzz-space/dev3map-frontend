@@ -20,7 +20,7 @@ export default function InforHonorable({ data, title, des }) {
           }}
         >
           <div className={styles['logo']}>
-            <Image src={data?.avatar || pathImgTemp} objectFit='contain' layout='fill' className='rounded-full' />
+            <Image src={data?.avatar || pathImgTemp} objectFit='contain' layout='fill' className='rounded-full' alt={data?.name} />
           </div>
           <label className={styles['name']}>{data?.name}</label>
           <ArrowUpRight />

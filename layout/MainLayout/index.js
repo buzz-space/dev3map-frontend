@@ -50,7 +50,6 @@ export default function MainLayout({ children, title = '', currentPage = '', dat
         <title>{titlePage}</title>
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="mobile-web-app-capable" content='yes' />
         <meta
           property="og:title"
@@ -85,6 +84,14 @@ export default function MainLayout({ children, title = '', currentPage = '', dat
           })}`}
         />
         <meta name="og:type" content={!!meta_data ? 'article' : 'website'} />
+        <link rel="manifest" href="/manifest.json" />
+
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="application-name" content="dev3map" />
+        <meta name="apple-mobile-web-app-title" content="dev3map" />
+        <meta name="msapplication-starturl" content="/" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
         <link href="/fonts/fonts.css" rel="stylesheet" type="text/css" />
       </Head>
 

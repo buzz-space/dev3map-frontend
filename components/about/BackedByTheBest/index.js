@@ -4,6 +4,7 @@ import styles from './styles.module.scss';
 import Container from '~/components/base/Container';
 
 import Image from 'next/image';
+import { pathImgTemp } from '~/core/contants';
 
 const data = [
     {
@@ -33,7 +34,7 @@ const BackedByTheBest = () => {
                         return <Link href={item?.id ? `/projects/${item?.github_prefix}` : '/'} key={index}>
                             <div className={styles['item']}>
                                 <div className={styles['logo']}>
-                                    <Image src={item?.avatar || '/'} alt="Logo repo" layout="fill" // required
+                                    <Image src={item?.avatar || pathImgTemp} alt="Logo repo" layout="fill" // required
                                         objectFit="contain" className={styles['logo-img']} />
                                 </div>
                                 <label className={styles['name']}>{item?.name}</label>

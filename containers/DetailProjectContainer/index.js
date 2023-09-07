@@ -23,7 +23,7 @@ export default function DetailProjectContainer({ data }) {
     refetchSummary();
     refetchDeveloperChart();
   }, [data]);
-
+  console.log({a: data})
   return (
     <div className={styles['container']}>
       <Container>
@@ -43,8 +43,8 @@ export default function DetailProjectContainer({ data }) {
           logo={data?.avatar}
           name={data?.name}
           des={data?.description}
-          stars={data?.stats[0]?.total_star}
-          commits={data?.stats[0]?.total_commits}
+          stars={data?.stats?.total_star}
+          commits={data?.stats?.total_commits}
           github={`https://github.com/${data?.github_prefix}`}
           web={data?.website}
         />

@@ -1,13 +1,13 @@
-import React from 'react'
-import AboutContainer from '~/containers/AboutContainer'
-import MainLayout from '~/layout/MainLayout'
+import React from 'react';
+import AboutContainer from '~/containers/AboutContainer';
+import MainLayout from '~/layout/MainLayout';
 
 const AboutPage = () => {
-    return (
-        <MainLayout currentPage='about' backgroundAbout>
-            <AboutContainer />
-        </MainLayout>
-    )
-}
+  return (
+    <MainLayout currentPage="about" backgroundAbout>
+      <AboutContainer />
+    </MainLayout>
+  );
+};
 
-export default AboutPage
+export default AboutPage;

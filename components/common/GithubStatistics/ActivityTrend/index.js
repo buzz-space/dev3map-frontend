@@ -92,10 +92,16 @@ export default function ActivityTrend({ userCode = [], userCommit = [] }) {
         let dataCommit = userCommit;
         let date = moment(process.env.HANDLE_DATE);
         if (indexFilterDate === 1) {
-            dataCommit = dataCommit?.filter((item) => {
-                const diffInDays = date.diff(item?.exact_date, 'days');
-                return Math.abs(diffInDays) <= 7;
-            })
+            dataCommit = {
+                commit: dataCommit?.commit?.filter((item) => {
+                    const diffInDays = date.diff(item?.exact_date, 'days');
+                    return Math.abs(diffInDays) <= 7;
+                }),
+                dev: dataCommit?.dev?.filter((item) => {
+                    const diffInDays = date.diff(item?.exact_date, 'days');
+                    return Math.abs(diffInDays) <= 7;
+                })
+            }
             dataCode = {
                 addition: dataCode?.addition?.filter((item) => {
                     const diffInDays = date.diff(item?.exact_date, 'days');
@@ -107,10 +113,16 @@ export default function ActivityTrend({ userCode = [], userCommit = [] }) {
                 })
             }
         } else if (indexFilterDate == 2) {
-            dataCommit = dataCommit?.filter((item) => {
-                const diffInDays = date.diff(item?.exact_date, 'days');
-                return Math.abs(diffInDays) <= 30;
-            })
+            dataCommit = {
+                commit: dataCommit?.commit?.filter((item) => {
+                    const diffInDays = date.diff(item?.exact_date, 'days');
+                    return Math.abs(diffInDays) <= 7;
+                }),
+                dev: dataCommit?.dev?.filter((item) => {
+                    const diffInDays = date.diff(item?.exact_date, 'days');
+                    return Math.abs(diffInDays) <= 7;
+                })
+            }
             dataCode = {
                 addition: dataCode?.addition?.filter((item) => {
                     const diffInDays = date.diff(item?.exact_date, 'days');

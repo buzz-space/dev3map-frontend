@@ -1,27 +1,27 @@
-import React from 'react'
-import Container from '~/components/base/Container'
-import styles from './styles.module.scss';
+import React from 'react';
 import Link from 'next/link';
+import styles from './styles.module.scss';
+import Container from '~/components/base/Container';
 
 import Image from 'next/image';
 
 const data = [
-    {
-        github_prefix: '/',
-        avatar: '/imgs/aura.svg',
-        name: 'Aura Network',
-    },
-    {
-        github_prefix: '/',
-        avatar: '/imgs/github.svg',
-        name: 'Github',
-    },
-    {
-        github_prefix: '/',
-        avatar: '/imgs/cosmos.svg',
-        name: 'Cosmos',
-    }
-]
+  {
+    github_prefix: '/',
+    avatar: '/imgs/aura.svg',
+    name: 'Aura Network',
+  },
+  {
+    github_prefix: '/',
+    avatar: '/imgs/github.svg',
+    name: 'Github',
+  },
+  {
+    github_prefix: '/',
+    avatar: '/imgs/cosmos.svg',
+    name: 'Cosmos',
+  },
+];
 
 const BackedByTheBest = () => {
     return (
@@ -46,4 +46,4 @@ const BackedByTheBest = () => {
     )
 }
 
-export default BackedByTheBest
+export default BackedByTheBest;

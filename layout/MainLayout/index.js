@@ -25,17 +25,19 @@ export default function MainLayout({ children, title = '', currentPage = '', dat
         }}
       ></script> */}
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-3K283PFLYL"></script>
-      <script dangerouslySetInnerHTML={{
-        __html: `window.dataLayer = window.dataLayer || [];
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
 
           gtag('config', 'G-3K283PFLYL');
-          `
-      }}>
-      </script >
-      <script dangerouslySetInnerHTML={{
-        __html: `
+          `,
+        }}
+      ></script>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
         (function(h,o,t,j,a,r){
           h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
           h._hjSettings={hjid:3561203,hjsv:6};
@@ -43,14 +45,15 @@ export default function MainLayout({ children, title = '', currentPage = '', dat
           r=o.createElement('script');r.async=1;
           r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
           a.appendChild(r);
-      })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`}}>
-
-      </script>
+      })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`,
+        }}
+      ></script>
       <Head>
         <title>{titlePage}</title>
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="mobile-web-app-capable" content='yes' />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="mobile-web-app-capable" content="yes" />
         <meta
           property="og:title"
           content={
@@ -59,8 +62,8 @@ export default function MainLayout({ children, title = '', currentPage = '', dat
                 ? `${nameWeb} - ${meta_data?.seo_title}`
                 : `${nameWeb} - ${meta_data?.title}`
               : title === ''
-                ? nameWeb
-                : `${nameWeb} - ${title}`
+              ? nameWeb
+              : `${nameWeb} - ${title}`
           }
         />
         <meta
@@ -71,8 +74,8 @@ export default function MainLayout({ children, title = '', currentPage = '', dat
                 ? `${nameWeb} - ${meta_data?.seo_description}`
                 : `${nameWeb} - ${meta_data?.description}`
               : title === ''
-                ? nameWeb
-                : `${nameWeb} - ${title}`
+              ? nameWeb
+              : `${nameWeb} - ${title}`
           }
         />
         <meta property="og:url" content={typeof window != 'undefined' ? window.location.href : ''} />

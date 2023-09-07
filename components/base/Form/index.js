@@ -13,7 +13,7 @@ export default function Form({
   inputs,
   className,
   style,
-  onSubmit = () => { },
+  onSubmit = () => {},
   hookForm = {},
   submitText,
 }) {

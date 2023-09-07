@@ -24,7 +24,7 @@ export default function ActivityTrend({ userCode = [], userCommit = [] }) {
     function getChartData(datas, label) {
         if (label === 'COMMIT') {
             return {
-                labels: datas?.commit?.map((data) => moment(data?.exact_date).format("YYYY/MM")),
+                labels: datas?.commit?.map((data) => moment(data?.exact_date).format("DD-MM-YYYY")),
                 datasets: [{
                     label: 'COMMIT',
                     data: datas?.commit?.map((data) => data.number),
@@ -41,7 +41,7 @@ export default function ActivityTrend({ userCode = [], userCommit = [] }) {
             }
         } else {
             return {
-                labels: datas.addition?.map((data) => moment(data?.exact_date).format("YYYY/MM")),
+                labels: datas.addition?.map((data) => moment(data?.exact_date).format("DD-MM-YYYY")),
                 datasets: [{
                     label: 'ADDITION',
                     data: datas.addition?.map((data) => data.number),
@@ -116,11 +116,11 @@ export default function ActivityTrend({ userCode = [], userCommit = [] }) {
             dataCommit = {
                 commit: dataCommit?.commit?.filter((item) => {
                     const diffInDays = date.diff(item?.exact_date, 'days');
-                    return Math.abs(diffInDays) <= 7;
+                    return Math.abs(diffInDays) <= 30;
                 }),
                 dev: dataCommit?.dev?.filter((item) => {
                     const diffInDays = date.diff(item?.exact_date, 'days');
-                    return Math.abs(diffInDays) <= 7;
+                    return Math.abs(diffInDays) <= 30;
                 })
             }
             dataCode = {

@@ -1,89 +1,43 @@
-import Container from '~/components/base/Container';
-import styles from './styles.module.scss';
-import { Github } from '~/public/assets/svgs-title';
-import TabDynamic from '~/components/base/TabDynamic';
-import ActivityTrend from './ActivityTrend';
-import { useEffect, useState } from 'react';
-import { handleMonth } from '~/utils/strings';
-import BoardStatistics from './BoardStatistics';
-import {
-  CommitHorizontal,
-  Developer,
-  Fork,
-  Issue,
-  Person,
-  PullRequest,
-  StarOutline,
-  StreamLine,
-} from '~/public/assets/svgs';
-import AnotherBoard from './AnotherBoard';
-import MonthlyActiveDevs from './MonthlyActiveDevs';
-import { formatNumber } from '~/utils/number';
+import Container from "~/components/base/Container";
+import styles from "./styles.module.scss";
+import { Github } from "~/public/assets/svgs-title";
+import TabDynamic from "~/components/base/TabDynamic";
+import ActivityTrend from "./ActivityTrend";
+import { useEffect, useState } from "react";
+import { handleMonth } from "~/utils/strings";
+import BoardStatistics from "./BoardStatistics";
+import { CommitHorizontal, Developer, Fork, Issue, Person, PullRequest, StarOutline, StreamLine } from "~/public/assets/svgs";
+import AnotherBoard from "./AnotherBoard";
+import MonthlyActiveDevs from "./MonthlyActiveDevs";
+import { formatNumber } from "~/utils/number";
 
 export default function GithubStatistics({ dataTotal = {}, data = [], homePage = true }) {
-  const [userCommit, setUserCommit] = useState([]);
-  const [userCode, setUserCode] = useState([]);
+    const [userCommit, setUserCommit] = useState([]);
+    const [userCode, setUserCode] = useState([]);
 
-  function getMaxDivisibleSubarray(arr) {
-    let maxLength = 0;
-    let maxLengthIndex = -1;
+    function getMaxDivisibleSubarray(arr) {
+        let maxLength = 0;
+        let maxLengthIndex = -1;
 
-    for (let i = 0; i < arr.length; i++) {
-      let currentLength = 0;
+        for (let i = 0; i < arr.length; i++) {
+            let currentLength = 0;
 
-      for (let j = i; j < arr.length; j++) {
-        currentLength += 1;
+            for (let j = i; j < arr.length; j++) {
+                currentLength += 1;
 
-        if (currentLength % 4 === 0 && currentLength > maxLength) {
-          maxLength = currentLength;
-          maxLengthIndex = i;
+                if (currentLength % 4 === 0 && currentLength > maxLength) {
+                    maxLength = currentLength;
+                    maxLengthIndex = i;
+                }
+            }
         }
-      }
-    }
 
-    if (maxLengthIndex === -1) {
-      return [];
-    } else {
-      return arr.slice(maxLengthIndex, maxLengthIndex + maxLength);
-    }
-  }
-  useEffect(() => {
-    function fn() {
-      if (data) {
-        let dt = [];
-        if (window.innerWidth < 600) {
-          dt = [...data].slice(0, (window.innerWidth - 100) / 10);
+        if (maxLengthIndex === -1) {
+            return [];
         } else {
-          dt = data;
+            return arr.slice(maxLengthIndex, maxLengthIndex + maxLength);
         }
-        // let dataSorted = dt?.sort((a, b) => {
-        //     if (a.year !== b.year) {
-        //         return a.year - b.year; // Sort by year in ascending order
-        //     } else {
-        //         return a.month - b.month; // Sort by month in ascending order
-        //     }
-        // });
-        let dataSorted = dt;
-        setUserCommit(() => {
-          let value = dataSorted.map((item, index) => {
-            return { number: Number(item?.total_commit), ...item };
-          });
-          return value;
-        });
-        setUserCode(() => {
-          let value = dataSorted.reduce(
-            (prev, curr) => {
-              prev.addition.push({ number: Number(curr?.additions), ...curr });
-              prev.deletion.push({ number: Number(curr?.deletions) * -1, ...curr });
-              return prev;
-            },
-            { addition: [], deletion: [] }
-          );
-          return value;
-        });
-      }
     }
-
     useEffect(() => {
         function fn() {
             if (data) {
@@ -127,18 +81,17 @@ export default function GithubStatistics({ dataTotal = {}, data = [], homePage =
         }
     }, [data])
 
-
-  function formatDate(data) {
-    let value = Number(data);
-    let date = Math.floor(value);
-    let floatNum = (value - date) * 24;
-    let hour = Math.round(floatNum);
-    let result = date + ' DAYS';
-    if (hour > 0) {
-      result += ' ' + hour + ' HOURS';
+    function formatDate(data) {
+        let value = Number(data);
+        let date = Math.floor(value);
+        let floatNum = (value - date) * 24;
+        let hour = Math.round(floatNum);
+        let result = date + ' DAYS';
+        if (hour > 0) {
+            result += ' ' + hour + ' HOURS';
+        }
+        return result;
     }
-    return result;
-  }
 
     return <Container className={styles['container']}>
         <h2 className="title">GITHUB STATISTICS <Github /></h2>
@@ -156,7 +109,5 @@ export default function GithubStatistics({ dataTotal = {}, data = [], homePage =
         </div>
         <ActivityTrend userCode={userCode} userCommit={userCommit} />
         {/* <MonthlyActiveDevs data={data} /> */}
-
     </Container>
-  );
 }

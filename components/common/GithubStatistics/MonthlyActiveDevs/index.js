@@ -89,7 +89,6 @@ const MonthlyActiveDevs = ({ data }) => {
                 }
             },
             scales: {
-
                 y: {
                     border: {
                         display: false,

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import styles from './styles.module.scss';
 import Image from 'next/image';
 
@@ -21,4 +21,4 @@ const BackgroundAbout = () => {
     )
 }
 
-export default BackgroundAbout
+export default BackgroundAbout;

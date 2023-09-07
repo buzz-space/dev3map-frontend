@@ -1,3 +1,4 @@
+
 import Container from "~/components/base/Container";
 import styles from "./styles.module.scss";
 import Link from "next/link";
@@ -21,4 +22,5 @@ export default function Footer() {
       </div>
     </Container>
   </footer>;
+
 }

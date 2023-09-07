@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-import styles from "./styles.module.scss";
-import clsx from "clsx";
-import { useCategories } from "~/hooks/api/useCategories";
-import { formatNumber } from "~/utils/number";
-import { useFilterProjects } from "~/context/FilterProjectsContext";
+import { useEffect, useState } from 'react';
+import styles from './styles.module.scss';
+import clsx from 'clsx';
+import { useCategories } from '~/hooks/api/useCategories';
+import { formatNumber } from '~/utils/number';
+import { useFilterProjects } from '~/context/FilterProjectsContext';
 
 // const data = [
 //     {
@@ -49,33 +49,39 @@ import { useFilterProjects } from "~/context/FilterProjectsContext";
 // ]
 
 export default function FilterBar() {
-    const { activeIndex, setActiveIndex } = useFilterProjects();
-    const { data } = useCategories();
-    const [dataCategories, setDataCategories] = useState([]);
-    useEffect(() => {
+  const { activeIndex, setActiveIndex } = useFilterProjects();
+  const { data } = useCategories();
+  const [dataCategories, setDataCategories] = useState([]);
+  useEffect(() => {}, [activeIndex]);
 
-    }, [activeIndex])
+  useEffect(() => {
+    const total = data?.data?.reduce((prev, curr) => {
+      return (prev += curr.total);
+    }, 0);
+    const all = { name: 'All projects', total };
+    const dataIter = data?.data ? data?.data : [];
+    if (data?.data) {
+      setDataCategories([all, ...dataIter]);
+    }
+  }, [data]);
 
-    useEffect(() => {
-        const total = data?.data?.reduce((prev, curr) => {
-            return prev += curr.total
-        }, 0)
-        const all = { name: 'All projects', total };
-        const dataIter = data?.data ? data?.data : [];
-        if (data?.data) {
-            setDataCategories([all, ...dataIter])
-        }
-    }, [data])
-
-    return <div className={styles['filterbar']}>
-        {
-            dataCategories?.map((item, index) => {
-                return <div className={clsx(styles['filter'], {
-                    [styles['active']]: activeIndex == index,
-                })} key={index} onClick={() => {
-                    setActiveIndex(index);
-                }}>{item?.name} ({formatNumber(item?.total)})</div>
-            })
-        }
+  return (
+    <div className={styles['filterbar']}>
+      {dataCategories?.map((item, index) => {
+        return (
+          <div
+            className={clsx(styles['filter'], {
+              [styles['active']]: activeIndex == index,
+            })}
+            key={index}
+            onClick={() => {
+              setActiveIndex(index);
+            }}
+          >
+            {item?.name} ({formatNumber(item?.total)})
+          </div>
+        );
+      })}
     </div>
+  );
 }

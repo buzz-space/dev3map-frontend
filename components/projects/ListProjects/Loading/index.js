@@ -1,5 +1,9 @@
 export default function Loading() {
-    return <div style={{
+  return (
+    <div
+      style={{
         height: '60vh',
-    }}></div>
+      }}
+    ></div>
+  );
 }

@@ -51,7 +51,7 @@ export default function MainLayout({ children, title = '', currentPage = '', dat
           }
         />
         <meta property="og:url" content={typeof window != 'undefined' ? window.location.href : ''} />
-        <meta property="og:image" content={meta_data ? meta_data?.image : icon.src} />
+        <meta property="og:image" content={meta_data ? meta_data?.image : '/imgs/banner.png'} />
         <meta
           property="og:tag"
           content={`${meta_data?.tag?.map((item, index) => {

@@ -17,6 +17,7 @@
         position: absolute;
         right: 0;
         top: -100px;
+        height: 550px;
         width: 300px;
     }
     .about-circle {
@@ -24,17 +25,19 @@
         bottom: 120px;
         right: 160px;
         width: 160px;
-
+        height: 160px;
     }
     .about-specify-s {
         position: absolute;
         height: 850px;
+        width: 500px;
         left: 0;
         top: 100px;
     }
     .about-specify-v {
         position: absolute;
         height: 800px;
+        width: 600px;
         right: 0;
         bottom: 1200px;
     }
@@ -44,6 +47,7 @@
             right: -40px;
             top: -80px;
             width: 240px;
+            height: 440px;
         }
         .about-circle {
             bottom: 150px;

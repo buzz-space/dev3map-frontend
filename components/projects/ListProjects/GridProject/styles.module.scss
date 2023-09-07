@@ -8,10 +8,9 @@
         line-height: 39px;
         /* identical to box height */
 
-
         /* Secondary */
 
-        color: #03DAC6;
+        color: #03dac6;
         text-transform: uppercase;
     }
 
@@ -33,17 +32,19 @@
             justify-content: center;
             row-gap: 46px;
             cursor: pointer;
-
+            height: 100%;
             * {
                 cursor: pointer;
             }
 
             &:hover {
-                background-color: #2D2D2D;
+                background-color: #2d2d2d;
             }
 
             .logo {
                 height: 80px;
+                width: 80px;
+                position: relative;
                 max-width: 100%;
                 border-radius: 100rem;
             }
@@ -55,8 +56,7 @@
                 line-height: 24px;
                 text-align: center;
 
-                color: #FFFFFF;
-
+                color: #ffffff;
             }
         }
     }
@@ -104,7 +104,7 @@
             grid-template-columns: repeat(2, minmax(0, 1fr));
         }
     }
-    @media screen and (max-width:325px) {
+    @media screen and (max-width: 325px) {
         .grid {
             grid-template-columns: repeat(1, minmax(0, 1fr));
         }

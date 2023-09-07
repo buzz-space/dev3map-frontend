@@ -4,6 +4,7 @@ import { useChainDeveloper } from '~/hooks/api/useChainDeveloper';
 import { Commit, CommitHorizontal } from '~/public/assets/svgs';
 import { formatNumber } from '~/utils/number';
 import IconSort from '~/components/home/StatisChainTable/IconSort';
+import Image from 'next/image';
 
 const TopDevelopers = ({ chainId, logo }) => {
   const { data } = useChainDeveloper({ id: chainId });
@@ -39,7 +40,9 @@ const TopDevelopers = ({ chainId, logo }) => {
           return (
             <div key={index} className={styles['list-item']}>
               <div className={styles['author']}>
-                <img className={styles['avatar']} src={logo} />
+                <div className={styles['avatar']}>
+                  <Image src={logo || '/'} alt="Logo repo" layout='fill' objectFit='contain' className='rounded-full' />
+                </div>
                 <label className={styles['name']}>{item?.author}</label>
               </div>
               <div className={styles['list-tag']}>

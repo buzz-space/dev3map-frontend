@@ -4,7 +4,7 @@ import styles from './styles.module.scss';
 export default function Button({
   className = '',
   children,
-  onClick = function () {},
+  onClick = function () { },
   style = {},
   to = '',
   disabled,
@@ -29,8 +29,7 @@ export default function Button({
     >
       {children}
       {to != '' && (
-        <Link href={to}>
-          <a className={styles['link-href']}></a>
+        <Link href={to} className={styles['link-href']}>
         </Link>
       )}
     </button>

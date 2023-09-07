@@ -4,6 +4,7 @@ import Button from '~/components/base/Button';
 import { useHonorableModal } from '~/context/HonorableModalContext';
 import { useRanking } from '~/hooks/api/useRanking';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function CardHonorable({ title, logo, name, imgs, des, info, type = '' }) {
   const { isOpen, setIsOpen, setData } = useHonorableModal();
@@ -25,11 +26,13 @@ export default function CardHonorable({ title, logo, name, imgs, des, info, type
       </div>
       <label className={styles['rank']}>RANK #1</label>
       <Link href={`/projects/${data?.data[0]?.github_prefix}`}>
-        <a className={styles['repo']}>
-          <img src={data?.data[0]?.avatar} className={styles['logo']} />
+        <div className={styles['repo']}>
+          <div className={styles['logo']} >
+            <Image src={data?.data[0]?.avatar || '/'} objectFit='contain' layout='fill' className='rounded-full' />
+          </div>
           <label className={styles['name']}>{data?.data[0]?.name}</label>
           <ArrowUpRight />
-        </a>
+        </div>
       </Link>
 
       <Button
@@ -41,7 +44,9 @@ export default function CardHonorable({ title, logo, name, imgs, des, info, type
       >
         VIEW MORE
       </Button>
-      <img src={imgs} className={styles['img-bottom-right']} />
+      <div className={styles['img-bottom-right']} >
+        <Image src={imgs || '/'} objectFit='contain' layout='fill' />
+      </div>
     </div>
   );
 }

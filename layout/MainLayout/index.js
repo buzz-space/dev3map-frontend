@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import { Html } from 'next/document';
 
 import Footer from '~/components/common/Footer';
 import Header from '~/components/common/Header';
@@ -17,37 +18,7 @@ export default function MainLayout({ children, title = '', currentPage = '', dat
 
   return (
     <>
-      {/* <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDHNFW2Q5M" />
-      <script
-        dangerouslySetInnerHTML={{
-          __html:
-            "window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);}gtag('js', new Date()); gtag('config', 'G-BDHNFW2Q5M');",
-        }}
-      ></script> */}
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-3K283PFLYL"></script>
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
 
-          gtag('config', 'G-3K283PFLYL');
-          `,
-        }}
-      ></script>
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-        (function(h,o,t,j,a,r){
-          h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-          h._hjSettings={hjid:3561203,hjsv:6};
-          a=o.getElementsByTagName('head')[0];
-          r=o.createElement('script');r.async=1;
-          r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-          a.appendChild(r);
-      })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`,
-        }}
-      ></script>
       <Head>
         <title>{titlePage}</title>
         <meta charSet="UTF-8" />
@@ -62,8 +33,8 @@ export default function MainLayout({ children, title = '', currentPage = '', dat
                 ? `${nameWeb} - ${meta_data?.seo_title}`
                 : `${nameWeb} - ${meta_data?.title}`
               : title === ''
-              ? nameWeb
-              : `${nameWeb} - ${title}`
+                ? nameWeb
+                : `${nameWeb} - ${title}`
           }
         />
         <meta
@@ -74,8 +45,8 @@ export default function MainLayout({ children, title = '', currentPage = '', dat
                 ? `${nameWeb} - ${meta_data?.seo_description}`
                 : `${nameWeb} - ${meta_data?.description}`
               : title === ''
-              ? nameWeb
-              : `${nameWeb} - ${title}`
+                ? nameWeb
+                : `${nameWeb} - ${title}`
           }
         />
         <meta property="og:url" content={typeof window != 'undefined' ? window.location.href : ''} />
@@ -96,6 +67,39 @@ export default function MainLayout({ children, title = '', currentPage = '', dat
         <meta name="msapplication-starturl" content="/" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
         <link href="/fonts/fonts.css" rel="stylesheet" type="text/css" />
+
+        {/* script */}
+        {/* <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDHNFW2Q5M" />
+      <script
+        dangerouslySetInnerHTML={{
+          __html:
+            "window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);}gtag('js', new Date()); gtag('config', 'G-BDHNFW2Q5M');",
+        }}
+      ></script> */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-3K283PFLYL"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-3K283PFLYL');
+          `,
+          }}
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+        (function(h,o,t,j,a,r){
+          h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+          h._hjSettings={hjid:3561203,hjsv:6};
+          a=o.getElementsByTagName('head')[0];
+          r=o.createElement('script');r.async=1;
+          r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+          a.appendChild(r);
+      })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`,
+          }}
+        ></script>
       </Head>
 
       <div className={`${styles['body']}`}>

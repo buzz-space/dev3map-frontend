@@ -6,7 +6,7 @@
         column-gap: 24px;
         width: 100%;
         margin-top: 40px;
-    
+
         .item {
             background: #202020;
             border-radius: 8px;
@@ -22,26 +22,29 @@
             * {
                 cursor: pointer;
             }
-    
+
             &:hover {
-                background-color: #2D2D2D;
+                background-color: #2d2d2d;
             }
-    
+
             .logo {
                 height: 80px;
+                width: 100%;
                 max-width: 100%;
-                border-radius: 100rem;
+                position: relative;
+                .logo-img {
+                    border-radius: 100rem;
+                }
             }
-    
+
             .name {
                 font-style: normal;
                 font-weight: 400;
                 font-size: 20px;
                 line-height: 24px;
                 text-align: center;
-    
-                color: #FFFFFF;
-    
+
+                color: #ffffff;
             }
         }
     }

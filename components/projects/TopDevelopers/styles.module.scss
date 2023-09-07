@@ -1,5 +1,5 @@
 .top-developer {
-    background-color:  var(--grey-1, #202020);
+    background-color: var(--grey-1, #202020);
     padding: 24px;
     border-radius: 8px;
     flex: 1;
@@ -10,15 +10,14 @@
         line-height: 39px;
         /* identical to box height */
 
-
-        color: #FFFFFF;
+        color: #ffffff;
     }
     .sort {
         margin-top: 24px;
         display: flex;
         align-items: center;
         column-gap: 8px;
-        color: #FFF;
+        color: #fff;
         font-size: 14px;
         font-style: normal;
         font-weight: 600;
@@ -37,22 +36,20 @@
             width: 6px;
             height: 4px;
         }
-    
+
         /* Track */
         &::-webkit-scrollbar-track {
             background: rgba(255, 255, 255, 0.12);
-    
+
             border-radius: 100rem;
-    
         }
-    
+
         /* Handle */
         &::-webkit-scrollbar-thumb {
             background: $color-secondary;
             border-radius: 100rem;
-    
         }
-    
+
         /* Handle on hover */
         &::-webkit-scrollbar-thumb:hover {
             background: #02b9a7;
@@ -73,9 +70,10 @@
                     border-radius: 100rem;
                     object-fit: cover;
                     object-position: center;
+                    position: relative;
                 }
                 .name {
-                    color: #FFF;
+                    color: #fff;
                     font-size: 24px;
                     font-style: normal;
                     font-weight: 800;
@@ -91,13 +89,13 @@
                 flex-wrap: wrap;
                 .tag {
                     border-radius: 100px;
-                    background: var(--grey-2, #2D2D2D);
+                    background: var(--grey-2, #2d2d2d);
                     display: flex;
                     padding: 8px 12px;
                     align-items: center;
                     gap: 4px;
                     justify-content: center;
-                    color: var(--whilte, #FFF);
+                    color: var(--whilte, #fff);
                     font-size: 14px;
                     font-style: normal;
                     font-weight: 600;
@@ -105,7 +103,7 @@
                 }
             }
             .commits {
-                color: #03DAC6;
+                color: #03dac6;
                 display: flex;
                 align-items: center;
                 column-gap: 12px;
@@ -115,7 +113,7 @@
                     color: currentColor;
                 }
                 label {
-                    color: #FFF;
+                    color: #fff;
                     font-size: 16px;
                     font-style: normal;
                     font-weight: 400;
@@ -124,7 +122,7 @@
             }
             .pull-merged-request {
                 span {
-                    color: #FFF;
+                    color: #fff;
                     font-size: 14px;
                     font-style: normal;
                     font-weight: 600;
@@ -136,7 +134,6 @@
                     align-items: center;
                     justify-content: space-between;
                     width: 100%;
-                    
                 }
                 .label-pull-mobile {
                     display: none;
@@ -150,7 +147,7 @@
                     position: relative;
                     &-active {
                         border-radius: 100rem;
-                        background: var(--primary, #BB86FC);
+                        background: var(--primary, #bb86fc);
                         height: 100%;
                     }
                 }
@@ -173,13 +170,14 @@
                     .avatar {
                         width: 32px;
                         height: 32px;
+                        position: relative;
                     }
                     .name {
                         font-size: 16px;
                     }
                 }
                 .commits {
-                    color: #03DAC6;
+                    color: #03dac6;
                     display: flex;
                     align-items: center;
                     column-gap: 12px;

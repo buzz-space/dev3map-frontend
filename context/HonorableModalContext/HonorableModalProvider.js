@@ -1,5 +1,4 @@
 import { createContext, useEffect, useState } from 'react';
-import HonorableModal from '~/components/home/HonorableModal';
 
 export const HonorableModalContext = createContext();
 
@@ -22,7 +21,7 @@ const HonorableProvider = ({ children }) => {
   }, [isOpen]);
   return (
     <HonorableModalContext.Provider value={{ isOpen, setIsOpen, setData, data, title, des }}>
-      <HonorableModal />
+
       {children}
     </HonorableModalContext.Provider>
   );

@@ -18,7 +18,7 @@ export default function Breadcrumb({ data }) {
               <label>{item?.label}</label>
             ) : (
               <Link href={item?.to || '/'}>
-                <a>{item?.label}</a>
+                {item?.label}
               </Link>
             )}
           </div>

@@ -12,6 +12,7 @@ import { Blockchain } from '~/public/assets/svgs-title';
 import TabDynamic from '~/components/base/TabDynamic';
 import clsx from 'clsx';
 import { stylePercent } from '~/utils/base';
+import Image from 'next/image';
 
 export default function StatisChainTable() {
   const { data, refetch } = useGetChainList();
@@ -270,7 +271,9 @@ export default function StatisChainTable() {
                       <td>#{index + 1}</td>
                       <td>
                         <div className={styles['chain']}>
-                          <img className={styles['logo']} src={item?.avatar} />
+                          <div className={styles['logo']}>
+                            <Image src={item?.avatar || '/'} objectFit='contain' layout='fill' className='rounded-full' />
+                          </div>
                           <div className={styles['infor-chain']}>
                             <label className={styles['name']}>{item?.name}</label>
                             <label className={styles['des']}>{item?.symbol}</label>
@@ -387,7 +390,9 @@ export default function StatisChainTable() {
                     }}
                     key={item?.id}
                   >
-                    <img src={item?.avatar} className={styles['logo']} />
+                    <div className={styles['logo']}>
+                      <Image src={item?.avatar || '/'} objectFit='contain' layout='fill' className='rounded-full' />
+                    </div>
                     <div className={styles['infor']}>
                       <label className={styles['name']}>{item?.name}</label>
                       <label className={styles['github-prefix']}>{item?.github_prefix}</label>

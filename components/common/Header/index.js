@@ -8,10 +8,8 @@ export default function Header({ currentPage = '' }) {
   return (
     <header className={styles['header']}>
       <Container className={styles['container']}>
-        <Link href="/">
-          <a className={styles['logo']}>
-            <Image src="/imgs/logo.svg" layout='fill' objectFit='contain' />
-          </a>
+        <Link href="/" className={styles['logo']}>
+          <Image src="/imgs/logo.svg" layout='fill' objectFit='contain' />
         </Link>
         <Navbar currentPage={currentPage} />
       </Container>

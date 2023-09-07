@@ -1,12 +1,13 @@
 import { formatNumber } from '~/utils/number';
 import styles from './styles.module.scss';
 import Image from 'next/image';
+import { pathImgTemp } from '~/core/contants';
 
 export default function InforRepo({ logo, name, des, stars, commits, github, web }) {
   return (
     <div className={styles['infor-repo']}>
       <div className={styles['logo']}>
-        <Image src={logo || '/'} alt="Logo" layout='fill' objectFit='contain' className='rounded-full' />
+        <Image src={logo || pathImgTemp} alt="Logo" layout='fill' objectFit='contain' className='rounded-full' />
       </div>
       <div className={styles['information']}>
         <h6 className={styles['name']}>{name}</h6>

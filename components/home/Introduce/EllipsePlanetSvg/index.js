@@ -73,7 +73,9 @@ export default function EllipsePlanetSvg() {
           <clipPath id="clip1_101_598">
             <rect width="68" height="68" fill="white" transform="translate(459 1163.08) rotate(-45)" />
           </clipPath>
-
+          <image id="image0_101_598" width="1536" height="1536" href="/imgs/ellipse-introduce/circle-commit.png"/>
+          <image id="image1_101_598" width="1536" height="1536" href="/imgs/ellipse-introduce/circle-android.png"/>
+          <image id="image2_101_598" width="1536" height="1536" href="/imgs/ellipse-introduce/circle-github.png"/>
         </defs>
       </svg>
     </div>

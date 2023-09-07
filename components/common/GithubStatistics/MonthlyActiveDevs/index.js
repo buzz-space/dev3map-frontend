@@ -3,6 +3,7 @@ import styles from './styles.module.scss';
 import { Chart as ChartJS, registerables } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import moment from 'moment';
+import { plugin } from '~/utils/pluginChart';
 
 ChartJS.register(...registerables);
 ChartJS.register({
@@ -39,12 +40,9 @@ const MonthlyActiveDevs = ({ data }) => {
   return (
     <div className={styles['chart-layout']}>
       <h6 className={styles['title']}>ACTIVE DEVS</h6>
+        <div className={styles['chart']}> <Line data={dataChart} plugins={[plugin]} options={{
 
-      <div className={styles['chart']}>
-        {' '}
-        <Line
-          data={dataChart}
-          options={{
+
             // animations: {
             //     tension: {
             //         duration: 1000,
@@ -65,6 +63,9 @@ const MonthlyActiveDevs = ({ data }) => {
             borderWidth: 1,
             borderStyle: 'dotted',
             plugins: {
+              corsair: {
+                    color: '#999',
+               },
               legend: {
                 align: 'start',
                 labels: {

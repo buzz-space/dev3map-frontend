@@ -23,40 +23,43 @@ export default function ActivityTrend({ userCode = [], userCommit = [] }) {
   const [userCodeFilter, setUserCodeFilter] = useState(userCode);
   const [userCommitFilter, setUserCommitFilter] = useState(userCommit);
 
-  function getChartData(datas, label) {
-    if (label === 'COMMIT') {
-      return {
-        labels: datas?.map((data) => moment(data?.exact_date).format('YYYY/MM')),
-        datasets: [
-          {
-            label: label,
-            data: datas?.map((data) => data.number),
-            labelT: datas?.map((data, index) => moment(data?.exact_date).format('DD-MM-YYYY')),
-            backgroundColor: '#BB86FC',
-            borderColor: '#BB86FC',
-          },
-        ],
-      };
-    } else {
-      return {
-        labels: datas.addition?.map((data) => moment(data?.exact_date).format('YYYY/MM')),
-        datasets: [
-          {
-            label: 'ADDITION',
-            data: datas.addition?.map((data) => data.number),
-            labelT: datas?.addition.map((data, index) => moment(data?.exact_date).format('DD-MM-YYYY')),
-            backgroundColor: '#03DAC6',
-            borderColor: '#03DAC6',
-          },
-          {
-            label: 'DELETION',
-            data: datas.deletion?.map((data) => data.number),
-            labelT: datas?.deletion?.map((data, index) => moment(data?.exact_date).format('DD-MM-YYYY')),
-            backgroundColor: '#CF6679',
-            borderColor: '#CF6679',
-          },
-        ],
-      };
+
+    function getChartData(datas, label) {
+        if (label === 'COMMIT') {
+            return {
+                labels: datas?.commit?.map((data) => moment(data?.exact_date).format("YYYY/MM")),
+                datasets: [{
+                    label: 'COMMIT',
+                    data: datas?.commit?.map((data) => data.number),
+                    labelT: datas?.commit?.map((data, index) => moment(data?.exact_date).format("DD-MM-YYYY")),
+                    backgroundColor: '#BB86FC',
+                    borderColor: '#BB86FC',
+                }, {
+                    label: 'ACTIVE DEV',
+                    data: datas.dev?.map((data) => data.number),
+                    labelT: datas?.dev?.map((data, index) => moment(data?.exact_date).format("DD-MM-YYYY")),
+                    backgroundColor: '#03DAC6',
+                    borderColor: '#03DAC6',
+                }]
+            }
+        } else {
+            return {
+                labels: datas.addition?.map((data) => moment(data?.exact_date).format("YYYY/MM")),
+                datasets: [{
+                    label: 'ADDITION',
+                    data: datas.addition?.map((data) => data.number),
+                    labelT: datas?.addition.map((data, index) => moment(data?.exact_date).format("DD-MM-YYYY")),
+                    backgroundColor: '#03DAC6',
+                    borderColor: '#03DAC6',
+                }, {
+                    label: 'DELETION',
+                    data: datas.deletion?.map((data) => data.number),
+                    labelT: datas?.deletion?.map((data, index) => moment(data?.exact_date).format("DD-MM-YYYY")),
+                    backgroundColor: '#CF6679',
+                    borderColor: '#CF6679',
+                }]
+            }
+        }
     }
   }
 

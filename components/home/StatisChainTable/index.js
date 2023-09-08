@@ -273,7 +273,7 @@ export default function StatisChainTable() {
                       <td>
                         <div className={styles['chain']}>
                           <div className={styles['logo']}>
-                            <Image src={item?.avatar || pathImgTemp} objectFit='contain' layout='fill' className='rounded-full' alt={item?.name}/>
+                            <Image src={item?.avatar || pathImgTemp} objectFit='contain' fill className='rounded-full' alt={item?.name}/>
                           </div>
                           <div className={styles['infor-chain']}>
                             <label className={styles['name']}>{item?.name}</label>
@@ -392,7 +392,7 @@ export default function StatisChainTable() {
                     key={item?.id}
                   >
                     <div className={styles['logo']}>
-                      <Image src={item?.avatar || pathImgTemp} objectFit='contain' layout='fill' className='rounded-full' alt={item?.name}/>
+                      <Image src={item?.avatar || pathImgTemp} objectFit='contain' fill className='rounded-full' alt={item?.name}/>
                     </div>
                     <div className={styles['infor']}>
                       <label className={styles['name']}>{item?.name}</label>

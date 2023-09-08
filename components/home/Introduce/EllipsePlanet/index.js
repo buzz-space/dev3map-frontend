@@ -9,15 +9,15 @@ export default function EllipsePlanet() {
       {/* <Container className={styles['container-ellipse']}> */}
       <div className={styles['ellipse-1']}>
         <div className={clsx('planet', styles['planet-1'])} >
-          <Image src="/imgs/planet1.png" layout='fill' objectFit='contain' alt="Planet Dev3Map"/>
+          <Image src="/imgs/planet1.png" fill objectFit='contain' alt="Planet Dev3Map"/>
         </div>
         <div className={clsx('planet reverse', styles['planet-2'])} >
-          <Image src="/imgs/planet2.png" layout='fill' objectFit='contain' alt="Planet Dev3Map"/>
+          <Image src="/imgs/planet2.png" fill objectFit='contain' alt="Planet Dev3Map"/>
         </div>
       </div>
       <div className={styles['ellipse-2']}>
         <div className={clsx('planet', styles['planet-3'])} >
-          <Image src="/imgs/planet3.png" layout='fill' objectFit='contain' alt="Planet Dev3Map"/>
+          <Image src="/imgs/planet3.png" fill objectFit='contain' alt="Planet Dev3Map"/>
         </div>
       </div>
     </div>

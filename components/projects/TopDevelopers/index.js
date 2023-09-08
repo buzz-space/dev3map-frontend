@@ -42,7 +42,7 @@ const TopDevelopers = ({ chainId, logo }) => {
             <div key={index} className={styles['list-item']}>
               <div className={styles['author']}>
                 <div className={styles['avatar']}>
-                  <Image src={logo || pathImgTemp} alt={item?.author} layout='fill' objectFit='contain' className='rounded-full' />
+                  <Image src={logo || pathImgTemp} alt={item?.author} fill objectFit='contain' className='rounded-full' />
                 </div>
                 <label className={styles['name']}>{item?.author}</label>
               </div>

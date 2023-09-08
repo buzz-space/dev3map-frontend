@@ -2,7 +2,7 @@ import { ArrowUpRight } from '~/public/assets/svgs';
 import styles from './styles.module.scss';
 import Link from 'next/link';
 import { useHonorableModal } from '~/context/HonorableModalContext';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import { pathImgTemp } from '~/core/contants';
 
 export default function ListRepo({ list }) {

@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Button from '~/components/base/Button';
 import { useFilterProjects } from '~/context/FilterProjectsContext';
 import { Fade } from 'react-reveal';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import { pathImgTemp } from '~/core/contants';
 
 export default function GridProject({ title, numberProject, projects = [] }) {

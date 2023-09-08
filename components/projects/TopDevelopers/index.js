@@ -4,7 +4,7 @@ import { useChainDeveloper } from '~/hooks/api/useChainDeveloper';
 import { Commit, CommitHorizontal } from '~/public/assets/svgs';
 import { formatNumber } from '~/utils/number';
 import IconSort from '~/components/home/StatisChainTable/IconSort';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import { pathImgTemp } from '~/core/contants';
 
 const TopDevelopers = ({ chainId, logo }) => {

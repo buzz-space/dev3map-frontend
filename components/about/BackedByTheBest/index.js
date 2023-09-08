@@ -3,7 +3,7 @@ import Link from 'next/link';
 import styles from './styles.module.scss';
 import Container from '~/components/base/Container';
 
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import { pathImgTemp } from '~/core/contants';
 
 const data = [

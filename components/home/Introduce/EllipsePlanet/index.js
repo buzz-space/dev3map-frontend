@@ -1,7 +1,7 @@
 import Container from '~/components/base/Container';
 import styles from './styles.module.scss';
 import clsx from 'clsx';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 
 export default function EllipsePlanet() {
   return (

@@ -1,20 +1,18 @@
-import React from 'react'
+import React from 'react';
 import styles from './styles.module.scss';
 import Link from 'next/link';
 import { ArrowUpRight } from '~/public/assets/svgs';
 
 const BoardInforHelp = ({ des, name, href }) => {
-    return (
-        <Link href={href || '#'}>
-            <a className={styles['board']}>
-                <span className={styles['des']}>{des}</span>
-                <div className={styles['place-receive']}>
-                    <label className={styles['name']}>{name}</label>
-                    <ArrowUpRight />
-                </div>
-            </a>
-        </Link>
-    )
-}
+  return (
+    <Link href={href || '#'} className={styles['board']}>
+      <span className={styles['des']}>{des}</span>
+      <div className={styles['place-receive']}>
+        <label className={styles['name']}>{name}</label>
+        <ArrowUpRight />
+      </div>
+    </Link>
+  );
+};
 
-export default BoardInforHelp
+export default BoardInforHelp;

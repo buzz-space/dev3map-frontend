@@ -1,8 +1,6 @@
 
 
-export function css(selector, style, value) {
-  selector?.style[style] = value;
-}
+
 
 export function deleteEl(e) {
   e.parentNode.removeChild(e);

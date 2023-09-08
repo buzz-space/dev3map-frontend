@@ -1,11 +1,11 @@
 import '~/public/styles/globals.scss';
+import { useRouter } from 'next/router';
 import { QueryClientProvider } from 'react-query';
 import queryClient from '~/core/queryClient';
 import { SessionProvider } from 'next-auth/react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect } from 'react';
-import { useRouter } from 'next/router';
 
 import { Progress } from '~/components/base/progress';
 import { useProgressStore } from '~/store';
@@ -38,16 +38,16 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
     <SessionProvider session={session}>
       <QueryClientProvider client={queryClient}>
         <Progress isAnimating={isAnimating} />
-        <TransProvider>
-          <VisibilityProvider>
-            <FilterProjectsProvider>
-              <HonorableProvider>
+        <HonorableProvider>
+          <TransProvider>
+            <VisibilityProvider>
+              <FilterProjectsProvider>
                 <Component {...pageProps} />
-              </HonorableProvider>
-            </FilterProjectsProvider>
-          </VisibilityProvider>
-          <ToastContainer />
-        </TransProvider>
+              </FilterProjectsProvider>
+            </VisibilityProvider>
+            <ToastContainer />
+          </TransProvider>
+        </HonorableProvider>
       </QueryClientProvider>
     </SessionProvider>
   );

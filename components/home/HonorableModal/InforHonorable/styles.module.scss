@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     border-radius: 8px;
-    background: #2D2D2D;
+    background: #2d2d2d;
     padding: 24px;
     flex: 1;
     max-height: 444px;
@@ -18,14 +18,12 @@
         background: rgba(255, 255, 255, 0.12);
 
         border-radius: 100rem;
-
     }
 
     /* Handle */
     &::-webkit-scrollbar-thumb {
         background: $color-secondary;
         border-radius: 100rem;
-
     }
 
     /* Handle on hover */
@@ -34,7 +32,7 @@
     }
 
     .rank {
-        color: #FFF;
+        color: #fff;
         font-size: 14px;
         font-weight: 600;
         margin-bottom: 16px;
@@ -52,11 +50,13 @@
 
         .logo {
             height: 48px;
+            width: 48px;
+            position: relative;
             border-radius: 100rem;
         }
 
         .name {
-            color: #FFF;
+            color: #fff;
             font-size: 24px;
         }
 
@@ -67,7 +67,7 @@
     }
 
     .description {
-        color: #FFF;
+        color: #fff;
         font-size: 16px;
         margin-top: 40px;
     }
@@ -75,7 +75,7 @@
     .key-metric {
         margin-top: 40px;
         text-transform: uppercase;
-        color: #FFF;
+        color: #fff;
         font-size: 32px;
         font-weight: 800;
     }
@@ -96,6 +96,7 @@
         .repo {
             column-gap: 12px;
             .logo {
+                height: 32px;
                 height: 32px;
             }
             .name {

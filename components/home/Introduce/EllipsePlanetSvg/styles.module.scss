@@ -65,7 +65,7 @@
         height: 100%;
         
 
-        @include anim (1, -130px, 18px, 0, 0);
+        @include anim (1, -135px, 20px, 0, 0);
         @include anim (2, 0px, 0px, 0, 0);
         @include anim (3, 0px, 0px, 0, 0);
     }

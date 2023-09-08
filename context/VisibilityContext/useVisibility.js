@@ -10,7 +10,7 @@ const useVisibility = (key = '') => {
     } else {
       let obj = {};
       for (let i = 0; i < key?.length; i++) {
-        obj = { ...obj, ...visibility[key[i]] }
+        obj = { ...obj, ...visibility[key[i]] };
       }
       return obj;
     }
@@ -19,4 +19,3 @@ const useVisibility = (key = '') => {
 };
 
 export default useVisibility;
-

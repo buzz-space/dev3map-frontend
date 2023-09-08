@@ -1,7 +1,10 @@
-import React from 'react'
-import Container from '~/components/base/Container'
-import styles from './styles.module.scss';
+import React from 'react';
 import Link from 'next/link';
+import styles from './styles.module.scss';
+import Container from '~/components/base/Container';
+
+import Image from 'next/image';
+import { pathImgTemp } from '~/core/contants';
 
 const data = [
     {
@@ -18,8 +21,8 @@ const data = [
         github_prefix: '/',
         avatar: '/imgs/cosmos.svg',
         name: 'Cosmos',
-    }
-]
+    },
+];
 
 const BackedByTheBest = () => {
     return (
@@ -29,12 +32,13 @@ const BackedByTheBest = () => {
                 {
                     data?.map((item, index) => {
                         return <Link href={item?.id ? `/projects/${item?.github_prefix}` : '/'} key={index}>
-                            <a className={styles['item']}>
-                                <img className={styles['logo']} src={
-                                    item?.avatar
-                                } alt="Logo repo" />
+                            <div className={styles['item']}>
+                                <div className={styles['logo']}>
+                                    <Image src={item?.avatar || pathImgTemp} alt={item?.name} layout="fill" // required
+                                        objectFit="contain" className={styles['logo-img']} />
+                                </div>
                                 <label className={styles['name']}>{item?.name}</label>
-                            </a>
+                            </div>
                         </Link>
                     })
                 }
@@ -43,4 +47,4 @@ const BackedByTheBest = () => {
     )
 }
 
-export default BackedByTheBest
+export default BackedByTheBest;

@@ -32,7 +32,12 @@ module.exports = (phase) => {
       prependData: `@import "./public/styles/base.scss";`,
     },
     images: {
-      domains: ['localhost', 'dev.be.domain', 'be.domain'],
+      remotePatterns: [
+        {
+          protocol: 'https',
+          hostname: '**',
+        },
+      ],
     },
     experimental: {
       outputStandalone: true,

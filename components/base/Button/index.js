@@ -29,8 +29,7 @@ export default function Button({
     >
       {children}
       {to != '' && (
-        <Link href={to}>
-          <a className={styles['link-href']}></a>
+        <Link href={to} className={styles['link-href']}>
         </Link>
       )}
     </button>

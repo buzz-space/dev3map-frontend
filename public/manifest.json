@@ -1,0 +1,8 @@
+{
+    "name": "Dev3Map",
+    "description": "The interchain developers metrics map with support from Cosmos Ecosystem Map and Github, Buzz Space builds this developer analytics platform to offer a panoramic view of the Interchain Developer Ecosystem",
+    "short_name": "dev3map",
+    "start_url": "/",
+    "lang": "en-EN",
+    "prefer_related_applications": false
+}

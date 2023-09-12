@@ -1,6 +1,6 @@
 import { formatNumber } from '~/utils/number';
 import styles from './styles.module.scss';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import { pathImgTemp } from '~/core/contants';
 
 export default function InforRepo({ logo, name, des, stars, commits, github, web }) {

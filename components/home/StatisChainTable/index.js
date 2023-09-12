@@ -12,7 +12,7 @@ import { Blockchain } from '~/public/assets/svgs-title';
 import TabDynamic from '~/components/base/TabDynamic';
 import clsx from 'clsx';
 import { stylePercent } from '~/utils/base';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import { pathImgTemp } from '~/core/contants';
 
 export default function StatisChainTable() {
@@ -273,7 +273,7 @@ export default function StatisChainTable() {
                       <td>
                         <div className={styles['chain']}>
                           <div className={styles['logo']}>
-                            <Image src={item?.avatar || pathImgTemp} objectFit='contain' layout='fill' className='rounded-full' alt={item?.name}/>
+                            <Image src={item?.avatar || pathImgTemp} layout='fill' objectFit='contain' className='rounded-full' alt={item?.name}/>
                           </div>
                           <div className={styles['infor-chain']}>
                             <label className={styles['name']}>{item?.name}</label>
@@ -392,7 +392,7 @@ export default function StatisChainTable() {
                     key={item?.id}
                   >
                     <div className={styles['logo']}>
-                      <Image src={item?.avatar || pathImgTemp} objectFit='contain' layout='fill' className='rounded-full' alt={item?.name}/>
+                      <Image src={item?.avatar || pathImgTemp} layout='fill' objectFit='contain' className='rounded-full' alt={item?.name}/>
                     </div>
                     <div className={styles['infor']}>
                       <label className={styles['name']}>{item?.name}</label>

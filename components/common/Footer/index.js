@@ -2,7 +2,7 @@
 import Container from "~/components/base/Container";
 import styles from "./styles.module.scss";
 import Link from "next/link";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 export default function Footer() {
   return <footer className={styles['footer']}>

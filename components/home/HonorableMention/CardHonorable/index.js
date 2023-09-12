@@ -4,7 +4,7 @@ import Button from '~/components/base/Button';
 import { useHonorableModal } from '~/context/HonorableModalContext';
 import { useRanking } from '~/hooks/api/useRanking';
 import Link from 'next/link';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import { pathImgTemp } from '~/core/contants';
 
 export default function CardHonorable({ title, logo, name, imgs, des, info, type = '' }) {

@@ -8,10 +8,10 @@ import Space from '~/components/base/Space';
 import styles from './styles.module.scss';
 import icon from '~/public/favicon.ico';
 // import headerBg from '~/public/imgs/background/header-bg.png';
-import ScrollToTop from '~/components/common/ScrollToTop';
+// import ScrollToTop from '~/components/common/ScrollToTop';
 import { nameWeb } from '~/core/contants';
 import BackgroundLayout from '~/components/common/BackgroundLayout';
-import BackgroundAbout from '~/components/common/BackgroundAbout';
+// import BackgroundAbout from '~/components/common/BackgroundAbout';
 
 export default function MainLayout({ children, title = '', currentPage = '', data = null, meta_data = null }) {
   const titlePage = !!title ? `${nameWeb} - ` + title : nameWeb;
@@ -25,6 +25,7 @@ export default function MainLayout({ children, title = '', currentPage = '', dat
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="description" content="The interchain developers metrics map with support from Cosmos Ecosystem Map and Github, Buzz Space builds this developer analytics platform to offer a panoramic view of the Interchain Developer Ecosystem"></meta>
         <meta
           property="og:title"
           content={
@@ -50,7 +51,7 @@ export default function MainLayout({ children, title = '', currentPage = '', dat
           }
         />
         <meta property="og:url" content={typeof window != 'undefined' ? window.location.href : ''} />
-        <meta property="og:image" content={meta_data ? meta_data?.image : icon.src} />
+        <meta property="og:image" content={meta_data ? meta_data?.image : '/imgs/banner.png'} />
         <meta
           property="og:tag"
           content={`${meta_data?.tag?.map((item, index) => {
@@ -66,16 +67,6 @@ export default function MainLayout({ children, title = '', currentPage = '', dat
         <meta name="apple-mobile-web-app-title" content="dev3map" />
         <meta name="msapplication-starturl" content="/" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
-        <link href="/fonts/fonts.css" rel="stylesheet" type="text/css" />
-
-        {/* script */}
-        {/* <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDHNFW2Q5M" />
-      <script
-        dangerouslySetInnerHTML={{
-          __html:
-            "window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);}gtag('js', new Date()); gtag('config', 'G-BDHNFW2Q5M');",
-        }}
-      ></script> */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-3K283PFLYL"></script>
         <script
           dangerouslySetInnerHTML={{
@@ -108,7 +99,6 @@ export default function MainLayout({ children, title = '', currentPage = '', dat
           <Header currentPage={currentPage} />
           <div className={`${styles['section']}`}>
             {children}
-            {/* {cloneElement(children, { isDarkmode: isDarkmode })} */}
           </div>
           <Footer />
           {/* <ScrollToTop /> */}

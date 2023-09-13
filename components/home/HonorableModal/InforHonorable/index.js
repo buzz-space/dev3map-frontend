@@ -3,7 +3,8 @@ import styles from './styles.module.scss';
 import Metric from './Metric';
 import Link from 'next/link';
 import { useHonorableModal } from '~/context/HonorableModalContext';
-import Image from 'next/image';
+import Image from "next/legacy/image";
+import { pathImgTemp } from '~/core/contants';
 
 export default function InforHonorable({ data, title, des }) {
   const { setIsOpen } = useHonorableModal();
@@ -19,7 +20,7 @@ export default function InforHonorable({ data, title, des }) {
           }}
         >
           <div className={styles['logo']}>
-            <Image src={data?.avatar || '/'} objectFit='contain' layout='fill' className='rounded-full' />
+            <Image src={data?.avatar || pathImgTemp} layout='fill' objectFit='contain' className='rounded-full' alt={data?.name} />
           </div>
           <label className={styles['name']}>{data?.name}</label>
           <ArrowUpRight />

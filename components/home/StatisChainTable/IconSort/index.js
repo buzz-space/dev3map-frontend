@@ -1,6 +1,12 @@
 export default function IconSort({ direct = '', colorDisable }) {
   return (
-    <svg width="10" height="17" viewBox="0 0 10 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg 
+    width="10" 
+    height="17" 
+    viewBox="0 0 10 17" 
+    fill="none" 
+    xmlns="http://www.w3.org/2000/svg"
+    >
       <path
         d="M1.28125 9.5H8.71875C9.3875 9.5 9.72188 10.3094 9.25 10.7812L5.53125 14.5C5.2375 14.7938 4.7625 14.7938 4.47188 14.5L0.75 10.7812C0.278125 10.3094 0.6125 9.5 1.28125 9.5Z"
         fill={direct == 'down' ? 'white' : colorDisable || '#2D2D2D'}

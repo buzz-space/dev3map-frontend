@@ -4,7 +4,8 @@ import { useEffect, useState } from 'react';
 import Button from '~/components/base/Button';
 import { useFilterProjects } from '~/context/FilterProjectsContext';
 import { Fade } from 'react-reveal';
-import Image from 'next/image';
+import Image from "next/legacy/image";
+import { pathImgTemp } from '~/core/contants';
 
 export default function GridProject({ title, numberProject, projects = [] }) {
   const [projectShow, setProjectShow] = useState([]);
@@ -39,7 +40,7 @@ export default function GridProject({ title, numberProject, projects = [] }) {
                   <Link href={item?.id ? `/projects/${item?.github_prefix}` : '/'}>
                     <div className={styles['item']}>
                       <div className={styles['logo']}>
-                        <Image src={item?.avatar || '/'} alt="Logo repo" layout='fill' objectFit='contain' className='rounded-full' />
+                        <Image src={item?.avatar || pathImgTemp} alt={item?.name} layout='fill' objectFit='contain' className='rounded-full' />
                       </div>
                       <label className={styles['name']}>{item?.name}</label>
                     </div>

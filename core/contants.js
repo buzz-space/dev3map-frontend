@@ -22,3 +22,4 @@ export const PAGE = {
 };
 
 export const nameWeb = 'Dev3Map';
+export const pathImgTemp = '/imgs/dev3map.svg'

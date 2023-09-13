@@ -4,7 +4,7 @@ import { formatNumber } from '~/utils/number';
 import moment from 'moment';
 
 export default function BoardStatistics({ total = 0, icon = <></>, colorIcon = '#03DAC6', label = '', des = '' }) {
-  const date = moment(new Date()).format('DD MMM YYYY');
+  const date = moment(process.env.HANDLE_DATE).format('DD MMM YYYY');
   return (
     <div className={styles['total-commit']}>
       <span className={styles['commit-icon']} style={{ color: colorIcon }}>

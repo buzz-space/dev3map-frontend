@@ -9,7 +9,7 @@ export default function Footer() {
   return <footer className={styles['footer']}>
     <Container className={styles['container']}>
       <Link href="/" className={styles['logo']}>
-        <Image src="/imgs/logo.svg" layout="fill" objectFit="contain" />
+        <Image src="/imgs/logo.svg" layout="fill" objectFit="contain" alt="Logo Dev3Map" />
       </Link>
       <div className={styles['powered-by']}>
         <label>Follow us on</label>
@@ -23,7 +23,7 @@ export default function Footer() {
       <div className={styles['powered-by']}>
         <label>POWERED BY</label>
         <div className={styles['buzzspace-logo']}>
-          <Image layout="fill" objectFit="contain" src="/imgs/buzzspace.svg" />
+          <Image layout="fill" objectFit="contain" src="/imgs/buzzspace.svg" alt="Logo BuzzSpace" />
         </div>
         {/* <a href="https://aura.network" target="_blank"></a> */}
       </div>

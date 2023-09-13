@@ -17,8 +17,6 @@
             font-size: 32px;
             line-height: 39px;
             /* identical to box height */
-
-
             color: #FFFFFF;
             text-transform: uppercase;
         }
@@ -26,6 +24,7 @@
             display: flex;
             align-items: center;
             column-gap: 24px;
+            row-gap: 16px;
             flex-wrap: wrap;
         }
     }

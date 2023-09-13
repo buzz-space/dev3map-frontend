@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './styles.module.scss';
 import { useChainRepos } from '~/hooks/api/useChainRepos';
 import { Fork, Person, Star } from '~/public/assets/svgs';
@@ -8,17 +8,33 @@ import Toggle from '~/components/base/Toggle';
 const ListRepos = ({ chainId }) => {
   const { data } = useChainRepos({ id: chainId });
   const [isHide, setIsHide] = useState(false);
-  console.log({ data });
+  const [listData, setListData] = useState ([]);
+
+  useEffect (() => {
+    setListData (data?.data)
+  }, [data])
+
+  useEffect (() => {
+    if (isHide) {
+      setListData (() => {
+        return [...data?.data]?.filter ((item, index) => {
+          return !item?.is_fork
+        })
+      })
+    } else {
+      setListData (data?.data)
+    }
+  }, [isHide])
+
   return (
     <div className={styles['list-repos']}>
-      <h4 className={styles['title']}>REPOSITORIES ({data?.data?.length})</h4>
+      <h4 className={styles['title']}>REPOSITORIES ({listData?.length})</h4>
       <div className={styles['toggle']}>
         <Toggle setToggle={setIsHide} />
         <label>{isHide ? 'SHOW' : 'HIDE'} FORKED REPOSITORIES </label>
       </div>
       <div className={styles['list']}>
-        {data?.data?.map((item, index) => {
-          if ((isHide && !item?.is_fork) || !isHide) {
+        {listData?.map((item, index) => {
             return (
               <div className={styles['list-item']} key={index}>
                 <h6 className={styles['list-item__title']}>{item?.name}</h6>
@@ -39,7 +55,6 @@ const ListRepos = ({ chainId }) => {
                 </div>
               </div>
             );
-          }
         })}
       </div>
     </div>

@@ -33,3 +33,4 @@ export { default as Star } from './Star';
 export { default as StreamLine } from './StreamLine';
 export { default as Trash } from './Trash';
 export { default as Upload } from './Upload';
+export { default as XIcon } from './XIcon';

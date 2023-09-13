@@ -40,7 +40,7 @@ module.exports = (phase) => {
       ],
     },
     experimental: {
-      outputStandalone: true,
+      // outputStandalone: true,
     },
     eslint: {
       // Warning: This allows production builds to successfully complete even if

@@ -252,7 +252,7 @@ export default function StatisChainTable() {
                 </th>
                 <th>
                   <div className={styles['sort-table']} onClick={() => sort('pull')}>
-                    <label>PULL</label>
+                    <label>PULLS</label>
                     <IconSort direct={directSort?.pull} />
                   </div>
                 </th>
@@ -361,7 +361,7 @@ export default function StatisChainTable() {
                       </td>
                       <td>
                         <div className={styles['value-table']}>
-                          <label>{formatNumber(getValue(item, 'total_pull_merged'))}</label>
+                          <label>{formatNumber(getValue(item, 'total_pull_request'))}</label>
                           <label
                             className={clsx(
                               styles['percent-value'],

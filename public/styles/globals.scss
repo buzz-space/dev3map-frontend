@@ -110,3 +110,13 @@ input[type='search']::-webkit-search-results-decoration {
   color: #fff;
   display: inline-block;
 }
+
+.slick-list {
+  overflow: inherit !important;
+}
+.slick-arrow::before {
+  display: none;
+}
+.slick-disabled {
+  opacity: 0.4;
+}

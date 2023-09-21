@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import DetailProjectContainer from '~/containers/DetailProjectContainer';
 import MainLayout from '~/layout/MainLayout';
 import { API } from '~/core/api';
+
 export default function DetailProject({ data }) {
   // const router = useRouter();
   // const { slug } = router.query;

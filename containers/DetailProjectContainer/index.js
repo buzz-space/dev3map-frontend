@@ -24,7 +24,7 @@ export default function DetailProjectContainer({ data }) {
     refetchSummary();
     refetchDeveloperChart();
   }, [data]);
-  console.log({ a: data });
+
   return (
     <div className={styles['container']}>
       <Container>
@@ -50,7 +50,7 @@ export default function DetailProjectContainer({ data }) {
           web={data?.website}
         />
       </Container>
-      <Resources />
+      <Resources data={data} />
       <GithubStatistics data={dataDeveloperChart?.data} dataTotal={dataSummary?.data} homePage={false} />
       <Container className={styles['foot-detail']}>
         <ListRepos chainId={data?.id} />

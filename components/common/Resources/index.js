@@ -6,44 +6,45 @@ import 'slick-carousel/slick/slick-theme.css';
 import Link from 'next/link';
 import { ArrowLeft, ArrowUpRight, ArrowRight } from '~/public/assets/svgs';
 import Button from '~/components/base/Button';
+import moment from 'moment';
 
-const data = [
-  {
-    image: '/imgs/resource/resource_image.png',
-    title: `BREAKING NEWS: NATIVE TETHER USDT IS COMING TO COSMOSMAXIMUM 3 LINES...`,
-    tag: 'Article',
-    date: '05 Apr 2023',
-    slug: '#',
-  },
-  {
-    image: '/imgs/resource/resource_image.png',
-    title: `BREAKING NEWS: NATIVE TETHER USDT IS COMING TO COSMOSMAXIMUM 3 LINES...`,
-    tag: 'Article',
-    date: '05 Apr 2023',
-    slug: '#',
-  },
-  {
-    image: '/imgs/resource/resource_image.png',
-    title: `BREAKING NEWS: NATIVE TETHER USDT IS COMING TO COSMOSMAXIMUM 3 LINES...`,
-    tag: 'Article',
-    date: '05 Apr 2023',
-    slug: '#',
-  },
-  {
-    image: '/imgs/resource/resource_image.png',
-    title: `BREAKING NEWS: NATIVE TETHER USDT IS COMING TO COSMOSMAXIMUM 3 LINES...`,
-    tag: 'Article',
-    date: '05 Apr 2023',
-    slug: '#',
-  },
-  {
-    image: '/imgs/resource/resource_image.png',
-    title: `BREAKING NEWS: NATIVE TETHER USDT IS COMING TO COSMOSMAXIMUM 3 LINES...`,
-    tag: 'Article',
-    date: '05 Apr 2023',
-    slug: '#',
-  },
-];
+// const data = [
+//   {
+//     image: '/imgs/resource/resource_image.png',
+//     title: `BREAKING NEWS: NATIVE TETHER USDT IS COMING TO COSMOSMAXIMUM 3 LINES...`,
+//     tag: 'Article',
+//     date: '05 Apr 2023',
+//     slug: '#',
+//   },
+//   {
+//     image: '/imgs/resource/resource_image.png',
+//     title: `BREAKING NEWS: NATIVE TETHER USDT IS COMING TO COSMOSMAXIMUM 3 LINES...`,
+//     tag: 'Article',
+//     date: '05 Apr 2023',
+//     slug: '#',
+//   },
+//   {
+//     image: '/imgs/resource/resource_image.png',
+//     title: `BREAKING NEWS: NATIVE TETHER USDT IS COMING TO COSMOSMAXIMUM 3 LINES...`,
+//     tag: 'Article',
+//     date: '05 Apr 2023',
+//     slug: '#',
+//   },
+//   {
+//     image: '/imgs/resource/resource_image.png',
+//     title: `BREAKING NEWS: NATIVE TETHER USDT IS COMING TO COSMOSMAXIMUM 3 LINES...`,
+//     tag: 'Article',
+//     date: '05 Apr 2023',
+//     slug: '#',
+//   },
+//   {
+//     image: '/imgs/resource/resource_image.png',
+//     title: `BREAKING NEWS: NATIVE TETHER USDT IS COMING TO COSMOSMAXIMUM 3 LINES...`,
+//     tag: 'Article',
+//     date: '05 Apr 2023',
+//     slug: '#',
+//   },
+// ];
 
 function NextArrow(props) {
   const { className, style, onClick } = props;
@@ -67,7 +68,7 @@ function PrevArrow(props) {
   );
 }
 
-export default function Resources() {
+export default function Resources({ data }) {
   const settings = {
     className: styles['resource-slide'],
     centerPadding: '0px',
@@ -98,33 +99,36 @@ export default function Resources() {
     ],
   };
 
-  return (
-    <Container className={styles['container']}>
-      <h2 className="title">RESOURCES</h2>
-      <Slider {...settings}>
-        {data.map((item, index) => (
-          <div key={index}>
-            <div className={styles['item']}>
-              <img className={styles['image']} src={item?.image} alt="" />
-              <div className={styles['content']}>
-                <h6 className={styles['content__title']}>{item?.title}</h6>
-                <div className={styles['content__footer']}>
-                  <span className={styles['tag-info']}>
-                    {item?.tag} • {item?.date}
-                  </span>
-                  <Link href={item?.slug} className={styles['navigation']}>
-                    <ArrowUpRight />
-                  </Link>
+  if (data?.resources.length > 0) {
+    return (
+      <Container className={styles['container']}>
+        <h2 className="title">RESOURCES</h2>
+        <Slider {...settings}>
+          {data?.resources.map((item, index) => (
+            <div key={index}>
+              <div className={styles['item']}>
+                <img className={styles['image']} src={item?.image} alt="" />
+                <div className={styles['content']}>
+                  <h6 className={styles['content__title']}>{item?.name}</h6>
+                  <div className={styles['content__footer']}>
+                    <span className={styles['tag-info']}>
+                      {item?.category} • {moment(item?.created_date).format('DD MMM YYYY')}
+                    </span>
+                    <Link href={item?.refer_ici || ''} className={styles['navigation']}>
+                      <ArrowUpRight />
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
-      </Slider>
-      <Button outline className={styles['more-info']}>
-        <span>MORE ON INTERCHAIN INFO</span>
-        <img src="/imgs/inter_chain.png" alt="inter-chain" />
-      </Button>
-    </Container>
-  );
+          ))}
+        </Slider>
+        <Button to={data?.refer_ici || ''} outline className={styles['more-info']}>
+          <span>MORE ON INTERCHAIN INFO</span>
+          <img src="/imgs/inter_chain.png" alt="inter-chain" />
+        </Button>
+      </Container>
+    );
+  }
+  return <></>;
 }

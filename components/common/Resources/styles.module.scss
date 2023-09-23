@@ -12,11 +12,13 @@
     margin: 0 24px;
     overflow: hidden;
     color: #ffffff;
+    text-transform: capitalize;
     &:first-child {
       margin-left: 0;
     }
     .image {
       width: 100%;
+      object-fit: cover;
       aspect-ratio: 16/9;
     }
     .content {
@@ -38,6 +40,7 @@
         justify-content: space-between;
         align-items: center;
         align-self: stretch;
+
         span {
           font-family: Montserrat;
           font-size: 14px;

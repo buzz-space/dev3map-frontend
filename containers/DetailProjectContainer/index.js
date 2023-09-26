@@ -13,6 +13,7 @@ import { useGetCommitChart } from '~/hooks/api/useGetCommitChart';
 import { useDeveloperChart } from '~/hooks/api/useDeveloperChart';
 import ListRepos from '~/components/projects/ListRepos';
 import TopDevelopers from '~/components/projects/TopDevelopers';
+import Resources from '~/components/common/Resources';
 
 export default function DetailProjectContainer({ data }) {
   const router = useRouter();
@@ -23,7 +24,7 @@ export default function DetailProjectContainer({ data }) {
     refetchSummary();
     refetchDeveloperChart();
   }, [data]);
-  console.log({a: data})
+
   return (
     <div className={styles['container']}>
       <Container>
@@ -49,6 +50,7 @@ export default function DetailProjectContainer({ data }) {
           web={data?.website}
         />
       </Container>
+      <Resources data={data} />
       <GithubStatistics data={dataDeveloperChart?.data} dataTotal={dataSummary?.data} homePage={false} />
       <Container className={styles['foot-detail']}>
         <ListRepos chainId={data?.id} />

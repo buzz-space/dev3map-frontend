@@ -11,7 +11,7 @@ export default function InforRepo({ logo, name, des, stars, commits, github, web
       </div>
       <div className={styles['information']}>
         <h6 className={styles['name']}>{name}</h6>
-        {des && <label className={styles['des']}>{des}</label>}
+        {des && <div className={styles['des']} dangerouslySetInnerHTML={{__html: des}} ></div>}
         <div className={styles['rates-frame']}>
           <div className={styles['rate']}>
             <div className={styles['rate-icon']}>

@@ -1,0 +1,66 @@
+.container {
+  margin-top: 160px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+  .item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 8px;
+    background-color: #202020;
+    margin: 0 24px;
+    overflow: hidden;
+    color: #ffffff;
+    text-transform: capitalize;
+    &:first-child {
+      margin-left: 0;
+    }
+    .image {
+      width: 100%;
+      object-fit: cover;
+      aspect-ratio: 16/9;
+    }
+    .content {
+      display: flex;
+      padding: 24px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 40px;
+      align-self: stretch;
+      &__title {
+        font-family: Montserrat;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: normal;
+      }
+      &__footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        align-self: stretch;
+
+        span {
+          font-family: Montserrat;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+        }
+      }
+    }
+  }
+  .more-info {
+    display: flex;
+    width: fit-content;
+    height: 49px;
+    padding: 16px;
+    align-items: center;
+    gap: 10px;
+    border-radius: 100px;
+    border: 1px solid var(--Whilte, #fff);
+    color: #ffffff;
+    flex-wrap: nowrap;
+  }
+}

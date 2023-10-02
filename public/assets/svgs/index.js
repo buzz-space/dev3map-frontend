@@ -1,4 +1,5 @@
 export { default as ArrowLeft } from './ArrowLeft';
+export { default as ArrowRight } from './ArrowRight';
 export { default as ArrowUpRight } from './ArrowUpRight';
 export { default as Calendar } from './Calendar';
 export { default as Checkbox } from './Checkbox';
@@ -33,3 +34,4 @@ export { default as Star } from './Star';
 export { default as StreamLine } from './StreamLine';
 export { default as Trash } from './Trash';
 export { default as Upload } from './Upload';
+export { default as XIcon } from './XIcon';

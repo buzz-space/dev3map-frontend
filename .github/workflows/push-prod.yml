@@ -28,4 +28,4 @@ jobs:
           context: .
           file: ./Dockerfile-prod
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/dev3map-frontend:1.0.7
+          tags: ${{ secrets.DOCKER_USERNAME }}/dev3map-frontend:1.0.8

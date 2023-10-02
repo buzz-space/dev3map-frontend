@@ -13,4 +13,5 @@ export const API = {
   DEVELOPER_CHART: '/developer-chart',
   CHAIN_DEVELOPER: '/chain-developer/:id',
   CHAIN_REPOSITORY: '/chain-repository/:id',
+  PERFORMANCE: '/performance/:id'
 };

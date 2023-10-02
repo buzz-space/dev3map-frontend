@@ -9,6 +9,7 @@ export default function Button({
   to = '',
   disabled,
   outline = false,
+  target,
   ...props
 }) {
   return (
@@ -29,7 +30,7 @@ export default function Button({
     >
       {children}
       {to != '' && (
-        <Link href={to} className={styles['link-href']}>
+        <Link href={to} className={styles['link-href']} target={target}>
         </Link>
       )}
     </button>

@@ -58,7 +58,7 @@ export default function FilterBar() {
     const total = data?.data?.reduce((prev, curr) => {
       return (prev += curr.total);
     }, 0);
-    const all = { name: 'All projects', total: 108 };
+    const all = { name: 'All projects', total: process.env.TOTAL_CHAIN };
     const dataIter = data?.data ? data?.data : [];
     if (data?.data) {
       setDataCategories([all, ...dataIter]);

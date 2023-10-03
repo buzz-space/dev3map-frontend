@@ -57,7 +57,7 @@ export default function DetailProjectContainer({ data }) {
             web={data?.website}
             refer_ici={data?.refer_ici}
           />
-          <PerformanceChart data={dataPerformance} />
+          <PerformanceChart data={dataPerformance?.data} />
         </div>
       </Container>
       <Resources data={data} />

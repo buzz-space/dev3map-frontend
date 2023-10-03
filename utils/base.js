@@ -28,3 +28,12 @@ export function stylePercent(value) {
     return 'positive';
   }
 }
+
+export function hasAllProperties(obj, propArray) {
+  for (var i = 0; i < propArray.length; i++) {
+    if (!obj.hasOwnProperty(propArray[i])) {
+      return false;
+    }
+  }
+  return true;
+}

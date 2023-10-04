@@ -218,14 +218,16 @@ export default function StatisChainTable() {
                   <div className={styles['sort-table']} onClick={() => sort('commits')}>
                     <label>COMMITS</label>
                     <IconSort direct={directSort?.commits} />
-                    <div className={styles['des']}>This is the number of times the source code has been updated.</div>
+                    <div className={styles['tooltip']}>
+                      This is the number of times the source code has been updated.
+                    </div>
                   </div>
                 </th>
                 <th>
                   <div className={styles['sort-table']} onClick={() => sort('developers')}>
                     <label>DEVELOPERS</label>
                     <IconSort direct={directSort?.developers} />
-                    {/* <div className={styles['des']}>
+                    {/* <div className={styles['tooltip']}>
                       Number of contributors to the project's github. Be aware that the number may include contributors
                       outside the organization.
                     </div> */}
@@ -235,7 +237,7 @@ export default function StatisChainTable() {
                   <div className={styles['sort-table']} onClick={() => sort('repos')}>
                     <label>REPOS</label>
                     <IconSort direct={directSort?.repos} />
-                    <div className={styles['des']}>
+                    <div className={styles['tooltip']}>
                       How many repositories on a project's github. A repository is where the team store, manage, and
                       track changes to their files.
                     </div>
@@ -245,7 +247,7 @@ export default function StatisChainTable() {
                   <div className={styles['sort-table']} onClick={() => sort('stars')}>
                     <label>STARS</label>
                     <IconSort direct={directSort?.stars} />
-                    <div className={styles['des']}>
+                    <div className={styles['tooltip']}>
                       Star count indicates how many developers are appreciating the works that are being done on a
                       project's Github
                     </div>
@@ -255,7 +257,7 @@ export default function StatisChainTable() {
                   <div className={styles['sort-table']} onClick={() => sort('forks')}>
                     <label>FORKS</label>
                     <IconSort direct={directSort?.forks} />
-                    <div className={styles['des']}>
+                    <div className={styles['tooltip']}>
                       Fork count indicates that how many developers are interested in copying or contributing to the
                       project's source codes.
                     </div>
@@ -265,7 +267,7 @@ export default function StatisChainTable() {
                   <div className={styles['sort-table']} onClick={() => sort('issues')}>
                     <label>ISSUES</label>
                     <IconSort direct={directSort?.issues} />
-                    <div className={styles['des']}>
+                    <div className={styles['tooltip']}>
                       Issue counts indicates that there are bugs or new ideas are presents accross the repositories and
                       thus made people interested enough to discuss about them.
                     </div>
@@ -275,7 +277,7 @@ export default function StatisChainTable() {
                   <div className={styles['sort-table']} onClick={() => sort('pull')}>
                     <label>PULLS</label>
                     <IconSort direct={directSort?.pull} />
-                    <div className={styles['des']}>
+                    <div className={styles['tooltip']}>
                       Usually, developers will have most of their work done in their own working space and after the
                       work is done, the result will be submitted to a repository through a Pull request, which includes
                       codes and files.
@@ -311,7 +313,7 @@ export default function StatisChainTable() {
                           </div>
                           <div className={styles['infor-chain']}>
                             <label className={styles['name']}>{item?.name}</label>
-                            <label className={styles['des']}>{item?.symbol}</label>
+                            <label className={styles['tooltip']}>{item?.symbol}</label>
                           </div>
                         </div>
                       </td>

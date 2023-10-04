@@ -1,5 +1,5 @@
 {
-  "SERVER_URI": "http://localhost:8000/api/v1",
+  "SERVER_URI": "https://dev.be.dev3map.com/api/v1",
   "WEB_URI": "dev3map",
   "HANDLE_DATE": "2023-09-25 00:00:00",
   "TOTAL_CHAIN": 127

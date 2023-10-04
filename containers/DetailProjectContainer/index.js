@@ -23,12 +23,12 @@ export default function DetailProjectContainer({ data }) {
   // const { data: dataCommitChart, refetch: refetchCommitChart } = useGetCommitChart({ chain: data?.id });
   const { data: dataDeveloperChart, refetch: refetchDeveloperChart } = useDeveloperChart({ chain: data?.id });
 
-  const { data: dataPerformance, refetch: refetchPerformance } = useGetPerformance({ id: data?.id })
+  const { data: dataPerformance, refetch: refetchPerformance } = useGetPerformance({ id: data?.id });
 
   useEffect(() => {
     refetchSummary();
     refetchDeveloperChart();
-    refetchPerformance()
+    refetchPerformance();
   }, [data]);
 
   return (

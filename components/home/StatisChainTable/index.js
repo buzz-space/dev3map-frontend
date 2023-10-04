@@ -12,7 +12,7 @@ import { Blockchain } from '~/public/assets/svgs-title';
 import TabDynamic from '~/components/base/TabDynamic';
 import clsx from 'clsx';
 import { stylePercent } from '~/utils/base';
-import Image from "next/legacy/image";
+import Image from 'next/legacy/image';
 import { pathImgTemp } from '~/core/contants';
 
 export default function StatisChainTable() {
@@ -218,42 +218,70 @@ export default function StatisChainTable() {
                   <div className={styles['sort-table']} onClick={() => sort('commits')}>
                     <label>COMMITS</label>
                     <IconSort direct={directSort?.commits} />
+                    <div className={styles['des']}>This is the number of times the source code has been updated.</div>
                   </div>
                 </th>
                 <th>
                   <div className={styles['sort-table']} onClick={() => sort('developers')}>
                     <label>DEVELOPERS</label>
                     <IconSort direct={directSort?.developers} />
+                    {/* <div className={styles['des']}>
+                      Number of contributors to the project's github. Be aware that the number may include contributors
+                      outside the organization.
+                    </div> */}
                   </div>
                 </th>
                 <th>
                   <div className={styles['sort-table']} onClick={() => sort('repos')}>
                     <label>REPOS</label>
                     <IconSort direct={directSort?.repos} />
+                    <div className={styles['des']}>
+                      How many repositories on a project's github. A repository is where the team store, manage, and
+                      track changes to their files.
+                    </div>
                   </div>
                 </th>
                 <th>
                   <div className={styles['sort-table']} onClick={() => sort('stars')}>
                     <label>STARS</label>
                     <IconSort direct={directSort?.stars} />
+                    <div className={styles['des']}>
+                      Star count indicates how many developers are appreciating the works that are being done on a
+                      project's Github
+                    </div>
                   </div>
                 </th>
                 <th>
                   <div className={styles['sort-table']} onClick={() => sort('forks')}>
                     <label>FORKS</label>
                     <IconSort direct={directSort?.forks} />
+                    <div className={styles['des']}>
+                      Fork count indicates that how many developers are interested in copying or contributing to the
+                      project's source codes.
+                    </div>
                   </div>
                 </th>
                 <th>
                   <div className={styles['sort-table']} onClick={() => sort('issues')}>
                     <label>ISSUES</label>
                     <IconSort direct={directSort?.issues} />
+                    <div className={styles['des']}>
+                      Issue counts indicates that there are bugs or new ideas are presents accross the repositories and
+                      thus made people interested enough to discuss about them.
+                    </div>
                   </div>
                 </th>
                 <th>
                   <div className={styles['sort-table']} onClick={() => sort('pull')}>
                     <label>PULLS</label>
                     <IconSort direct={directSort?.pull} />
+                    <div className={styles['des']}>
+                      Usually, developers will have most of their work done in their own working space and after the
+                      work is done, the result will be submitted to a repository through a Pull request, which includes
+                      codes and files.
+                      <br />
+                      The more pulls there are, the more work is being done on the project.
+                    </div>
                   </div>
                 </th>
               </tr>
@@ -273,7 +301,13 @@ export default function StatisChainTable() {
                       <td>
                         <div className={styles['chain']}>
                           <div className={styles['logo']}>
-                            <Image src={item?.avatar || pathImgTemp} layout='fill' objectFit='contain' className='rounded-full' alt={item?.name}/>
+                            <Image
+                              src={item?.avatar || pathImgTemp}
+                              layout="fill"
+                              objectFit="contain"
+                              className="rounded-full"
+                              alt={item?.name}
+                            />
                           </div>
                           <div className={styles['infor-chain']}>
                             <label className={styles['name']}>{item?.name}</label>
@@ -392,7 +426,13 @@ export default function StatisChainTable() {
                     key={item?.id}
                   >
                     <div className={styles['logo']}>
-                      <Image src={item?.avatar || pathImgTemp} layout='fill' objectFit='contain' className='rounded-full' alt={item?.name}/>
+                      <Image
+                        src={item?.avatar || pathImgTemp}
+                        layout="fill"
+                        objectFit="contain"
+                        className="rounded-full"
+                        alt={item?.name}
+                      />
                     </div>
                     <div className={styles['infor']}>
                       <label className={styles['name']}>{item?.name}</label>

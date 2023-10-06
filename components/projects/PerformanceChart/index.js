@@ -160,11 +160,13 @@ const PerformanceChart = ({ data }) => {
                     color: '#fff',
                   },
                   ticks: {
-                    display: false, // Hides the labels in the middel (numbers)
-                    max: 100,
-                    min: 0,
-                    stepSize: 10,
+                    display: false,
+                    stepSize: 20,
                   },
+                  max: 100,
+                  min: 0,
+
+                  beginAtZero: true,
                   grid: {
                     color: function (context, pluginOptions) {
                       const list = chartRef.current.options?.ticksData?.list;

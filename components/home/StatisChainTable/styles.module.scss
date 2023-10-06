@@ -37,12 +37,14 @@
     @include styleScrollBar();
     margin-top: 40px;
   }
+
   .filter {
     display: flex;
     justify-content: space-between;
     column-gap: 24px;
     align-items: center;
     margin-top: 40px;
+
     .search-bar {
       background: #202020;
       border-radius: 100px;
@@ -51,6 +53,7 @@
       align-items: center;
       max-width: 421px;
       width: 100%;
+
       input {
         flex: 1;
         color: #ffffff;
@@ -75,6 +78,7 @@
       align-items: flex-start;
     }
   }
+
   .table {
     width: 100%;
     position: relative;
@@ -95,6 +99,7 @@
 
       &:hover {
         background-color: #202020;
+
         .chain {
           padding-left: 12px;
         }
@@ -131,6 +136,7 @@
       z-index: 999;
       top: 0;
       background-color: $color-background;
+
       .sort-table {
         cursor: pointer;
         display: flex;
@@ -139,6 +145,7 @@
         column-gap: 8px;
         max-width: max-content;
         position: relative;
+
         * {
           cursor: pointer;
         }
@@ -152,13 +159,16 @@
           padding: 24px;
           right: 20%;
           top: calc(100% + 6px);
-          width: 300px;
+          // width: 300px;
+          max-width: 350px;
+          width: max-content;
           transition: 0.3s;
           z-index: 1000;
           opacity: 0;
           visibility: hidden;
           text-transform: initial;
         }
+
         &:hover {
           .tooltip {
             opacity: 1;
@@ -187,6 +197,7 @@
         align-items: center;
         max-width: 400px;
         cursor: pointer;
+
         * {
           cursor: pointer;
         }
@@ -218,24 +229,29 @@
 
         @media screen and (max-width: $small-device) {
           column-gap: 12px;
+
           .logo {
             height: 24px;
             width: 24px;
           }
         }
       }
+
       .value-table {
         display: flex;
         flex-direction: column;
         row-gap: 4px;
+
         .percent-value {
           font-size: 12px;
           font-style: normal;
           font-weight: 400;
           line-height: normal;
+
           &.positive {
             color: var(--Secondary, #03dac6);
           }
+
           &.negative {
             color: var(--Red, #cf6679);
           }
@@ -263,23 +279,29 @@
       }
     }
   }
+
   .table-responsive {
     display: none;
   }
+
   @media screen and (max-width: $small-device) {
     height: max-content;
     max-height: none;
     margin-top: 80px;
+
     .table {
       display: none;
+
       td:first-child,
       th:first-child {
         width: 30%;
       }
     }
+
     .table-responsive {
       display: flex;
       flex-direction: column;
+
       .head {
         color: #fff;
         font-size: 12px;
@@ -289,6 +311,7 @@
         padding-bottom: 16px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.24);
       }
+
       .body {
         display: flex;
         flex-direction: column;
@@ -296,6 +319,7 @@
         max-height: 420px;
         overflow: auto;
         @include styleScrollBar();
+
         .chain {
           display: flex;
           column-gap: 12px;
@@ -304,16 +328,20 @@
           border-bottom: 1px solid rgba(255, 255, 255, 0.24);
           cursor: pointer;
           transition: 0.3s;
+
           * {
             cursor: pointer;
           }
+
           &:hover {
             background-color: #202020;
             padding-left: 8px;
           }
+
           &:last-child {
             border-bottom: none;
           }
+
           .logo {
             width: 40px;
             height: 40px;
@@ -321,6 +349,7 @@
             object-fit: cover;
             position: relative;
           }
+
           .infor {
             display: flex;
             flex-direction: column;

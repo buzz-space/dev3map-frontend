@@ -105,8 +105,9 @@ export default function Resources({ data }) {
         <h2 className="title">RESOURCES</h2>
         <Slider {...settings}>
           {data?.resources.map((item, index) => (
+            // <div key={index}>
             <div key={index}>
-              <div className={styles['item']}>
+              <Link href={item?.refer_ici || ''} className={styles['item']} target='_blank'>
                 <img className={styles['image']} src={item?.image} alt="" />
                 <div className={styles['content']}>
                   <h6 className={styles['content__title']}>{item?.name}</h6>
@@ -114,12 +115,10 @@ export default function Resources({ data }) {
                     <span className={styles['tag-info']}>
                       {item?.category} • {moment(item?.created_date).format('DD MMM YYYY')}
                     </span>
-                    <Link href={item?.refer_ici || ''} className={styles['navigation']}>
-                      <ArrowUpRight />
-                    </Link>
+                    <ArrowUpRight />
                   </div>
                 </div>
-              </div>
+              </Link>
             </div>
           ))}
         </Slider>

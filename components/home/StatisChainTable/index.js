@@ -50,6 +50,9 @@ export default function StatisChainTable() {
   const [dataTable, setDataTable] = useState([]);
   const [dataFinished, setDataFinished] = useState([]);
   const [indexTab, setIndexTab] = useState(0);
+
+  console.log(data?.data)
+
   useEffect(() => {
     setDataFinished(() => {
       if (data?.data) {
@@ -220,17 +223,20 @@ export default function StatisChainTable() {
                     <IconSort direct={directSort?.commits} />
                     <div className={styles['tooltip']}>
                       This is the number of times the source code has been updated.
+                      <br />
+                      This inclues: commits from every protected branch (i.e. important branches), commits from merging branches/pull requests.
                     </div>
                   </div>
                 </th>
                 <th>
                   <div className={styles['sort-table']} onClick={() => sort('developers')}>
-                    <label>DEVELOPERS</label>
+                    <label>CONTRIBUTORS</label>
                     <IconSort direct={directSort?.developers} />
-                    {/* <div className={styles['tooltip']}>
-                      Number of contributors to the project's github. Be aware that the number may include contributors
-                      outside the organization.
-                    </div> */}
+                    <div className={styles['tooltip']}>
+                      Number of contributors to the project's github.
+                      <br />
+                      Be aware that the number may include contributors outside the organization.
+                    </div>
                   </div>
                 </th>
                 <th>
@@ -238,8 +244,9 @@ export default function StatisChainTable() {
                     <label>REPOS</label>
                     <IconSort direct={directSort?.repos} />
                     <div className={styles['tooltip']}>
-                      How many repositories on a project's github. A repository is where the team store, manage, and
-                      track changes to their files.
+                      How many repositories on a project's github. A repository is where the team store, manage, and track changes to their files.
+                      <br />
+                      Bear in mind that private repositories are not included.
                     </div>
                   </div>
                 </th>

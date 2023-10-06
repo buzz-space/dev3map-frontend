@@ -128,7 +128,7 @@ export default function GithubStatistics({ dataTotal = {}, data = [], homePage =
           label="ESTIMATED ACTIVE DEVELOPERS"
           // des={`The number of developers who are working on ${homePage ? 'Cosmos' : "the project's Github"
           //   } in the last 30 days.`}
-          des={`Contributors who frequently active on this project's github over the last 90 days`}
+          des={`Contributors who frequently active on ${homePage ? 'Cosmos' : "the project's Github"} over the last 90 days`}
         />
       </div>
       <div className={styles['another-information-board']}>

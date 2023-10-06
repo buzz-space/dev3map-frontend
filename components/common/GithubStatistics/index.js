@@ -125,10 +125,10 @@ export default function GithubStatistics({ dataTotal = {}, data = [], homePage =
           total={dataTotal?.total_developer}
           icon={<Developer />}
           colorIcon="#18A0FB"
-          label={homePage ? "ACTIVE DEVELOPERS" : "CONTRIBUTORS"}
+          label="ESTIMATED ACTIVE DEVELOPERS"
           // des={`The number of developers who are working on ${homePage ? 'Cosmos' : "the project's Github"
           //   } in the last 30 days.`}
-          des={homePage ? `The number of developers who are working on Cosmos in the last 30 days.` : `Contributors who frequently active on this project's github over the last 90 days`}
+          des={`Contributors who frequently active on this project's github over the last 90 days`}
         />
       </div>
       <div className={styles['another-information-board']}>

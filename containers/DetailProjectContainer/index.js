@@ -14,15 +14,21 @@ import { useDeveloperChart } from '~/hooks/api/useDeveloperChart';
 import ListRepos from '~/components/projects/ListRepos';
 import TopDevelopers from '~/components/projects/TopDevelopers';
 import Resources from '~/components/common/Resources';
+import PerformanceChart from '~/components/projects/PerformanceChart';
+import { useGetPerformance } from '~/hooks/api/usePerformance';
 
 export default function DetailProjectContainer({ data }) {
   const router = useRouter();
   const { data: dataSummary, refetch: refetchSummary } = useGetSummaryInfo({ chain: data?.id });
   // const { data: dataCommitChart, refetch: refetchCommitChart } = useGetCommitChart({ chain: data?.id });
   const { data: dataDeveloperChart, refetch: refetchDeveloperChart } = useDeveloperChart({ chain: data?.id });
+
+  const { data: dataPerformance, refetch: refetchPerformance } = useGetPerformance({ id: data?.id });
+
   useEffect(() => {
     refetchSummary();
     refetchDeveloperChart();
+    refetchPerformance();
   }, [data]);
 
   return (
@@ -40,15 +46,19 @@ export default function DetailProjectContainer({ data }) {
             },
           ]}
         />
-        <InforRepo
-          logo={data?.avatar}
-          name={data?.name}
-          des={data?.description}
-          stars={data?.stats?.total_star}
-          commits={data?.stats?.total_commits}
-          github={`https://github.com/${data?.github_prefix}`}
-          web={data?.website}
-        />
+        <div className={styles['infor-head']}>
+          <InforRepo
+            logo={data?.avatar}
+            name={data?.name}
+            des={data?.description}
+            stars={data?.stats?.total_star}
+            commits={data?.stats?.total_commits}
+            github={`https://github.com/${data?.github_prefix}`}
+            web={data?.website}
+            refer_ici={data?.refer_ici}
+          />
+          <PerformanceChart data={dataPerformance?.data} />
+        </div>
       </Container>
       <Resources data={data} />
       <GithubStatistics data={dataDeveloperChart?.data} dataTotal={dataSummary?.data} homePage={false} />

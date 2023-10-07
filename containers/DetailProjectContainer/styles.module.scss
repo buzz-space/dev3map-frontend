@@ -1,12 +1,26 @@
 .container {
     margin-top: 40px;
+
+    .infor-head {
+        display: flex;
+        align-items: flex-start;
+        column-gap: 80px;
+        justify-content: space-between;
+
+        @media screen and (max-width: 1024px) {
+            flex-direction: column;
+            row-gap: 40px;
+        }
+    }
+
     .foot-detail {
         margin-top: 40px;
         display: flex;
         column-gap: 24px;
+
         @media screen and (max-width: 900px) {
-            flex-direction: column;     
-            row-gap: 24px;       
+            flex-direction: column;
+            row-gap: 24px;
         }
     }
 }

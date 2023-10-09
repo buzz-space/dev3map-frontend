@@ -14,6 +14,7 @@ import { useDeveloperChart } from '~/hooks/api/useDeveloperChart';
 import ListRepos from '~/components/projects/ListRepos';
 import TopDevelopers from '~/components/projects/TopDevelopers';
 import Resources from '~/components/common/Resources';
+import Specifiation from '~/components/common/Specification';
 
 export default function DetailProjectContainer({ data }) {
   const router = useRouter();
@@ -49,6 +50,7 @@ export default function DetailProjectContainer({ data }) {
           github={`https://github.com/${data?.github_prefix}`}
           web={data?.website}
         />
+        <Specifiation />
       </Container>
       <Resources data={data} />
       <GithubStatistics data={dataDeveloperChart?.data} dataTotal={dataSummary?.data} homePage={false} />

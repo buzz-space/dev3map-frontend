@@ -18,14 +18,16 @@ export default function MainLayout({ children, title = '', currentPage = '', dat
 
   return (
     <>
-
       <Head>
         <title>{titlePage}</title>
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="description" content="The interchain developers metrics map with support from Cosmos Ecosystem Map and Github, Buzz Space builds this developer analytics platform to offer a panoramic view of the Interchain Developer Ecosystem"></meta>
+        <meta
+          name="description"
+          content="The interchain developers metrics map with support from Cosmos Ecosystem Map and Github, Buzz Space builds this developer analytics platform to offer a panoramic view of the Interchain Developer Ecosystem"
+        ></meta>
         <meta
           property="og:title"
           content={
@@ -34,8 +36,8 @@ export default function MainLayout({ children, title = '', currentPage = '', dat
                 ? `${nameWeb} - ${meta_data?.seo_title}`
                 : `${nameWeb} - ${meta_data?.title}`
               : title === ''
-                ? nameWeb
-                : `${nameWeb} - ${title}`
+              ? nameWeb
+              : `${nameWeb} - ${title}`
           }
         />
         <meta
@@ -46,8 +48,8 @@ export default function MainLayout({ children, title = '', currentPage = '', dat
                 ? `${nameWeb} - ${meta_data?.seo_description}`
                 : `${nameWeb} - ${meta_data?.description}`
               : title === ''
-                ? nameWeb
-                : `${nameWeb} - ${title}`
+              ? nameWeb
+              : `${nameWeb} - ${title}`
           }
         />
         <meta property="og:url" content={typeof window != 'undefined' ? window.location.href : ''} />
@@ -91,15 +93,26 @@ export default function MainLayout({ children, title = '', currentPage = '', dat
       })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`,
           }}
         ></script>
+
+        {/* <!-- Google tag (gtag.js) --> */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-CR6CG74E3C"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: ` window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+          
+            gtag('config', 'G-CR6CG74E3C');
+          `,
+          }}
+        ></script>
       </Head>
 
       <div className={`${styles['body']}`}>
         <BackgroundLayout />
         <main className={styles['main']}>
           <Header currentPage={currentPage} />
-          <div className={`${styles['section']}`}>
-            {children}
-          </div>
+          <div className={`${styles['section']}`}>{children}</div>
           <Footer />
           {/* <ScrollToTop /> */}
         </main>

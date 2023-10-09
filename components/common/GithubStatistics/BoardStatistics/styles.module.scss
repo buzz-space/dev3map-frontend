@@ -1,114 +1,114 @@
 .total-commit {
-    padding: 24px;
-    background-color: #202020;
-    border-radius: 8px;
+  padding: 24px;
+  background-color: #202020;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+  flex: 1;
+  position: relative;
+  .commit-icon {
+    [role='icon-default'] {
+      width: 64px;
+      height: 64px;
+
+      color: currentColor;
+    }
+  }
+
+  .total-number {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 59px;
+    /* identical to box height */
+
+    color: #ffffff;
+  }
+
+  .infor {
     display: flex;
-    flex-direction: column;
-    row-gap: 16px;
-    flex: 1;
+    align-items: center;
+    column-gap: 8px;
     position: relative;
+    .label {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 17px;
+      /* identical to box height */
+
+      color: #ffffff;
+    }
+    .infor-icon {
+      position: relative;
+      &::before {
+        content: '';
+        position: absolute;
+        top: -8px;
+        height: 8px;
+        width: 100%;
+        background-color: transparent;
+      }
+      [role='icon-default'] {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+      }
+      &:hover {
+        opacity: 0.8;
+        & ~ .des {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+    .des {
+      position: absolute;
+      background-color: #2d2d2d;
+      color: #fff;
+      border-radius: 8px;
+      padding: 24px;
+      left: 0;
+      bottom: calc(100% + 6px);
+      max-width: 100%;
+      transition: 0.3s;
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  .time {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    /* identical to box height */
+
+    color: #ffffff;
+    margin-top: auto;
+  }
+
+  @media screen and (max-width: 1300px) {
+    width: 100%;
+    row-gap: 16px;
+  }
+
+  @media screen and (max-width: $small-device) {
+    row-gap: 8px;
     .commit-icon {
-        [role="icon-default"] {
-            width: 64px;
-            height: 64px;
-
-            color: currentColor;
-        }
+      [role='icon-default'] {
+        width: 32px;
+        height: 32px;
+      }
     }
-
     .total-number {
-        font-style: normal;
-        font-weight: 800;
-        font-size: 48px;
-        line-height: 59px;
-        /* identical to box height */
-
-        color: #ffffff;
-    }
-
-    .infor {
-        display: flex;
-        align-items: center;
-        column-gap: 8px;
-        position: relative;
-        .label {
-            font-style: normal;
-            font-weight: 600;
-            font-size: 14px;
-            line-height: 17px;
-            /* identical to box height */
-
-            color: #ffffff;
-        }
-        .infor-icon {
-            position: relative;
-            &::before {
-                content: "";
-                position: absolute;
-                top: -8px;
-                height: 8px;
-                width: 100%;
-                background-color: transparent;
-            }
-            [role="icon-default"] {
-                width: 20px;
-                height: 20px;
-                cursor: pointer;
-            }
-            &:hover {
-                opacity: 0.8;
-                & ~ .des {
-                    opacity: 1;
-                    visibility: visible;
-                }
-            }
-        }
-        .des {
-            position: absolute;
-            background-color: #2d2d2d;
-            color: #fff;
-            border-radius: 8px;
-            padding: 24px;
-            left: 0;
-            bottom: calc(100% + 6px);
-            max-width: 100%;
-            transition: 0.3s;
-            opacity: 0;
-            visibility: hidden;
-        }
+      font-size: 24px;
+      line-height: 30px;
     }
 
     .time {
-        font-style: normal;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 17px;
-        /* identical to box height */
-
-        color: #ffffff;
-        margin-top: auto;
+      margin-top: 24px;
     }
-
-    @media screen and (max-width: 1300px) {
-        width: 100%;
-        row-gap: 16px;
-    }
-
-    @media screen and (max-width: $small-device) {
-        row-gap: 8px;
-        .commit-icon {
-            [role="icon-default"] {
-                width: 32px;
-                height: 32px;
-            }
-        }
-        .total-number {
-            font-size: 24px;
-            line-height: 30px;
-        }
-
-        .time {
-            margin-top: 24px;
-        }
-    }
+  }
 }

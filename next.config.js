@@ -20,6 +20,7 @@ module.exports = (phase) => {
     SERVER_URI: config.SERVER_URI,
     WEB_URI: config.WEB_URI,
     HANDLE_DATE: config.HANDLE_DATE,
+    TOTAL_CHAIN: config.TOTAL_CHAIN,
   };
 
   console.log('env_log', env);

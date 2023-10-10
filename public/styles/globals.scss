@@ -45,6 +45,10 @@ body {
   font-family: 'Montserrat', sans-serif;
   overflow-x: hidden;
 
+  * {
+    scroll-margin-top: 80px;
+  }
+
   @media screen and (max-width: $small-device) {
     overflow-x: hidden;
   }
@@ -114,13 +118,15 @@ input[type='search']::-webkit-search-results-decoration {
 .slick-list {
   overflow: inherit !important;
 }
+
 .slick-arrow::before {
   display: none;
 }
+
 .slick-disabled {
   opacity: 0.4;
 }
 
-.slick-track{
+.slick-track {
   margin-left: 0 !important;
 }

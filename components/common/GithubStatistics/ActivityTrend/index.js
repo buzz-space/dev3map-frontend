@@ -123,7 +123,7 @@ export default function ActivityTrend({ userCode = [], userCommit = [] }) {
     const [data, setData] = useState(chartData);
 
     return (
-        <div className={styles['activity-trend']} id='activity-trend'>
+        <div className={styles['activity-trend']} >
             <div className={styles['header']}>
                 <h6 className={styles['title']}>Activity Trend</h6>
                 <div className={styles['tabs-dynamic']}>

@@ -3,6 +3,7 @@
     padding: 24px;
     border-radius: 8px;
     flex: 1;
+
     .title {
         font-style: normal;
         font-weight: 800;
@@ -12,6 +13,7 @@
 
         color: #ffffff;
     }
+
     .sort {
         margin-top: 24px;
         display: flex;
@@ -24,14 +26,17 @@
         line-height: normal;
         cursor: pointer;
         user-select: none;
+
         * {
             cursor: pointer;
         }
     }
+
     .list {
         margin-top: 32px;
         max-height: 654px;
         overflow: auto;
+
         &::-webkit-scrollbar {
             width: 6px;
             height: 4px;
@@ -54,16 +59,19 @@
         &::-webkit-scrollbar-thumb:hover {
             background: #02b9a7;
         }
+
         &-item {
             display: flex;
             flex-direction: column;
             row-gap: 16px;
             padding: 32px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.24);
+
             .author {
                 display: flex;
                 align-items: center;
                 column-gap: 16px;
+
                 .avatar {
                     width: 40px;
                     height: 40px;
@@ -72,6 +80,7 @@
                     object-position: center;
                     position: relative;
                 }
+
                 .name {
                     color: #fff;
                     font-size: 24px;
@@ -81,12 +90,14 @@
                     text-transform: uppercase;
                 }
             }
+
             .list-tag {
                 display: flex;
                 column-gap: 12px;
                 align-items: center;
                 row-gap: 12px;
                 flex-wrap: wrap;
+
                 .tag {
                     border-radius: 100px;
                     background: var(--grey-2, #2d2d2d);
@@ -102,24 +113,36 @@
                     line-height: normal;
                 }
             }
-            .commits {
-                color: #03dac6;
+
+            .infor-icons {
                 display: flex;
                 align-items: center;
-                column-gap: 12px;
-                [role="icon-default"] {
-                    width: 24px;
-                    height: 24px;
-                    color: currentColor;
-                }
-                label {
-                    color: #fff;
-                    font-size: 16px;
-                    font-style: normal;
-                    font-weight: 400;
-                    line-height: normal;
+                column-gap: 24px;
+
+                &__data {
+                    color: #03dac6;
+                    display: flex;
+                    align-items: center;
+                    column-gap: 12px;
+
+                    [role="icon-default"] {
+                        width: 24px;
+                        height: 24px;
+                        color: currentColor;
+                    }
+
+                    label {
+                        color: #fff;
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: normal;
+                    }
                 }
             }
+
+
+
             .pull-merged-request {
                 span {
                     color: #fff;
@@ -129,15 +152,18 @@
                     line-height: normal;
                     text-transform: uppercase;
                 }
+
                 .label-pull {
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
                     width: 100%;
                 }
+
                 .label-pull-mobile {
                     display: none;
                 }
+
                 .progress {
                     background: rgba(255, 255, 255, 0.12);
                     height: 6px;
@@ -145,6 +171,7 @@
                     border-radius: 100rem;
                     margin-top: 16px;
                     position: relative;
+
                     &-active {
                         border-radius: 100rem;
                         background: var(--primary, #bb86fc);
@@ -154,47 +181,59 @@
             }
         }
     }
+
     @media screen and (max-width: 636px) {
         .title {
             font-size: 18px;
         }
+
         .list {
             margin-top: 24px;
             max-height: 592px;
+
             &-item {
                 padding: 16px 0;
+
                 .author {
                     display: flex;
                     align-items: center;
                     column-gap: 16px;
+
                     .avatar {
                         width: 32px;
                         height: 32px;
                         position: relative;
                     }
+
                     .name {
                         font-size: 16px;
                     }
                 }
+
                 .commits {
                     color: #03dac6;
                     display: flex;
                     align-items: center;
                     column-gap: 12px;
+
                     [role="icon-default"] {
                         width: 16px;
                         height: 16px;
                     }
+
                     label {
                         font-size: 14px;
                     }
                 }
+
                 .pull-merged-request {
                     .label-pull {
                         display: none;
                     }
+
                     .label-pull-mobile {
                         display: inline;
+
                         .last-row-pull {
                             display: flex;
                             align-items: center;

@@ -1,5 +1,4 @@
 export { default as ArrowLeft } from './ArrowLeft';
-export { default as ArrowRight } from './ArrowRight';
 export { default as ArrowUpRight } from './ArrowUpRight';
 export { default as Calendar } from './Calendar';
 export { default as Checkbox } from './Checkbox';
@@ -27,6 +26,7 @@ export { default as Person } from './Person';
 export { default as Plus } from './Plus';
 export { default as Prize } from './Prize';
 export { default as PullRequest } from './PullRequest';
+export { default as Pull } from './Pull';
 export { default as Repo } from './Repo';
 export { default as Search } from './Search';
 export { default as StarOutline } from './StarOutline';

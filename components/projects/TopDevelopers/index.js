@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from './styles.module.scss';
 import { useChainDeveloper } from '~/hooks/api/useChainDeveloper';
-import { Commit, CommitHorizontal } from '~/public/assets/svgs';
+import { Commit, CommitHorizontal, PullRequest } from '~/public/assets/svgs';
 import { formatNumber } from '~/utils/number';
 import IconSort from '~/components/home/StatisChainTable/IconSort';
 import Image from "next/legacy/image";
@@ -30,7 +30,7 @@ const TopDevelopers = ({ chainId, logo }) => {
     setDataDev(data?.data);
   }, [data]);
   return (
-    <div className={styles['top-developer']}>
+    <div className={styles['top-developer']} id='contributors'>
       <h4 className={styles['title']}>CONTRIBUTORS ({data?.data?.length})</h4>
       <div className={styles['sort']} onClick={sort}>
         <label>CONTRIBUTION</label>
@@ -55,10 +55,17 @@ const TopDevelopers = ({ chainId, logo }) => {
                   );
                 })}
               </div>
-              <div className={styles['commits']}>
-                <CommitHorizontal />
-                <label>{formatNumber(item?.closed)}</label>
+              <div className={styles['infor-icons']}>
+                <div className={styles['infor-icons__data']}>
+                  <CommitHorizontal />
+                  <label>{formatNumber(item?.commits)}</label>
+                </div>
+                <div className={styles['infor-icons__data']}>
+                  <PullRequest />
+                  <label>{formatNumber(item?.closed)}</label>
+                </div>
               </div>
+
               <div className={styles['pull-merged-request']}>
                 <div className={styles['label-pull']}>
                   <span>

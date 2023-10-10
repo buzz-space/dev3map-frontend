@@ -109,7 +109,7 @@ export default function GithubStatistics({ dataTotal = {}, data = [], homePage =
   }
 
   return (
-    <Container className={styles['container']}>
+    <Container className={styles['container']} id='github-statistics'>
       <h2 className="title">
         GITHUB STATISTICS <Github />
       </h2>

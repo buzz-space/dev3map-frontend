@@ -16,6 +16,7 @@ import TopDevelopers from '~/components/projects/TopDevelopers';
 import Resources from '~/components/common/Resources';
 import PerformanceChart from '~/components/projects/PerformanceChart';
 import { useGetPerformance } from '~/hooks/api/usePerformance';
+import AnchorPoint from '~/components/projects/AnchorPoint';
 
 export default function DetailProjectContainer({ data }) {
   const router = useRouter();
@@ -33,6 +34,7 @@ export default function DetailProjectContainer({ data }) {
 
   return (
     <div className={styles['container']}>
+      <AnchorPoint />
       <Container>
         <Breadcrumb
           data={[
@@ -51,8 +53,8 @@ export default function DetailProjectContainer({ data }) {
             logo={data?.avatar}
             name={data?.name}
             des={data?.description}
-            stars={data?.stats?.total_star}
-            commits={data?.stats?.total_commits}
+            stars={data?.stats[0]?.total_star}
+            commits={data?.stats[0]?.total_commits}
             github={`https://github.com/${data?.github_prefix}`}
             web={data?.website}
             refer_ici={data?.refer_ici}

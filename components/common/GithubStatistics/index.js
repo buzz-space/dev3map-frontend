@@ -109,69 +109,74 @@ export default function GithubStatistics({ dataTotal = {}, data = [], homePage =
   }
 
   return (
-    <Container className={styles['container']}>
-      <h2 className="title">
-        GITHUB STATISTICS <Github />
-      </h2>
-      <div className={styles['information-board']}>
-        <BoardStatistics
-          total={dataTotal?.total_commit}
-          icon={<CommitHorizontal />}
-          colorIcon="#03DAC6"
-          label="TOTAL COMMITS"
-          des={`Total Commits on ${homePage ? 'Cosmos' : "the project's Github"}`}
-        />
-        <BoardStatistics
-          total={dataTotal?.total_developer}
-          icon={<Developer />}
-          colorIcon="#18A0FB"
-          label="ESTIMATED ACTIVE DEVELOPERS"
-          // des={`The number of developers who are working on ${homePage ? 'Cosmos' : "the project's Github"
-          //   } in the last 30 days.`}
-          des={`Contributors who frequently active on ${homePage ? 'Cosmos' : "the project's Github"} over the last 90 days`}
-        />
-      </div>
-      <div className={styles['another-information-board']}>
-        <AnotherBoard
-          label="ISSUES"
-          value={formatNumber(dataTotal?.total_issue)}
-          icon={<Issue />}
-          des={`This is the number of issues that have been created on ${homePage ? 'Cosmos' : 'Github'}.`}
-        />
-        <AnotherBoard
-          label="ISSUE PERFORMANCE"
-          value={formatDate(dataTotal?.issue_performance)}
-          icon={<StreamLine />}
-          des={`On average, this is how fast an issue is solved on ${homePage ? 'Cosmos' : 'Github'}.`}
-        />
-        <AnotherBoard
-          label="COMMUNITY ATTRIBUTES"
-          value={`${formatNumber(Math.round(dataTotal?.community_attribute))} PULLS`}
-          icon={<Person />}
-          des={`This metric indicates the contribution of community to every repositories on ${homePage ? 'Cosmos' : 'Github'
-            }.`}
-        />
-        <AnotherBoard
-          label="PULL REQUESTS"
-          value={formatNumber(dataTotal?.total_pull_request)}
-          icon={<PullRequest />}
-          des={`Total Pull Requests that have been created on ${homePage ? 'Cosmos' : 'Github'}`}
-        />
-        <AnotherBoard
-          label="STARS"
-          value={formatNumber(dataTotal?.total_star)}
-          icon={<StarOutline />}
-          des={`The number of Stars among all Github repositories on ${homePage ? 'Cosmos' : 'Github'}.`}
-        />
-        <AnotherBoard
-          label="FORKS"
-          value={formatNumber(dataTotal?.total_fork)}
-          icon={<Fork />}
-          des={`This is the number of forks that currently exist in ${homePage ? 'Cosmos' : 'Github'}.`}
-        />
-      </div>
-      <ActivityTrend userCode={userCode} userCommit={userCommit} />
-      {/* <MonthlyActiveDevs data={data} /> */}
-    </Container>
+    <>
+      <Container className={styles['container']} id='github-statistics'>
+        <h2 className="title">
+          GITHUB STATISTICS <Github />
+        </h2>
+        <div className={styles['information-board']}>
+          <BoardStatistics
+            total={dataTotal?.total_commit}
+            icon={<CommitHorizontal />}
+            colorIcon="#03DAC6"
+            label="TOTAL COMMITS"
+            des={`Total Commits on ${homePage ? 'Cosmos' : "the project's Github"}`}
+          />
+          <BoardStatistics
+            total={dataTotal?.total_developer}
+            icon={<Developer />}
+            colorIcon="#18A0FB"
+            label="ESTIMATED ACTIVE DEVELOPERS"
+            // des={`The number of developers who are working on ${homePage ? 'Cosmos' : "the project's Github"
+            //   } in the last 30 days.`}
+            des={`Contributors who frequently active on ${homePage ? 'Cosmos' : "the project's Github"} over the last 90 days`}
+          />
+        </div>
+        <div className={styles['another-information-board']}>
+          <AnotherBoard
+            label="ISSUES"
+            value={formatNumber(dataTotal?.total_issue)}
+            icon={<Issue />}
+            des={`This is the number of issues that have been created on ${homePage ? 'Cosmos' : 'Github'}.`}
+          />
+          <AnotherBoard
+            label="ISSUE PERFORMANCE"
+            value={formatDate(dataTotal?.issue_performance)}
+            icon={<StreamLine />}
+            des={`On average, this is how fast an issue is solved on ${homePage ? 'Cosmos' : 'Github'}.`}
+          />
+          <AnotherBoard
+            label="COMMUNITY ATTRIBUTES"
+            value={`${formatNumber(Math.round(dataTotal?.community_attribute))} PULLS`}
+            icon={<Person />}
+            des={`This metric indicates the contribution of community to every repositories on ${homePage ? 'Cosmos' : 'Github'
+              }.`}
+          />
+          <AnotherBoard
+            label="PULL REQUESTS"
+            value={formatNumber(dataTotal?.total_pull_request)}
+            icon={<PullRequest />}
+            des={`Total Pull Requests that have been created on ${homePage ? 'Cosmos' : 'Github'}`}
+          />
+          <AnotherBoard
+            label="STARS"
+            value={formatNumber(dataTotal?.total_star)}
+            icon={<StarOutline />}
+            des={`The number of Stars among all Github repositories on ${homePage ? 'Cosmos' : 'Github'}.`}
+          />
+          <AnotherBoard
+            label="FORKS"
+            value={formatNumber(dataTotal?.total_fork)}
+            icon={<Fork />}
+            des={`This is the number of forks that currently exist in ${homePage ? 'Cosmos' : 'Github'}.`}
+          />
+        </div>
+
+        {/* <MonthlyActiveDevs data={data} /> */}
+      </Container>
+      <Container id='activity-trend'>
+        <ActivityTrend userCode={userCode} userCommit={userCommit} />
+      </Container>
+    </>
   );
 }

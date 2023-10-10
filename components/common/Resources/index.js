@@ -101,7 +101,7 @@ export default function Resources({ data }) {
 
   if (data?.resources.length > 0) {
     return (
-      <Container className={styles['container']}>
+      <Container className={styles['container']} id="resources">
         <h2 className="title">RESOURCES</h2>
         <Slider {...settings}>
           {data?.resources.map((item, index) => (

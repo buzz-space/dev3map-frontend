@@ -51,6 +51,7 @@ body {
 
   @media screen and (max-width: $small-device) {
     overflow-x: hidden;
+    max-width: 100%;
   }
 }
 

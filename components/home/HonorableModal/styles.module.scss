@@ -1,141 +1,143 @@
 .modal {
-    $transition: 0.3s;
-    position: fixed;
+  $transition: 0.3s;
+  max-width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  transform: translateY(150%);
+  transition: 0.3s ease-in-out;
+  &.open {
+    transform: translateY(0);
+
+    .backdrop {
+      animation: show 0.3s forwards;
+      animation-delay: $transition;
+
+      @keyframes show {
+        0% {
+          opacity: 0;
+        }
+
+        100% {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .backdrop {
+    background-color: rgba(18, 18, 18, 0.8);
+    position: absolute;
+    z-index: 0;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 10;
-    transform: translateY(150%);
-    transition: 0.3s ease-in-out;
-    &.open {
-        transform: translateY(0);
+    opacity: 0;
+  }
 
-        .backdrop {
-            animation: show 0.3s forwards;
-            animation-delay: $transition;
+  .popup {
+    max-width: 100%;
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #202020;
+    padding-bottom: 20px;
+    max-height: 100vh;
+    overflow: auto;
+    .container {
+      .head {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-top: 40px;
 
-            @keyframes show {
-                0% {
-                    opacity: 0;
-                }
+        .close {
+          display: flex;
+          column-gap: 12px;
+          align-items: center;
+          cursor: pointer;
 
-                100% {
-                    opacity: 1;
-                }
-            }
+          * {
+            cursor: pointer;
+          }
+
+          [role='icon-default'] {
+            width: 24px;
+            height: 24px;
+          }
+
+          label {
+            color: #fff;
+            font-size: 16px;
+          }
         }
-    }
+      }
 
-    .backdrop {
-        background-color: rgba(18, 18, 18, 0.8);
-        position: absolute;
-        z-index: 0;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        opacity: 0;
-    }
+      .body {
+        display: flex;
+        flex-direction: column;
+        align-content: stretch;
+        align-items: stretch;
+        position: relative;
 
+        .title {
+          color: #fff;
+          font-size: 48px;
+          font-weight: 800;
+          margin-bottom: 40px;
+          text-transform: uppercase;
+        }
+
+        .main {
+          display: flex;
+          column-gap: 24px;
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 969px) {
     .popup {
-        position: absolute;
-        z-index: 1;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background-color: #202020;
-        padding-bottom: 20px;
-        max-height: 100vh;
-        overflow: auto;
-        .container {
-            .head {
-                display: flex;
-                align-items: center;
-                justify-content: flex-end;
-                margin-top: 40px;
-             
-                .close {
-                    display: flex;
-                    column-gap: 12px;
-                    align-items: center;
-                    cursor: pointer;
-
-                    * {
-                        cursor: pointer;
-                    }
-
-                    [role="icon-default"] {
-                        width: 24px;
-                        height: 24px;
-                    }
-
-                    label {
-                        color: #FFF;
-                        font-size: 16px;
-                    }
-                }
-            }
-
-            .body {
-                display: flex;
-                flex-direction: column;
-                align-content: stretch;
-                align-items: stretch;
-                position: relative;
-
-                .title {
-                    color: #FFF;
-                    font-size: 48px;
-                    font-weight: 800;
-                    margin-bottom: 40px;
-                    text-transform: uppercase;
-                }
-
-                .main {
-                    display: flex;
-                    column-gap: 24px;
-                    width: 100%;
-                }
-            }
+      .container {
+        .body {
+          .main {
+            row-gap: 24px;
+            flex-direction: column;
+          }
         }
+      }
     }
+  }
 
-    @media screen and (max-width: 969px) {
-        .popup {
-            .container {
-                .body {
-                    .main {
-                        row-gap: 24px;
-                        flex-direction: column;
-                    }
-                }
-            }
+  @media screen and (max-width: $small-device) {
+    .popup {
+      padding-bottom: 40px;
+      .container {
+        .head {
+          margin-top: 80px;
         }
-    }
 
-    @media screen and (max-width: $small-device) {
-        .popup {
-            padding-bottom: 40px;
-            .container {
-                .head {
-                    margin-top: 80px;
-                }
+        .body {
+          .title {
+            font-size: 24px;
+            margin-bottom: 40px;
+            margin-top: 24px;
+          }
 
-                .body {
-                    .title {
-                        font-size: 24px;
-                        margin-bottom: 40px;
-                        margin-top: 24px;
-                    }
-
-                    .main {
-                        display: flex;
-                        column-gap: 24px;
-                        width: 100%;
-                    }
-                }
-            }
+          .main {
+            display: flex;
+            column-gap: 24px;
+            width: 100%;
+          }
         }
+      }
     }
+  }
 }

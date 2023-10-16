@@ -3,13 +3,8 @@ import Container from '~/components/base/Container';
 import styles from './styles.module.scss';
 import InforRepo from '~/components/projects/InforRepo';
 import GithubStatistics from '~/components/common/GithubStatistics';
-import ActiveDevelopers from '~/components/common/ActiveDevelopers';
-
-import { useRouter } from 'next/router';
-
 import { useEffect } from 'react';
 import { useGetSummaryInfo } from '~/hooks/api/useSummaryInfo';
-import { useGetCommitChart } from '~/hooks/api/useGetCommitChart';
 import { useDeveloperChart } from '~/hooks/api/useDeveloperChart';
 import ListRepos from '~/components/projects/ListRepos';
 import TopDevelopers from '~/components/projects/TopDevelopers';
@@ -18,12 +13,33 @@ import PerformanceChart from '~/components/projects/PerformanceChart';
 import { useGetPerformance } from '~/hooks/api/usePerformance';
 import AnchorPoint from '~/components/projects/AnchorPoint';
 
+const dataAnchorProject = [
+  {
+    label: 'Resources',
+    to: '#resources',
+  },
+  {
+    label: 'GitHub Statistics',
+    to: '#github-statistics',
+  },
+  {
+    label: 'Activity Trend',
+    to: '#activity-trend',
+  },
+  {
+    label: 'Repositories',
+    to: '#repositories',
+  },
+  {
+    label: 'Contributors',
+    to: '#contributors',
+  },
+];
+
 export default function DetailProjectContainer({ data }) {
-  const router = useRouter();
   const { data: dataSummary, refetch: refetchSummary } = useGetSummaryInfo({ chain: data?.id });
   // const { data: dataCommitChart, refetch: refetchCommitChart } = useGetCommitChart({ chain: data?.id });
   const { data: dataDeveloperChart, refetch: refetchDeveloperChart } = useDeveloperChart({ chain: data?.id });
-
   const { data: dataPerformance, refetch: refetchPerformance } = useGetPerformance({ id: data?.id });
 
   useEffect(() => {
@@ -34,7 +50,7 @@ export default function DetailProjectContainer({ data }) {
 
   return (
     <div className={styles['container']}>
-      <AnchorPoint />
+      <AnchorPoint data={dataAnchorProject} title={data?.name} />
       <Container>
         <Breadcrumb
           data={[

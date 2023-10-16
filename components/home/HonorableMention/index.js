@@ -34,7 +34,7 @@ export default function HonorableMention() {
     },
   ];
   return (
-    <Container className={styles['container']}>
+    <Container className={styles['container']} id="best-of-100">
       <span className={'description-title'}>THIS WEEK</span>
       <h2 className="title">
         BEST OF 100{' '}

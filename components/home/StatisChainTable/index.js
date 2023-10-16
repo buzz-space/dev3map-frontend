@@ -20,6 +20,9 @@ export default function StatisChainTable() {
   const router = useRouter();
   const [value, setValue] = useState('');
   const [typeSort, setTypeSort] = useState('');
+  const [dataTable, setDataTable] = useState([]);
+  const [dataFinished, setDataFinished] = useState([]);
+  const [indexTab, setIndexTab] = useState(0);
   const [directSort, setDirectSort] = useState({
     commits: '',
     contributors: '',
@@ -47,11 +50,9 @@ export default function StatisChainTable() {
       return 0;
     }
   }
-  const [dataTable, setDataTable] = useState([]);
-  const [dataFinished, setDataFinished] = useState([]);
-  const [indexTab, setIndexTab] = useState(0);
 
-  console.log(data?.data)
+  console.log({ data: data?.data });
+  console.log({ dataFinished });
 
   useEffect(() => {
     setDataFinished(() => {
@@ -75,11 +76,11 @@ export default function StatisChainTable() {
                 developers: item?.stats[2]?.full_time_developer + item?.stats[2]?.part_time_developer,
                 index: index + 1,
               },
-              {
-                ...item?.stats[3],
-                developers: item?.stats[3]?.full_time_developer + item?.stats[3]?.part_time_developer,
-                index: index + 1,
-              },
+              // {
+              //   ...item?.stats[3],
+              //   developers: item?.stats[3]?.full_time_developer + item?.stats[3]?.part_time_developer,
+              //   index: index + 1,
+              // },
             ],
           };
         });
@@ -136,7 +137,7 @@ export default function StatisChainTable() {
       } else if (type == 'issues') {
         dt = sortDirect(type, 'total_issue_solved');
       } else if (type == 'pull') {
-        dt = sortDirect(type, 'total_pull_merged');
+        dt = sortDirect(type, 'total_pull_request');
       } else {
         dt = dataFinished;
       }
@@ -177,7 +178,7 @@ export default function StatisChainTable() {
   }
 
   return (
-    <Container className={styles['container']}>
+    <Container className={styles['container']} id="chains">
       <h6 className="title">
         CHAINS ({dataTable?.length})
         <span>
@@ -224,7 +225,8 @@ export default function StatisChainTable() {
                     <div className={styles['tooltip']}>
                       This is the number of times the source code has been updated.
                       <br />
-                      This inclues: commits from every protected branch (i.e. important branches), commits from merging branches/pull requests.
+                      This inclues: commits from every protected branch (i.e. important branches), commits from merging
+                      branches/pull requests.
                     </div>
                   </div>
                 </th>
@@ -244,7 +246,8 @@ export default function StatisChainTable() {
                     <label>REPOS</label>
                     <IconSort direct={directSort?.repos} />
                     <div className={styles['tooltip']}>
-                      How many repositories on a project's github. A repository is where the team store, manage, and track changes to their files.
+                      How many repositories on a project's github. A repository is where the team store, manage, and
+                      track changes to their files.
                       <br />
                       Bear in mind that private repositories are not included.
                     </div>

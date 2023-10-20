@@ -1,6 +1,6 @@
 .introduce {
   width: 100%;
-  overflow: hidden;
+  // overflow: hidden;
   position: relative;
   background-image: url(/imgs/galaxy.png);
   background-position: center;
@@ -75,9 +75,11 @@
         align-items: center;
         column-gap: 24px;
         row-gap: 16px;
+
         .submit-btn {
           background-color: #fff;
           color: #000;
+
           &:hover {
             opacity: 0.9;
           }
@@ -135,6 +137,7 @@
       .main {
         padding-top: 180px;
         padding-bottom: 180px;
+
         .title {
           font-size: 48px;
         }
@@ -151,6 +154,7 @@
       .main {
         padding-top: 240px;
         padding-bottom: 240px;
+
         .title {
           font-size: 32px;
         }

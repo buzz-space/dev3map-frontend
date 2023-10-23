@@ -118,6 +118,7 @@ input[type='search']::-webkit-search-results-decoration {
 
 .slick-list {
   overflow: inherit !important;
+  align-items: stretch;
 }
 
 .slick-arrow::before {

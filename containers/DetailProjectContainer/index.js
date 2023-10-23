@@ -78,7 +78,9 @@ export default function DetailProjectContainer({ data }) {
           <PerformanceChart data={dataPerformance?.data} />
         </div>
       </Container>
-      <Resources data={data} />
+      {
+        data?.resources && <Resources data={data} />
+      }
       <GithubStatistics data={dataDeveloperChart?.data} dataTotal={dataSummary?.data} homePage={false} />
       <Container className={styles['foot-detail']}>
         <ListRepos chainId={data?.id} />

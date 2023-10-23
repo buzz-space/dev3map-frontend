@@ -98,7 +98,7 @@ export default function Resources({ data }) {
       },
     ],
   };
-
+  console.log({ abc: data?.resources })
   if (data?.resources.length > 0) {
     return (
       <Container className={styles['container']} id="resources">

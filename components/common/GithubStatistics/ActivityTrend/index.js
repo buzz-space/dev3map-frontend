@@ -5,6 +5,7 @@ import { useEffect, useState, useMemo } from "react";
 import Chart from "./Chart";
 import NoData from "./NoData";
 import moment from "moment";
+import { useSetting } from "~/hooks/api/useSetting";
 
 export default function ActivityTrend({ userCode = [], userCommit = [] }) {
     const [activeTypeStatis, setActiveStatis] = useState(0);
@@ -15,7 +16,7 @@ export default function ActivityTrend({ userCode = [], userCommit = [] }) {
     }]);
     const [userCodeFilter, setUserCodeFilter] = useState(userCode);
     const [userCommitFilter, setUserCommitFilter] = useState(userCommit);
-
+    const { data: lastDate } = useSetting({ key: "last_update" });
     function getChartData(datas, label) {
         if (label === 'COMMIT') {
             return {
@@ -102,7 +103,7 @@ export default function ActivityTrend({ userCode = [], userCommit = [] }) {
 
         let dataCode = userCode;
         let dataCommit = userCommit;
-        let date = moment(process.env.HANDLE_DATE);
+        let date = moment(lastDate?.data?.last_update);
 
         if (indexFilterDate === 1) {
             dataCommit = filterDataByDateCommit(dataCommit, 7);

@@ -2,9 +2,11 @@ import { CommitHorizontal, Infor } from '~/public/assets/svgs';
 import styles from './styles.module.scss';
 import { formatNumber } from '~/utils/number';
 import moment from 'moment';
+import { useSetting } from '~/hooks/api/useSetting';
 
 export default function BoardStatistics({ total = 0, icon = <></>, colorIcon = '#03DAC6', label = '', des = '' }) {
-  const date = moment(process.env.HANDLE_DATE).format('DD MMM YYYY');
+  const { data: lastDate } = useSetting({ key: "last_update" });
+  const date = moment(lastDate?.data?.last_update).format('DD MMM YYYY');
   return (
     <div className={styles['total-commit']}>
       <span className={styles['commit-icon']} style={{ color: colorIcon }}>

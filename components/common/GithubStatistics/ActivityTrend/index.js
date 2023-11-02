@@ -17,6 +17,7 @@ export default function ActivityTrend({ userCode = [], userCommit = [] }) {
     const [userCodeFilter, setUserCodeFilter] = useState(userCode);
     const [userCommitFilter, setUserCommitFilter] = useState(userCommit);
     const { data: lastDate } = useSetting({ key: "last_update" });
+    const date = moment(lastDate?.data?.last_update);
     function getChartData(datas, label) {
         if (label === 'COMMIT') {
             return {
@@ -103,8 +104,6 @@ export default function ActivityTrend({ userCode = [], userCommit = [] }) {
 
         let dataCode = userCode;
         let dataCommit = userCommit;
-        let date = moment(lastDate?.data?.last_update);
-
         if (indexFilterDate === 1) {
             dataCommit = filterDataByDateCommit(dataCommit, 7);
             dataCode = filterDataByDateCode(dataCode, 7);

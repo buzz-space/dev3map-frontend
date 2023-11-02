@@ -37,6 +37,7 @@
     "keen-slider": "^6.7.0",
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
+    "nanoid": "^5.0.2",
     "next": "^13.4.19",
     "next-auth": "^4.10.3",
     "next-images": "^1.8.4",

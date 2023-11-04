@@ -39,8 +39,8 @@ export default function PieceChart({ data, total = 1 }) {
 
     }, [chartRef.current])
 
-    return <div className='flex items-center gap-[60px]'>
-        <div className='w-[312px] h-[312px]'>
+    return <div className='flex flex-col xs:flex-row items-center gap-[24px] xl:gap-[60px]'>
+        <div className='w-[180px] lg:w-[240px] h-[180px] lg:h-[240px]  xl:w-[312px] xl:h-[312px]'>
             <Pie ref={chartRef} data={data}
                 options={{
 
@@ -77,10 +77,10 @@ export default function PieceChart({ data, total = 1 }) {
                         datalabels: {
                             color: 'black',
                             formatter: (args) => {
-                                return round((args / total) * 100) + '%'
+                                return round((args / total) * 100, 2) + '%'
                             },
                             font: {
-                                size: 28,
+                                size: 16,
                             },
                             labels: {
                                 title: {
@@ -100,13 +100,12 @@ export default function PieceChart({ data, total = 1 }) {
             />
         </div>
         <div id="legend-container-personal-contribution">
-            <ul className='list-none flex flex-col gap-[24px] pr-[40px]' >
+            <ul className='list-none flex flex-wrap flex-row xs:flex-col gap-[24px] pr-0 xl:pr-[40px]' >
                 {
                     legend?.map((item, index) => {
                         return <li key={index} className={clsx('flex gap-[16px] items-center cursor-pointer decoration-white', {
                             ['line-through']: item?.hidden
                         })} onClick={() => {
-                            console.log({ h: item?.hidden })
                             const chart = chartRef.current;
                             const { type } = chart.config;
                             if (type === 'pie' || type === 'doughnut') {

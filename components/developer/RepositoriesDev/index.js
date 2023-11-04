@@ -44,7 +44,7 @@ const RepositoriesDev = () => {
         ],
     };
     return (
-        <div className='mt-[128px]'>
+        <div className='mt-[48px] md:mt-[128px]'>
             <div>
                 <h2 className='title'>REPOSITORIES ({data?.data?.length})</h2>
             </div>

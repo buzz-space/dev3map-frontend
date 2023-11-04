@@ -8,13 +8,20 @@ import { useRouter } from 'next/router'
 
 
 
-const ItemPersonalContributions = ({ icon = () => { }, value, title, tootip }) => {
+const ItemPersonalContributions = ({ icon = () => { }, value, title, tooltip }) => {
     return <div className='bg-[#202020] rounded-[8px] p-[24px] gap-[16px] flex flex-col self-stretch'>
-        {icon({ className: "!text-[#BB86FC] w-[32px] h-[32px]" })}
-        <p className='text-[32px] text-[#fff] font-[800]'>{formatNumber(Number(value))}</p>
-        <div className='flex items-center gap-[8px]'>
+        {icon({ className: "!text-[#BB86FC] w-[24px] lg:w-[32px] h-[24px] lg:h-[32px]" })}
+        <p className='text-[18px] lg:text-[32px] text-[#fff] font-[800]'>{formatNumber(Number(value))}</p>
+        <div className='flex items-center gap-[8px] group relative'>
             <span className='text-white text-[14px] uppercase font-[600]'>{title}</span>
-            <Infor className="w-[20px] h-[20px]" />
+            {
+                tooltip && <>
+                    <Infor className="w-[20px] h-[20px] flex-shrink-0 flex-grow-0" />
+                    <div className={`bg-[#2d2d2d] text-white absolute rounded-[8px] p-[24px] left-0 bottom-full max-w-full opacity-0 invisible transition-all duration-300
+            group-hover:opacity-100 group-hover:visible
+            `}>{tooltip}</div>
+                </>
+            }
         </div>
     </div>
 }
@@ -76,8 +83,8 @@ const PersonalContribution = () => {
     }, [dataStatistic, active])
 
     return (
-        <div className='mt-[128px]'>
-            <div className='flex items-center gap-4 justify-between w-full'>
+        <div className='mt-[48px] md:mt-[128px]'>
+            <div className='flex items-center gap-4 justify-between w-full flex-wrap'>
                 <h2 className='title'>PERSONAL CONTRIBUTIONS</h2>
                 <TabDynamic
                     data={[
@@ -94,8 +101,8 @@ const PersonalContribution = () => {
                     setIndexActive={setActive}
                 />
             </div>
-            <div className='flex gap-[24px] items-stretch mt-[40px]'>
-                <div className='grid grid-cols-2 gap-[24px] flex-1'>
+            <div className='flex flex-col md:flex-row gap-[16px] lg:gap-[24px] items-stretch mt-[40px]'>
+                <div className='grid grid-cols-1 xs:grid-cols-2 gap-[16px] lg:gap-[24px] flex-1'>
                     <ItemPersonalContributions
                         icon={CommitHorizontal}
                         value={data?.total_commit}

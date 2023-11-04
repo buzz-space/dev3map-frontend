@@ -4,7 +4,7 @@ import ListProjectContribution from './ListProjectContribution'
 
 const ContributionActivity = () => {
     return (
-        <div className='pb-[128px] border-b-[1px] border-solid border-[#ffffff3d]'>
+        <div className='pb-[48px] md:pb-[128px] border-b-[1px] border-solid border-[#ffffff3d]'>
             <h2 className="title">
                 CONTRIBUTIONs Activity
             </h2>

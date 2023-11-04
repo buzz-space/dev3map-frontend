@@ -91,7 +91,9 @@ module.exports = {
       maxWidth: {
         'screen-xl': '1360px',
       },
-
+      screens: {
+        xs: { min: '450px' },
+      },
     },
   },
   plugins: [

@@ -19,6 +19,7 @@ export const API = {
     INFOR: '/developer/:slug',
     REPOSITORY: '/developer-repository/:slug',
     ACTIVITY: '/developer-activity/:slug',
-    PROJECT: '/developer-contribution/:slug'
+    PROJECT: '/developer-contribution/:slug',
+    STATISTIC: '/developer-statistic/:slug',
   }
 };

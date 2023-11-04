@@ -39,3 +39,16 @@ async function get_developer_project_contributions(filters) {
 export const useDeveloperProjects = (filters) => {
     return useQuery(['get-developer-project-contributions-', filters?.slug], () => get_developer_project_contributions(filters));
 };
+
+async function get_developer_statistic(filters) {
+    let url = API.DEVELOPER.STATISTIC;
+    url = url.replace(':slug', filters?.slug);
+    filters = encodeQueryData(filters);
+    const { data } = await api.get(url + '?' + filters);
+    return data;
+}
+
+export const useDeveloperStatistic = (filters) => {
+    return useQuery(['get-developer-statistic-', filters?.slug], () => get_developer_statistic(filters));
+};
+

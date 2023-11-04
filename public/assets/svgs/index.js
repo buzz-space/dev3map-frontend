@@ -27,6 +27,7 @@ export { default as Person } from './Person';
 export { default as Plus } from './Plus';
 export { default as Prize } from './Prize';
 export { default as PullRequest } from './PullRequest';
+export { default as Ratio } from './Ratio';
 export { default as Repo } from './Repo';
 export { default as Search } from './Search';
 export { default as StarOutline } from './StarOutline';

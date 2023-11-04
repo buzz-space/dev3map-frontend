@@ -8,9 +8,12 @@ import { useRouter } from 'next/router'
 import clsx from 'clsx'
 
 const ContributionCalendar = () => {
-    const [valueMonth, setValueMonth] = useState('01');
+    const [valueMonth, setValueMonth] = useState(handleMonth(moment().month()));
     const [valueYear, setValueYear] = useState(moment().year());
     const [numberOfDays, setNumberOfDays] = useState([]);
+
+    const monthRef = useRef();
+    const yearRef = useRef();
 
     const { query: { slug } } = useRouter();
 
@@ -19,6 +22,11 @@ const ContributionCalendar = () => {
         month: valueMonth,
         year: valueYear
     })
+
+    useEffect(() => {
+        monthRef.current.changeSelectedIndex(moment().month())
+        yearRef.current.changeSelectedIndex(moment().year() - 2020)
+    }, [])
 
     useEffect(() => {
         if (valueMonth && valueYear) {
@@ -42,11 +50,11 @@ const ContributionCalendar = () => {
                     }
                         onChange={(e) => {
                             setValueMonth(e?.value);
-                            console.log(e?.value, e?.options[e?.selectedIndex])
                         }
                         }
+                        ref={monthRef}
                     />
-                    <Dropdown options={
+                    <Dropdown sele options={
                         new Array(moment().year() + 1 - 2020).fill(1).map((item, index) => {
                             return {
                                 text: 2020 + index,
@@ -55,9 +63,9 @@ const ContributionCalendar = () => {
                         })
                     } onChange={(e) => {
                         setValueYear(e?.value);
-
                     }
                     }
+                        ref={yearRef}
                     />
                 </div>
             </div>

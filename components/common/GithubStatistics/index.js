@@ -1,10 +1,8 @@
 import Container from '~/components/base/Container';
 import styles from './styles.module.scss';
 import { Github } from '~/public/assets/svgs-title';
-import TabDynamic from '~/components/base/TabDynamic';
 import ActivityTrend from './ActivityTrend';
 import { useEffect, useState } from 'react';
-import { handleMonth } from '~/utils/strings';
 import BoardStatistics from './BoardStatistics';
 import {
   CommitHorizontal,
@@ -17,53 +15,38 @@ import {
   StreamLine,
 } from '~/public/assets/svgs';
 import AnotherBoard from './AnotherBoard';
-import MonthlyActiveDevs from './MonthlyActiveDevs';
 import { formatNumber } from '~/utils/number';
 
 export default function GithubStatistics({ dataTotal = {}, data = [], homePage = true }) {
   const [userCommit, setUserCommit] = useState([]);
   const [userCode, setUserCode] = useState([]);
 
-  function getMaxDivisibleSubarray(arr) {
-    let maxLength = 0;
-    let maxLengthIndex = -1;
+  // function getMaxDivisibleSubarray(arr) {
+  //   let maxLength = 0;
+  //   let maxLengthIndex = -1;
 
-    for (let i = 0; i < arr.length; i++) {
-      let currentLength = 0;
+  //   for (let i = 0; i < arr.length; i++) {
+  //     let currentLength = 0;
 
-      for (let j = i; j < arr.length; j++) {
-        currentLength += 1;
+  //     for (let j = i; j < arr.length; j++) {
+  //       currentLength += 1;
 
-        if (currentLength % 4 === 0 && currentLength > maxLength) {
-          maxLength = currentLength;
-          maxLengthIndex = i;
-        }
-      }
-    }
+  //       if (currentLength % 4 === 0 && currentLength > maxLength) {
+  //         maxLength = currentLength;
+  //         maxLengthIndex = i;
+  //       }
+  //     }
+  //   }
 
-    if (maxLengthIndex === -1) {
-      return [];
-    } else {
-      return arr.slice(maxLengthIndex, maxLengthIndex + maxLength);
-    }
-  }
+  //   if (maxLengthIndex === -1) {
+  //     return [];
+  //   } else {
+  //     return arr.slice(maxLengthIndex, maxLengthIndex + maxLength);
+  //   }
+  // }
   useEffect(() => {
     function fn() {
       if (data) {
-        let dt = [];
-        // if (window.innerWidth < 600) {
-        //     dt = [...data].slice(0, (window.innerWidth - 100) / 10);
-        // }
-        // else {
-        //     dt = data
-        // }
-        // let dataSorted = dt?.sort((a, b) => {
-        //     if (a.year !== b.year) {
-        //         return a.year - b.year; // Sort by year in ascending order
-        //     } else {
-        //         return a.month - b.month; // Sort by month in ascending order
-        //     }
-        // });
         let dataSorted = [...data];
         setUserCommit(() => {
           let value = dataSorted.reduce(

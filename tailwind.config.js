@@ -91,11 +91,10 @@ module.exports = {
       maxWidth: {
         'screen-xl': '1360px',
       },
-      screens: {
-        xs: { min: '240px', max: '450px' },
-        sm: { min: '450px', max: '768px' },
-      },
+
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/line-clamp'),
+  ],
 };

@@ -4,69 +4,14 @@ import styles from './styles.module.scss';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Link from 'next/link';
-import { ArrowLeft, ArrowUpRight, ArrowRight } from '~/public/assets/svgs';
+import { ArrowUpRight } from '~/public/assets/svgs';
 import Button from '~/components/base/Button';
 import moment from 'moment';
+import NextArrow from '../ArrowSlick/NextArrow';
+import PrevArrow from '../ArrowSlick/PrevArrow';
 
-// const data = [
-//   {
-//     image: '/imgs/resource/resource_image.png',
-//     title: `BREAKING NEWS: NATIVE TETHER USDT IS COMING TO COSMOSMAXIMUM 3 LINES...`,
-//     tag: 'Article',
-//     date: '05 Apr 2023',
-//     slug: '#',
-//   },
-//   {
-//     image: '/imgs/resource/resource_image.png',
-//     title: `BREAKING NEWS: NATIVE TETHER USDT IS COMING TO COSMOSMAXIMUM 3 LINES...`,
-//     tag: 'Article',
-//     date: '05 Apr 2023',
-//     slug: '#',
-//   },
-//   {
-//     image: '/imgs/resource/resource_image.png',
-//     title: `BREAKING NEWS: NATIVE TETHER USDT IS COMING TO COSMOSMAXIMUM 3 LINES...`,
-//     tag: 'Article',
-//     date: '05 Apr 2023',
-//     slug: '#',
-//   },
-//   {
-//     image: '/imgs/resource/resource_image.png',
-//     title: `BREAKING NEWS: NATIVE TETHER USDT IS COMING TO COSMOSMAXIMUM 3 LINES...`,
-//     tag: 'Article',
-//     date: '05 Apr 2023',
-//     slug: '#',
-//   },
-//   {
-//     image: '/imgs/resource/resource_image.png',
-//     title: `BREAKING NEWS: NATIVE TETHER USDT IS COMING TO COSMOSMAXIMUM 3 LINES...`,
-//     tag: 'Article',
-//     date: '05 Apr 2023',
-//     slug: '#',
-//   },
-// ];
 
-function NextArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <div className={className} style={{ ...style, display: 'block', top: '-60px', right: '24px' }} onClick={onClick}>
-      <ArrowRight />
-    </div>
-  );
-}
 
-function PrevArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{ ...style, display: 'block', top: '-60px', left: 'calc(100% - 72px)' }}
-      onClick={onClick}
-    >
-      <ArrowLeft />
-    </div>
-  );
-}
 
 export default function Resources({ data }) {
   const settings = {

@@ -177,11 +177,12 @@ const FrequentlyAskedQuestion = () => {
   return (
     <Container className={styles['container']}>
       <h3 className="title">frequently asked questions</h3>
-      <div className={styles['list-faq']}>
+      <ul className={styles['list-faq']}>
         {data?.map((item, index) => {
           return <AccordionFAQ question={item?.question} answer={item?.answer} />;
         })}
-      </div>
+      </ul>
+
     </Container>
   );
 };

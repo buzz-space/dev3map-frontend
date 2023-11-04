@@ -6,11 +6,9 @@ import { ChevronRight } from '~/public/assets/svgs';
 const AccordionFAQ = ({ question, answer }) => {
   const [open, setOpen] = useState(false);
   return (
-    <div
-      className={classNames(styles.faq, {
-        [styles.open]: open,
-      })}
-    >
+    <li className={classNames(styles.faq, {
+      [styles.open]: open,
+    })}>
       <div
         className={styles.question}
         onClick={() => {
@@ -21,7 +19,7 @@ const AccordionFAQ = ({ question, answer }) => {
         <ChevronRight />
       </div>
       <div className={classNames(styles.answer)}>{answer}</div>
-    </div>
+    </li>
   );
 };
 

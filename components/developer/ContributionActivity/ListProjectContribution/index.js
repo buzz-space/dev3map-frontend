@@ -7,7 +7,7 @@ import Link from 'next/link'
 
 const ItemProjectContribution = ({ ...props }) => {
     const percent = (props?.developer_commit / props?.total_commit) * 100;
-    return <Link href={`/projects/${props?.symbol}`} className='flex gap-[24px] first:pt-0 pt-[32px] pb-[40px] border-b-[1px] last:border-b-0 border-[#ffffff3d] border-solid w-full md:w-auto'>
+    return <Link href={`/projects/${props?.github_prefix}`} className='flex gap-[24px] first:pt-0 pt-[32px] pb-[40px] border-b-[1px] last:border-b-0 border-[#ffffff3d] border-solid w-full md:w-auto'>
         <img src={props?.avatar} className='w-[36px] md:w-[44px] h-[36px] md:h-[44px] xl:w-[56px] xl:h-[56px] rounded-full ' />
         <div className='flex flex-col flex-1'>
             <span className='text-[16px] lg:text-[18px] text-white leading-[26px] font-[600] uppercase'>{props?.name}</span>

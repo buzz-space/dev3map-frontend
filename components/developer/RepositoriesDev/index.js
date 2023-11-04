@@ -52,7 +52,7 @@ const RepositoriesDev = () => {
                 {data?.data.map((item, index) => (
                     // <div key={index}>
                     <div key={index}>
-                        <div className='bg-[#202020] p-[24px] rounded-[8px] flex flex-col mx-0 sm:mx-[24px] first:ml-0'>
+                        <Link className='bg-[#202020] p-[24px] rounded-[8px] flex flex-col mx-0 sm:mx-[24px] first:ml-0' href={`https://github.com/${item?.github_prefix}`} target='_blank'>
                             <h6 className='text-[24px] text-white uppercase font-[800]'>{item?.name}</h6>
                             <div className='mt-[16px] flex items-center gap-[24px]'>
                                 <div className='flex items-center gap-[8px]'>
@@ -69,7 +69,7 @@ const RepositoriesDev = () => {
                                 </div>
                             </div>
                             <p className='text-[#7E7E7E] text-[16px] line-clamp-2 mt-[16px] leading-[24px] h-[48px]'>{item?.description}</p>
-                        </div>
+                        </Link>
                     </div>
                 ))}
             </Slider>

@@ -19,9 +19,11 @@
     [role="icon-title"] {
         margin-left: 12px;
     }
+
     @media screen and (max-width: $small-device) {
         font-size: 24px;
         line-height: 32px;
+
         [role="icon-title"] {
             width: 32px;
             height: 32px;
@@ -57,8 +59,10 @@
             }
         }
     }
+
     $x: -130px;
     transform: translate($x, 18px);
+
     @keyframes identifier {
         0% {
             transform: translate($x, 0);
@@ -93,4 +97,32 @@
 
 .rounded-full {
     border-radius: 100rem;
+}
+
+
+.style-scroll {
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+        height: 4px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.12);
+
+        border-radius: 100rem;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background: $color-secondary;
+        border-radius: 100rem;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+        background: #02b9a7;
+    }
 }

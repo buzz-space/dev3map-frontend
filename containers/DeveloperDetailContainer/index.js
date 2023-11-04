@@ -5,10 +5,10 @@ import ContributionActivity from '~/components/developer/ContributionActivity'
 import PersonalContribution from '~/components/developer/PersonalContribution'
 import RepositoriesDev from '~/components/developer/RepositoriesDev'
 
-const DeveloperDetailContainer = () => {
+const DeveloperDetailContainer = ({ dataAccount }) => {
     return (
         <Container className='mt-[80px]'>
-            <AccountInfor />
+            <AccountInfor data={dataAccount} />
             <div className='mt-[48px] md:mt-[140px]'></div>
             <ContributionActivity />
             <PersonalContribution />

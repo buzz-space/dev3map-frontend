@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import { nanoid } from 'nanoid'
 import React, { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react'
 import SvgDropdown from '~/public/assets/svgs/Dropdown';
 
@@ -11,6 +10,7 @@ const Dropdown = ({ options = [], ...prop }, ref) => {
 
     const parent = useRef();
     const selectRef = useRef();
+
 
 
     useImperativeHandle(ref, () => ({
@@ -38,12 +38,18 @@ const Dropdown = ({ options = [], ...prop }, ref) => {
         }
     }, [])
 
+
+
     useEffect(() => {
         setValue(options[index]?.value)
+    }, [index])
+
+    useEffect(() => {
         if (prop?.onChange) {
             prop.onChange(selectRef.current);
         }
-    }, [index])
+    }, [value])
+
 
     return (
         <div className={clsx('relative', prop?.className)} ref={parent}>
@@ -51,10 +57,11 @@ const Dropdown = ({ options = [], ...prop }, ref) => {
                 `absolute scale-0 opacity-0 select-none pointer-events-none`
             } value={value} onChange={(e) => {
                 setIndex(e.currentTarget.selectedIndex)
+
             }} {...prop} >
                 {
-                    options?.map((item) => {
-                        return <option key={nanoid()} value={item?.value}>{item?.text}</option>
+                    options?.map((item, index) => {
+                        return <option key={index} value={item?.value}>{item?.text}</option>
                     })
                 }
             </select>
@@ -67,7 +74,7 @@ const Dropdown = ({ options = [], ...prop }, ref) => {
                 <SvgDropdown className="w-[20px] h-[20px]" />
             </div>
             <div className={
-                `absolute border-[1px] border-solid border-white rounded-[12px] flex flex-col left-0 top-[calc(100%+6px)] right-0 w-full overflow-hidden
+                `absolute bg-[#1e1e1e] border-[1px] border-solid border-white rounded-[6px] flex flex-col left-0 top-[calc(100%+6px)] right-0 w-full overflow-hidden
                     transition-all duration-300 origin-top
                     ${open ? 'scale-100' : 'scale-0'}
                     ${open ? 'opacity-100' : 'opacity-0'}
@@ -75,14 +82,16 @@ const Dropdown = ({ options = [], ...prop }, ref) => {
             }>
                 {
                     options?.map((item, index) => {
-                        return <span key={nanoid()} className={clsx('text-white px-4 py-2 border-solid border-gray-600 select-none cursor-pointer hover:bg-gray-800', {
+                        return <span key={index} className={clsx('text-white px-4 py-2 border-solid border-gray-600 select-none cursor-pointer hover:bg-gray-800', {
                             ['border-b-[1px]']: index < options?.length - 1
                         })}
                             onClick={() => {
                                 setIndex(index)
                                 setOpen(false)
                             }}
-                        >{item?.text}</span>
+                        >
+                            {item?.text}
+                        </span>
                     })
                 }
             </div>

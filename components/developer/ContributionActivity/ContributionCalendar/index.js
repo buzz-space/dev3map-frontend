@@ -6,6 +6,7 @@ import { handleMonth } from '~/utils/strings'
 import { useDeveloperActivity } from '~/hooks/api/useDeveloper'
 import { useRouter } from 'next/router'
 import clsx from 'clsx'
+import Loading from '~/components/common/Loading'
 
 const ContributionCalendar = () => {
     const [valueMonth, setValueMonth] = useState(handleMonth(moment().month()));
@@ -83,21 +84,21 @@ const ContributionCalendar = () => {
                     {
                         isLoading ?
                             <>
-                                <p className='text-white text-[24px] text-center w-full'>Loading...</p>
+                                {/* <p className='text-white text-[24px] text-center w-full'>Loading...</p> */}
+                                <Loading type='CircleLoader' size={100} color='#fff' />
                             </>
                             :
                             <>
                                 {
-                                    data?.data ? data?.data?.map((item, index) => {
+                                    data?.data ? Object.values(data?.data)?.map((item, index) => {
                                         return <div className={clsx(`
                                         w-[calc(100vw/8-12px)] sm:w-[calc(100vw/8-24px)] md:w-[32px] lg:w-[44px] xl:w-[56px]
                                         h-[calc(100vw/8-12px)] sm:h-[calc(100vw/8-24px)] md:h-[32px] lg:h-[44px] xl:h-[56px] 
                                         rounded-[8px]
                                         `, (
                                             function () {
-
                                                 let bg = 'bg-[#2D2D2D]';
-                                                const contributions = item?.commits;
+                                                const contributions = item;
 
                                                 if (contributions > 20) {
                                                     bg = 'bg-[#5224B2]';

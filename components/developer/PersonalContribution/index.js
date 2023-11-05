@@ -107,21 +107,25 @@ const PersonalContribution = () => {
                         icon={CommitHorizontal}
                         value={data?.total_commit}
                         title={'Commits'}
+                        tooltip={'Personal Commits accross projects on Dev3map'}
                     />
                     <ItemPersonalContributions
                         icon={PullRequest}
                         value={data?.total_pull_request}
                         title={'Pull requests'}
+                        tooltip={'Issues created accross projects on Dev3map'}
                     />
                     <ItemPersonalContributions
                         icon={Issue}
                         value={data?.total_issue}
                         title={'Issues'}
+                        tooltip={'Pull Requests opened accross projects on Dev3map'}
                     />
                     <ItemPersonalContributions
                         icon={Ratio}
                         value={data?.merge_ratio}
                         title={'Merge ratio'}
+                        tooltip={'The proportion of Pull Requests opened by this developer that have been merged to projects.'}
                     />
                 </div>
                 {

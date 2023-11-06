@@ -91,14 +91,14 @@ const ContributionCalendar = () => {
                             :
                             <>
                                 {
-                                    data?.data ? Object.values(data?.data)?.map((item, index) => {
+                                    data?.data ? (data?.data)?.map((item, index) => {
                                         return <Tooltip title={
                                             <div className='flex flex-col gap-[4px]'>
-                                                <p>4 contributions:</p>
+                                                <p>{item?.total} contributions:</p>
                                                 <ul className='list-disc pl-8'>
-                                                    <li>2 commits(s)</li>
-                                                    <li>2 issues</li>
-                                                    <li>2 pull requests</li>
+                                                    <li>{item?.commit} commits(s)</li>
+                                                    <li>{item?.issue} issues</li>
+                                                    <li>{item?.pull} pull requests</li>
                                                 </ul>
                                                 <p>on {moment(`${index + 1}-${valueMonth}-${valueYear}`, 'DD-MM-YYYY').format('MMM DD, YYYY')}</p>
                                             </div>
@@ -112,7 +112,7 @@ const ContributionCalendar = () => {
                                         `, (
                                                 function () {
                                                     let bg = 'bg-[#2D2D2D]';
-                                                    const contributions = item;
+                                                    const contributions = item?.total;
 
                                                     if (contributions > 20) {
                                                         bg = 'bg-[#5224B2]';

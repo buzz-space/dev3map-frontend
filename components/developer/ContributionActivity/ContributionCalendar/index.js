@@ -7,6 +7,7 @@ import { useDeveloperActivity } from '~/hooks/api/useDeveloper'
 import { useRouter } from 'next/router'
 import clsx from 'clsx'
 import Loading from '~/components/common/Loading'
+import { Tooltip } from 'antd'
 
 const ContributionCalendar = () => {
     const [valueMonth, setValueMonth] = useState(handleMonth(moment().month()));
@@ -91,33 +92,49 @@ const ContributionCalendar = () => {
                             <>
                                 {
                                     data?.data ? Object.values(data?.data)?.map((item, index) => {
-                                        return <div className={clsx(`
+                                        return <Tooltip title={
+                                            <div className='flex flex-col gap-[4px]'>
+                                                <p>4 contributions:</p>
+                                                <ul className='list-disc pl-8'>
+                                                    <li>2 commits(s)</li>
+                                                    <li>2 issues</li>
+                                                    <li>2 pull requests</li>
+                                                </ul>
+                                                <p>on {moment(`${index + 1}-${valueMonth}-${valueYear}`, 'DD-MM-YYYY').format('MMM DD, YYYY')}</p>
+                                            </div>
+                                        } trigger="hover" color="#2d2d2d">
+
+                                            <div className={clsx(`
+                                        flex items-center justify-center group
                                         w-[calc(100vw/8-12px)] sm:w-[calc(100vw/8-24px)] md:w-[32px] lg:w-[44px] xl:w-[56px]
                                         h-[calc(100vw/8-12px)] sm:h-[calc(100vw/8-24px)] md:h-[32px] lg:h-[44px] xl:h-[56px] 
                                         rounded-[8px]
                                         `, (
-                                            function () {
-                                                let bg = 'bg-[#2D2D2D]';
-                                                const contributions = item;
+                                                function () {
+                                                    let bg = 'bg-[#2D2D2D]';
+                                                    const contributions = item;
 
-                                                if (contributions > 20) {
-                                                    bg = 'bg-[#5224B2]';
+                                                    if (contributions > 20) {
+                                                        bg = 'bg-[#5224B2]';
+                                                    }
+                                                    else if (contributions > 15) {
+                                                        bg = 'bg-[#7945D6]';
+                                                    }
+                                                    else if (contributions > 10) {
+                                                        bg = 'bg-[#BB86FC]';
+                                                    }
+                                                    else if (contributions > 5) {
+                                                        bg = 'bg-[#DDB6FE]';
+                                                    }
+                                                    else if (contributions > 1) {
+                                                        bg = 'bg-[#F6E6FE]';
+                                                    }
+                                                    return bg;
                                                 }
-                                                else if (contributions > 15) {
-                                                    bg = 'bg-[#7945D6]';
-                                                }
-                                                else if (contributions > 10) {
-                                                    bg = 'bg-[#BB86FC]';
-                                                }
-                                                else if (contributions > 5) {
-                                                    bg = 'bg-[#DDB6FE]';
-                                                }
-                                                else if (contributions > 1) {
-                                                    bg = 'bg-[#F6E6FE]';
-                                                }
-                                                return bg;
-                                            }
-                                        )())}></div>
+                                            )())}>
+                                                {/* <label className='text-white text-[100%] font-[500] flex items-center justify-center rounded-[6px] bg-[#1e1e1e] p-2 w-[60%] h-[60%] opacity-0 group-hover:opacity-100 transition-all duration-300'>{item}</label> */}
+                                            </div>
+                                        </Tooltip>
                                     }) :
                                         numberOfDays?.map((item, index) => {
                                             return <div className={clsx(`

@@ -11,16 +11,19 @@ const data = [
         github_prefix: '/',
         avatar: '/imgs/aura.svg',
         name: 'Aura Network',
+        to: 'https://aura.network/'
     },
     {
         github_prefix: '/',
         avatar: '/imgs/github.svg',
         name: 'Github',
+        to: 'https://github.com/'
     },
     {
         github_prefix: '/',
         avatar: '/imgs/cosmos.svg',
         name: 'Cosmos',
+        to: 'https://cosmos.network/'
     },
 ];
 
@@ -31,7 +34,7 @@ const BackedByTheBest = () => {
             <div className={styles['grid']}>
                 {
                     data?.map((item, index) => {
-                        return <Link href={item?.id ? `/projects/${item?.github_prefix}` : '/'} key={index}>
+                        return <Link href={item?.id ? `/projects/${item?.github_prefix}` : item?.to} key={index} target={item?.id ? '' : '_blank'}>
                             <div className={styles['item']}>
                                 <div className={styles['logo']}>
                                     <Image src={item?.avatar || pathImgTemp} alt={item?.name} layout="fill" // required
@@ -42,6 +45,7 @@ const BackedByTheBest = () => {
                         </Link>
                     })
                 }
+
             </div>
         </Container>
     )

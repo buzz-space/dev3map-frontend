@@ -11,10 +11,13 @@ export default function InforRepo({ logo, name, des, stars, commits, github, web
       <div className={styles['information']}>
         <h6 className={styles['name']}>{name}</h6>
         {des && <div className={styles['des']} dangerouslySetInnerHTML={{ __html: des }}></div>}
-        <Button className={styles['btn']} to={refer_ici || ''} target="_blank">
-          READ MORE ON
-          <img src="/imgs/icon-interchain.svg" />
-        </Button>
+        {
+          refer_ici && <Button className={styles['btn']} to={refer_ici || ''} target="_blank">
+            READ MORE ON
+            <img src="/imgs/icon-interchain.svg" />
+          </Button>
+        }
+
         <div className={styles['rates-frame']}>
           <div className={styles['rate']}>
             <div className={styles['rate-icon']}>

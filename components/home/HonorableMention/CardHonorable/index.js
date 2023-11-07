@@ -6,10 +6,11 @@ import { useRanking } from '~/hooks/api/useRanking';
 import Link from 'next/link';
 import Image from "next/legacy/image";
 import { pathImgTemp } from '~/core/contants';
+import Loading from '~/components/common/Loading';
 
 export default function CardHonorable({ title, logo, name, imgs, des, info, type = '' }) {
   const { isOpen, setIsOpen, setData } = useHonorableModal();
-  const { data } = useRanking(
+  const { data, isLoading } = useRanking(
     {
       type: type,
     },
@@ -26,18 +27,21 @@ export default function CardHonorable({ title, logo, name, imgs, des, info, type
         <div className={styles['des-modal']}>{des}</div>
       </div>
       <label className={styles['rank']}>RANK #1</label>
-      <Link href={`/projects/${data?.data[0]?.github_prefix}`}>
-        <div className={styles['repo']}>
-          <div className={styles['logo']} >
-            <Image src={data?.data[0]?.avatar || pathImgTemp} objectFit='contain' layout='fill' className='rounded-full' alt={data?.data[0]?.name}/>
+      {
+        isLoading ? <Loading type='ScaleLoader' /> : <Link href={`/projects/${data?.data[0]?.github_prefix}`}>
+          <div className={styles['repo']}>
+            <div className={styles['logo']} >
+              <Image src={data?.data[0]?.avatar || pathImgTemp} objectFit='contain' layout='fill' className='rounded-full' alt={data?.data[0]?.name} />
+            </div>
+            <label className={styles['name']}>{data?.data[0]?.name}</label>
+            <ArrowUpRight />
           </div>
-          <label className={styles['name']}>{data?.data[0]?.name}</label>
-          <ArrowUpRight />
-        </div>
-      </Link>
+        </Link>
+      }
 
       <Button
         outline
+        isLoading={isLoading}
         onClick={() => {
           open();
           setData(title, data?.data, info);
@@ -46,7 +50,7 @@ export default function CardHonorable({ title, logo, name, imgs, des, info, type
         VIEW MORE
       </Button>
       <div className={styles['img-bottom-right']} >
-        <Image src={imgs} objectFit='contain' layout='fill' alt="Image"/>
+        <Image src={imgs} objectFit='contain' layout='fill' alt="Image" />
       </div>
     </div>
   );

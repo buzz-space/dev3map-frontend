@@ -1,11 +1,28 @@
 .container {
     .grid {
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
+        // flex-wrap: wrap;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
         row-gap: 40px;
         column-gap: 24px;
         width: 100%;
         margin-top: 40px;
+
+        @media screen and (max-width: 1240px) {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        @media screen and (max-width: 961px) {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        @media screen and (max-width: 560px) {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        @media screen and (max-width: 380px) {
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
 
         .item {
             background: #202020;
@@ -17,8 +34,8 @@
             justify-content: center;
             row-gap: 46px;
             cursor: pointer;
-            min-width: 200px;
             flex: 1;
+
             * {
                 cursor: pointer;
             }
@@ -32,6 +49,7 @@
                 width: 100%;
                 max-width: 100%;
                 position: relative;
+
                 .logo-img {
                     border-radius: 100rem;
                 }
@@ -48,22 +66,27 @@
             }
         }
     }
+
     @media screen and (max-width: $small-device) {
         .grid {
             row-gap: 16px;
             column-gap: 12px;
             margin-top: 32px;
+
             .item {
                 min-width: 100px;
+
                 .logo {
                     height: 48px;
                 }
+
                 .name {
                     font-size: 14px;
                 }
             }
         }
     }
+
     // @media screen and (max-width: 1000px) {
     //     .grid {
     //         grid-template-columns: repeat(4, minmax(0, 1fr));

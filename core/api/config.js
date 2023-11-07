@@ -14,5 +14,12 @@ export const API = {
   CHAIN_DEVELOPER: '/chain-developer/:id',
   CHAIN_REPOSITORY: '/chain-repository/:id',
   PERFORMANCE: '/performance/:id',
-  SETTING: '/setting'
+  SETTING: '/setting',
+  DEVELOPER: {
+    INFOR: '/developer/:slug',
+    REPOSITORY: '/developer-repository/:slug',
+    ACTIVITY: '/developer-activity/:slug',
+    PROJECT: '/developer-contribution/:slug',
+    STATISTIC: '/developer-statistic/:slug',
+  }
 };

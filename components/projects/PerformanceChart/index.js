@@ -45,32 +45,76 @@ const PerformanceChart = ({ data }) => {
   const chartRef = useRef();
   const [index, setIndex] = useState(0);
 
-  const listPropData = ['commit_rank', 'dev_rank', 'star_rank', 'fork_rank', 'pr_rank', 'pull_rank', 'issue_rank'];
+  const listPropData = [
+    {
+      rank: 'commit_rank',
+      total: ['total_commits'],
+    },
+    {
+      rank: 'dev_rank',
+      total: ['full_time_developer', 'part_time_developer'],
+    },
+    {
+      rank: 'star_rank',
+      total: ['total_star'],
+    },
+    {
+      rank: 'fork_rank',
+      total: ['total_fork'],
+    },
+    {
+      rank: 'pr_rank',
+      total: ['total_repository'],
+    },
+    {
+      rank: 'pull_rank',
+      total: ['total_pull_merged'],
+    },
+    {
+      rank: 'issue_rank',
+      total: ['total_issue_solved'],
+    }
+  ];
+
+  function calcTotal(data, index) {
+    return listPropData[index]?.total?.reduce((acc, curr) => {
+      return acc += data[curr];
+    }, 0)
+  }
 
   function process(data) {
     if (data) {
       return {
         // labels: data?.map((dt) => dt?.year),
         labels: [
-          [`${101 - data[listPropData[0]]}/100`, 'Commits'],
-          [`${101 - data[listPropData[1]]}/100`, 'Active Devs'],
-          [`${101 - data[listPropData[2]]}/100`, 'Stars'],
-          [`${101 - data[listPropData[3]]}/100`, 'Forks'],
-          [`${101 - data[listPropData[4]]}/100`, 'Repos'],
-          [`${101 - data[listPropData[5]]}/100`, 'Pulls'],
-          [`${101 - data[listPropData[6]]}/100`, 'Issues'],
+          [`${101 - data[listPropData[0]?.rank]}/100`, 'Commits'],
+          [`${101 - data[listPropData[1]?.rank]}/100`, 'Active Devs'],
+          [`${101 - data[listPropData[2]?.rank]}/100`, 'Stars'],
+          [`${101 - data[listPropData[3]?.rank]}/100`, 'Forks'],
+          [`${101 - data[listPropData[4]?.rank]}/100`, 'Repos'],
+          [`${101 - data[listPropData[5]?.rank]}/100`, 'Pulls'],
+          [`${101 - data[listPropData[6]?.rank]}/100`, 'Issues'],
         ],
         datasets: [
           {
             label: '',
             data: [
-              101 - data[listPropData[0]],
-              101 - data[listPropData[1]],
-              101 - data[listPropData[2]],
-              101 - data[listPropData[3]],
-              101 - data[listPropData[4]],
-              101 - data[listPropData[5]],
-              101 - data[listPropData[6]],
+              101 - data[listPropData[0]?.rank],
+              101 - data[listPropData[1]?.rank],
+              101 - data[listPropData[2]?.rank],
+              101 - data[listPropData[3]?.rank],
+              101 - data[listPropData[4]?.rank],
+              101 - data[listPropData[5]?.rank],
+              101 - data[listPropData[6]?.rank],
+            ],
+            tooltipTitle: [
+              calcTotal(data, 0),
+              calcTotal(data, 1),
+              calcTotal(data, 2),
+              calcTotal(data, 3),
+              calcTotal(data, 4),
+              calcTotal(data, 5),
+              calcTotal(data, 6),
             ],
             // labelT: data?.map((dt) => `${handleMonth(dt?.month)}/${dt?.year}`),
             backgroundColor: 'rgba(187, 134, 252, 0.16)',
@@ -98,9 +142,10 @@ const PerformanceChart = ({ data }) => {
       } else {
         dataTemp = data?.filter((item) => item.range === '30_days')[0];
       }
-      if (hasAllProperties(dataTemp, listPropData)) {
-        setDataChart(process(dataTemp));
-      }
+      // if (hasAllProperties(dataTemp, listPropData)) {
+      //   setDataChart(process(dataTemp));
+      // }
+      setDataChart(process(dataTemp));
     }
   }, [data, index]);
   return (
@@ -143,6 +188,18 @@ const PerformanceChart = ({ data }) => {
                 legend: {
                   display: false,
                 },
+                tooltip: {
+                  callbacks: {
+                    title: function (context) {
+                      let label = context[0]?.label[1] + ": " + context[0]?.dataset?.tooltipTitle[context[0]?.dataIndex]
+                      return label
+                    },
+                    label: function (context) {
+                      const label = `(Rank score: ${context?.label[0]})`
+                      return label;
+                    }
+                  }
+                }
               },
 
               scales: {

@@ -1,0 +1,7 @@
+- options: [
+    {
+        text: '',
+        value: ''
+    },
+    ...
+]

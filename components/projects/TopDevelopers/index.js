@@ -6,6 +6,8 @@ import { formatNumber } from '~/utils/number';
 import IconSort from '~/components/home/StatisChainTable/IconSort';
 import Image from "next/legacy/image";
 import { pathImgTemp } from '~/core/contants';
+import Link from 'next/link';
+import clsx from 'clsx';
 
 const TopDevelopers = ({ chainId, logo }) => {
   const { data } = useChainDeveloper({ id: chainId });
@@ -40,12 +42,14 @@ const TopDevelopers = ({ chainId, logo }) => {
         {dataDev?.map((item, index) => {
           return (
             <div key={index} className={styles['list-item']}>
-              <div className={styles['author']}>
-                <div className={styles['avatar']}>
-                  <Image src={logo || pathImgTemp} alt={item?.author} layout='fill' objectFit='contain' className='rounded-full' />
+              <Link href={`/developer/${item?.author}`} className='w-max'>
+                <div className={clsx(styles['author'], 'cursor-pointer w-max')}>
+                  <div className={styles['avatar']}>
+                    <Image src={logo || pathImgTemp} alt={item?.author} layout='fill' objectFit='contain' className='rounded-full' />
+                  </div>
+                  <label className={styles['name']}>{item?.author}</label>
                 </div>
-                <label className={styles['name']}>{item?.author}</label>
-              </div>
+              </Link>
               <div className={styles['list-tag']}>
                 {item?.repos?.map((item2, index2) => {
                   return (

@@ -15,7 +15,7 @@ import BackgroundLayout from '~/components/common/BackgroundLayout';
 
 export default function MainLayout({ children, title = '', currentPage = '', data = null, meta_data = null }) {
   const titlePage = !!title ? `${nameWeb} - ` + title : nameWeb;
-
+  const description = "";
   return (
     <>
       <Head>
@@ -24,10 +24,16 @@ export default function MainLayout({ children, title = '', currentPage = '', dat
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="mobile-web-app-capable" content="yes" />
+
+        {/* description */}
         <meta
           name="description"
-          content="The interchain developers metrics map with support from Cosmos Ecosystem Map and Github, Buzz Space builds this developer analytics platform to offer a panoramic view of the Interchain Developer Ecosystem"
-        ></meta>
+          content={description}
+        />
+        <meta
+          property="og:description"
+          content={description}
+        />
         <meta
           property="og:title"
           content={
@@ -36,22 +42,11 @@ export default function MainLayout({ children, title = '', currentPage = '', dat
                 ? `${nameWeb} - ${meta_data?.seo_title}`
                 : `${nameWeb} - ${meta_data?.title}`
               : title === ''
-              ? nameWeb
-              : `${nameWeb} - ${title}`
+                ? nameWeb
+                : `${nameWeb} - ${title}`
           }
         />
-        <meta
-          property="og:description"
-          content={
-            !!meta_data
-              ? meta_data?.seo_description
-                ? `${nameWeb} - ${meta_data?.seo_description}`
-                : `${nameWeb} - ${meta_data?.description}`
-              : title === ''
-              ? nameWeb
-              : `${nameWeb} - ${title}`
-          }
-        />
+
         <meta property="og:url" content={typeof window != 'undefined' ? window.location.href : ''} />
         <meta property="og:image" content={meta_data ? meta_data?.image : '/imgs/banner.png'} />
         <meta

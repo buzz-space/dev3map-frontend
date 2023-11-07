@@ -13,6 +13,7 @@ const ContributionCalendar = () => {
     const [valueMonth, setValueMonth] = useState(handleMonth(moment().month()));
     const [valueYear, setValueYear] = useState(moment().year());
     const [numberOfDays, setNumberOfDays] = useState([]);
+    const [total, setTotal] = useState([])
 
     const monthRef = useRef();
     const yearRef = useRef();
@@ -35,12 +36,19 @@ const ContributionCalendar = () => {
             const days = moment(`${valueYear}-${valueMonth}`, "YYYY-MM").daysInMonth();
             setNumberOfDays(new Array(days).fill(1))
         }
+
     }, [valueMonth, valueYear])
+
+    useEffect(() => {
+        if (data){
+            setTotal(data?.data.map(item => item.total))
+        }
+    }, [data])
 
     return (
         <div>
             <div className='flex flex-col lg:flex-row items-start lg:items-center justify-between gap-[16px]'>
-                <TitleSecond>142 CONTRIBUTIONS</TitleSecond>
+                <TitleSecond>{total?.reduce((a, b) => a + b, 0)} CONTRIBUTIONS</TitleSecond>
                 <div className='flex items-center gap-[8px] sm:gap-[12px] flex-wrap'>
                     <Dropdown options={
                         moment.months().map((item, index) => {

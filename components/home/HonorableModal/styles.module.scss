@@ -46,6 +46,7 @@
     bottom: 0;
     left: 0;
     right: 0;
+    top: 0;
     background-color: #202020;
     padding-bottom: 20px;
     max-height: 100vh;
@@ -67,7 +68,7 @@
             cursor: pointer;
           }
 
-          [role='icon-default'] {
+          [role="icon-default"] {
             width: 24px;
             height: 24px;
           }

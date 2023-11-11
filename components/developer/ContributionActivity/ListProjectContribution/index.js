@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import TitleSecond from '../TitleSecond'
 import { useDeveloperProjects } from '~/hooks/api/useDeveloper'
 import { useRouter } from 'next/router'
 import { round } from 'lodash'
 import Link from 'next/link'
+import IconSort from '~/components/home/StatisChainTable/IconSort'
+import Loading from '~/components/common/Loading'
 
 const ItemProjectContribution = ({ ...props }) => {
     // const percent = (props?.developer_commit / props?.total_commit) * 100;
@@ -13,7 +15,7 @@ const ItemProjectContribution = ({ ...props }) => {
             <span className='text-[16px] lg:text-[18px] text-white leading-[26px] font-[600] uppercase'>{props?.name}</span>
             <span className='text-[14px] lg:text-[16px] text-white leading-[24px] font-[400] uppercase'>{props?.symbol}</span>
             <div className='flex items-center gap-[36px] lg:gap-[50px] xl:gap-[80px] mt-[16px]'>
-                <div className='flex-1 w-auto sm:w-[200px] lg:w-[240px] xl:w-[300px] h-[6px] bg-[#ffffff1f] rounded-[40px]'>
+                <div className='flex-1  h-[6px] bg-[#ffffff1f] rounded-[40px]'>
                     <div className={`bg-[#BB86FC] h-full rounded-[40px]`} style={{
                         width: props?.percent + '%'
                     }}>
@@ -27,24 +29,44 @@ const ItemProjectContribution = ({ ...props }) => {
 
 const ListProjectContribution = () => {
     const { query: { slug } } = useRouter();
-    const { data } = useDeveloperProjects(
+    const [sortState, setSortState] = useState('')
+    const { data, isFetching, refetch } = useDeveloperProjects(
         {
-            slug: slug
+            slug: slug,
+            sort: sortState
         }
     );
     return (
-        <div>
-            <div className='flex items-center gap-4 justify-between'>
+        <div className='w-auto  md:w-[388px] lg:w-[410px] xl:w-[500px]'>
+            <div className='flex items-center gap-4 justify-between w-full'>
                 <TitleSecond>PROJECTS</TitleSecond>
-                <TitleSecond>CONTRIBUTIONS</TitleSecond>
+                <div className='flex items-center gap-[8px] cursor-pointer select-none'
+                    onClick={() => {
+                        setSortState((prev) => {
+                            if (prev === 'ASC') {
+                                return 'DESC'
+                            } else {
+                                return 'ASC'
+                            }
+                        })
+                        refetch();
+                    }}
+                >
+                    <TitleSecond>CONTRIBUTIONS</TitleSecond>
+                    <IconSort direct={sortState ? (sortState === 'ASC' ? 'up' : 'down') : ''} colorDisable="#FFFFFF66" />
+                </div>
             </div>
-            <div className='max-h-[584px] overflow-y-auto style-scroll pr-[16px] sm:pr-[24px] mt-[32px] sm:mt-[56px]'>
-                {
-                    data?.data?.map((item, index) => {
-                        return <ItemProjectContribution {...item} key={item?.chain} />
-                    })
-                }
-            </div>
+            {
+                isFetching ?
+                    <div className='mt-14'><Loading type='ClipLoader' /></div> :
+                    <div className='max-h-[584px] overflow-y-auto style-scroll pr-[16px] sm:pr-[24px] mt-[32px] sm:mt-[56px]'>
+                        {
+                            data?.data?.map((item, index) => {
+                                return <ItemProjectContribution {...item} key={item?.chain} />
+                            })
+                        }
+                    </div>
+            }
         </div>
     )
 }

@@ -55,9 +55,9 @@ export default function FilterBar() {
   useEffect(() => { }, [activeIndex]);
 
   useEffect(() => {
-    const total = data?.data?.reduce((prev, curr) => {
-      return (prev += curr.total);
-    }, 0);
+    // const total = data?.data?.reduce((prev, curr) => {
+    //   return (prev += curr.total);
+    // }, 0);
     const all = { name: 'All projects', total: process.env.TOTAL_CHAIN };
     const dataIter = data?.data ? data?.data : [];
     if (data?.data) {

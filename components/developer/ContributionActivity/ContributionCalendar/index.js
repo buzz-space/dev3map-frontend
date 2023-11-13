@@ -40,7 +40,7 @@ const ContributionCalendar = () => {
     }, [valueMonth, valueYear])
 
     useEffect(() => {
-        if (data){
+        if (data) {
             setTotal(data?.data.map(item => item.total))
         }
     }, [data])
@@ -48,7 +48,10 @@ const ContributionCalendar = () => {
     return (
         <div>
             <div className='flex flex-col lg:flex-row items-start lg:items-center justify-between gap-[16px]'>
-                <TitleSecond>{total?.reduce((a, b) => a + b, 0)} CONTRIBUTIONS</TitleSecond>
+                <Tooltip title='Contributions consist of Commits, Pull Requests opened and Issues created by this developer' trigger="hover" color="#2d2d2d">
+                    <TitleSecond>{total?.reduce((a, b) => a + b, 0)} CONTRIBUTIONS</TitleSecond>
+                    <span></span>
+                </Tooltip>
                 <div className='flex items-center gap-[8px] sm:gap-[12px] flex-wrap'>
                     <Dropdown options={
                         moment.months().map((item, index) => {
@@ -102,11 +105,11 @@ const ContributionCalendar = () => {
                                     data?.data ? (data?.data)?.map((item, index) => {
                                         return <Tooltip title={
                                             <div className='flex flex-col gap-[4px]'>
-                                                <p>{item?.total} contributions:</p>
+                                                <p>{item?.total} contribution(s):</p>
                                                 <ul className='list-disc pl-8'>
-                                                    <li>{item?.commit} commits(s)</li>
-                                                    <li>{item?.issue} issues</li>
-                                                    <li>{item?.pull} pull requests</li>
+                                                    <li>{item?.commit} Commit(s)</li>
+                                                    <li>{item?.issue} Issue(s)</li>
+                                                    <li>{item?.pull} Pull Request(s)</li>
                                                 </ul>
                                                 <p>on {moment(`${index + 1}-${valueMonth}-${valueYear}`, 'DD-MM-YYYY').format('MMM DD, YYYY')}</p>
                                             </div>
@@ -157,11 +160,21 @@ const ContributionCalendar = () => {
                 </div>
                 <div className='flex items-center mt-[24px] sm:mt-[32px] lg:mt-[40px] gap-[8px] sm:gap-[12px]'>
                     <span className='text-[16px] lg:text-[18px] text-white'>Less</span>
-                    <span className='w-[16px] sm:w-[20px] lg:w-[24px] h-[16px] sm:h-[20px] lg:h-[24px] bg-[#F6E6FE] rounded-[6px]'></span>
-                    <span className='w-[16px] sm:w-[20px] lg:w-[24px] h-[16px] sm:h-[20px] lg:h-[24px] bg-[#DDB6FE] rounded-[6px]'></span>
-                    <span className='w-[16px] sm:w-[20px] lg:w-[24px] h-[16px] sm:h-[20px] lg:h-[24px] bg-[#BB86FC] rounded-[6px]'></span>
-                    <span className='w-[16px] sm:w-[20px] lg:w-[24px] h-[16px] sm:h-[20px] lg:h-[24px] bg-[#7945D6] rounded-[6px]'></span>
-                    <span className='w-[16px] sm:w-[20px] lg:w-[24px] h-[16px] sm:h-[20px] lg:h-[24px] bg-[#5224B2] rounded-[6px]'></span>
+                    <Tooltip title='1 - 5 contributions' trigger="hover" color="#2d2d2d">
+                        <span className='w-[16px] sm:w-[20px] lg:w-[24px] h-[16px] sm:h-[20px] lg:h-[24px] bg-[#F6E6FE] rounded-[6px]'></span>
+                    </Tooltip>
+                    <Tooltip title='6 - 10 contributions' trigger="hover" color="#2d2d2d">
+                        <span className='w-[16px] sm:w-[20px] lg:w-[24px] h-[16px] sm:h-[20px] lg:h-[24px] bg-[#DDB6FE] rounded-[6px]'></span>
+                    </Tooltip>
+                    <Tooltip title='11 - 15 contributions' trigger="hover" color="#2d2d2d">
+                        <span className='w-[16px] sm:w-[20px] lg:w-[24px] h-[16px] sm:h-[20px] lg:h-[24px] bg-[#BB86FC] rounded-[6px]'></span>
+                    </Tooltip>
+                    <Tooltip title='16 - 20 contributions' trigger="hover" color="#2d2d2d">
+                        <span className='w-[16px] sm:w-[20px] lg:w-[24px] h-[16px] sm:h-[20px] lg:h-[24px] bg-[#7945D6] rounded-[6px]'></span>
+                    </Tooltip>
+                    <Tooltip title='More than 21 contributions' trigger="hover" color="#2d2d2d">
+                        <span className='w-[16px] sm:w-[20px] lg:w-[24px] h-[16px] sm:h-[20px] lg:h-[24px] bg-[#5224B2] rounded-[6px]'></span>
+                    </Tooltip>
                     <span className='text-[16px] lg:text-[18px] text-white'>More</span>
                 </div>
             </div>

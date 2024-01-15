@@ -73,13 +73,13 @@ const PerformanceChart = ({ data }) => {
     {
       rank: 'issue_rank',
       total: ['total_issue_solved'],
-    }
+    },
   ];
 
   function calcTotal(data, index) {
     return listPropData[index]?.total?.reduce((acc, curr) => {
-      return acc += data[curr];
-    }, 0)
+      return (acc += data[curr]);
+    }, 0);
   }
 
   function process(data) {
@@ -191,15 +191,16 @@ const PerformanceChart = ({ data }) => {
                 tooltip: {
                   callbacks: {
                     title: function (context) {
-                      let label = context[0]?.label[1] + ": " + context[0]?.dataset?.tooltipTitle[context[0]?.dataIndex]
-                      return label
+                      let label =
+                        context[0]?.label[1] + ': ' + context[0]?.dataset?.tooltipTitle[context[0]?.dataIndex];
+                      return label;
                     },
                     label: function (context) {
-                      const label = `(Rank score: ${context?.label[0]})`
+                      const label = `(Rank score: ${context?.label[0]})`;
                       return label;
-                    }
-                  }
-                }
+                    },
+                  },
+                },
               },
 
               scales: {

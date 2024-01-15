@@ -44,7 +44,7 @@ export default function InforHonorable({ data, title, des }) {
           score={data?.commit_score}
         />
         <Metric
-          label="WEEKLY ISSUE"
+          label="WEEKLY ISSUES"
           number={Number(data?.total_issue)}
           rank={data?.issue_rank}
           compare={['seriousness', 'ibc astronauts']}
@@ -60,7 +60,7 @@ export default function InforHonorable({ data, title, des }) {
           score={data?.pulls_score}
         />
         <Metric
-          label="ACTIVE DEVS"
+          label="WEEKLY ACTIVE DEVS"
           number={Number(data?.total_developer)}
           rank={data?.dev_rank}
           compare={['seriousness']}

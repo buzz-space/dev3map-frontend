@@ -3,7 +3,7 @@ import styles from './styles.module.scss';
 import Metric from './Metric';
 import Link from 'next/link';
 import { useHonorableModal } from '~/context/HonorableModalContext';
-import Image from "next/legacy/image";
+import Image from 'next/legacy/image';
 import { pathImgTemp } from '~/core/contants';
 
 export default function InforHonorable({ data, title, des }) {
@@ -20,7 +20,13 @@ export default function InforHonorable({ data, title, des }) {
           }}
         >
           <div className={styles['logo']}>
-            <Image src={data?.avatar || pathImgTemp} layout='fill' objectFit='contain' className='rounded-full' alt={data?.name} />
+            <Image
+              src={data?.avatar || pathImgTemp}
+              layout="fill"
+              objectFit="contain"
+              className="rounded-full"
+              alt={data?.name}
+            />
           </div>
           <label className={styles['name']}>{data?.name}</label>
           <ArrowUpRight />
@@ -38,7 +44,7 @@ export default function InforHonorable({ data, title, des }) {
           score={data?.commit_score}
         />
         <Metric
-          label="WEEKLY ISSUE"
+          label="WEEKLY ISSUES"
           number={Number(data?.total_issue)}
           rank={data?.issue_rank}
           compare={['seriousness', 'ibc astronauts']}
@@ -54,7 +60,7 @@ export default function InforHonorable({ data, title, des }) {
           score={data?.pulls_score}
         />
         <Metric
-          label="ACTIVE DEVS"
+          label="WEEKLY ACTIVE DEVS"
           number={Number(data?.total_developer)}
           rank={data?.dev_rank}
           compare={['seriousness']}
@@ -62,7 +68,7 @@ export default function InforHonorable({ data, title, des }) {
           score={data?.dev_score}
         />
         <Metric
-          label="FORK"
+          label="WEEKLY FORKS"
           number={Number(data?.total_fork)}
           rank={data?.fork_rank}
           compare={['rising star']}

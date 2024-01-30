@@ -10,9 +10,6 @@ import moment from 'moment';
 import NextArrow from '../ArrowSlick/NextArrow';
 import PrevArrow from '../ArrowSlick/PrevArrow';
 
-
-
-
 export default function Resources({ data }) {
   const settings = {
     className: styles['resource-slide'],
@@ -43,7 +40,6 @@ export default function Resources({ data }) {
       },
     ],
   };
-  console.log({ abc: data?.resources })
   if (data?.resources.length > 0) {
     return (
       <Container className={styles['container']} id="resources">
@@ -52,7 +48,7 @@ export default function Resources({ data }) {
           {data?.resources.map((item, index) => (
             // <div key={index}>
             <div key={index}>
-              <Link href={item?.refer_ici || ''} className={styles['item']} target='_blank'>
+              <Link href={item?.refer_ici || ''} className={styles['item']} target="_blank">
                 <img className={styles['image']} src={item?.image} alt="" />
                 <div className={styles['content']}>
                   <h6 className={styles['content__title']}>{item?.name}</h6>

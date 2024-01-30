@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import { useCategories } from '~/hooks/api/useCategories';
 import { formatNumber } from '~/utils/number';
 import { useFilterProjects } from '~/context/FilterProjectsContext';
+import { useSetting } from '~/hooks/api/useSetting';
 
 // const data = [
 //     {
@@ -52,13 +53,14 @@ export default function FilterBar() {
   const { activeIndex, setActiveIndex } = useFilterProjects();
   const { data } = useCategories();
   const [dataCategories, setDataCategories] = useState([]);
+  const { data: totalChain } = useSetting({ key: "total_chain" });
   useEffect(() => { }, [activeIndex]);
 
   useEffect(() => {
     // const total = data?.data?.reduce((prev, curr) => {
     //   return (prev += curr.total);
     // }, 0);
-    const all = { name: 'All projects', total: process.env.TOTAL_CHAIN };
+    const all = { name: 'All projects', total: totalChain?.data?.total_chain };
     const dataIter = data?.data ? data?.data : [];
     if (data?.data) {
       setDataCategories([all, ...dataIter]);

@@ -14,7 +14,7 @@ export default function SearchBar() {
     <div className={styles['search-bar']}>
       <input
         type="search"
-        placeholder="Search project"
+        placeholder="Search Project"
         value={value}
         onChange={(e) => {
           setValue(e.currentTarget.value);

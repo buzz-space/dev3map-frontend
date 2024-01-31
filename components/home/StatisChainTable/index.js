@@ -179,7 +179,7 @@ export default function StatisChainTable() {
   return (
     <Container className={styles['container']} id="chains">
       <h6 className="title">
-        CHAINS ({dataTable?.length})
+        Projects ({dataTable?.length})
         <span>
           <Blockchain />
         </span>

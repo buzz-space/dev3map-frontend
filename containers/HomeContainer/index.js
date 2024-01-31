@@ -15,7 +15,7 @@ const dataAnchorHome = [
     to: '#best-of-100',
   },
   {
-    label: 'Chains',
+    label: 'Projects',
     to: '#chains',
   },
   {

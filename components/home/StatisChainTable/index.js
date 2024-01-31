@@ -188,7 +188,7 @@ export default function StatisChainTable() {
         <div className={styles['search-bar']}>
           <input
             type="search"
-            placeholder="Search chain"
+            placeholder="Search project"
             value={value}
             onChange={(e) => {
               setValue(e.currentTarget.value);
@@ -222,7 +222,7 @@ export default function StatisChainTable() {
                         <IconSort direct={directSort?.index} />
                       </div>
                     </th>
-                    <th className={styles['chain']}>CHAIN</th>
+                    <th className={styles['chain']}>PROJECT</th>
                     <th className={styles['commits']}>
                       <div className={styles['sort-table']} onClick={() => sort('commits')}>
                         <label>COMMITS</label>
